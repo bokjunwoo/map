@@ -8,3 +8,8 @@ export type ExpSelectOption = {
   key: string;
   values: ExpSelectValue[];
 };
+
+export type ExpInputOption = {
+  label: string;
+  key: string;
+};
