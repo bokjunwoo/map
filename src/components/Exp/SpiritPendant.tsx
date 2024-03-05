@@ -11,8 +11,8 @@ const SpiritPendant = () => {
     values: [
       { value: 0, label: '미적용' },
       { value: 10, label: '+10%' },
-      { value: 10, label: '+20%' },
-      { value: 10, label: '+30%' },
+      { value: 20, label: '+20%' },
+      { value: 30, label: '+30%' },
     ],
   };
 
