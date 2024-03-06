@@ -5,7 +5,7 @@ import {
   InputAdornment,
   TextField,
 } from '@mui/material';
-import { ExpInputOption } from '../../interface/exp';
+import { ExpInputOption } from '../../../interface/exp';
 
 type ExpInputUIProps = {
   options: ExpInputOption;
@@ -25,7 +25,7 @@ const ExpInputUI = ({ options, value, handleChange }: ExpInputUIProps) => {
     >
       <Avatar
         variant="rounded"
-        src={require(`../../assets/exp_icon/${options.key}.png`)}
+        src={require(`../../../assets/exp_icon/${options.key}.png`)}
       />
 
       <FormControl fullWidth sx={{ ml: 1 }} size="small">

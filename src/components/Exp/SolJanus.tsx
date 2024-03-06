@@ -1,7 +1,7 @@
 import { REGEX } from '../../constants/constants';
 import useExpInput from '../../hooks/useExpInput';
 import { ExpInputOption } from '../../interface/exp';
-import ExpInputUI from './ExpInputUI';
+import ExpInputUI from './UI/ExpInputUI';
 
 const SolJanus = () => {
   const { expName, handleExpChange } = useExpInput({

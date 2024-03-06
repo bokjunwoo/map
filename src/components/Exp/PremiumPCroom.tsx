@@ -1,6 +1,6 @@
 import useExpSelect from '../../hooks/useExpSelect';
 import { ExpSelectOption } from '../../interface/exp';
-import ExpSelectUI from './ExpSelectUI';
+import ExpSelectUI from './UI/ExpSelectUI';
 
 const PremiumRoom = () => {
   const { expName, handleExpChange } = useExpSelect();

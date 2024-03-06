@@ -7,7 +7,7 @@ import {
   Avatar,
   ListItemButton,
 } from '@mui/material';
-import { ExpSelectOption } from '../../interface/exp';
+import { ExpSelectOption } from '../../../interface/exp';
 
 type ExpSelectUIProps = {
   options: ExpSelectOption;
@@ -27,7 +27,7 @@ const ExpSelectUI = ({ options, value, handleChange }: ExpSelectUIProps) => {
     >
       <Avatar
         variant="rounded"
-        src={require(`../../assets/exp_icon/${options.key}.png`)}
+        src={require(`../../../assets/exp_icon/${options.key}.png`)}
       />
 
       <FormControl fullWidth sx={{ ml: 1 }} size="small">
