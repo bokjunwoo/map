@@ -1,7 +1,7 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { LEVEL_RANGE, REGEX } from '../../constants/constants';
 import { useLevelState } from '../../contexts/LevelStateProvider';
-import UserLevelSearchInputUI from './UserLevelSearchInputUI';
+import UserLevelSearchInputUI from './UI/UserLevelSearchInputUI';
 
 const UserLevelSearchInputContainer = () => {
   const { level, setLevel } = useLevelState();
