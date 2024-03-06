@@ -1,16 +1,20 @@
 import { useState, useEffect } from 'react';
-import SelectButtonGroup from './SelectButtonGroup';
+import SelectButtonGroup from './UI/SelectButtonGroup';
 
 type SelectButtonGroupContainerProps = {
   options: string[];
   defaultOptionValue: string;
   localStorageKey: string;
+  fullWidth: boolean;
+  colorVariant: 'black' | 'gray';
 };
 
 const SelectButtonGroupContainer = ({
   options,
   defaultOptionValue,
   localStorageKey,
+  fullWidth,
+  colorVariant,
 }: SelectButtonGroupContainerProps) => {
   const [selectedOption, setSelectedOption] = useState<string>(() => {
     const storedOption = localStorage.getItem(localStorageKey);
@@ -30,6 +34,8 @@ const SelectButtonGroupContainer = ({
       options={options}
       selectedOption={selectedOption}
       onOptionSelect={handleOptionSelect}
+      fullWidth={fullWidth}
+      colorVariant={colorVariant}
     />
   );
 };
