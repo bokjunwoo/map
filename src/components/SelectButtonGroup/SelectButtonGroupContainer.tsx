@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 import SelectButtonGroup from './UI/SelectButtonGroup';
 
 type SelectButtonGroupContainerProps = {
@@ -16,23 +16,20 @@ const SelectButtonGroupContainer = ({
   fullWidth,
   colorVariant,
 }: SelectButtonGroupContainerProps) => {
-  const [selectedOption, setSelectedOption] = useState<string>(() => {
-    const storedOption = localStorage.getItem(localStorageKey);
-    return storedOption !== null ? storedOption : defaultOptionValue;
-  });
-
-  useEffect(() => {
-    localStorage.setItem(localStorageKey, selectedOption);
-  }, [localStorageKey, selectedOption]);
+  const { storedValue, setStoredValue } = useLocalStorage(
+    localStorageKey,
+    defaultOptionValue,
+    options
+  );
 
   const handleOptionSelect = (optionValue: string) => {
-    setSelectedOption(optionValue);
+    setStoredValue(optionValue);
   };
 
   return (
     <SelectButtonGroup
       options={options}
-      selectedOption={selectedOption}
+      selectedOption={storedValue}
       onOptionSelect={handleOptionSelect}
       fullWidth={fullWidth}
       colorVariant={colorVariant}
