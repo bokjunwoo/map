@@ -1,21 +1,14 @@
 import { useLocalStorage } from '../../hooks/useLocalStorage';
-import SelectButtonGroup from './UI/SelectButtonGroup';
+import { LocalStorageSelectButtonGroupProps } from './types';
+import SelectButtonGroup from './UI/SelectButtonGroupUI';
 
-type SelectButtonGroupContainerProps = {
-  options: string[];
-  defaultOptionValue: string;
-  localStorageKey: string;
-  fullWidth: boolean;
-  colorVariant: 'black' | 'gray';
-};
-
-const SelectButtonGroupContainer = ({
+const LocalStorageSelectButtonGroup = ({
   options,
   defaultOptionValue,
   localStorageKey,
   fullWidth,
   colorVariant,
-}: SelectButtonGroupContainerProps) => {
+}: LocalStorageSelectButtonGroupProps) => {
   const { storedValue, setStoredValue } = useLocalStorage(
     localStorageKey,
     defaultOptionValue,
@@ -37,4 +30,4 @@ const SelectButtonGroupContainer = ({
   );
 };
 
-export default SelectButtonGroupContainer;
+export default LocalStorageSelectButtonGroup;
