@@ -1,21 +1,14 @@
 import { ButtonGroup, Button } from '@mui/material';
 import { blackStyles, grayStyles } from '../../../style/buttonStyles';
+import { SelectButtonGroupUIProps } from '../types';
 
-type SelectButtonGroupProps = {
-  options: string[];
-  selectedOption: string;
-  onOptionSelect: (optionValue: string) => void;
-  fullWidth: boolean;
-  colorVariant: 'black' | 'gray';
-};
-
-const SelectButtonGroup = ({
+const SelectButtonGroupUI = ({
   options,
   selectedOption,
   onOptionSelect,
   fullWidth,
   colorVariant,
-}: SelectButtonGroupProps) => {
+}: SelectButtonGroupUIProps) => {
   const styles = colorVariant === 'black' ? blackStyles : grayStyles;
 
   return (
@@ -44,4 +37,4 @@ const SelectButtonGroup = ({
   );
 };
 
-export default SelectButtonGroup;
+export default SelectButtonGroupUI;
