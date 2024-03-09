@@ -11,7 +11,7 @@ const SolJanus = () => {
 
   const expOptions: ExpInputOption = {
     label: '솔 야누스',
-    key: 'sol_Janus',
+    key: 'sol_janus',
   };
 
   return (
