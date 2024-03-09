@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
-import { localStorageState } from '../state/atoms/localStorageState';
+import { localStorageState } from '../atoms/localStorageState';
 
 interface UseLocalStorageResult {
   storedValue: string;
