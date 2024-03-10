@@ -1,5 +1,5 @@
 import { Box, Tab, Tabs } from '@mui/material';
-import { Region } from '../../../interface/taps';
+import { Region } from '../../../interface/data';
 
 type RegionTabProps = {
   value: string;
