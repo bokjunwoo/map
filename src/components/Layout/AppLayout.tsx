@@ -1,6 +1,6 @@
 import { Container } from '@mui/material';
-import Header from './Header/Header';
 import Footer from './Footer/Footer';
+import Header from './Header/Header';
 
 type AppLayoutTpye = {
   children: React.ReactNode;
