@@ -2,6 +2,7 @@ import { ThemeProvider } from '@emotion/react';
 import { CssBaseline, createTheme } from '@mui/material';
 import React, { ReactNode } from 'react';
 import ReactDOM from 'react-dom/client';
+import { RecoilRoot } from 'recoil';
 import App from './App';
 import { ExpRateStateProvider } from './contexts/ExpRateStateProvider';
 import { LevelStateProvider } from './contexts/LevelStateProvider';
@@ -46,10 +47,12 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <AppProvider contexts={[ExpRateStateProvider, LevelStateProvider]}>
-        <CssBaseline />
-        <App />
-      </AppProvider>
+      <RecoilRoot>
+        <AppProvider contexts={[ExpRateStateProvider, LevelStateProvider]}>
+          <CssBaseline />
+          <App />
+        </AppProvider>
+      </RecoilRoot>
     </ThemeProvider>
   </React.StrictMode>
 );
