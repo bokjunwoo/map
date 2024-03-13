@@ -2,7 +2,11 @@ import { useRecoilState } from 'recoil';
 import { regionListState } from '../../atoms/regionListState';
 import ImageChipUI from './UI/ImageChipUI';
 
-const RegionChip = ({ region }: { region: string }) => {
+const RegionChip = ({
+  region,
+}: {
+  region: GrandisRegion | AraneRiverRegion;
+}) => {
   const [regionList, setRegionList] = useRecoilState(regionListState);
 
   const isSelected = regionList.includes(region);
