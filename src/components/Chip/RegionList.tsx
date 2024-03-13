@@ -1,13 +1,14 @@
 import { FormGroup } from '@mui/material';
 import { useRecoilValue } from 'recoil';
 import { regionState } from '../../atoms/regionState';
-import { regionKeys } from '../../data/region';
+import { araneRiverRegions, grandisRegions } from '../../data/region';
 import RegionChip from './RegionChip';
 
 const RegionList = () => {
   const region = useRecoilValue(regionState);
 
-  const regionList = regionKeys[region];
+  const regionList =
+    region === '아케인리버' ? araneRiverRegions : grandisRegions;
 
   return (
     <FormGroup row role="tabpanel">
