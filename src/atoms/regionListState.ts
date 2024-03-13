@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 
-export const regionListState = atom<string[]>({
+export const regionListState = atom<(GrandisRegion | AraneRiverRegion)[]>({
   key: 'regionListState',
   default: [],
 });
