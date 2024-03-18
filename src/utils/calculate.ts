@@ -66,3 +66,30 @@ export const calculateExperienceMultiplier = (
 
   return multipliers;
 };
+
+export const calculateTotalExperience: ExperienceCalculator = ({
+  numberOfMonsters,
+  monsterExperiences,
+  monsterLevels,
+  burningField,
+  expRate,
+  time,
+  playerLevel,
+}) => {
+  const multipliers = calculateExperienceMultiplier(playerLevel, monsterLevels);
+
+  const scaledExperiences = monsterExperiences.map(
+    (experience, index) => experience * multipliers[index]
+  );
+
+  const totalExperience = scaledExperiences
+    .map(
+      (scaledExperience, index) => scaledExperience * numberOfMonsters[index]
+    )
+    .reduce((total, current) => total + current, 0);
+
+  const totalExperienceWithRates =
+    ((expRate + burningField) / 100) * totalExperience * 8 * time;
+
+  return Math.floor(totalExperienceWithRates);
+};
