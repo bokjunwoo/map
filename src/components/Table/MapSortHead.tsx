@@ -1,13 +1,23 @@
-import { useState } from 'react';
 import { generateHeadCells } from '../../data/headCell';
 import { HeadCellInfo } from '../../interface/headCell';
 import TableSortHeadUI from './UI/TableSortHeadUI';
 
-const MapSortHead = ({ storedValue }: { storedValue: string }) => {
-  const headCells = generateHeadCells(storedValue);
+interface MapSortHeadProps {
+  storedValue: string;
+  order: 'asc' | 'desc';
+  setOrder: React.Dispatch<React.SetStateAction<'asc' | 'desc'>>;
+  orderBy: keyof HeadCellInfo;
+  setOrderBy: React.Dispatch<React.SetStateAction<keyof HeadCellInfo>>;
+}
 
-  const [orderBy, setOrderBy] = useState<keyof HeadCellInfo>('map_name');
-  const [order, setOrder] = useState<'asc' | 'desc'>('desc');
+const MapSortHead = ({
+  storedValue,
+  order,
+  setOrder,
+  orderBy,
+  setOrderBy,
+}: MapSortHeadProps) => {
+  const headCells = generateHeadCells(storedValue);
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
