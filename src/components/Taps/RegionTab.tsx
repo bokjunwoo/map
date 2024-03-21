@@ -3,7 +3,6 @@ import { useRecoilState } from 'recoil';
 import { regionState } from '../../atoms/regionState';
 import { GRANDIS_REGION, ARCANERIVER_REGION } from '../../constants/constants';
 import { useLevelState } from '../../contexts/LevelStateProvider';
-import { Region } from '../../interface/data';
 import RegionTabUI from './UI/RegionTabUI';
 
 const RegionTab = () => {
