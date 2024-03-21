@@ -1,5 +1,3 @@
-import { SymbolsColorType } from '../interface/data';
-
 export const symbolsColor: SymbolsColorType = {
   소멸의여로: { bgColor: '#ebf1fa' },
   리버스시티: { bgColor: '#ebeded' },
