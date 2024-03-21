@@ -2,7 +2,7 @@ import { MapRegion } from './map';
 
 export interface HeadCellInfo extends MapRegion {
   map_name: string;
-  number_of_monsters: number[];
+  number_of_monster: number;
   burning_field: number;
   max_number_of_monster: number;
   max_experience_per_monster: number;

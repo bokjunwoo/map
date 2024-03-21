@@ -1,3 +1,5 @@
+import { HeadCellInfo } from './headCell';
+
 export interface MapRegion {
   map_region:
     | '소멸의여로'
@@ -20,3 +22,24 @@ export interface MapRegion {
     | '아르테리아'
     | '카르시온';
 }
+
+interface MonsterInfo {
+  name: string;
+  level: number;
+  meso: number;
+  experience: number;
+}
+
+interface MapMonsterInfo extends MonsterInfo {
+  number_of_monster: number;
+}
+
+interface MapInfo extends HeadCellInfo {
+  id: number;
+  symbols: number;
+  monsters: MapMonsterInfo[];
+}
+
+type MapData = {
+  [key in AraneRiverRegion | GrandisRegion]: MapInfo[];
+};

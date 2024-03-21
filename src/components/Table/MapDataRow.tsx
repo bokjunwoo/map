@@ -4,7 +4,7 @@ import { TableCell, TableRow, IconButton } from '@mui/material';
 import { useState } from 'react';
 import { symbolsColor } from '../../data/color';
 import { generateHeadCells } from '../../data/headCell';
-import { MapInfo } from '../../interface/data';
+import { MapInfo } from '../../interface/map';
 import MapCellContent from './MapCellContent';
 
 interface MapDataRowProps {

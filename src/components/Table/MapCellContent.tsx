@@ -2,8 +2,8 @@ import { SelectChangeEvent } from '@mui/material';
 import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { burningFieldState } from '../../atoms/burningFieldState';
-import { MapInfo } from '../../interface/data';
 import { HeadCell } from '../../interface/headCell';
+import { MapInfo } from '../../interface/map';
 import { SelectOptions } from '../../interface/select';
 import MapCellContentUI from './UI/MapCellContentUI';
 
