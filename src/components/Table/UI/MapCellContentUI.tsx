@@ -29,8 +29,8 @@ const TableCellContentUI = ({
           options={selectOptions}
         />
       );
-    case 'number_of_monsters':
-      return <Box>{item.number_of_monsters}</Box>;
+    case 'number_of_monster':
+      return <Box>{item.number_of_monster}</Box>;
     case 'max_number_of_monster':
       return <Box>{item.max_number_of_monster.toLocaleString()}</Box>;
     case 'max_experience_per_monster':
