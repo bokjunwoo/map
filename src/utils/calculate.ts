@@ -1,3 +1,4 @@
+import { ExperienceCalculator } from '../interface/calculate';
 import { MapMonsterInfo } from '../interface/map';
 
 export const calculateSumOfMonsters = (monsters: MapMonsterInfo[]) => {
@@ -70,23 +71,22 @@ export const calculateExperienceMultiplier = (
 };
 
 export const calculateTotalExperience: ExperienceCalculator = ({
-  numberOfMonsters,
-  monsterExperiences,
-  monsterLevels,
+  monsters,
   burningField,
   expRate,
   time,
   playerLevel,
 }) => {
-  const multipliers = calculateExperienceMultiplier(playerLevel, monsterLevels);
+  const multipliers = calculateExperienceMultiplier(playerLevel, monsters);
 
-  const scaledExperiences = monsterExperiences.map(
-    (experience, index) => experience * multipliers[index]
+  const scaledExperiences: number[] = monsters.map(
+    (monster, index) => monster.experience * multipliers[index]
   );
 
-  const totalExperience = scaledExperiences
+  const totalExperience: number = scaledExperiences
     .map(
-      (scaledExperience, index) => scaledExperience * numberOfMonsters[index]
+      (scaledExperience, index) =>
+        scaledExperience * monsters[index].number_of_monster
     )
     .reduce((total, current) => total + current, 0);
 
