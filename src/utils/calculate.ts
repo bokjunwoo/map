@@ -1,5 +1,8 @@
-export const calculateSumOfMonsters = (numberOfMonsters: number[]) => {
-  return numberOfMonsters.reduce((total, current) => total + current, 0);
+import { MapMonsterInfo } from '../interface/map';
+
+export const calculateSumOfMonsters = (monsters: MapMonsterInfo[]) => {
+  const numberOfMonster = monsters.map((monster) => monster.number_of_monster);
+  return numberOfMonster.reduce((total, current) => total + current, 0);
 };
 
 export const calculateTotalMonstersWithTime = (
