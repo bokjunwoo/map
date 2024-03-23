@@ -6,13 +6,12 @@ export const calculateSumOfMonsters = (monsters: MapMonsterInfo[]) => {
 };
 
 export const calculateTotalMonstersWithTime = (
-  numberOfMonsters: number[],
+  monsters: MapMonsterInfo[],
   time: number
 ): number => {
-  return numberOfMonsters.reduce(
-    (total, current) => total + current * time * 8,
-    0
-  );
+  const numberOfMonster = calculateSumOfMonsters(monsters);
+
+  return numberOfMonster * time * 8;
 };
 
 export const calculateExperienceMultiplier = (
