@@ -204,3 +204,24 @@ export const calculateMesoMultiplier = (
 
   return multipliers;
 };
+
+export const calculateTotalMeso: MesoCalculator = ({
+  monsters,
+  playerLevel,
+  time,
+}) => {
+  const multipliers = calculateMesoMultiplier(playerLevel, monsters);
+
+  const scaledMeso: number[] = monsters.map(
+    (monster, index) => monster.meso * multipliers[index]
+  );
+  console.log(scaledMeso);
+
+  const totalMeso = scaledMeso
+    .map((scaledMeso, index) => scaledMeso * monsters[index].number_of_monster)
+    .reduce((total, current) => total + current, 0);
+
+  const totalExperienceWithRates = totalMeso * 8 * time;
+
+  return Math.floor(totalExperienceWithRates);
+};
