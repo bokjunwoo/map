@@ -11,3 +11,13 @@ interface CalculateTotalExperienceParams {
 interface ExperienceCalculator {
   (params: CalculateTotalExperienceParams): number;
 }
+
+interface CalculateTotalMesoParams {
+  monsters: MapMonsterInfo[];
+  playerLevel: number;
+  time: number;
+}
+
+interface MesoCalculator {
+  (params: CalculateTotalMesoParams): number;
+}
