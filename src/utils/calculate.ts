@@ -16,12 +16,12 @@ export const calculateTotalMonstersWithTime = (
 
 export const calculateExperienceMultiplier = (
   playerLevel: number,
-  monsterLevels: number[]
+  monsters: MapMonsterInfo[]
 ): number[] => {
   const multipliers: number[] = [];
 
-  for (const monsterLevel of monsterLevels) {
-    const levelDifference = playerLevel - monsterLevel;
+  for (const monster of monsters) {
+    const levelDifference = playerLevel - monster.level;
 
     let multiplier: number;
 
