@@ -1,7 +1,7 @@
+import { MapMonsterInfo } from './map';
+
 interface CalculateTotalExperienceParams {
-  numberOfMonsters: number[];
-  monsterExperiences: number[];
-  monsterLevels: number[];
+  monsters: MapMonsterInfo[];
   expRate: number;
   time: number;
   playerLevel: number;
