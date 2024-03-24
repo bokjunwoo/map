@@ -5,7 +5,7 @@ import { getSelectedMapData } from '../../atoms/mapDataState';
 import { regionListState } from '../../atoms/regionListState';
 import { useExpRateValue } from '../../contexts/ExpRateStateProvider';
 import { useLevelState } from '../../contexts/LevelStateProvider';
-import { MapInfo } from '../../interface/data';
+import { MapInfo } from '../../interface/map';
 import {
   calculateSumOfMonsters,
   calculateTotalExperience,
@@ -51,24 +51,20 @@ const MapSortBody = ({ storedValue, order, orderBy }: MapSortBodyProps) => {
     return {
       ...item,
       burning_field: burningFieldValue,
-      number_of_monsters: [calculateSumOfMonsters(item.number_of_monsters)],
+      number_of_monster: calculateSumOfMonsters(item.monsters),
       max_number_of_monster: calculateTotalMonstersWithTime(
-        item.number_of_monsters,
+        item.monsters,
         time
       ),
       max_experience_per_monster: calculateTotalExperience({
-        numberOfMonsters: item.number_of_monsters,
-        monsterExperiences: item.monster_experiences,
-        monsterLevels: item.monster_levels,
+        monsters: item.monsters,
         burningField: burningFieldValue,
         expRate,
         time,
         playerLevel,
       }),
       max_meso_per_monster: calculateTotalMeso({
-        numberOfMonsters: item.number_of_monsters,
-        monsterMesos: item.monster_moneys,
-        monsterLevels: item.monster_levels,
+        monsters: item.monsters,
         time,
         playerLevel,
       }),
