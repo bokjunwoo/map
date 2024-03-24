@@ -19,55 +19,66 @@ export const calculateExperienceMultiplier = (
   playerLevel: number,
   monsters: MapMonsterInfo[]
 ): number[] => {
-  const multipliers: number[] = [];
+  const experienceMultipliers: number[] = [];
 
   for (const monster of monsters) {
-    const levelDifference = playerLevel - monster.level;
-
-    let multiplier: number;
-
-    if (levelDifference >= 40) {
-      multiplier = 0.7;
-    } else if (levelDifference >= 21) {
-      multiplier = 0.71 + (levelDifference - 21) * 0.01;
-    } else if (levelDifference >= 20) {
-      multiplier = 0.95;
-    } else if (levelDifference >= 18) {
-      multiplier = 0.96;
-    } else if (levelDifference >= 16) {
-      multiplier = 0.97;
-    } else if (levelDifference >= 14) {
-      multiplier = 0.98;
-    } else if (levelDifference >= 12) {
-      multiplier = 0.99;
-    } else if (levelDifference >= 10) {
-      multiplier = 1;
-    } else if (levelDifference >= 5) {
-      multiplier = 1.05;
-    } else if (levelDifference >= 2) {
-      multiplier = 1.1;
-    } else if (levelDifference >= 1) {
-      multiplier = 1.2;
-    } else if (levelDifference >= -1) {
-      multiplier = 1.2;
-    } else if (levelDifference >= -4) {
-      multiplier = 1.1;
-    } else if (levelDifference >= -9) {
-      multiplier = 0.95;
-    } else if (levelDifference >= -20) {
-      multiplier = 1 - (levelDifference - -20) * 0.01;
-    } else if (levelDifference >= -35) {
-      multiplier = 1 - (levelDifference - -35) * 0.04;
-    } else if (levelDifference >= -39) {
-      multiplier = 0.1;
-    } else {
-      multiplier = 0;
-    }
-
-    multipliers.push(multiplier);
+    const multiplier = calculateIndividualExperienceMultiplier(
+      playerLevel,
+      monster
+    );
+    experienceMultipliers.push(multiplier);
   }
 
-  return multipliers;
+  return experienceMultipliers;
+};
+
+export const calculateIndividualExperienceMultiplier = (
+  playerLevel: number,
+  monster: MapMonsterInfo
+): number => {
+  const levelDifference = playerLevel - monster.level;
+
+  let multiplier: number;
+
+  if (levelDifference >= 40) {
+    multiplier = 0.7;
+  } else if (levelDifference >= 21) {
+    multiplier = 0.71 + (levelDifference - 21) * 0.01;
+  } else if (levelDifference >= 20) {
+    multiplier = 0.95;
+  } else if (levelDifference >= 18) {
+    multiplier = 0.96;
+  } else if (levelDifference >= 16) {
+    multiplier = 0.97;
+  } else if (levelDifference >= 14) {
+    multiplier = 0.98;
+  } else if (levelDifference >= 12) {
+    multiplier = 0.99;
+  } else if (levelDifference >= 10) {
+    multiplier = 1;
+  } else if (levelDifference >= 5) {
+    multiplier = 1.05;
+  } else if (levelDifference >= 2) {
+    multiplier = 1.1;
+  } else if (levelDifference >= 1) {
+    multiplier = 1.2;
+  } else if (levelDifference >= -1) {
+    multiplier = 1.2;
+  } else if (levelDifference >= -4) {
+    multiplier = 1.1;
+  } else if (levelDifference >= -9) {
+    multiplier = 0.95;
+  } else if (levelDifference >= -20) {
+    multiplier = 1 - (levelDifference - -20) * 0.01;
+  } else if (levelDifference >= -35) {
+    multiplier = 1 - (levelDifference - -35) * 0.04;
+  } else if (levelDifference >= -39) {
+    multiplier = 0.1;
+  } else {
+    multiplier = 0;
+  }
+
+  return multiplier;
 };
 
 export const calculateTotalExperience: ExperienceCalculator = ({
