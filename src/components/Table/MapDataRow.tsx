@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { symbolsColor } from '../../data/color';
 import { generateHeadCells } from '../../data/headCell';
 import { MapInfo } from '../../interface/map';
+import MapDetailCollapse from '../Collapse/MapDetailCollapse';
 import MapCellContent from './MapCellContent';
 
 interface MapDataRowProps {
@@ -23,19 +24,23 @@ const MapDataRow = ({ item, storedValue }: MapDataRowProps) => {
   const backgroundColor = symbolsColor[item.map_region].bgColor;
 
   return (
-    <TableRow sx={{ bgcolor: backgroundColor }}>
-      <TableCell>
-        <IconButton onClick={toggleOpen}>
-          {isOpen ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-        </IconButton>
-      </TableCell>
-
-      {headCells.map((headCell) => (
-        <TableCell key={headCell.id}>
-          <MapCellContent item={item} headCell={headCell} />
+    <>
+      <TableRow sx={{ bgcolor: backgroundColor }}>
+        <TableCell>
+          <IconButton onClick={toggleOpen}>
+            {isOpen ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          </IconButton>
         </TableCell>
-      ))}
-    </TableRow>
+
+        {headCells.map((headCell) => (
+          <TableCell key={headCell.id}>
+            <MapCellContent item={item} headCell={headCell} />
+          </TableCell>
+        ))}
+      </TableRow>
+
+      <MapDetailCollapse open={isOpen} item={item} />
+    </>
   );
 };
 
