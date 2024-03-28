@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { symbolsColor } from '../../data/color';
 import { generateHeadCells } from '../../data/headCell';
 import { MapInfo } from '../../interface/map';
-import MapDetailCollapse from '../Collapse/MapDetailCollapse';
+import MapDetailCollapseUI from '../Collapse/MapDetailCollapse';
 import MapCellContent from './MapCellContent';
 
 interface MapDataRowProps {
@@ -39,7 +39,7 @@ const MapDataRow = ({ item, storedValue }: MapDataRowProps) => {
         ))}
       </TableRow>
 
-      <MapDetailCollapse open={isOpen} item={item} />
+      <MapDetailCollapseUI open={isOpen} item={item} />
     </>
   );
 };
