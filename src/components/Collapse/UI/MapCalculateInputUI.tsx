@@ -22,28 +22,24 @@ const MapCalculateInputUI = ({
 }: MapCalculateInputUIProps) => {
   return (
     <ListItem>
-      <ListItemText
-        primary={
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Typography variant="body1">{label}</Typography>
+      <Box sx={{ display: 'flex', alignItems: 'center', mt: 1, mb: 1 }}>
+        <Typography variant="body1">{label}</Typography>
 
-            <Box sx={{ display: 'flex', alignItems: 'center' }} marginLeft={1}>
-              <TextField
-                sx={{ width: 50 }}
-                id="outlined-size-small"
-                size="small"
-                value={value === 0 ? '' : value}
-                onChange={handleChange}
-                inputProps={{ sx: { p: 0.5, textAlign: 'center' } }}
-              />
+        <Box sx={{ display: 'flex', alignItems: 'center' }} marginLeft={1}>
+          <TextField
+            sx={{ width: 50 }}
+            id={label}
+            size="small"
+            value={value === 0 ? '' : value}
+            onChange={handleChange}
+            inputProps={{ sx: { p: 0.5, textAlign: 'center' } }}
+          />
 
-              <Typography variant="body1" marginLeft={0.5}>
-                / {maxValue}
-              </Typography>
-            </Box>
-          </Box>
-        }
-      />
+          <Typography variant="body1" marginLeft={0.5}>
+            / {maxValue}
+          </Typography>
+        </Box>
+      </Box>
     </ListItem>
   );
 };
