@@ -1,20 +1,45 @@
-import { Avatar, ListItem, Typography } from '@mui/material';
+import {
+  Avatar,
+  Chip,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  Typography,
+} from '@mui/material';
 
-type AvatarWithTextUIProps = {
+type AvatarChipUIProps = {
   src: string;
   text: string;
+  label: string;
 };
 
-const AvatarWithTextUI = ({ src, text }: AvatarWithTextUIProps) => {
+const AvatarChipUI = ({ src, text, label }: AvatarChipUIProps) => {
   return (
-    <ListItem>
-      <Avatar alt={text} src={src} sx={{ mr: 1 }} variant="rounded" />
+    <ListItem alignItems="flex-start">
+      <ListItemAvatar>
+        <Avatar alt={text} src={src} variant="rounded" />
+      </ListItemAvatar>
 
-      <Typography variant="h6" fontWeight={500} sx={{ display: 'block' }}>
-        {text}
-      </Typography>
+      <ListItemText
+        primary={
+          <Typography sx={{ fontSize: 20, fontWeight: 500 }}>{text}</Typography>
+        }
+        secondary={
+          <Chip
+            component="span"
+            label={label}
+            sx={{
+              fontSize: '0.7rem',
+              fontWeight: 600,
+              height: 20,
+              color: 'rgb(255, 135, 0)',
+              bgcolor: 'rgb(255, 153, 0, 0.3)',
+            }}
+          />
+        }
+      />
     </ListItem>
   );
 };
 
-export default AvatarWithTextUI;
+export default AvatarChipUI;
