@@ -1,4 +1,4 @@
-import { Box, ListItem, ListItemText, Typography } from '@mui/material';
+import { Box, ListItem, Stack, Typography } from '@mui/material';
 import { formatNumber } from '../../../utils/etc';
 
 type MapCalculateRewardUIProps = {
@@ -13,27 +13,28 @@ const MapCalculateRewardUI = ({
   rewardUnit,
 }: MapCalculateRewardUIProps) => {
   return (
-    <ListItem>
-      <ListItemText
-        primary={
-          <Box sx={{ display: 'flex' }}>
-            <Typography variant="body1">{label}</Typography>
-            <Typography variant="body1" sx={{ pl: 0.5 }}>
-              {rewardValue.toLocaleString()}
-            </Typography>
-          </Box>
-        }
-        secondary={
-          <Box sx={{ display: 'flex' }}>
-            <Typography variant="body1" sx={{ visibility: 'hidden' }}>
-              {label}
-            </Typography>
-            <Typography variant="body2" sx={{ pl: 0.5 }}>
-              약 {formatNumber(rewardValue, rewardUnit)}
-            </Typography>
-          </Box>
-        }
-      ></ListItemText>
+    <ListItem sx={{ display: 'block' }}>
+      <Box>
+        <Typography variant="body1" component="span">
+          {label}
+        </Typography>
+        <Typography variant="body1" component="span" sx={{ pl: 0.5 }}>
+          {Math.floor(rewardValue).toLocaleString()}
+        </Typography>
+      </Box>
+
+      <Box color="text.secondary">
+        <Typography
+          variant="body1"
+          component="span"
+          sx={{ visibility: 'hidden' }}
+        >
+          {label}
+        </Typography>
+        <Typography variant="body2" component="span" sx={{ pl: 0.5 }}>
+          약 {formatNumber(rewardValue, rewardUnit)}
+        </Typography>
+      </Box>
     </ListItem>
   );
 };
