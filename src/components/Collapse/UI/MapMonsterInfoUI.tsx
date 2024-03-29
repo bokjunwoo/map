@@ -1,4 +1,4 @@
-import { List, ListItem, ListItemText } from '@mui/material';
+import { Avatar, Chip, List, ListItem, ListItemText } from '@mui/material';
 import { useLevelState } from '../../../contexts/LevelStateProvider';
 import { MapMonsterInfo } from '../../../interface/map';
 import {
@@ -6,7 +6,7 @@ import {
   calculateIndividualMesoMultiplier,
 } from '../../../utils/calculate';
 import DividerChipUI from '../../common/DividerChipUI';
-import SecondaryTextUI from '../../common/SecondaryTextUI';
+import TextAndAmountLocaleStringUI from '../../common/TextAndAmountLocaleStringUI';
 
 const MapMonsterInfoUI = ({ monster }: { monster: MapMonsterInfo }) => {
   const { level: playerLevel } = useLevelState();
@@ -25,52 +25,91 @@ const MapMonsterInfoUI = ({ monster }: { monster: MapMonsterInfo }) => {
       sx={{
         bgcolor: 'background.paper',
       }}
+      dense
     >
       <ListItem>
         <ListItemText
-          primary={monster.name}
-          secondary={
+          primary={
+            <Chip
+              avatar={
+                <Avatar
+                  alt="Natacha"
+                  src={require('../../../assets/etc/monster.png')}
+                />
+              }
+              label={monster.name}
+              variant="outlined"
+              sx={{ border: 'none', p: 0, fontSize: 16, fontWeight: 500 }}
+            />
+          }
+        />
+      </ListItem>
+
+      <DividerChipUI label="기본 몬스터 스탯" />
+
+      <ListItem dense>
+        <ListItemText
+          primary={
             <>
-              <DividerChipUI label="기본 몬스터 스탯" />
+              <TextAndAmountLocaleStringUI
+                text="레벨:"
+                amount={monster.level}
+              />
+              <TextAndAmountLocaleStringUI
+                text="경험치:"
+                amount={monster.experience}
+              />
+              <TextAndAmountLocaleStringUI
+                text="메소(평균):"
+                amount={monster.meso}
+              />
+            </>
+          }
+        />
+      </ListItem>
 
-              <SecondaryTextUI text={`레벨: ${monster.level}`} />
-              <SecondaryTextUI
-                text={`경험치: ${monster.experience.toLocaleString()}`}
-              />
-              <SecondaryTextUI
-                text={`메소(평균): ${monster.meso.toLocaleString()}`}
-              />
+      <DividerChipUI label="내 배율에 따른 몬스터 스탯" />
 
-              <DividerChipUI label="내 배율에 따른 몬스터 스탯" />
+      <ListItem>
+        <ListItemText
+          primary={
+            <>
+              <TextAndAmountLocaleStringUI
+                text="경험치:"
+                amount={expMultiplier * monster.experience}
+              />
+              <TextAndAmountLocaleStringUI
+                text="순 메소(평균/아획 0% 기준):"
+                amount={mesoMultiplier * monster.meso}
+              />
+              <TextAndAmountLocaleStringUI
+                text="메획 획득 메소(평균):"
+                amount={mesoMultiplier * monster.meso}
+              />
+            </>
+          }
+        />
+      </ListItem>
 
-              <SecondaryTextUI
-                text={`경험치: ${Math.floor(
-                  expMultiplier * monster.experience
-                ).toLocaleString()}`}
-              />
-              <SecondaryTextUI
-                text={`순 메소(평균/아획 0% 기준): ${Math.floor(
-                  mesoMultiplier * monster.meso
-                ).toLocaleString()}`}
-              />
-              <SecondaryTextUI
-                text={`메획 획득 메소(평균): ${Math.floor(
-                  mesoMultiplier * monster.meso
-                ).toLocaleString()}`}
-              />
+      <DividerChipUI label="자세한 정보" />
 
-              <DividerChipUI label="자세히 보기" />
-
-              <SecondaryTextUI
-                text={`몬스터와의 레벨 차이(캐릭터레벨 - 몬스터레벨): ${
-                  playerLevel - monster.level
-                }`}
+      <ListItem dense>
+        <ListItemText
+          primary={
+            <>
+              <TextAndAmountLocaleStringUI
+                text="몬스터와의 레벨 차이(캐릭터레벨 - 몬스터레벨):"
+                amount={playerLevel - monster.level}
               />
-              <SecondaryTextUI
-                text={`레벨차이에 따른 경험치 배율: ${expMultiplier * 100}%`}
+              <TextAndAmountLocaleStringUI
+                text="레벨차이에 따른 경험치 배율:"
+                amount={expMultiplier * 100}
+                unit="%"
               />
-              <SecondaryTextUI
-                text={`레벨차이에 따른 메소 배율: ${mesoMultiplier * 100}%`}
+              <TextAndAmountLocaleStringUI
+                text="레벨차이에 따른 메소 배율:"
+                amount={mesoMultiplier * 100}
+                unit="%"
               />
             </>
           }
