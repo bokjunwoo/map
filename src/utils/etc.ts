@@ -7,6 +7,8 @@ export const formatNumber = (number: number, unit?: '메소' | '경험치') => {
   let result = '';
   let unitIndex = 0;
 
+  number = Math.floor(number);
+
   while (number > 0) {
     const remainder = number % 10000;
     const chunk = remainder > 0 ? remainder + units[unitIndex] + ' ' : '';
