@@ -1,10 +1,4 @@
-import {
-  ListItem,
-  ListItemText,
-  Box,
-  Typography,
-  TextField,
-} from '@mui/material';
+import { ListItem, Box, Typography, TextField } from '@mui/material';
 import { ChangeEvent } from 'react';
 
 type MapCalculateInputUIProps = {
