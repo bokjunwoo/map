@@ -234,7 +234,6 @@ export const calculateTotalMeso: MesoCalculator = ({
   const scaledMeso: number[] = monsters.map(
     (monster, index) => monster.meso * multipliers[index]
   );
-  console.log(scaledMeso);
 
   const totalMeso = scaledMeso
     .map((scaledMeso, index) => scaledMeso * monsters[index].number_of_monster)
