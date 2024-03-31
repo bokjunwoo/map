@@ -11,11 +11,13 @@ const IconChipUI = ({
 }) => {
   return (
     <Chip
+      component="span"
       sx={{
         fontSize: '0.7rem',
         fontWeight: 600,
         height: 20,
         bgcolor,
+        borderRadius: 1,
       }}
       avatar={
         <Avatar
