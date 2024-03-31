@@ -11,6 +11,7 @@ import {
   calculateTotalExperience,
   calculateTotalMeso,
 } from '../../utils/calculate';
+import ResourceChip from '../Chip/ResourceChip';
 import MapCalculateInputUI from './UI/MapCalculateInputUI';
 import MapCalculateRewardUI from './UI/MapCalculateRewardUI';
 
@@ -92,6 +93,10 @@ const MapCalculate = ({ item }: { item: MapInfo }) => {
         <Typography variant="h6" fontWeight={500} sx={{ display: 'block' }}>
           사냥 마릿수 계산기
         </Typography>
+      </ListItem>
+
+      <ListItem>
+        <ResourceChip />
       </ListItem>
 
       <Divider variant="middle" />
