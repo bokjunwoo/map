@@ -1,6 +1,8 @@
 import CalculateIcon from '@mui/icons-material/Calculate';
 import { List, ListItem, Typography, Divider } from '@mui/material';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { numberOfMonsterState } from '../../atoms/numberOfMonsterState';
 import { REGEX } from '../../constants/constants';
 import { useExpRateValue } from '../../contexts/ExpRateStateProvider';
 import { useLevelState } from '../../contexts/LevelStateProvider';
@@ -16,9 +18,10 @@ const MapCalculate = ({ item }: { item: MapInfo }) => {
   const expRate = useExpRateValue();
   const { level: playerLevel } = useLevelState();
 
-  const [monsterValue, setMonsterValue] = useState<number>(
-    item.number_of_monster
+  const [monsterValue, setMonsterValue] = useRecoilState(
+    numberOfMonsterState(item.map_name)
   );
+
   const [sixMinutesMonsterValue, setSixMinutesMonsterValue] = useState<number>(
     item.number_of_monster * 48
   );
@@ -73,6 +76,10 @@ const MapCalculate = ({ item }: { item: MapInfo }) => {
     time: 6,
     playerLevel,
   });
+
+  useEffect(() => {
+    setMonsterValue(item.number_of_monster);
+  }, [item.number_of_monster, setMonsterValue]);
 
   return (
     <List
