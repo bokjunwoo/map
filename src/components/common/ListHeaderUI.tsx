@@ -14,24 +14,6 @@ type AvatarChipUIProps = {
 };
 
 const ListHeaderUI = ({ src, text, secondaryComponent }: AvatarChipUIProps) => {
-  if (secondaryComponent !== undefined) {
-    return (
-      <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar alt={text} src={src} variant="rounded" />
-        </ListItemAvatar>
-
-        <ListItemText
-          primary={
-            <Typography sx={{ fontSize: 20, fontWeight: 500 }}>
-              {text}
-            </Typography>
-          }
-          secondary={secondaryComponent}
-        />
-      </ListItem>
-    );
-  }
   return (
     <ListItem>
       <ListItemAvatar>
@@ -42,13 +24,14 @@ const ListHeaderUI = ({ src, text, secondaryComponent }: AvatarChipUIProps) => {
         primary={
           <Typography
             sx={{
-              fontSize: 20,
+              fontSize: 18,
               fontWeight: 500,
             }}
           >
             {text}
           </Typography>
         }
+        secondary={secondaryComponent}
       />
     </ListItem>
   );
