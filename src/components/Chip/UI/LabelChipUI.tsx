@@ -13,10 +13,11 @@ const LabelChipUI = ({ label, rgb }: LabelChipUIProps) => {
       sx={{
         fontSize: '0.7rem',
         fontWeight: 600,
-        height: 20,
+        height: 18,
         color: `rgb(${rgb})`,
         bgcolor: `rgba(${rgb}, 0.2)`,
       }}
+      size="small"
     />
   );
 };
