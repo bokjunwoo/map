@@ -34,7 +34,7 @@ const MapMonsterInfoUI = ({ monster }: { monster: MapMonsterInfo }) => {
               avatar={
                 <Avatar
                   alt="Natacha"
-                  src={require('../../../assets/etc/monster.png')}
+                  src={require('../../../assets/etc_icon/monster.png')}
                 />
               }
               label={monster.name}
