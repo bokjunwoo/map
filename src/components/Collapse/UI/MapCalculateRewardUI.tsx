@@ -1,4 +1,4 @@
-import { Box, ListItem, Stack, Typography } from '@mui/material';
+import { Box, ListItem, Typography } from '@mui/material';
 import { formatNumber } from '../../../utils/etc';
 
 type MapCalculateRewardUIProps = {
