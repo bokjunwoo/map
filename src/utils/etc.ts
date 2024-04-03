@@ -23,3 +23,17 @@ export const formatNumber = (number: number, unit?: '메소' | '경험치') => {
     return result.trim();
   }
 };
+
+export const formatEfficiency = (huntEfficiency: number) => {
+  let formattedResult;
+
+  if (huntEfficiency % 1 === 0) {
+    formattedResult = huntEfficiency.toFixed(0);
+  } else if ((huntEfficiency * 10) % 1 === 0) {
+    formattedResult = huntEfficiency.toFixed(1);
+  } else {
+    formattedResult = huntEfficiency.toFixed(2);
+  }
+
+  return formattedResult;
+};
