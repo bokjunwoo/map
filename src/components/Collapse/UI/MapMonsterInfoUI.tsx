@@ -33,7 +33,8 @@ const MapMonsterInfoUI = ({ monster }: { monster: MapMonsterInfo }) => {
             <Chip
               avatar={
                 <Avatar
-                  alt="Natacha"
+                  variant="rounded"
+                  alt={monster.name}
                   src={require('../../../assets/etc_icon/monster.png')}
                 />
               }
