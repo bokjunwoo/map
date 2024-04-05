@@ -1,10 +1,4 @@
-import {
-  Avatar,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  Typography,
-} from '@mui/material';
+import { Avatar, Box, ListItem, ListItemText, Typography } from '@mui/material';
 import { ReactNode } from 'react';
 
 type AvatarChipUIProps = {
@@ -16,16 +10,21 @@ type AvatarChipUIProps = {
 const ListHeaderUI = ({ src, text, secondaryComponent }: AvatarChipUIProps) => {
   return (
     <ListItem>
-      <ListItemAvatar>
-        <Avatar alt={text} src={src} variant="rounded" />
-      </ListItemAvatar>
+      <Box sx={{ mr: 1 }}>
+        <Avatar
+          alt={text}
+          src={src}
+          variant="rounded"
+          sx={{ width: 32, height: 32 }}
+        />
+      </Box>
 
       <ListItemText
         primary={
           <Typography
             sx={{
               fontSize: 18,
-              fontWeight: 500,
+              fontWeight: 'bold',
             }}
           >
             {text}
