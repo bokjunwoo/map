@@ -8,9 +8,9 @@ const ResourceChip = () => {
   const dropRate = 0;
 
   const resourceList = [
-    { iconName: 'exp', label: expRate, color: '#EEFAF9' },
-    { iconName: 'meso', label: mesoRate, color: '#F6F8EE' },
-    { iconName: 'drop', label: dropRate, color: '#FFF0F0' },
+    { iconName: 'exp', label: expRate, color: '#bfff8a' },
+    { iconName: 'meso', label: mesoRate, color: '#ffec8a' },
+    { iconName: 'drop', label: dropRate, color: '#a1cbff' },
   ];
 
   return (
