@@ -85,7 +85,6 @@ export const calculateTotalExperience: ExperienceCalculator = ({
   monsters,
   burningField,
   expRate,
-  time,
   playerLevel,
 }) => {
   const multipliers = calculateExperienceMultiplier(playerLevel, monsters);
@@ -102,7 +101,7 @@ export const calculateTotalExperience: ExperienceCalculator = ({
     .reduce((total, current) => total + current, 0);
 
   const totalExperienceWithRates =
-    ((expRate + burningField) / 100) * totalExperience * 8 * time;
+    ((expRate + burningField) / 100) * totalExperience * 8;
 
   return Math.floor(totalExperienceWithRates);
 };
@@ -227,7 +226,6 @@ export const calculateIndividualMesoMultiplier = (
 export const calculateTotalMeso: MesoCalculator = ({
   monsters,
   playerLevel,
-  time,
 }) => {
   const multipliers = calculateMesoMultiplier(playerLevel, monsters);
 
@@ -239,7 +237,7 @@ export const calculateTotalMeso: MesoCalculator = ({
     .map((scaledMeso, index) => scaledMeso * monsters[index].number_of_monster)
     .reduce((total, current) => total + current, 0);
 
-  const totalExperienceWithRates = totalMeso * 8 * time;
+  const totalExperienceWithRates = totalMeso * 8;
 
   return Math.floor(totalExperienceWithRates);
 };
