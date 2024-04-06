@@ -56,18 +56,18 @@ const MapSortBody = ({ storedValue, order, orderBy }: MapSortBodyProps) => {
         item.monsters,
         time
       ),
-      max_experience_per_monster: calculateTotalExperience({
-        monsters: item.monsters,
-        burningField: burningFieldValue,
-        expRate,
-        time,
-        playerLevel,
-      }),
-      max_meso_per_monster: calculateTotalMeso({
-        monsters: item.monsters,
-        time,
-        playerLevel,
-      }),
+      max_experience_per_monster:
+        calculateTotalExperience({
+          monsters: item.monsters,
+          burningField: burningFieldValue,
+          expRate,
+          playerLevel,
+        }) * time,
+      max_meso_per_monster:
+        calculateTotalMeso({
+          monsters: item.monsters,
+          playerLevel,
+        }) * time,
     };
   });
 
