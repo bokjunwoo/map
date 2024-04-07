@@ -1,36 +1,41 @@
-import { Avatar, Box, ListItem, ListItemText, Typography } from '@mui/material';
+import { Avatar, Box, ListItem, ListItemText } from '@mui/material';
 import { ReactNode } from 'react';
 
 type AvatarChipUIProps = {
-  src: string;
-  text: string;
+  iconPath: string;
+  headerText: string;
   secondaryComponent?: ReactNode;
+  mainComment: string;
+  subComment?: string;
 };
 
-const ListHeaderUI = ({ src, text, secondaryComponent }: AvatarChipUIProps) => {
+const ListHeaderUI = ({
+  iconPath,
+  headerText,
+  secondaryComponent,
+  mainComment,
+  subComment,
+}: AvatarChipUIProps) => {
   return (
-    <ListItem>
-      <Box sx={{ mr: 1 }}>
-        <Avatar
-          alt={text}
-          src={src}
-          variant="rounded"
-          sx={{ width: 32, height: 32 }}
-        />
+    <ListItem sx={{ display: 'block' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box sx={{ mr: 1 }}>
+          <Avatar
+            alt={headerText}
+            src={iconPath}
+            variant="rounded"
+            sx={{ width: 32, height: 32 }}
+          />
+        </Box>
+
+        <ListItemText primary={headerText} secondary={secondaryComponent} />
       </Box>
 
       <ListItemText
-        primary={
-          <Typography
-            sx={{
-              fontSize: 18,
-              fontWeight: 'bold',
-            }}
-          >
-            {text}
-          </Typography>
-        }
-        secondary={secondaryComponent}
+        primary={mainComment}
+        secondary={subComment}
+        primaryTypographyProps={{ fontSize: 14 }}
+        secondaryTypographyProps={{ fontSize: 12 }}
       />
     </ListItem>
   );
