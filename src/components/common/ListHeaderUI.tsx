@@ -1,10 +1,9 @@
 import { Avatar, Box, ListItem, ListItemText } from '@mui/material';
-import { ReactNode } from 'react';
 
 type AvatarChipUIProps = {
   iconPath: string;
   headerText: string;
-  secondaryComponent?: ReactNode;
+  SecondaryComponent?: React.ReactNode;
   mainComment: string;
   subComment?: string;
 };
@@ -12,7 +11,7 @@ type AvatarChipUIProps = {
 const ListHeaderUI = ({
   iconPath,
   headerText,
-  secondaryComponent,
+  SecondaryComponent,
   mainComment,
   subComment,
 }: AvatarChipUIProps) => {
@@ -28,7 +27,7 @@ const ListHeaderUI = ({
           />
         </Box>
 
-        <ListItemText primary={headerText} secondary={secondaryComponent} />
+        <ListItemText primary={headerText} secondary={SecondaryComponent} />
       </Box>
 
       <ListItemText
