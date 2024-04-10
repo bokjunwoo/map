@@ -12,7 +12,7 @@ const ListSubtitleUI = ({
       <ListItemText
         primary={title}
         secondary={subtitle}
-        primaryTypographyProps={{ fontSize: 14 }}
+        primaryTypographyProps={{ fontSize: 16, fontWeight: 600 }}
         secondaryTypographyProps={{ fontSize: 12 }}
       ></ListItemText>
     </ListItem>
