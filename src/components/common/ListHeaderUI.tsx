@@ -27,7 +27,11 @@ const ListHeaderUI = ({
           />
         </Box>
 
-        <ListItemText primary={headerText} secondary={SecondaryComponent} />
+        <ListItemText
+          primary={headerText}
+          secondary={SecondaryComponent}
+          primaryTypographyProps={{ fontSize: 18, fontWeight: 'bold' }}
+        />
       </Box>
 
       <ListItemText
