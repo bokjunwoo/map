@@ -11,3 +11,10 @@ export const REGEX = {
 
 export const GRANDIS_REGION = '그란디스';
 export const ARCANERIVER_REGION = '아케인리버';
+
+export const TIME_OPTIONS = [
+  { time: '6분', multiplier: 6 },
+  { time: '30분', multiplier: 30 },
+  { time: '1시간', multiplier: 60 },
+  { time: '2시간', multiplier: 120 },
+];
