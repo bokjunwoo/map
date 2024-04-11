@@ -24,16 +24,19 @@ const InputAdornmentUI = ({
     >
       <Typography
         variant="body2"
+        component="span"
         sx={{
           pl: 1,
-          width: 200,
-          height: 35,
-          lineHeight: '35px',
+          pr: 2,
+          height: 30,
+          display: 'flex',
+          alignItems: 'center',
+          fontSize: 13,
           borderTop: '1px solid #ddd',
           borderLeft: '1px solid #ddd',
           borderBottom: '1px solid #ddd',
-          borderTopLeftRadius: 4,
-          borderBottomLeftRadius: 4,
+          borderTopLeftRadius: 2,
+          borderBottomLeftRadius: 2,
           bgcolor: '#f5f5f5',
         }}
       >
@@ -45,11 +48,12 @@ const InputAdornmentUI = ({
         value={value === 0 ? '' : value}
         onChange={onChange}
         sx={{
-          width: 90,
           '& .MuiOutlinedInput-root': {
             '& fieldset': {
               borderTopLeftRadius: 0,
               borderBottomLeftRadius: 0,
+              borderTopRightRadius: 2,
+              borderBottomRightRadius: 2,
               borderColor: '#ddd',
             },
             '&:hover fieldset': {
@@ -70,7 +74,7 @@ const InputAdornmentUI = ({
           ),
         }}
         inputProps={{
-          sx: { textAlign: 'end', p: 0, fontSize: 14, height: 35 },
+          sx: { textAlign: 'end', p: 0, fontSize: 14, width: 50, height: 30 },
         }}
       />
     </Box>
