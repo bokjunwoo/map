@@ -1,9 +1,9 @@
-export interface SelectValue {
+interface SelectValue {
   label: string;
   value: number;
 }
 
-export interface SelectOptions {
+interface SelectOptions {
   label: string;
   values: SelectValue[];
 }

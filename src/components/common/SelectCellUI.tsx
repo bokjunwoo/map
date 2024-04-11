@@ -1,5 +1,4 @@
 import { InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
-import { SelectOptions } from '../../interface/select';
 
 type SelectCellUIProps = {
   options: SelectOptions;

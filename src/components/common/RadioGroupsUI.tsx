@@ -7,7 +7,6 @@ import {
   RadioGroup,
   Typography,
 } from '@mui/material';
-import { SelectOptions } from '../../interface/select';
 
 type RadioGroupsUIProps = {
   selectedOption: SelectOptions;
