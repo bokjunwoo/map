@@ -4,7 +4,6 @@ import { ChangeEvent } from 'react';
 type InputAdornmentUIProps = {
   text: string;
   adornment: number;
-
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   value: number;
 };
@@ -57,7 +56,7 @@ const InputAdornmentUI = ({
               borderColor: '#ddd',
             },
             '&:hover fieldset': {
-              borderColor: '#ddd',
+              borderColor: '#FF9900',
             },
             '&.Mui-focused fieldset': {
               border: '1px solid',
