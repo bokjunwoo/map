@@ -19,7 +19,7 @@ const MapBoosterCalculateTable = ({
     setSelectedBoosterValue(Number(event.target.value));
   };
 
-  const [clickedColumn, setClickedColumn] = useState<number>(1);
+  const [clickedColumn, setClickedColumn] = useState<number>(100);
   const handleCellClick = (columnIndex: number) => {
     setClickedColumn(columnIndex);
     setSelectedRuneValue(columnIndex);
