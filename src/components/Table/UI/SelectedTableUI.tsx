@@ -56,6 +56,7 @@ const SelectedTableUI = ({
         border: '1px solid #e0e0e0',
         '& td': {
           borderRight: '1px solid #e0e0e0',
+          cursor: 'pointer',
         },
         '& th': {
           borderRight: '1px solid #e0e0e0',
@@ -69,7 +70,10 @@ const SelectedTableUI = ({
             <TableCell
               key={head.label}
               align="center"
-              sx={{ bgcolor: clickedColumn === head.value ? '#FFFFCC' : '' }}
+              sx={{
+                bgcolor: clickedColumn === head.value ? '#FFFFCC' : '',
+                cursor: 'pointer',
+              }}
               onClick={() => handleCellClick(head.value)}
             >
               {head.label}
@@ -125,7 +129,7 @@ const SelectedTableUI = ({
               }}
               onClick={() => handleCellClick(head.value)}
             >
-              {formatNumber(calculateRuneExpReward(head.value))}
+              {formatNumber(calculateRuneExpReward(head.value) * selectedValue)}
               <br />
               <Typography component="span" sx={{ fontSize: 12 }}>
                 (약 1분의 효율)
