@@ -3,7 +3,17 @@ import { MapMonsterInfo } from '../../../../interface/map';
 import ListSubheaderUI from '../../../common/ListSubheaderUI';
 import TextAndAmountLocaleStringUI from '../../../common/TextAndAmountLocaleStringUI';
 
-const MapBoosterMonsterStatsUI = ({ monster }: { monster: MapMonsterInfo }) => {
+type MapBoosterMonsterStatsUIProps = {
+  monster: MapMonsterInfo;
+  totalExpRate: number;
+};
+
+const MapBoosterMonsterStatsUI = ({
+  monster,
+  totalExpRate,
+}: MapBoosterMonsterStatsUIProps) => {
+  const expCalculate = Math.floor(monster.experience * (totalExpRate / 100));
+
   return (
     <ListItem sx={{ display: 'block' }}>
       <ListSubheaderUI title="몬스터 스탯" />
@@ -22,6 +32,10 @@ const MapBoosterMonsterStatsUI = ({ monster }: { monster: MapMonsterInfo }) => {
             <TextAndAmountLocaleStringUI
               text="경험치(필드 최고렙 몬스터 순수 경험치):"
               amount={monster.experience}
+            />
+            <TextAndAmountLocaleStringUI
+              text="경험치(경험치 배율이 적용된 경험치):"
+              amount={expCalculate}
             />
           </>
         }
