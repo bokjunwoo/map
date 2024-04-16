@@ -1,4 +1,4 @@
-import { ListItem } from '@mui/material';
+import { Box, ListItem } from '@mui/material';
 import { ChangeEvent } from 'react';
 import ListSubheaderUI from '../../../common/ListSubheaderUI';
 import InputAdornmentUI from '../../../TextField/UI/InputAdornmentUI';
@@ -18,12 +18,14 @@ const MapBoosterInputUI = ({
     <ListItem sx={{ display: 'block' }}>
       <ListSubheaderUI title="마릿수 설정" />
 
-      <InputAdornmentUI
-        text="1회 사용시 잡을 수 있는 마릿수"
-        adornment={initialNumberOfMonster}
-        value={numberOfMonster}
-        onChange={handleNumberOfMonsterChange}
-      />
+      <Box sx={{ mb: 1 }}>
+        <InputAdornmentUI
+          text="1회 사용시 잡을 수 있는 마릿수"
+          adornment={initialNumberOfMonster}
+          value={numberOfMonster}
+          onChange={handleNumberOfMonsterChange}
+        />
+      </Box>
     </ListItem>
   );
 };
