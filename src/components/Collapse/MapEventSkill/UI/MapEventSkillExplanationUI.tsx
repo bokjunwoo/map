@@ -9,7 +9,7 @@ type MapEventSkillMonsterStatsUIProps = {
   totalExpRate: number;
 };
 
-const MapEventSkillMonsterStatsUI = ({
+const MapEventSkillExplanationUI = ({
   monster,
   expMultiplier,
   totalExpRate,
@@ -47,4 +47,4 @@ const MapEventSkillMonsterStatsUI = ({
   );
 };
 
-export default MapEventSkillMonsterStatsUI;
+export default MapEventSkillExplanationUI;
