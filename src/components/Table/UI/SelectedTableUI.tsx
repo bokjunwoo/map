@@ -28,8 +28,9 @@ type SelectedTableUIProps = {
   menuItem: MenuItem[];
   clickedColumn: number;
   handleCellClick: (columnIndex: number) => void;
-  totalMonsterExperience: number;
+  monsterExperience: number;
   burningField: number;
+  killMonsterCount: number;
 };
 
 const SelectedTableUI = ({
@@ -39,13 +40,18 @@ const SelectedTableUI = ({
   menuItem,
   clickedColumn,
   handleCellClick,
-  totalMonsterExperience,
+  monsterExperience,
   burningField,
+  killMonsterCount,
 }: SelectedTableUIProps) => {
   const expRate = useExpRateValue();
 
   const calculateRuneExpReward = (rune: number) => {
-    return totalMonsterExperience * ((expRate + burningField + rune) / 100);
+    return (
+      monsterExperience *
+      ((expRate + burningField + rune) / 100) *
+      killMonsterCount
+    );
   };
 
   return (
