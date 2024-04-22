@@ -22,12 +22,13 @@ const MapEventSkillExplanationUI = ({
       <ListItemText
         primary={
           <>
-            <Typography variant="body2" fontSize={14}>
-              스킬발동시 90마리 몬스터의 경험치 획득 / 경험치 도핑 적용 O
+            <Typography variant="body2" fontSize={14} sx={{ mb: 1 }}>
+              스킬발동시 90마리 몬스터의 경험치 획득
             </Typography>
 
-            <Typography variant="body2" color="#d32f2f" fontSize={12}>
-              필드 최고렙 몬스터 경험치 적용, 캐릭터 레벨 비례 경험치 적용
+            <Typography variant="body2" color="#D32F2F" fontSize={12}>
+              필드 최고렙 몬스터 기준 | 캐릭터 레벨 비례 경험치 적용 | 경험치
+              배율 적용
             </Typography>
 
             <TextAmountUI
@@ -36,7 +37,7 @@ const MapEventSkillExplanationUI = ({
             />
 
             <TextAmountUI
-              text="필드 최고렙 몬스터 순수 경험치"
+              text="필드 최고렙 몬스터 레벨비례 경험치"
               amount={monster.experience * expMultiplier}
             />
 
