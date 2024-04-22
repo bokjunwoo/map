@@ -72,3 +72,9 @@ export const minutesToMinutesAndSeconds = (totalMinutes: number) => {
     }
   }
 };
+
+export const convertToFirstDecimal = (numberOfMonster: number) => {
+  return Math.floor(
+    ((EVENT_SKILL.REQUIRED_MONSTER_COUNT / numberOfMonster) % 1) * 10
+  );
+};
