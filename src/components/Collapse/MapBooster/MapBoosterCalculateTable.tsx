@@ -4,13 +4,13 @@ import ListSubheaderUI from '../../common/ListSubheaderUI';
 import SelectedTableUI from '../../Table/UI/SelectedTableUI';
 
 type MapBoosterTableProps = {
-  totalMonsterExperience: number;
+  monsterExperience: number;
   burningField: number;
   setSelectedRuneValue: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const MapBoosterCalculateTable = ({
-  totalMonsterExperience,
+  monsterExperience,
   burningField,
   setSelectedRuneValue,
 }: MapBoosterTableProps) => {
@@ -52,8 +52,9 @@ const MapBoosterCalculateTable = ({
           handleCellClick={handleCellClick}
           headCells={headCells}
           menuItem={menuItem}
-          totalMonsterExperience={totalMonsterExperience}
+          monsterExperience={monsterExperience}
           burningField={burningField}
+          killMonsterCount={180}
         />
       </Box>
     </ListItem>

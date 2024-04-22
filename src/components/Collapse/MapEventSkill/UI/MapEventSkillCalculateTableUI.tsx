@@ -1,4 +1,5 @@
 import { ListItem, Box, SelectChangeEvent } from '@mui/material';
+import { EVENT_SKILL } from '../../../../constants/constants';
 import ListSubheaderUI from '../../../common/ListSubheaderUI';
 import SelectedTableUI from '../../../Table/UI/SelectedTableUI';
 
@@ -33,8 +34,6 @@ const MapEventSkillCalculateTableUI = ({
   menuItem,
   burningField,
 }: MapEventSkillCalculateTableUIProps) => {
-  const totalMonsterExperience = monsterExperience * 180;
-
   return (
     <ListItem sx={{ display: 'block' }}>
       <Box sx={{ display: 'flex', alignItems: 'top' }}>
@@ -49,8 +48,9 @@ const MapEventSkillCalculateTableUI = ({
           handleCellClick={handleCellClick}
           headCells={headCells}
           menuItem={menuItem}
-          totalMonsterExperience={totalMonsterExperience}
+          monsterExperience={monsterExperience}
           burningField={burningField}
+          killMonsterCount={EVENT_SKILL.KILL_MONSTER_COUNT}
         />
       </Box>
     </ListItem>
