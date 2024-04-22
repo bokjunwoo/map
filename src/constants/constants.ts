@@ -18,3 +18,10 @@ export const TIME_OPTIONS = [
   { time: '1시간', multiplier: 60 },
   { time: '2시간', multiplier: 120 },
 ];
+
+export const EVENT_SKILL = {
+  KILL_MONSTER_COUNT: 90,
+  REQUIRED_MONSTER_COUNT: 200,
+  DELAY: 8,
+  ACTIVATION_COUNT: 20,
+};
