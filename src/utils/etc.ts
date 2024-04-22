@@ -1,3 +1,5 @@
+import { EVENT_SKILL } from '../constants/constants';
+
 export const formatNumber = (number: number, unit?: '메소' | '경험치') => {
   if (number === 0) {
     return '0';
@@ -36,4 +38,37 @@ export const formatEfficiency = (huntEfficiency: number) => {
   }
 
   return formattedResult;
+};
+
+export const minutesToMinutesAndSeconds = (totalMinutes: number) => {
+  if (totalMinutes === Infinity) return '계산불가';
+
+  let minutes = Math.floor(totalMinutes);
+  let seconds = Math.round((totalMinutes - minutes) * 60);
+
+  // 초가 60초를 넘어가면 분과 초를 조정
+  if (seconds >= 60) {
+    const extraMinutes = Math.floor(seconds / 60);
+    seconds %= 60;
+    minutes += extraMinutes;
+  }
+
+  // 분이 0인 경우
+  if (minutes === 0) {
+    // 초가 7보다 크면 범위를 설정하여 출력
+    if (seconds + 7 >= 60) {
+      return `${seconds}초 ~ ${seconds + 7 - 60}초`;
+    } else {
+      return `${seconds}초 ~ ${seconds + 7}초`;
+    }
+  } else {
+    // 분과 초 모두 출력
+    if (seconds + 7 >= 60) {
+      const endSeconds = seconds + 7 - 60;
+      const endMinutes = minutes + 1;
+      return `${minutes}분 ${seconds}초 ~ ${endMinutes}분 ${endSeconds}초`;
+    } else {
+      return `${minutes}분 ${seconds}초 ~  ${seconds + 7}초`;
+    }
+  }
 };
