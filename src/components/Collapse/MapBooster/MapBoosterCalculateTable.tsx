@@ -1,7 +1,6 @@
-import { ListItem, Box, SelectChangeEvent } from '@mui/material';
+import { SelectChangeEvent } from '@mui/material';
 import { useState } from 'react';
-import ListSubheaderUI from '../../common/ListSubheaderUI';
-import SelectedTableUI from '../../Table/UI/SelectedTableUI';
+import MapBoosterCalculateTableUI from './UI/MapBoosterCalculateTableUI';
 
 type MapBoosterTableProps = {
   monsterExperience: number;
@@ -15,7 +14,7 @@ const MapBoosterCalculateTable = ({
   setSelectedRuneValue,
 }: MapBoosterTableProps) => {
   const [selectedBoosterValue, setSelectedBoosterValue] = useState(10);
-  const handleChange = (event: SelectChangeEvent) => {
+  const handleBoosterChange = (event: SelectChangeEvent) => {
     setSelectedBoosterValue(Number(event.target.value));
   };
 
@@ -36,28 +35,16 @@ const MapBoosterCalculateTable = ({
   }));
 
   return (
-    <ListItem sx={{ display: 'block' }}>
-      <Box sx={{ display: 'flex', alignItems: 'top' }}>
-        <ListSubheaderUI
-          title="경험치 계산"
-          subtitle="룬(에반링크 Lv.2)이 적용 중일 때 사용한다는 가정"
-        />
-      </Box>
-
-      <Box sx={{ mb: 1 }}>
-        <SelectedTableUI
-          selectedValue={selectedBoosterValue}
-          handleChange={handleChange}
-          clickedColumn={clickedColumn}
-          handleCellClick={handleCellClick}
-          headCells={headCells}
-          menuItem={menuItem}
-          monsterExperience={monsterExperience}
-          burningField={burningField}
-          killMonsterCount={180}
-        />
-      </Box>
-    </ListItem>
+    <MapBoosterCalculateTableUI
+      selectedBoosterValue={selectedBoosterValue}
+      handleBoosterChange={handleBoosterChange}
+      headCells={headCells}
+      menuItem={menuItem}
+      clickedColumn={clickedColumn}
+      handleCellClick={handleCellClick}
+      monsterExperience={monsterExperience}
+      burningField={burningField}
+    />
   );
 };
 
