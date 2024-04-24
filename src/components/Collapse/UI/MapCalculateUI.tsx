@@ -1,9 +1,9 @@
 import { List, Divider } from '@mui/material';
 import { MapInfo } from '../../../interface/map';
 import ListHeaderUI from '../../common/ListHeaderUI';
-import MapCalculateInput from '../MapCalculate/MapCalculateInput';
 import MapCalculateRate from '../MapCalculate/MapCalculateRate';
 import MapCalculateTable from '../MapCalculate/MapCalculateTable';
+import MapCalculateInputUI from '../MapCalculate/UI/MapCalculateInputUI';
 
 const MapCalculateUI = ({ item }: { item: MapInfo }) => {
   return (
@@ -22,7 +22,7 @@ const MapCalculateUI = ({ item }: { item: MapInfo }) => {
       <MapCalculateRate burningField={item.burning_field} />
 
       <Divider variant="middle" />
-      <MapCalculateInput item={item} />
+      <MapCalculateInputUI item={item} />
 
       <Divider variant="middle" />
       <MapCalculateTable item={item} />
