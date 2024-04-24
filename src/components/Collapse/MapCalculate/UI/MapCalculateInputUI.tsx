@@ -1,29 +1,18 @@
 import { ListItem } from '@mui/material';
-import { ChangeEvent } from 'react';
+import { MapInfo } from '../../../../interface/map';
 import ListSubheaderUI from '../../../common/ListSubheaderUI';
-import InputAdornmentUI from '../../../TextField/UI/InputAdornmentUI';
+import NumberOfMonsterInput from '../../../TextField/NumberOfMonsterInput';
 
-interface MapCalculateInputUIProps {
-  initialNumberOfMonster: number;
-  numberOfMonster: number;
-  handleNumberOfMonsterChange: (event: ChangeEvent<HTMLInputElement>) => void;
-}
+type MapCalculateInputUIProps = {
+  item: MapInfo;
+};
 
-const MapCalculateInputUI = ({
-  initialNumberOfMonster,
-  numberOfMonster,
-  handleNumberOfMonsterChange,
-}: MapCalculateInputUIProps) => {
+const MapCalculateInputUI = ({ item }: MapCalculateInputUIProps) => {
   return (
     <ListItem sx={{ display: 'block' }}>
       <ListSubheaderUI title="마릿수 설정" />
 
-      <InputAdornmentUI
-        text="1젠당 잡을 수 있는 마릿수"
-        adornment={initialNumberOfMonster}
-        value={numberOfMonster}
-        onChange={handleNumberOfMonsterChange}
-      />
+      <NumberOfMonsterInput text="1젠당 잡을 수 있는 마릿수" item={item} />
     </ListItem>
   );
 };
