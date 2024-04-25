@@ -38,7 +38,7 @@ const TextAmountUI = ({ text, amount, unit }: TextAmountUIProps) => {
         component="span"
         sx={{
           pr: 1,
-          width: 80,
+          width: 85,
           height: 30,
           fontSize: 12,
           borderTop: '1px solid #ddd',
