@@ -32,3 +32,16 @@ interface CalculatePolloPlayTimeParams {
 interface PolloPlayTimeCalculator {
   (params: CalculatePrittoPlayTimeParams): number;
 }
+
+interface CalculatePrittoPlayTimeParams {
+  monsterExperience: number;
+  numberOfMonster: number;
+  expMultiplier: number;
+  expValue: number;
+  expRateRatio: number;
+  time: number;
+}
+
+interface PrittoPlayTimeCalculator {
+  (params: CalculatePrittoPlayTimeParams): number;
+}

@@ -2,6 +2,7 @@ import {
   ExperienceCalculator,
   MesoCalculator,
   PolloPlayTimeCalculator,
+  PrittoPlayTimeCalculator,
 } from '../interface/calculate';
 import { MapMonsterInfo } from '../interface/map';
 
@@ -256,6 +257,27 @@ export const calculatePolloPlayTime: PolloPlayTimeCalculator = ({
 }) => {
   const remainingTime =
     ((expValue * monsterExperience * expRateRatio) /
+      (monsterExperience *
+        expMultiplier *
+        numberOfMonster *
+        8 *
+        expRateRatio)) *
+      60 -
+    time;
+
+  return Math.ceil(remainingTime);
+};
+
+export const calculatePrittoPlayTime: PrittoPlayTimeCalculator = ({
+  monsterExperience,
+  numberOfMonster,
+  expMultiplier,
+  expValue,
+  expRateRatio,
+  time,
+}) => {
+  const remainingTime =
+    ((expValue * monsterExperience) /
       (monsterExperience *
         expMultiplier *
         numberOfMonster *
