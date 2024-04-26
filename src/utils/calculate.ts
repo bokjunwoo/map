@@ -1,4 +1,8 @@
-import { ExperienceCalculator, MesoCalculator } from '../interface/calculate';
+import {
+  ExperienceCalculator,
+  MesoCalculator,
+  PolloPlayTimeCalculator,
+} from '../interface/calculate';
 import { MapMonsterInfo } from '../interface/map';
 
 export const calculateSumOfMonsters = (monsters: MapMonsterInfo[]) => {
@@ -240,4 +244,25 @@ export const calculateTotalMeso: MesoCalculator = ({
   const totalExperienceWithRates = totalMeso * 8;
 
   return Math.floor(totalExperienceWithRates);
+};
+
+export const calculatePolloPlayTime: PolloPlayTimeCalculator = ({
+  monsterExperience,
+  numberOfMonster,
+  expMultiplier,
+  expValue,
+  expRateRatio,
+  time,
+}) => {
+  const remainingTime =
+    ((expValue * monsterExperience * expRateRatio) /
+      (monsterExperience *
+        expMultiplier *
+        numberOfMonster *
+        8 *
+        expRateRatio)) *
+      60 -
+    time;
+
+  return Math.ceil(remainingTime);
 };
