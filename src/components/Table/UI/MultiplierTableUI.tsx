@@ -25,7 +25,11 @@ const MultiplierTableUI = ({
     <Table
       size="small"
       aria-label="monster_multiplier"
-      sx={{ border: '1px solid #ddd' }}
+      sx={{
+        border: '1px solid #ddd',
+        th: { fontWeight: 500 },
+        td: { fontSize: 13 },
+      }}
     >
       <TableHead>
         <TableRow>
@@ -36,7 +40,20 @@ const MultiplierTableUI = ({
           <TableCell align="center">매획 메소</TableCell>
         </TableRow>
       </TableHead>
+
       <TableBody>
+        <TableRow sx={{ bgcolor: '#FFFFCC' }}>
+          <TableCell component="th" scope="row">
+            1젠
+          </TableCell>
+          <TableCell align="center">
+            {item.number_of_monster.toLocaleString()}
+          </TableCell>
+          <TableCell align="center">{formatNumber(expReward / 8)}</TableCell>
+          <TableCell align="center">{formatNumber(mesoReward / 8)}</TableCell>
+          <TableCell align="center">2</TableCell>
+        </TableRow>
+
         {timeOptions.map((row, index) => (
           <TableRow key={index} hover>
             <TableCell component="th" scope="row">
