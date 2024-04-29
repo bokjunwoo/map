@@ -19,7 +19,6 @@ import {
   minutesToMinutesAndSeconds,
 } from '../../../../utils/etc';
 import ListSubheaderUI from '../../../common/ListSubheaderUI';
-import NumberOfMonsterInput from '../../../TextField/NumberOfMonsterInput';
 
 type MapEventSkillCompareUIProps = {
   item: MapInfo;
@@ -91,7 +90,7 @@ const MapEventSkillCompareUI = ({
         title="이벤트 스킬 룬컨트롤 효율 비교"
         subtitle="룬(Lv.2) 시작시 1회 + 마릿수 대비 횟수로 계산된 수치입니다."
       />
-      <NumberOfMonsterInput item={item} text="1젠당 잡을 수 있는 마릿수" />
+
       <Box sx={{ mb: 1 }}>
         <Table
           size="small"
