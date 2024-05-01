@@ -33,7 +33,7 @@ const RateSelectUI = ({ option, value, handleChange }: RateSelectUIProps) => {
       />
 
       <FormControl fullWidth sx={{ ml: 1, height: 36 }} size="small">
-        <InputLabel id={option.key} sx={{ fontSize: 14 }}>
+        <InputLabel id={option.key} sx={{ fontSize: 13 }}>
           {option.label}
         </InputLabel>
         <Select
@@ -42,11 +42,11 @@ const RateSelectUI = ({ option, value, handleChange }: RateSelectUIProps) => {
           value={value}
           label={option.label}
           onChange={handleChange}
-          sx={{ fontSize: 14 }}
+          sx={{ fontSize: 13 }}
         >
           {option.values.map((v) => {
             return (
-              <MenuItem value={v.value} key={v.value} sx={{ fontSize: 14 }}>
+              <MenuItem value={v.value} key={v.value} sx={{ fontSize: 13 }}>
                 {v.label}
               </MenuItem>
             );

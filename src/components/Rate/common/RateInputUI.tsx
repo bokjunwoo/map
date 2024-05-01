@@ -40,7 +40,7 @@ const RateInputUI = ({ option, value, handleChange }: RateInputUIProps) => {
           InputProps={{
             endAdornment: <InputAdornment position="end">%</InputAdornment>,
           }}
-          InputLabelProps={{ sx: { fontSize: 14 } }}
+          InputLabelProps={{ sx: { fontSize: 13 } }}
           inputProps={{ sx: { height: 36, pt: 0, pb: 0 } }}
         />
       </FormControl>
