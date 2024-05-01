@@ -23,7 +23,12 @@ const RateInputUI = ({ option, value, handleChange }: RateInputUIProps) => {
         p: 1.5,
       }}
     >
-      <Avatar variant="rounded" sx={{ width: 36, height: 36 }} />
+      <Avatar
+        variant="rounded"
+        sx={{ width: 36, height: 36 }}
+        src={require(`../../../assets/rate_icon/${option.key}.png`)}
+        alt={option.key}
+      />
 
       <FormControl fullWidth sx={{ ml: 1 }} size="small">
         <TextField
