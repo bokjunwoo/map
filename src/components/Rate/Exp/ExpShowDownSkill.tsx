@@ -8,7 +8,7 @@ const ExpShowDownSkill = () => {
 
   const rateOption: RateSelectOption = {
     label: '쇼다운 챌린지(나로)',
-    key: 'exp_show_down_skill',
+    key: 'show_down_skill',
     values: [
       { value: 0, label: '미적용' },
       { value: 5, label: '기본 (+5%)' },

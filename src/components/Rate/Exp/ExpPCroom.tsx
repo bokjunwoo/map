@@ -8,7 +8,7 @@ const ExpPcRoom = () => {
 
   const rateOption: RateSelectOption = {
     label: '프리미엄 PC방',
-    key: 'exp_PC_room',
+    key: 'PC_room',
     values: [
       { value: 0, label: '미적용' },
       { value: 30, label: '적용 (+30%)' },

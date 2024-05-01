@@ -13,7 +13,7 @@ const ExpUnionArtifact = () => {
 
   const rateOption: RateInputOption = {
     label: '아티팩트(경험치)',
-    key: 'exp_union_artifact',
+    key: 'union_artifact',
   };
 
   return (

@@ -13,7 +13,7 @@ const ExpHolySymbol = () => {
 
   const rateOption: RateInputOption = {
     label: '쓸만한 홀리 심볼',
-    key: 'exp_holy_symbol',
+    key: 'holy_symbol',
   };
 
   return (
