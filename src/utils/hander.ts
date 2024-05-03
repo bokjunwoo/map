@@ -1,42 +1,59 @@
 import {
-  HandleValueChangeParams,
-  HandleValueInputChangeParams,
+  HandleRateInputChangeParams,
+  HandleRateSelectChangeParams,
 } from '../interface/hander';
+import { RateItem } from '../interface/rate';
 
-export const handleValueChange = ({
+export const handleRateSelectChange = ({
+  rateItem,
+  rateName,
   inputValue,
-  currentValue,
-  setExpRate,
+  setRate,
   setValue,
-}: HandleValueChangeParams): void => {
-  if (currentValue !== inputValue) {
-    setExpRate(
-      (prevExpIncrease) => prevExpIncrease - currentValue + inputValue
-    );
-    setValue(inputValue.toString());
+}: HandleRateSelectChangeParams): void => {
+  const existingIndex = rateItem.findIndex(
+    (item) => item.rateName === rateName
+  );
+
+  if (existingIndex !== -1) {
+    const updatedRate = [...rateItem];
+    updatedRate[existingIndex] = {
+      rateName,
+      value: Number(inputValue),
+    };
+    setRate(updatedRate);
+    setValue(inputValue);
+  } else {
+    setRate((prevState: RateItem[]) => [
+      ...prevState,
+      { rateName, value: Number(inputValue) },
+    ]);
+    setValue(inputValue);
   }
 };
 
-export const handleInputValueChange = ({
+export const handleRateInputChange = ({
+  rateItem,
+  rateName,
   inputValue,
-  currentValue,
   setValue,
-  setExpRate,
+  setRate,
   regex,
   maxAllowedValue,
-}: HandleValueInputChangeParams) => {
-  if (regex.test(inputValue.toString())) {
+}: HandleRateInputChangeParams) => {
+  if (regex.test(inputValue)) {
     let updatedValue = inputValue;
 
-    if (updatedValue > maxAllowedValue) {
-      updatedValue = maxAllowedValue;
+    if (Number(updatedValue) > maxAllowedValue) {
+      updatedValue = maxAllowedValue.toLocaleString();
     }
 
-    handleValueChange({
+    handleRateSelectChange({
+      rateItem,
+      rateName,
       inputValue: updatedValue,
-      currentValue: currentValue,
+      setRate,
       setValue,
-      setExpRate,
     });
   }
 };
