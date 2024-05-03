@@ -4,7 +4,10 @@ import { RateSelectOption } from '../../../interface/rate';
 import RateSelectUI from '../common/RateSelectUI';
 
 const ExpPcRoom = () => {
-  const { value, handleRateChange } = useRateSelect(expRateState);
+  const { value, handleRateChange } = useRateSelect({
+    state: expRateState,
+    rateName: 'PC_room',
+  });
 
   const rateOption: RateSelectOption = {
     label: '프리미엄 PC방',

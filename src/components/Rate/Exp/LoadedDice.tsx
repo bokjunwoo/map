@@ -4,7 +4,10 @@ import { RateSelectOption } from '../../../interface/rate';
 import RateSelectUI from '../common/RateSelectUI';
 
 const LoadedDice = () => {
-  const { value, handleRateChange } = useRateSelect(expRateState);
+  const { value, handleRateChange } = useRateSelect({
+    state: expRateState,
+    rateName: 'loaded_dice',
+  });
 
   const rateOption: RateSelectOption = {
     label: '로디드 다이스',

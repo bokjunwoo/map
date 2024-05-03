@@ -4,7 +4,10 @@ import { RateSelectOption } from '../../../interface/rate';
 import RateSelectUI from '../common/RateSelectUI';
 
 const ElvenBlessing = () => {
-  const { value, handleRateChange } = useRateSelect(expRateState);
+  const { value, handleRateChange } = useRateSelect({
+    state: expRateState,
+    rateName: 'elven_blessing',
+  });
 
   const rateOption: RateSelectOption = {
     label: '엘프의 축복',

@@ -6,9 +6,10 @@ import RateInputUI from '../common/RateInputUI';
 
 const ItemDropUnionArtifact = () => {
   const { value, handleRateChange } = useRateInput({
+    state: itemDropState,
+    rateName: 'union_artifact',
     regex: REGEX.NUMBER,
     maxAllowedValue: 12,
-    state: itemDropState,
   });
 
   const rateOption: RateInputOption = {

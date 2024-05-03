@@ -4,7 +4,10 @@ import { RateSelectOption } from '../../../interface/rate';
 import RateSelectUI from '../common/RateSelectUI';
 
 const ZeroUnion = () => {
-  const { value, handleRateChange } = useRateSelect(expRateState);
+  const { value, handleRateChange } = useRateSelect({
+    state: expRateState,
+    rateName: 'zero_union',
+  });
 
   const rateOption: RateSelectOption = {
     label: '제로 유니온 공격대원',

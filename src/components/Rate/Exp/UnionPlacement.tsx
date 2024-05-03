@@ -6,9 +6,10 @@ import RateInputUI from '../common/RateInputUI';
 
 const UnionPlacement = () => {
   const { value, handleRateChange } = useRateInput({
+    state: expRateState,
+    rateName: 'union_placement',
     regex: REGEX.NUMBER_AND_DOT,
     maxAllowedValue: 10,
-    state: expRateState,
   });
 
   const rateOption: RateInputOption = {

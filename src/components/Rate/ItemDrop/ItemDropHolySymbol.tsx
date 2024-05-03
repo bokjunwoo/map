@@ -6,9 +6,10 @@ import RateInputUI from '../common/RateInputUI';
 
 const ItemDropHolySymbol = () => {
   const { value, handleRateChange } = useRateInput({
+    state: itemDropState,
+    rateName: 'holy_symbol',
     regex: REGEX.NUMBER,
     maxAllowedValue: 30,
-    state: itemDropState,
   });
 
   const rateOption: RateInputOption = {

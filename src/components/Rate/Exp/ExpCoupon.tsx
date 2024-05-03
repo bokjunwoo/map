@@ -4,7 +4,10 @@ import { RateSelectOption } from '../../../interface/rate';
 import RateSelectUI from '../common/RateSelectUI';
 
 const ExpCoupon = () => {
-  const { value, handleRateChange } = useRateSelect(expRateState, '100');
+  const { value, handleRateChange } = useRateSelect({
+    state: expRateState,
+    rateName: 'exp_coupon',
+  });
 
   const rateOption: RateSelectOption = {
     label: '경험치 쿠폰',

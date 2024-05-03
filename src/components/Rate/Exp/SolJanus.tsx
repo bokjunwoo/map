@@ -6,9 +6,10 @@ import RateInputUI from '../common/RateInputUI';
 
 const SolJanus = () => {
   const { value, handleRateChange } = useRateInput({
+    state: expRateState,
+    rateName: 'sol_janus',
     regex: REGEX.NUMBER,
     maxAllowedValue: 100,
-    state: expRateState,
   });
 
   const rateOption: RateInputOption = {

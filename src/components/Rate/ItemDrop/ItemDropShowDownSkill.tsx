@@ -4,7 +4,10 @@ import { RateSelectOption } from '../../../interface/rate';
 import RateSelectUI from '../common/RateSelectUI';
 
 const ItemDropShowDownSkill = () => {
-  const { value, handleRateChange } = useRateSelect(itemDropState);
+  const { value, handleRateChange } = useRateSelect({
+    state: itemDropState,
+    rateName: 'show_down_skill',
+  });
 
   const rateOption: RateSelectOption = {
     label: '쇼다운 챌린지(나로)',

@@ -4,14 +4,17 @@ import { RateSelectOption } from '../../../interface/rate';
 import RateSelectUI from '../common/RateSelectUI';
 
 const ExtremeGoldPotion = () => {
-  const { value, handleRateChange } = useRateSelect(expRateState);
+  const { value, handleRateChange } = useRateSelect({
+    state: expRateState,
+    rateName: 'extreme_gold_potion',
+  });
 
   const rateOption: RateSelectOption = {
     label: '익스트림 골드(몬파)',
     key: 'extreme_gold_potion',
     values: [
       { value: 0, label: '미적용' },
-      { value: 10, label: '사용 (+10%)' },
+      { value: 10, label: '적용 (+10%)' },
     ],
   };
 

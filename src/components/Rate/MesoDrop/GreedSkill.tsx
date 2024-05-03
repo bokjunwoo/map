@@ -4,7 +4,10 @@ import { RateSelectOption } from '../../../interface/rate';
 import RateSelectUI from '../common/RateSelectUI';
 
 const GreedSkill = () => {
-  const { value, handleRateChange } = useRateSelect(mesoDropState);
+  const { value, handleRateChange } = useRateSelect({
+    state: mesoDropState,
+    rateName: 'greed_skill',
+  });
 
   const rateOption: RateSelectOption = {
     label: '그리드(섀도어)',

@@ -6,9 +6,10 @@ import RateInputUI from '../common/RateInputUI';
 
 const MesoDropUnionArtifact = () => {
   const { value, handleRateChange } = useRateInput({
+    state: mesoDropState,
+    rateName: 'union_artifact',
     regex: REGEX.NUMBER,
     maxAllowedValue: 12,
-    state: mesoDropState,
   });
 
   const rateOption: RateInputOption = {

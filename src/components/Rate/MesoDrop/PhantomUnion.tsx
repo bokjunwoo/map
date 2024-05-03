@@ -4,7 +4,10 @@ import { RateSelectOption } from '../../../interface/rate';
 import RateSelectUI from '../common/RateSelectUI';
 
 const PhantomUnion = () => {
-  const { value, handleRateChange } = useRateSelect(mesoDropState);
+  const { value, handleRateChange } = useRateSelect({
+    state: mesoDropState,
+    rateName: 'Phantom_union',
+  });
 
   const rateOption: RateSelectOption = {
     label: '팬텀 유니온',

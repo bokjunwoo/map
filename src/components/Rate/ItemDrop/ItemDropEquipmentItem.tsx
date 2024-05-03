@@ -6,9 +6,10 @@ import RateInputUI from '../common/RateInputUI';
 
 const ItemDropEquipmentItem = () => {
   const { value, handleRateChange } = useRateInput({
-    regex: REGEX.NUMBER,
-    maxAllowedValue: 200,
     state: itemDropState,
+    rateName: 'equipment_item',
+    regex: REGEX.NUMBER_AND_DOT,
+    maxAllowedValue: 200,
   });
 
   const rateOption: RateInputOption = {

@@ -6,9 +6,10 @@ import RateInputUI from '../common/RateInputUI';
 
 const MesoDropAbility = () => {
   const { value, handleRateChange } = useRateInput({
+    state: mesoDropState,
+    rateName: 'ability',
     regex: REGEX.NUMBER,
     maxAllowedValue: 20,
-    state: mesoDropState,
   });
 
   const rateOption: RateInputOption = {

@@ -4,10 +4,13 @@ import { RateSelectOption } from '../../../interface/rate';
 import RateSelectUI from '../common/RateSelectUI';
 
 const ExpEventSkill = () => {
-  const { value, handleRateChange } = useRateSelect(expRateState);
+  const { value, handleRateChange } = useRateSelect({
+    state: expRateState,
+    rateName: 'exp_event_skill',
+  });
 
   const rateOption: RateSelectOption = {
-    label: '이벤트 스킬(마약)',
+    label: '이벤트 버프(마약)',
     key: 'exp_event_skill',
     values: [
       { value: 0, label: '미적용' },
