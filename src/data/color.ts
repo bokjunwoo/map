@@ -19,3 +19,10 @@ export const symbolsColor: SymbolsColorType = {
   아르테리아: { bgColor: '#ebeded' },
   카르시온: { bgColor: '#f7f2f9' },
 };
+
+export const listRGB = {
+  blue: '64, 162,	227',
+  green: '99, 204, 99',
+  orange: '246, 167, 48',
+  purple: '117, 106, 182',
+};
