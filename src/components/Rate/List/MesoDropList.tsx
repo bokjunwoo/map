@@ -2,25 +2,24 @@ import { Box, Grid } from '@mui/material';
 import { listRGB } from '../../../data/color';
 import { RateList } from '../../../interface/rate';
 import EmptyRateUI from '../common/EmptyRateUI';
-import ItemDropAbility from '../ItemDrop/ItemDropAbility';
-import ItemDropEquipmentItem from '../ItemDrop/ItemDropEquipmentItem';
-import ItemDropEtc from '../ItemDrop/ItemDropEtc';
-import ItemDropHolySymbol from '../ItemDrop/ItemDropHolySymbol';
-import ItemDropPCRoom from '../ItemDrop/ItemDropPCRoom';
-import ItemDropShowDownSkill from '../ItemDrop/ItemDropShowDownSkill';
-import ItemDropUnionArtifact from '../ItemDrop/ItemDropUnionArtifact';
-import ItemDropWealthAcquisitionPotion from '../ItemDrop/ItemDropWealthAcquisitionPotion';
-import UnionLuckCoupon from '../ItemDrop/UnionLuckCoupon';
+import GreedSkill from '../MesoDrop/GreedSkill';
+import MesoDropAbility from '../MesoDrop/MesoDropAbility';
+import MesoDropEquipmentItem from '../MesoDrop/MesoDropEquipmentItem';
+import MesoDropEtc from '../MesoDrop/MesoDropEtc';
+import MesoDropUnionArtifact from '../MesoDrop/MesoDropUnionArtifact';
+import MesoDropWealthAcquisitionPotion from '../MesoDrop/MesoDropWealthAcquisitionPotion';
+import PhantomUnion from '../MesoDrop/PhantomUnion';
+import UnionWealthCoupon from '../MesoDrop/UnionWealthCoupon';
 import RateItemListUI from './UI/RateItemListUI';
 
-const ItemDropList = () => {
-  const itemDropList: RateList[] = [
+const MesoDropList = () => {
+  const mesoDropList: RateList[] = [
     {
       label: '버프 아이템',
       Components: [
-        UnionLuckCoupon,
-        ItemDropWealthAcquisitionPotion,
-        ItemDropPCRoom,
+        UnionWealthCoupon,
+        MesoDropWealthAcquisitionPotion,
+        EmptyRateUI,
         EmptyRateUI,
         EmptyRateUI,
         EmptyRateUI,
@@ -30,7 +29,7 @@ const ItemDropList = () => {
     {
       label: '착용 아이템',
       Components: [
-        ItemDropEquipmentItem,
+        MesoDropEquipmentItem,
         EmptyRateUI,
         EmptyRateUI,
         EmptyRateUI,
@@ -42,9 +41,9 @@ const ItemDropList = () => {
     {
       label: '유니온 / 스탯',
       Components: [
-        ItemDropUnionArtifact,
-        ItemDropAbility,
-        EmptyRateUI,
+        MesoDropUnionArtifact,
+        PhantomUnion,
+        MesoDropAbility,
         EmptyRateUI,
         EmptyRateUI,
         EmptyRateUI,
@@ -54,9 +53,9 @@ const ItemDropList = () => {
     {
       label: '스킬 관련 / 기타',
       Components: [
-        ItemDropHolySymbol,
-        ItemDropShowDownSkill,
-        ItemDropEtc,
+        GreedSkill,
+        MesoDropEtc,
+        EmptyRateUI,
         EmptyRateUI,
         EmptyRateUI,
         EmptyRateUI,
@@ -67,7 +66,7 @@ const ItemDropList = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        {itemDropList.map((item, index) => (
+        {mesoDropList.map((item, index) => (
           <Grid item xs={12} md={3} key={index}>
             <RateItemListUI item={item} />
           </Grid>
@@ -77,4 +76,4 @@ const ItemDropList = () => {
   );
 };
 
-export default ItemDropList;
+export default MesoDropList;
