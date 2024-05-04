@@ -1,7 +1,9 @@
 import { SelectChangeEvent } from '@mui/material';
-import { useState } from 'react';
-import { useSetRecoilState } from 'recoil';
-import { burningFieldState } from '../../atoms/burningFieldState';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import {
+  burningFieldState,
+  getburningFieldValue,
+} from '../../atoms/burningFieldState';
 import { HeadCell } from '../../interface/headCell';
 import { MapInfo } from '../../interface/map';
 import MapCellContentUI from './UI/MapCellContentUI';
@@ -12,25 +14,15 @@ interface MapCellContentProps {
 }
 
 const MapCellContent = ({ headCell, item }: MapCellContentProps) => {
+  const burningField = useRecoilValue(getburningFieldValue(item.map_name));
   const setBurningField = useSetRecoilState(burningFieldState);
-
-  const [selectedValue, setSelectedValue] = useState(item.burning_field);
 
   const selectOptions: SelectOptions = {
     label: '버닝',
-    values: [
-      { value: 0, label: '0' },
-      { value: 10, label: '1' },
-      { value: 20, label: '2' },
-      { value: 30, label: '3' },
-      { value: 40, label: '4' },
-      { value: 50, label: '5' },
-      { value: 60, label: '6' },
-      { value: 70, label: '7' },
-      { value: 80, label: '8' },
-      { value: 90, label: '9' },
-      { value: 100, label: '10' },
-    ],
+    values: Array.from({ length: 11 }, (_, index) => ({
+      value: index * 10,
+      label: String(index),
+    })),
   };
 
   const handleChange = (event: SelectChangeEvent<number>) => {
@@ -52,14 +44,13 @@ const MapCellContent = ({ headCell, item }: MapCellContentProps) => {
         ];
       }
     });
-    setSelectedValue(targetValue);
   };
 
   return (
     <MapCellContentUI
       headCell={headCell}
       item={item}
-      selectedValue={selectedValue}
+      selectedValue={burningField}
       handleChange={handleChange}
       selectOptions={selectOptions}
     />
