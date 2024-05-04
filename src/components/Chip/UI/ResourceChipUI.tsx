@@ -1,7 +1,7 @@
 import { Stack } from '@mui/material';
-import IconChipUI from './UI/IconChipUI';
+import IconChipUI from './IconChipUI';
 
-const ResourceChip = ({
+const ResourceChipUI = ({
   resourceList,
 }: {
   resourceList: ResourceListOption;
@@ -12,7 +12,8 @@ const ResourceChip = ({
         <IconChipUI
           key={resource.iconName}
           iconName={resource.iconName}
-          label={resource.label}
+          value={resource.value}
+          text={resource.text}
           bgcolor={resource.color}
         />
       ))}
@@ -20,4 +21,4 @@ const ResourceChip = ({
   );
 };
 
-export default ResourceChip;
+export default ResourceChipUI;

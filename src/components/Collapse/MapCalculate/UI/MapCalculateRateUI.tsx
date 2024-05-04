@@ -1,5 +1,5 @@
 import { ListItem, Box } from '@mui/material';
-import ResourceChip from '../../../Chip/ResourceChip';
+import ResourceChipUI from '../../../Chip/UI/ResourceChipUI';
 import ListSubheaderUI from '../../../common/ListSubheaderUI';
 
 const MapCalculateRateUI = ({
@@ -12,7 +12,7 @@ const MapCalculateRateUI = ({
       <ListSubheaderUI title="적용된 스탯" />
 
       <Box sx={{ mb: 1 }}>
-        <ResourceChip resourceList={resourceList} />
+        <ResourceChipUI resourceList={resourceList} />
       </Box>
     </ListItem>
   );

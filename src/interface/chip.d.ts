@@ -1,5 +1,6 @@
 type ResourceListOption = {
   iconName: string;
-  label: number;
+  value: number;
+  text: string;
   color: string;
 }[];
