@@ -21,6 +21,7 @@ export const symbolsColor: SymbolsColorType = {
 };
 
 export const listRGB = {
+  red: '255, 150, 138',
   blue: '64, 162,	227',
   green: '99, 204, 99',
   orange: '246, 167, 48',
