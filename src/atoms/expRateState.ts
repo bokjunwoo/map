@@ -21,6 +21,6 @@ export const totalExpSelector = selector({
   key: 'totalExpSelector',
   get: ({ get }) => {
     const rates = get(expRateState);
-    return rates.reduce((total, rate) => total + rate.value, 0);
+    return rates.reduce((total, rate) => total + rate.value, 100);
   },
 });
