@@ -25,6 +25,7 @@ const TableSortHeadUI = ({
           <TableCell
             key={headCell.id}
             sortDirection={orderBy === headCell.id ? order : false}
+            sx={{ pr: 0, pl: 0 }}
           >
             {headCell.disable_sorting ? (
               headCell.label

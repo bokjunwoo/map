@@ -26,12 +26,14 @@ const ImageChipUI = ({ value, isSelected, onToggle }: ImageChipProps) => {
             ml: -0.3,
           },
           fontSize: 14,
+          fontWeight: 500,
           height: '36.5px',
           ':hover': {
-            outline: '1px solid rgba(51,102,255, 0.3)',
+            outline: '1px solid rgba(51, 102, 255, 0.3)',
             bgcolor: backgroundColor,
             height: '36.5px',
           },
+          borderRadius: 3,
         }}
         avatar={
           <Avatar

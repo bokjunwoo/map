@@ -23,7 +23,7 @@ const MapTable = ({
   const [orderBy, setOrderBy] = useState<keyof HeadCellInfo>('map_name');
 
   return (
-    <TableContainer component={Paper} sx={{ minWidth: 1100 }}>
+    <TableContainer component={Paper}>
       <Table>
         <MapSortHead
           storedValue={storedValue}

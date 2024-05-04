@@ -40,15 +40,14 @@ const MapMonsterInfoUI = ({ monster }: { monster: MapMonsterInfo }) => {
               }
               label={monster.name}
               variant="outlined"
-              sx={{ border: 'none', p: 0, fontSize: 16, fontWeight: 500 }}
+              sx={{ border: 'none', p: 0, fontSize: 16, fontWeight: 'bold' }}
             />
           }
         />
       </ListItem>
 
       <DividerChipUI label="기본 몬스터 스탯" />
-
-      <ListItem dense>
+      <ListItem>
         <ListItemText
           primary={
             <>
@@ -70,7 +69,6 @@ const MapMonsterInfoUI = ({ monster }: { monster: MapMonsterInfo }) => {
       </ListItem>
 
       <DividerChipUI label="내 배율에 따른 몬스터 스탯" />
-
       <ListItem>
         <ListItemText
           primary={
@@ -93,8 +91,7 @@ const MapMonsterInfoUI = ({ monster }: { monster: MapMonsterInfo }) => {
       </ListItem>
 
       <DividerChipUI label="자세한 정보" />
-
-      <ListItem dense>
+      <ListItem>
         <ListItemText
           primary={
             <>

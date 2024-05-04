@@ -33,7 +33,7 @@ const MapDataRow = ({ item, storedValue }: MapDataRowProps) => {
         </TableCell>
 
         {headCells.map((headCell) => (
-          <TableCell key={headCell.id}>
+          <TableCell key={headCell.id} sx={{ p: 0 }}>
             <MapCellContent item={item} headCell={headCell} />
           </TableCell>
         ))}

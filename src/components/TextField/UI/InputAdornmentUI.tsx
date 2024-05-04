@@ -26,8 +26,8 @@ const InputAdornmentUI = ({
         component="span"
         sx={{
           pl: 1,
-          pr: 2,
           height: 30,
+          width: 250,
           display: 'flex',
           alignItems: 'center',
           fontSize: 13,
