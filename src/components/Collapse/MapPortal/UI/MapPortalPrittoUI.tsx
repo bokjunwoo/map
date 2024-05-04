@@ -7,17 +7,17 @@ import {
   TableRow,
 } from '@mui/material';
 import { useRecoilValue } from 'recoil';
-import { totalExpSelector } from '../../../atoms/expRateState';
-import { numberOfMonsterState } from '../../../atoms/numberOfMonsterState';
-import { PORTAL_INITIAL_TIME } from '../../../constants/constants';
-import useSelectState from '../../../hooks/useSelectState';
-import useUpDownButton from '../../../hooks/useUpDownButton';
-import { calculatePrittoPlayTime } from '../../../utils/calculate';
-import { getTimePrittoColor } from '../../../utils/color';
-import { formatNumber } from '../../../utils/etc';
-import ListSubheaderUI from '../../common/ListSubheaderUI';
-import SelectedPrittoGameOptionUI from '../../common/SelectedPrittoGameOptionUI';
-import UpDownButtonUI from '../../common/UpDownButtonUI';
+import { totalExpSelector } from '../../../../atoms/expRateState';
+import { numberOfMonsterState } from '../../../../atoms/numberOfMonsterState';
+import { PORTAL_INITIAL_TIME } from '../../../../constants/constants';
+import useSelectState from '../../../../hooks/useSelectState';
+import useUpDownButton from '../../../../hooks/useUpDownButton';
+import { calculatePrittoPlayTime } from '../../../../utils/calculate';
+import { getTimePrittoColor } from '../../../../utils/color';
+import { formatNumber } from '../../../../utils/etc';
+import ListSubheaderUI from '../../../common/ListSubheaderUI';
+import SelectedPrittoGameOptionUI from '../../../common/SelectedPrittoGameOptionUI';
+import UpDownButtonUI from '../../../common/UpDownButtonUI';
 
 type MapPortalPrittoUIProps = {
   monsterExperience: number;

@@ -3,10 +3,10 @@ import { useLevelState } from '../../contexts/LevelStateProvider';
 import { MapInfo } from '../../interface/map';
 import { calculateIndividualExperienceMultiplier } from '../../utils/calculate';
 import ListHeaderUI from '../common/ListHeaderUI';
-import MapCalculateRate from './MapCalculate/MapCalculateRate';
-import MapPortalPolloUI from './MapPortal/MapPortalPolloUI';
-import MapPortalPrittoUI from './MapPortal/MapPortalPrittoUI';
-import MapPortalWolfAndTotemUI from './MapPortal/MapPortalWolfAndTotemUI';
+import MapPortalRate from './MapPortal/MapPortalRate';
+import MapPortalPolloUI from './MapPortal/UI/MapPortalPolloUI';
+import MapPortalPrittoUI from './MapPortal/UI/MapPortalPrittoUI';
+import MapPortalWolfAndTotemUI from './MapPortal/UI/MapPortalWolfAndTotemUI';
 
 type MapPortalProps = {
   item: MapInfo;
@@ -37,7 +37,7 @@ const MapPortal = ({ item }: MapPortalProps) => {
       />
 
       <Divider variant="middle" />
-      <MapCalculateRate burningField={item.burning_field} />
+      <MapPortalRate burningField={item.burning_field} />
 
       <Divider variant="middle" />
       <MapPortalPolloUI

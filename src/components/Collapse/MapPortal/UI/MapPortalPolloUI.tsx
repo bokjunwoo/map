@@ -7,18 +7,18 @@ import {
   TableRow,
 } from '@mui/material';
 import { useRecoilValue } from 'recoil';
-import { totalExpSelector } from '../../../atoms/expRateState';
-import { numberOfMonsterState } from '../../../atoms/numberOfMonsterState';
+import { totalExpSelector } from '../../../../atoms/expRateState';
+import { numberOfMonsterState } from '../../../../atoms/numberOfMonsterState';
 import {
   PORTAL_EXP_VALUE,
   PORTAL_INITIAL_TIME,
-} from '../../../constants/constants';
-import useUpDownButton from '../../../hooks/useUpDownButton';
-import { calculatePolloPlayTime } from '../../../utils/calculate';
-import { getTimePolloColor } from '../../../utils/color';
-import { formatNumber, formatTime } from '../../../utils/etc';
-import ListSubheaderUI from '../../common/ListSubheaderUI';
-import UpDownButtonUI from '../../common/UpDownButtonUI';
+} from '../../../../constants/constants';
+import useUpDownButton from '../../../../hooks/useUpDownButton';
+import { calculatePolloPlayTime } from '../../../../utils/calculate';
+import { getTimePolloColor } from '../../../../utils/color';
+import { formatNumber, formatTime } from '../../../../utils/etc';
+import ListSubheaderUI from '../../../common/ListSubheaderUI';
+import UpDownButtonUI from '../../../common/UpDownButtonUI';
 
 type MapPortalPolloUIProps = {
   monsterExperience: number;

@@ -7,27 +7,27 @@ import {
   TableRow,
 } from '@mui/material';
 import { useRecoilValue } from 'recoil';
-import { totalExpSelector } from '../../../atoms/expRateState';
-import { numberOfMonsterState } from '../../../atoms/numberOfMonsterState';
+import { totalExpSelector } from '../../../../atoms/expRateState';
+import { numberOfMonsterState } from '../../../../atoms/numberOfMonsterState';
 import {
   PORTAL_EXP_VALUE,
   PORTAL_INITIAL_TIME,
-} from '../../../constants/constants';
-import { useLevelState } from '../../../contexts/LevelStateProvider';
-import useSelectState from '../../../hooks/useSelectState';
-import useUpDownButton from '../../../hooks/useUpDownButton';
+} from '../../../../constants/constants';
+import { useLevelState } from '../../../../contexts/LevelStateProvider';
+import useSelectState from '../../../../hooks/useSelectState';
+import useUpDownButton from '../../../../hooks/useUpDownButton';
 import {
   calculatePolloPlayTime,
   calculatePrittoPlayTime,
-} from '../../../utils/calculate';
+} from '../../../../utils/calculate';
 import {
   getTimePolloColor,
   getTimeInfernoWolfColor,
-} from '../../../utils/color';
-import { formatNumber, formatTime } from '../../../utils/etc';
-import ListSubheaderUI from '../../common/ListSubheaderUI';
-import SelectedPrittoGameOptionUI from '../../common/SelectedPrittoGameOptionUI';
-import UpDownButtonUI from '../../common/UpDownButtonUI';
+} from '../../../../utils/color';
+import { formatNumber, formatTime } from '../../../../utils/etc';
+import ListSubheaderUI from '../../../common/ListSubheaderUI';
+import SelectedPrittoGameOptionUI from '../../../common/SelectedPrittoGameOptionUI';
+import UpDownButtonUI from '../../../common/UpDownButtonUI';
 
 type MapPortalWolfAndTotemUIProps = {
   monsterExperience: number;
