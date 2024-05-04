@@ -1,6 +1,6 @@
 import { useRecoilValue } from 'recoil';
+import { totalExpSelector } from '../../../atoms/expRateState';
 import { numberOfMonsterState } from '../../../atoms/numberOfMonsterState';
-import { useExpRateValue } from '../../../contexts/ExpRateStateProvider';
 import { useLevelState } from '../../../contexts/LevelStateProvider';
 import { MapInfo } from '../../../interface/map';
 import {
@@ -10,7 +10,7 @@ import {
 import MapCalculateTableUI from './UI/MapCalculateTableUI';
 
 const MapCalculateTable = ({ item }: { item: MapInfo }) => {
-  const expRate = useExpRateValue();
+  const expRate = useRecoilValue(totalExpSelector);
   const { level: playerLevel } = useLevelState();
 
   const numberOfMonster = useRecoilValue(numberOfMonsterState(item.map_name));

@@ -7,9 +7,9 @@ import {
   TableRow,
 } from '@mui/material';
 import { useRecoilValue } from 'recoil';
+import { totalExpSelector } from '../../../atoms/expRateState';
 import { numberOfMonsterState } from '../../../atoms/numberOfMonsterState';
 import { PORTAL_INITIAL_TIME } from '../../../constants/constants';
-import { useExpRateValue } from '../../../contexts/ExpRateStateProvider';
 import useSelectState from '../../../hooks/useSelectState';
 import useUpDownButton from '../../../hooks/useUpDownButton';
 import { calculatePrittoPlayTime } from '../../../utils/calculate';
@@ -30,7 +30,7 @@ const MapPortalPrittoUI = ({
   expMultiplier,
   mapName,
 }: MapPortalPrittoUIProps) => {
-  const expRate = useExpRateValue();
+  const expRate = useRecoilValue(totalExpSelector);
 
   const expRateRatio = expRate / 100;
 

@@ -8,9 +8,9 @@ import {
   TableBody,
 } from '@mui/material';
 import { useRecoilValue } from 'recoil';
+import { totalExpSelector } from '../../../../atoms/expRateState';
 import { numberOfMonsterState } from '../../../../atoms/numberOfMonsterState';
 import { EVENT_SKILL } from '../../../../constants/constants';
-import { useExpRateValue } from '../../../../contexts/ExpRateStateProvider';
 import { MapInfo } from '../../../../interface/map';
 import {
   convertToFirstDecimal,
@@ -29,7 +29,7 @@ const MapEventSkillCompareUI = ({
   item,
   monsterExperience,
 }: MapEventSkillCompareUIProps) => {
-  const expRate = useExpRateValue();
+  const expRate = useRecoilValue(totalExpSelector);
   const numberOfMonster = useRecoilValue(numberOfMonsterState(item.map_name));
 
   const totalMonsterExperience =

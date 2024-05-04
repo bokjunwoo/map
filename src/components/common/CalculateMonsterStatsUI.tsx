@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material';
-import { useExpRateValue } from '../../contexts/ExpRateStateProvider';
+import { useRecoilValue } from 'recoil';
+import { totalExpSelector } from '../../atoms/expRateState';
 import { useLevelState } from '../../contexts/LevelStateProvider';
 import { MapMonsterInfo } from '../../interface/map';
 import {
@@ -16,7 +17,7 @@ const CalculateMonsterStatsUI = ({
   monster,
   burningField,
 }: CalculateMonsterStatsUIProps) => {
-  const expRate = useExpRateValue();
+  const expRate = useRecoilValue(totalExpSelector);
   const { level: playerLevel } = useLevelState();
 
   const expMultiplier = calculateIndividualExperienceMultiplier(

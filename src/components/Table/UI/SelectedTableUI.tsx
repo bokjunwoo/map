@@ -7,7 +7,8 @@ import {
   SelectChangeEvent,
   Typography,
 } from '@mui/material';
-import { useExpRateValue } from '../../../contexts/ExpRateStateProvider';
+import { useRecoilValue } from 'recoil';
+import { totalExpSelector } from '../../../atoms/expRateState';
 import { formatNumber } from '../../../utils/etc';
 import SelectedBoosterUI from '../../common/SelectedBoosterUI';
 
@@ -44,7 +45,7 @@ const SelectedTableUI = ({
   burningField,
   killMonsterCount,
 }: SelectedTableUIProps) => {
-  const expRate = useExpRateValue();
+  const expRate = useRecoilValue(totalExpSelector);
 
   const calculateRuneExpReward = (rune: number) => {
     return (

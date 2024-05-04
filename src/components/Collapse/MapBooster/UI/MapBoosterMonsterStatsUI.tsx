@@ -1,5 +1,6 @@
 import { ListItem, ListItemText } from '@mui/material';
-import { useExpRateValue } from '../../../../contexts/ExpRateStateProvider';
+import { useRecoilValue } from 'recoil';
+import { totalExpSelector } from '../../../../atoms/expRateState';
 import { MapMonsterInfo } from '../../../../interface/map';
 import ListSubheaderUI from '../../../common/ListSubheaderUI';
 import TextAmountUI from '../../../common/TextAmountUI';
@@ -15,7 +16,7 @@ const MapBoosterMonsterStatsUI = ({
   burningField,
   runeValue,
 }: MapBoosterMonsterStatsUIProps) => {
-  const expRate = useExpRateValue();
+  const expRate = useRecoilValue(totalExpSelector);
 
   const totalExpRate = expRate + burningField + runeValue;
 

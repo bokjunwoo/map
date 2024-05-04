@@ -1,9 +1,9 @@
 import { TableBody } from '@mui/material';
 import { useRecoilValue } from 'recoil';
 import { burningFieldState } from '../../atoms/burningFieldState';
+import { totalExpSelector } from '../../atoms/expRateState';
 import { getSelectedMapData } from '../../atoms/mapDataState';
 import { regionListState } from '../../atoms/regionListState';
-import { useExpRateValue } from '../../contexts/ExpRateStateProvider';
 import { useLevelState } from '../../contexts/LevelStateProvider';
 import { MapInfo } from '../../interface/map';
 import {
@@ -26,7 +26,7 @@ type TimeMap = {
 };
 
 const MapSortBody = ({ storedValue, order, orderBy }: MapSortBodyProps) => {
-  const expRate = useExpRateValue();
+  const expRate = useRecoilValue(totalExpSelector);
   const { level: playerLevel } = useLevelState();
 
   const regionList = useRecoilValue(regionListState);

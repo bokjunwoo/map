@@ -9,7 +9,8 @@ import {
   Avatar,
 } from '@mui/material';
 import { ChangeEvent } from 'react';
-import { useExpRateValue } from '../../../../contexts/ExpRateStateProvider';
+import { useRecoilValue } from 'recoil';
+import { totalExpSelector } from '../../../../atoms/expRateState';
 import {
   formatNumber,
   minutesToMinutesAndSeconds,
@@ -38,7 +39,7 @@ const MapBoosterCompareUI = ({
   accumulationPotionPrice,
   handleAccumulationPotionPriceChange,
 }: MapBoosterCompareUIProps) => {
-  const expRate = useExpRateValue();
+  const expRate = useRecoilValue(totalExpSelector);
 
   const runeEfficiency = runeValue === 100 ? 30 : 60;
 
@@ -109,7 +110,7 @@ const MapBoosterCompareUI = ({
                 >
                   <Avatar
                     variant="rounded"
-                    src={require('../../../../assets/exp_icon/accumulation_potion.png')}
+                    src={require('../../../../assets/rate_icon/accumulation_potion.png')}
                   />
                 </Box>
               </TableCell>
