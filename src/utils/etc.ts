@@ -101,3 +101,14 @@ export const convertToSeconds = (firstDecimal: number) => {
       return 0;
   }
 };
+
+export const formatTime = (totalSeconds: number) => {
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+
+  if (minutes === 0) {
+    return `${seconds}초`;
+  } else {
+    return `${minutes}분 ${seconds}초`;
+  }
+};
