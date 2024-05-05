@@ -13,12 +13,6 @@ const MapPortalRate = ({ burningField }: { burningField: number }) => {
       text: '경험치 획득량',
       color: `rgba(${listRGB.blue}, 0.3)`,
     },
-    {
-      iconName: 'burning',
-      value: burningField,
-      text: '버닝필드',
-      color: `rgba(${listRGB.red}, 0.6)`,
-    },
   ];
 
   return <MapPortalRateUI resourceList={resourceList} />;
