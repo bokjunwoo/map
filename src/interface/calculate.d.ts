@@ -3,7 +3,7 @@ import { MapMonsterInfo } from './map';
 interface CalculateTotalExperienceParams {
   monsters: MapMonsterInfo[];
   expRate: number;
-  playerLevel: number;
+  userLevel: number;
   burningField: number;
 }
 
@@ -13,7 +13,7 @@ interface ExperienceCalculator {
 
 interface CalculateTotalMesoParams {
   monsters: MapMonsterInfo[];
-  playerLevel: number;
+  userLevel: number;
 }
 
 interface MesoCalculator {

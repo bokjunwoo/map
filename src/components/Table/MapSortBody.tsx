@@ -4,7 +4,7 @@ import { burningFieldState } from '../../atoms/burningFieldState';
 import { totalExpSelector } from '../../atoms/expRateState';
 import { getSelectedMapData } from '../../atoms/mapDataState';
 import { regionListState } from '../../atoms/regionListState';
-import { useLevelState } from '../../contexts/LevelStateProvider';
+import { userLevelState } from '../../atoms/userLevelState';
 import { MapInfo } from '../../interface/map';
 import {
   calculateSumOfMonsters,
@@ -27,7 +27,7 @@ type TimeMap = {
 
 const MapSortBody = ({ storedValue, order, orderBy }: MapSortBodyProps) => {
   const expRate = useRecoilValue(totalExpSelector);
-  const { level: playerLevel } = useLevelState();
+  const userLevel = useRecoilValue(userLevelState);
 
   const regionList = useRecoilValue(regionListState);
   const selectedMapData = useRecoilValue(getSelectedMapData(regionList));
@@ -61,12 +61,12 @@ const MapSortBody = ({ storedValue, order, orderBy }: MapSortBodyProps) => {
           monsters: item.monsters,
           burningField: burningFieldValue,
           expRate,
-          playerLevel,
+          userLevel,
         }) * time,
       max_meso_per_monster:
         calculateTotalMeso({
           monsters: item.monsters,
-          playerLevel,
+          userLevel,
         }) * time,
     };
   });

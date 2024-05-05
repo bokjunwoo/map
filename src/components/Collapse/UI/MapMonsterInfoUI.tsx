@@ -1,5 +1,6 @@
 import { Avatar, Chip, List, ListItem, ListItemText } from '@mui/material';
-import { useLevelState } from '../../../contexts/LevelStateProvider';
+import { useRecoilValue } from 'recoil';
+import { userLevelState } from '../../../atoms/userLevelState';
 import { MapMonsterInfo } from '../../../interface/map';
 import {
   calculateIndividualExperienceMultiplier,
@@ -9,16 +10,13 @@ import DividerChipUI from '../../common/DividerChipUI';
 import TextAndAmountLocaleStringUI from '../../common/TextAndAmountLocaleStringUI';
 
 const MapMonsterInfoUI = ({ monster }: { monster: MapMonsterInfo }) => {
-  const { level: playerLevel } = useLevelState();
+  const userLevel = useRecoilValue(userLevelState);
 
   const expMultiplier = calculateIndividualExperienceMultiplier(
-    playerLevel,
+    userLevel,
     monster
   );
-  const mesoMultiplier = calculateIndividualMesoMultiplier(
-    playerLevel,
-    monster
-  );
+  const mesoMultiplier = calculateIndividualMesoMultiplier(userLevel, monster);
 
   return (
     <List
@@ -97,7 +95,7 @@ const MapMonsterInfoUI = ({ monster }: { monster: MapMonsterInfo }) => {
             <>
               <TextAndAmountLocaleStringUI
                 text="몬스터와의 레벨 차이(캐릭터레벨 - 몬스터레벨):"
-                amount={playerLevel - monster.level}
+                amount={userLevel - monster.level}
               />
               <TextAndAmountLocaleStringUI
                 text="레벨차이에 따른 경험치 배율:"

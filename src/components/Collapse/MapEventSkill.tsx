@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { useLevelState } from '../../contexts/LevelStateProvider';
+import { useRecoilValue } from 'recoil';
+import { userLevelState } from '../../atoms/userLevelState';
 import { MapInfo } from '../../interface/map';
 import { calculateIndividualExperienceMultiplier } from '../../utils/calculate';
 import MapEventSkillUI from './UI/MapEventSkillUI';
 
 const MapEventSkill = ({ item }: { item: MapInfo }) => {
-  const { level: playerLevel } = useLevelState();
+  const userLevel = useRecoilValue(userLevelState);
 
   const [selectedRuneValue, setSelectedRuneValue] = useState(0);
 
@@ -14,7 +15,7 @@ const MapEventSkill = ({ item }: { item: MapInfo }) => {
   });
 
   const expMultiplier = calculateIndividualExperienceMultiplier(
-    playerLevel,
+    userLevel,
     highestLevelMonster
   );
 

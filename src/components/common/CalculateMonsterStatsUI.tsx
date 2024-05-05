@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import { useRecoilValue } from 'recoil';
 import { totalExpSelector } from '../../atoms/expRateState';
-import { useLevelState } from '../../contexts/LevelStateProvider';
+import { userLevelState } from '../../atoms/userLevelState';
 import { MapMonsterInfo } from '../../interface/map';
 import {
   calculateIndividualExperienceMultiplier,
@@ -18,16 +18,13 @@ const CalculateMonsterStatsUI = ({
   burningField,
 }: CalculateMonsterStatsUIProps) => {
   const expRate = useRecoilValue(totalExpSelector);
-  const { level: playerLevel } = useLevelState();
+  const userLevel = useRecoilValue(userLevelState);
 
   const expMultiplier = calculateIndividualExperienceMultiplier(
-    playerLevel,
+    userLevel,
     monster
   );
-  const mesoMultiplier = calculateIndividualMesoMultiplier(
-    playerLevel,
-    monster
-  );
+  const mesoMultiplier = calculateIndividualMesoMultiplier(userLevel, monster);
 
   const expCalculate = Math.floor(
     expMultiplier * monster.experience * ((burningField + expRate) / 100)

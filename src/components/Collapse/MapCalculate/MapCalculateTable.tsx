@@ -1,7 +1,7 @@
 import { useRecoilValue } from 'recoil';
 import { totalExpSelector } from '../../../atoms/expRateState';
 import { numberOfMonsterState } from '../../../atoms/numberOfMonsterState';
-import { useLevelState } from '../../../contexts/LevelStateProvider';
+import { userLevelState } from '../../../atoms/userLevelState';
 import { MapInfo } from '../../../interface/map';
 import {
   calculateTotalExperience,
@@ -11,7 +11,7 @@ import MapCalculateTableUI from './UI/MapCalculateTableUI';
 
 const MapCalculateTable = ({ item }: { item: MapInfo }) => {
   const expRate = useRecoilValue(totalExpSelector);
-  const { level: playerLevel } = useLevelState();
+  const userLevel = useRecoilValue(userLevelState);
 
   const numberOfMonster = useRecoilValue(numberOfMonsterState(item.map_name));
 
@@ -24,13 +24,13 @@ const MapCalculateTable = ({ item }: { item: MapInfo }) => {
       monsters: item.monsters,
       burningField: item.burning_field,
       expRate,
-      playerLevel,
+      userLevel,
     }) * ratio;
 
   const mesoReward =
     calculateTotalMeso({
       monsters: item.monsters,
-      playerLevel,
+      userLevel,
     }) * ratio;
 
   return (

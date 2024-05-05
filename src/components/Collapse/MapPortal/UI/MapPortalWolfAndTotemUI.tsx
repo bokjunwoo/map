@@ -9,11 +9,11 @@ import {
 import { useRecoilValue } from 'recoil';
 import { totalExpSelector } from '../../../../atoms/expRateState';
 import { numberOfMonsterState } from '../../../../atoms/numberOfMonsterState';
+import { userLevelState } from '../../../../atoms/userLevelState';
 import {
   PORTAL_EXP_VALUE,
   PORTAL_INITIAL_TIME,
 } from '../../../../constants/constants';
-import { useLevelState } from '../../../../contexts/LevelStateProvider';
 import useSelectState from '../../../../hooks/useSelectState';
 import useUpDownButton from '../../../../hooks/useUpDownButton';
 import {
@@ -41,11 +41,11 @@ const MapPortalWolfAndTotemUI = ({
   mapName,
 }: MapPortalWolfAndTotemUIProps) => {
   const expRate = useRecoilValue(totalExpSelector);
-  const { level: playerLevel } = useLevelState();
+  const userLevel = useRecoilValue(userLevelState);
   const numberOfMonster = useRecoilValue(numberOfMonsterState(mapName));
 
   const expRateRatio = expRate / 100;
-  const wolfMode = playerLevel >= 260 ? '익스트림' : '카오스';
+  const wolfMode = userLevel >= 260 ? '익스트림' : '카오스';
 
   const [infernoWolfExtremeValue, handleInfernoWolfExtremeChange] =
     useSelectState(1600);

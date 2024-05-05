@@ -1,5 +1,6 @@
 import { Divider, List } from '@mui/material';
-import { useLevelState } from '../../contexts/LevelStateProvider';
+import { useRecoilValue } from 'recoil';
+import { userLevelState } from '../../atoms/userLevelState';
 import { MapInfo } from '../../interface/map';
 import { calculateIndividualExperienceMultiplier } from '../../utils/calculate';
 import ListHeaderUI from '../common/ListHeaderUI';
@@ -13,14 +14,14 @@ type MapPortalProps = {
 };
 
 const MapPortal = ({ item }: MapPortalProps) => {
-  const { level: playerLevel } = useLevelState();
+  const userLevel = useRecoilValue(userLevelState);
 
   const highestLevelMonster = item.monsters.reduce((prev, curr) => {
     return prev.level > curr.level ? prev : curr;
   });
 
   const expMultiplier = calculateIndividualExperienceMultiplier(
-    playerLevel,
+    userLevel,
     highestLevelMonster
   );
 

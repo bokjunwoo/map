@@ -90,9 +90,9 @@ export const calculateTotalExperience: ExperienceCalculator = ({
   monsters,
   burningField,
   expRate,
-  playerLevel,
+  userLevel,
 }) => {
-  const multipliers = calculateExperienceMultiplier(playerLevel, monsters);
+  const multipliers = calculateExperienceMultiplier(userLevel, monsters);
 
   const scaledExperiences: number[] = monsters.map(
     (monster, index) => monster.experience * multipliers[index]
@@ -126,10 +126,10 @@ export const calculateMesoMultiplier = (
 };
 
 export const calculateIndividualMesoMultiplier = (
-  playerLevel: number,
+  userLevel: number,
   monster: MapMonsterInfo
 ): number => {
-  const levelDifference = playerLevel - monster.level;
+  const levelDifference = userLevel - monster.level;
 
   let multiplier: number;
 
@@ -228,11 +228,8 @@ export const calculateIndividualMesoMultiplier = (
   return 1 - multiplier;
 };
 
-export const calculateTotalMeso: MesoCalculator = ({
-  monsters,
-  playerLevel,
-}) => {
-  const multipliers = calculateMesoMultiplier(playerLevel, monsters);
+export const calculateTotalMeso: MesoCalculator = ({ monsters, userLevel }) => {
+  const multipliers = calculateMesoMultiplier(userLevel, monsters);
 
   const scaledMeso: number[] = monsters.map(
     (monster, index) => monster.meso * multipliers[index]

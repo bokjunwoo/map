@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { regionState } from '../../atoms/regionState';
+import { userLevelState } from '../../atoms/userLevelState';
 import { GRANDIS_REGION, ARCANERIVER_REGION } from '../../constants/constants';
-import { useLevelState } from '../../contexts/LevelStateProvider';
 import RegionTabUI from './UI/RegionTabUI';
 
 const RegionTab = () => {
-  const { level } = useLevelState();
+  const userLevel = useRecoilValue(userLevelState);
 
   const [region, setRegion] = useRecoilState(regionState);
 
@@ -17,8 +17,8 @@ const RegionTab = () => {
   const regions = [ARCANERIVER_REGION, GRANDIS_REGION];
 
   useEffect(() => {
-    setRegion(level >= 260 ? GRANDIS_REGION : ARCANERIVER_REGION);
-  }, [level, setRegion]);
+    setRegion(userLevel >= 260 ? GRANDIS_REGION : ARCANERIVER_REGION);
+  }, [userLevel, setRegion]);
 
   return (
     <RegionTabUI value={region} regions={regions} handleChange={handleChange} />
