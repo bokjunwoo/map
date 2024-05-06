@@ -5,17 +5,23 @@ type ImageChipProps = {
   value: string;
   isSelected: boolean;
   onToggle: () => void;
+  isAccessible: boolean;
 };
 
-const ImageChipUI = ({ value, isSelected, onToggle }: ImageChipProps) => {
+const ImageChipUI = ({
+  value,
+  isSelected,
+  onToggle,
+  isAccessible,
+}: ImageChipProps) => {
   const backgroundColor = symbolsColor[value].bgColor;
 
   return (
     <Box>
       <Chip
         onClick={onToggle}
+        disabled={!isAccessible}
         sx={{
-          cursor: 'pointer',
           outline: isSelected ? '1px solid #3366FF' : 'none',
           color: isSelected ? '#3366FF' : '#333333',
           bgcolor: { backgroundColor },
