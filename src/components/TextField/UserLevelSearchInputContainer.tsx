@@ -1,11 +1,16 @@
 import { ChangeEvent, useEffect, useState } from 'react';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { regionListState } from '../../atoms/regionListState';
+import { userLevelState } from '../../atoms/userLevelState';
 import { LEVEL_RANGE, REGEX } from '../../constants/constants';
-import { useLevelState } from '../../contexts/LevelStateProvider';
+import { minRegionsLevel } from '../../data/region';
 import UserLevelSearchInputUI from './UI/UserLevelSearchInputUI';
 
 const UserLevelSearchInputContainer = () => {
-  const { level, setLevel } = useLevelState();
-  const [inputValue, setInputValue] = useState(level);
+  const [userLevel, setUserLevel] = useRecoilState(userLevelState);
+  const setRegionList = useSetRecoilState(regionListState);
+
+  const [inputValue, setInputValue] = useState(userLevel);
   const [error, setError] = useState(false);
 
   const handleLevelValueChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -17,16 +22,18 @@ const UserLevelSearchInputContainer = () => {
 
     if (!isValidInput) return;
     setInputValue(inputLevel);
+    setRegionList([]);
     setError(inputLevel < LEVEL_RANGE.MIN || inputLevel > LEVEL_RANGE.MAX);
   };
 
   const handleBlur = () => {
     if (inputValue < LEVEL_RANGE.MIN || inputValue > LEVEL_RANGE.MAX) {
-      setInputValue(level);
+      setInputValue(userLevel);
       setError(true);
     } else {
-      setLevel(inputValue);
+      setUserLevel(inputValue);
       setError(false);
+      setRegionList([]);
     }
   };
 
@@ -36,9 +43,28 @@ const UserLevelSearchInputContainer = () => {
     }
   };
 
+  const findNearestRegion = (userLevel: number) => {
+    let minDiff = Infinity;
+    let nearestRegion = '';
+
+    for (const region in minRegionsLevel) {
+      const diff = Math.abs(minRegionsLevel[region] - userLevel);
+      if (diff < minDiff) {
+        minDiff = diff;
+        nearestRegion = region;
+      }
+    }
+
+    return nearestRegion as GrandisRegion | AraneRiverRegion;
+  };
+
+  const nearestRegion = findNearestRegion(userLevel);
+
   useEffect(() => {
-    if (level < LEVEL_RANGE.MIN || level > LEVEL_RANGE.MAX) setError(false);
-  }, [level]);
+    if (userLevel < LEVEL_RANGE.MIN || userLevel > LEVEL_RANGE.MAX)
+      setError(false);
+    setRegionList([nearestRegion]);
+  }, [userLevel, setRegionList, nearestRegion]);
 
   return (
     <UserLevelSearchInputUI
