@@ -1,10 +1,8 @@
-import PersonIcon from '@mui/icons-material/Person';
 import {
-  Paper,
-  InputBase,
-  IconButton,
   FormControl,
-  FormHelperText,
+  InputAdornment,
+  TextField,
+  Typography,
 } from '@mui/material';
 import { ChangeEvent } from 'react';
 
@@ -24,36 +22,44 @@ const UserLevelSearchInputUI = ({
   inputValue,
 }: UserLevelSearchInputUIProps) => {
   return (
-    <FormControl error={error}>
-      <Paper
-        sx={{
-          p: '2px 4px',
-          display: 'flex',
-          alignItems: 'center',
-          width: 250,
-          height: 40,
-          boxShadow: 'none',
-          border: error ? `1px solid #F44336` : '1px solid rgba(0, 0, 0, 0.3)',
-        }}
-      >
-        <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
-          <PersonIcon />
-        </IconButton>
-        <InputBase
-          sx={{ ml: 1, flex: 1 }}
-          placeholder="플레이어 레벨"
-          inputProps={{ 'aria-label': 'player_level' }}
+    <FormControl>
+      <FormControl>
+        <TextField
+          size="small"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <Typography sx={{ fontWeight: 900, fontSize: 20 }}>
+                  Lv.
+                </Typography>
+              </InputAdornment>
+            ),
+          }}
+          value={inputValue === 0 ? '' : inputValue}
           onChange={handleLevelValueChange}
           onBlur={handleBlur}
-          value={inputValue === 0 ? '' : inputValue}
-          error={error}
           onKeyDown={handleKeyDown}
+          error={error}
+          helperText="200에서 300 사이의 레벨을 입력해주세요."
+          sx={{
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': {
+                borderColor: '#333333',
+                borderRadius: 1,
+              },
+              '&:hover fieldset': {
+                border: '1px solid',
+                borderColor: '#FF9900',
+              },
+              '&.Mui-focused fieldset': {
+                border: '1px solid',
+                borderColor: '#FF9900',
+                boxShadow: `0 0 0 2px rgba(255, 153, 0, 0.4)`,
+              },
+            },
+          }}
         />
-      </Paper>
-
-      <FormHelperText id="error_text" sx={{ mr: 0, ml: 0 }}>
-        200에서 300 사이의 숫자를 입력해주세요.
-      </FormHelperText>
+      </FormControl>
     </FormControl>
   );
 };
