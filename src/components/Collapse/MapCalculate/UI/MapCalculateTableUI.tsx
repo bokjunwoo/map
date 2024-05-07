@@ -1,5 +1,4 @@
 import { Box, ListItem, ListItemText } from '@mui/material';
-import { TIME_OPTIONS } from '../../../../constants/constants';
 import { MapInfo } from '../../../../interface/map';
 import CalculateMonsterStatsUI from '../../../common/CalculateMonsterStatsUI';
 import ListSubheaderUI from '../../../common/ListSubheaderUI';
@@ -8,13 +7,15 @@ import MultiplierTableUI from '../../../Table/UI/MultiplierTableUI';
 type MapCalculateTableUIProps = {
   item: MapInfo;
   expReward: number;
-  mesoReward: number;
+  pureMesoReward: number;
+  bonusMesoReward: number;
 };
 
 const MapCalculateTableUI = ({
   item,
   expReward,
-  mesoReward,
+  pureMesoReward,
+  bonusMesoReward,
 }: MapCalculateTableUIProps) => {
   const monstersLength = item.monsters.length > 1;
   return (
@@ -47,9 +48,9 @@ const MapCalculateTableUI = ({
 
       <MultiplierTableUI
         item={item}
-        timeOptions={TIME_OPTIONS}
         expReward={expReward}
-        mesoReward={mesoReward}
+        pureMesoReward={pureMesoReward}
+        bonusMesoReward={bonusMesoReward}
       />
     </ListItem>
   );

@@ -5,21 +5,22 @@ import {
   TableCell,
   TableBody,
 } from '@mui/material';
+import { TIME_OPTIONS } from '../../../constants/constants';
 import { MapInfo } from '../../../interface/map';
 import { formatNumber } from '../../../utils/etc';
 
 type MultiplierTableUIProps = {
   item: MapInfo;
   expReward: number;
-  mesoReward: number;
-  timeOptions: { time: string; multiplier: number }[];
+  pureMesoReward: number;
+  bonusMesoReward: number;
 };
 
 const MultiplierTableUI = ({
   item,
   expReward,
-  mesoReward,
-  timeOptions,
+  pureMesoReward,
+  bonusMesoReward,
 }: MultiplierTableUIProps) => {
   return (
     <Table
@@ -37,7 +38,7 @@ const MultiplierTableUI = ({
           <TableCell align="center">마릿수</TableCell>
           <TableCell align="center">경험치</TableCell>
           <TableCell align="center">순 메소</TableCell>
-          <TableCell align="center">매획 메소</TableCell>
+          <TableCell align="center">메획 메소</TableCell>
         </TableRow>
       </TableHead>
 
@@ -50,11 +51,15 @@ const MultiplierTableUI = ({
             {item.number_of_monster.toLocaleString()}
           </TableCell>
           <TableCell align="center">{formatNumber(expReward / 8)}</TableCell>
-          <TableCell align="center">{formatNumber(mesoReward / 8)}</TableCell>
-          <TableCell align="center">2</TableCell>
+          <TableCell align="center">
+            {formatNumber(pureMesoReward / 8)}
+          </TableCell>
+          <TableCell align="center">
+            {formatNumber(bonusMesoReward / 8)}
+          </TableCell>
         </TableRow>
 
-        {timeOptions.map((row, index) => (
+        {TIME_OPTIONS.map((row, index) => (
           <TableRow key={index} hover>
             <TableCell component="th" scope="row">
               {row.time}
@@ -66,9 +71,11 @@ const MultiplierTableUI = ({
               {formatNumber(expReward * row.multiplier)}
             </TableCell>
             <TableCell align="center">
-              {formatNumber(mesoReward * row.multiplier)}
+              {formatNumber(pureMesoReward * row.multiplier)}
             </TableCell>
-            <TableCell align="center">2</TableCell>
+            <TableCell align="center">
+              {formatNumber(bonusMesoReward * row.multiplier)}
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
