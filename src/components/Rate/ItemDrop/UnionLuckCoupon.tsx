@@ -1,10 +1,11 @@
-import { itemDropState } from '../../../atoms/itemDropState';
+import { itemDropState, rateValueSelector } from '../../../atoms/itemDropState';
 import useRateSelect from '../../../hooks/useRateSelect';
 import { RateSelectOption } from '../../../interface/rate';
 import RateSelectUI from '../common/RateSelectUI';
 
 const UnionLuckCoupon = () => {
   const { value, handleRateChange } = useRateSelect({
+    rateValueSelector,
     state: itemDropState,
     rateName: 'union_luck_coupon',
   });

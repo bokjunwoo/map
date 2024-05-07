@@ -1,10 +1,11 @@
-import { expRateState } from '../../../atoms/expRateState';
+import { expRateState, rateValueSelector } from '../../../atoms/expRateState';
 import useRateSelect from '../../../hooks/useRateSelect';
 import { RateSelectOption } from '../../../interface/rate';
 import RateSelectUI from '../common/RateSelectUI';
 
 const VIPCoupon = () => {
   const { value, handleRateChange } = useRateSelect({
+    rateValueSelector,
     state: expRateState,
     rateName: 'VIP_coupon',
   });

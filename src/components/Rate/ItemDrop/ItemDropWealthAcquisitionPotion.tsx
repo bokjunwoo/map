@@ -1,10 +1,11 @@
-import { itemDropState } from '../../../atoms/itemDropState';
+import { itemDropState, rateValueSelector } from '../../../atoms/itemDropState';
 import useRateSelect from '../../../hooks/useRateSelect';
 import { RateSelectOption } from '../../../interface/rate';
 import RateSelectUI from '../common/RateSelectUI';
 
 const ItemDropWealthAcquisitionPotion = () => {
   const { value, handleRateChange } = useRateSelect({
+    rateValueSelector,
     state: itemDropState,
     rateName: 'wealth_acquisition_potion',
   });

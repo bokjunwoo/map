@@ -1,4 +1,4 @@
-import { itemDropState } from '../../../atoms/itemDropState';
+import { itemDropState, rateValueSelector } from '../../../atoms/itemDropState';
 import { REGEX } from '../../../constants/constants';
 import useRateInput from '../../../hooks/useRateInput';
 import { RateInputOption } from '../../../interface/rate';
@@ -6,6 +6,7 @@ import RateInputUI from '../common/RateInputUI';
 
 const ItemDropAbility = () => {
   const { value, handleRateChange } = useRateInput({
+    rateValueSelector,
     state: itemDropState,
     rateName: 'ability',
     regex: REGEX.NUMBER,

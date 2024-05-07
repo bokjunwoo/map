@@ -1,4 +1,4 @@
-import { expRateState } from '../../../atoms/expRateState';
+import { expRateState, rateValueSelector } from '../../../atoms/expRateState';
 import { REGEX } from '../../../constants/constants';
 import useRateInput from '../../../hooks/useRateInput';
 import { RateInputOption } from '../../../interface/rate';
@@ -6,6 +6,7 @@ import RateInputUI from '../common/RateInputUI';
 
 const ExpEtc = () => {
   const { value, handleRateChange } = useRateInput({
+    rateValueSelector,
     state: expRateState,
     rateName: 'exp_etc',
     regex: REGEX.NUMBER_AND_DOT,

@@ -1,10 +1,11 @@
-import { mesoDropState } from '../../../atoms/mesoDropState';
+import { mesoDropState, rateValueSelector } from '../../../atoms/mesoDropState';
 import useRateSelect from '../../../hooks/useRateSelect';
 import { RateSelectOption } from '../../../interface/rate';
 import RateSelectUI from '../common/RateSelectUI';
 
 const MesoDropWealthAcquisitionPotion = () => {
   const { value, handleRateChange } = useRateSelect({
+    rateValueSelector,
     state: mesoDropState,
     rateName: 'wealth_acquisition_potion',
   });

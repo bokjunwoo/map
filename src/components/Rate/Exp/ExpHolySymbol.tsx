@@ -1,4 +1,4 @@
-import { expRateState } from '../../../atoms/expRateState';
+import { expRateState, rateValueSelector } from '../../../atoms/expRateState';
 import { REGEX } from '../../../constants/constants';
 import useRateInput from '../../../hooks/useRateInput';
 import { RateInputOption } from '../../../interface/rate';
@@ -6,6 +6,7 @@ import RateInputUI from '../common/RateInputUI';
 
 const ExpHolySymbol = () => {
   const { value, handleRateChange } = useRateInput({
+    rateValueSelector,
     state: expRateState,
     rateName: 'holy_symbol',
     regex: REGEX.NUMBER,

@@ -1,10 +1,11 @@
-import { expRateState } from '../../../atoms/expRateState';
+import { expRateState, rateValueSelector } from '../../../atoms/expRateState';
 import useRateSelect from '../../../hooks/useRateSelect';
 import { RateSelectOption } from '../../../interface/rate';
 import RateSelectUI from '../common/RateSelectUI';
 
 const ZeroUnion = () => {
   const { value, handleRateChange } = useRateSelect({
+    rateValueSelector,
     state: expRateState,
     rateName: 'zero_union',
   });
