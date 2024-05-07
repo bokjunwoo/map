@@ -1,11 +1,16 @@
 import { SelectChangeEvent } from '@mui/material';
 import { useState } from 'react';
-import { RecoilState, useRecoilState, useRecoilValue } from 'recoil';
-import { rateValueSelector } from '../atoms/expRateState';
+import {
+  RecoilState,
+  RecoilValueReadOnly,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil';
 import { RateItem } from '../interface/rate';
 import { handleRateSelectChange } from '../utils/hander';
 
 type UseRateSelectProps = {
+  rateValueSelector: (param: string) => RecoilValueReadOnly<string>;
   state: RecoilState<RateItem[]>;
   rateName: string;
 };
@@ -16,6 +21,7 @@ type UseRateSelectResult = {
 };
 
 const useRateSelect = ({
+  rateValueSelector,
   state,
   rateName,
 }: UseRateSelectProps): UseRateSelectResult => {
