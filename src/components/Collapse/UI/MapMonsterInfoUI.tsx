@@ -1,5 +1,6 @@
 import { Avatar, Chip, List, ListItem, ListItemText } from '@mui/material';
 import { useRecoilValue } from 'recoil';
+import { totalMesoDropSelector } from '../../../atoms/mesoDropState';
 import { userLevelState } from '../../../atoms/userLevelState';
 import { MapMonsterInfo } from '../../../interface/map';
 import {
@@ -11,12 +12,19 @@ import TextAndAmountLocaleStringUI from '../../common/TextAndAmountLocaleStringU
 
 const MapMonsterInfoUI = ({ monster }: { monster: MapMonsterInfo }) => {
   const userLevel = useRecoilValue(userLevelState);
+  const mesoDropRate = useRecoilValue(totalMesoDropSelector);
 
   const expMultiplier = calculateIndividualExperienceMultiplier(
     userLevel,
     monster
   );
-  const mesoMultiplier = calculateIndividualMesoMultiplier(userLevel, monster);
+  const pureMesoMultiplier = calculateIndividualMesoMultiplier(
+    userLevel,
+    monster
+  );
+  const bonusMesoCalculate = Math.floor(
+    pureMesoMultiplier * monster.meso * (mesoDropRate / 100)
+  );
 
   return (
     <List
@@ -77,11 +85,11 @@ const MapMonsterInfoUI = ({ monster }: { monster: MapMonsterInfo }) => {
               />
               <TextAndAmountLocaleStringUI
                 text="순 메소(평균/아획 0% 기준):"
-                amount={mesoMultiplier * monster.meso}
+                amount={pureMesoMultiplier * monster.meso}
               />
               <TextAndAmountLocaleStringUI
                 text="메획 획득 메소(평균):"
-                amount={mesoMultiplier * monster.meso}
+                amount={bonusMesoCalculate}
               />
             </>
           }
@@ -104,7 +112,7 @@ const MapMonsterInfoUI = ({ monster }: { monster: MapMonsterInfo }) => {
               />
               <TextAndAmountLocaleStringUI
                 text="레벨차이에 따른 메소 배율:"
-                amount={mesoMultiplier * 100}
+                amount={pureMesoMultiplier * 100}
                 unit="%"
               />
             </>

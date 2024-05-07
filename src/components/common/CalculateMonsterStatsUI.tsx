@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material';
 import { useRecoilValue } from 'recoil';
 import { totalExpSelector } from '../../atoms/expRateState';
+import { totalMesoDropSelector } from '../../atoms/mesoDropState';
 import { userLevelState } from '../../atoms/userLevelState';
 import { MapMonsterInfo } from '../../interface/map';
 import {
@@ -18,6 +19,7 @@ const CalculateMonsterStatsUI = ({
   burningField,
 }: CalculateMonsterStatsUIProps) => {
   const expRate = useRecoilValue(totalExpSelector);
+  const mesoDropRate = useRecoilValue(totalMesoDropSelector);
   const userLevel = useRecoilValue(userLevelState);
 
   const expMultiplier = calculateIndividualExperienceMultiplier(
@@ -30,7 +32,9 @@ const CalculateMonsterStatsUI = ({
     expMultiplier * monster.experience * ((burningField + expRate) / 100)
   );
   const pureMesoCalculate = Math.floor(mesoMultiplier * monster.meso);
-  const BonusMesoCalculate = Math.floor(mesoMultiplier * monster.meso);
+  const bonusMesoCalculate = Math.floor(
+    mesoMultiplier * monster.meso * (mesoDropRate / 100)
+  );
 
   return (
     <Typography
@@ -38,7 +42,7 @@ const CalculateMonsterStatsUI = ({
       sx={{ display: 'block', fontSize: 12, textAlign: 'end', p: 0 }}
     >{`${
       monster.name
-    }: 경험치(${expCalculate.toLocaleString()}) 순메소(${pureMesoCalculate.toLocaleString()}) 메획메소(${BonusMesoCalculate.toLocaleString()})`}</Typography>
+    }: 경험치(${expCalculate.toLocaleString()}) 순메소(${pureMesoCalculate.toLocaleString()}) 메획메소(${bonusMesoCalculate.toLocaleString()})`}</Typography>
   );
 };
 
