@@ -285,3 +285,12 @@ export const calculatePrittoPlayTime: PrittoPlayTimeCalculator = ({
 
   return Math.ceil(remainingTime);
 };
+
+export const calculateItemDropMultiplier = (itemDropRate: number): number => {
+  const itemDropRatio = itemDropRate / 100;
+  if (itemDropRatio >= 0.67) {
+    return 1;
+  } else {
+    return (60 * itemDropRatio + 60) / 100;
+  }
+};
