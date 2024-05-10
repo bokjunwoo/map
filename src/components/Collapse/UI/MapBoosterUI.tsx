@@ -2,7 +2,7 @@ import { Divider, List } from '@mui/material';
 import { MapInfo, MapMonsterInfo } from '../../../interface/map';
 import LabelChipUI from '../../Chip/UI/LabelChipUI';
 import ListHeaderUI from '../../common/ListHeaderUI';
-import MapExpRateUI from '../common/MapExpRateUI';
+import MapExpRateStats from '../common/MapExpRateStats';
 import MapBoosterCalculateTable from '../MapBooster/MapBoosterCalculateTable';
 import MapBoosterCompare from '../MapBooster/MapBoosterCompare';
 import MapBoosterInput from '../MapBooster/MapBoosterInput';
@@ -49,7 +49,7 @@ const MapBoosterUI = ({
       <MapBoosterExplanationUI />
 
       <Divider variant="middle" />
-      <MapExpRateUI
+      <MapExpRateStats
         burningField={item.burning_field}
         rune={selectedRuneValue}
       />

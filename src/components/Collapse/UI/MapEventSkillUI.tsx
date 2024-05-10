@@ -2,7 +2,7 @@ import { List, Divider } from '@mui/material';
 import { MapInfo, MapMonsterInfo } from '../../../interface/map';
 import LabelChipUI from '../../Chip/UI/LabelChipUI';
 import ListHeaderUI from '../../common/ListHeaderUI';
-import MapExpRateUI from '../common/MapExpRateUI';
+import MapExpRateStats from '../common/MapExpRateStats';
 import MapEventSkillCalculateTable from '../MapEventSkill/MapEventSkillCalculateTable';
 import MapEventSkillCompareUI from '../MapEventSkill/UI/MapEventSkillCompareUI';
 import MapEventSkillExplanationUI from '../MapEventSkill/UI/MapEventSkillExplanationUI';
@@ -46,7 +46,7 @@ const MapEventSkillUI = ({
       <MapEventSkillExplanationUI />
 
       <Divider variant="middle" />
-      <MapExpRateUI burningField={item.burning_field} rune={runeValue} />
+      <MapExpRateStats burningField={item.burning_field} rune={runeValue} />
 
       <Divider variant="middle" />
       <MapEventSkillMonsterStatsUI
