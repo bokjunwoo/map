@@ -1,10 +1,11 @@
 import { Divider, List } from '@mui/material';
+import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { userLevelState } from '../../atoms/userLevelState';
 import { MapInfo } from '../../interface/map';
 import { calculateIndividualExperienceMultiplier } from '../../utils/calculate';
 import ListHeaderUI from '../common/ListHeaderUI';
-import MapPortalRate from './MapPortal/MapPortalRate';
+import MapPortalStats from './MapPortal/MapPortalStats';
 import MapPortalPolloUI from './MapPortal/UI/MapPortalPolloUI';
 import MapPortalPrittoUI from './MapPortal/UI/MapPortalPrittoUI';
 import MapPortalWolfAndTotemUI from './MapPortal/UI/MapPortalWolfAndTotemUI';
@@ -15,6 +16,17 @@ type MapPortalProps = {
 
 const MapPortal = ({ item }: MapPortalProps) => {
   const userLevel = useRecoilValue(userLevelState);
+  const [state, setState] = useState({
+    rune: false,
+    sundayEvent: false,
+  });
+
+  const onChangeCheckBox = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setState({
+      ...state,
+      [event.target.name]: event.target.checked,
+    });
+  };
 
   const highestLevelMonster = item.monsters.reduce((prev, curr) => {
     return prev.level > curr.level ? prev : curr;
@@ -38,7 +50,7 @@ const MapPortal = ({ item }: MapPortalProps) => {
       />
 
       <Divider variant="middle" />
-      <MapPortalRate burningField={item.burning_field} />
+      <MapPortalStats state={state} onChangeCheckBox={onChangeCheckBox} />
 
       <Divider variant="middle" />
       <MapPortalPolloUI
