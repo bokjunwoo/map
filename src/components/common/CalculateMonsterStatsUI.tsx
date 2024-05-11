@@ -1,12 +1,14 @@
 import { Typography } from '@mui/material';
 import { useRecoilValue } from 'recoil';
 import { totalExpSelector } from '../../atoms/expRateState';
+import { totalItemDropSelector } from '../../atoms/itemDropState';
 import { totalMesoDropSelector } from '../../atoms/mesoDropState';
 import { userLevelState } from '../../atoms/userLevelState';
 import { MapMonsterInfo } from '../../interface/map';
 import {
   calculateIndividualExperienceMultiplier,
   calculateIndividualMesoMultiplier,
+  calculateItemDropMultiplier,
 } from '../../utils/calculate';
 
 type CalculateMonsterStatsUIProps = {
@@ -20,6 +22,7 @@ const CalculateMonsterStatsUI = ({
 }: CalculateMonsterStatsUIProps) => {
   const expRate = useRecoilValue(totalExpSelector);
   const mesoDropRate = useRecoilValue(totalMesoDropSelector);
+  const itemDropRate = useRecoilValue(totalItemDropSelector);
   const userLevel = useRecoilValue(userLevelState);
 
   const expMultiplier = calculateIndividualExperienceMultiplier(
@@ -28,12 +31,16 @@ const CalculateMonsterStatsUI = ({
   );
   const mesoMultiplier = calculateIndividualMesoMultiplier(userLevel, monster);
 
+  const itemDropMultiplier = calculateItemDropMultiplier(itemDropRate);
+
   const expCalculate = Math.floor(
     expMultiplier * monster.experience * ((burningField + expRate) / 100)
   );
-  const pureMesoCalculate = Math.floor(mesoMultiplier * monster.meso);
+  const pureMesoCalculate = Math.floor(
+    mesoMultiplier * monster.meso * itemDropMultiplier
+  );
   const bonusMesoCalculate = Math.floor(
-    mesoMultiplier * monster.meso * (mesoDropRate / 100)
+    mesoMultiplier * monster.meso * (mesoDropRate / 100) * itemDropMultiplier
   );
 
   return (

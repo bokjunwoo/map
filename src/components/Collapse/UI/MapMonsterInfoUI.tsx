@@ -1,11 +1,13 @@
 import { Avatar, Chip, List, ListItem, ListItemText } from '@mui/material';
 import { useRecoilValue } from 'recoil';
+import { totalItemDropSelector } from '../../../atoms/itemDropState';
 import { totalMesoDropSelector } from '../../../atoms/mesoDropState';
 import { userLevelState } from '../../../atoms/userLevelState';
 import { MapMonsterInfo } from '../../../interface/map';
 import {
   calculateIndividualExperienceMultiplier,
   calculateIndividualMesoMultiplier,
+  calculateItemDropMultiplier,
 } from '../../../utils/calculate';
 import DividerChipUI from '../../common/DividerChipUI';
 import TextAndAmountLocaleStringUI from '../../common/TextAndAmountLocaleStringUI';
@@ -13,6 +15,7 @@ import TextAndAmountLocaleStringUI from '../../common/TextAndAmountLocaleStringU
 const MapMonsterInfoUI = ({ monster }: { monster: MapMonsterInfo }) => {
   const userLevel = useRecoilValue(userLevelState);
   const mesoDropRate = useRecoilValue(totalMesoDropSelector);
+  const itemDropRate = useRecoilValue(totalItemDropSelector);
 
   const expMultiplier = calculateIndividualExperienceMultiplier(
     userLevel,
@@ -22,8 +25,12 @@ const MapMonsterInfoUI = ({ monster }: { monster: MapMonsterInfo }) => {
     userLevel,
     monster
   );
+  const itemDropMultiplier = calculateItemDropMultiplier(itemDropRate);
+
+  const pureMesoCalculate =
+    pureMesoMultiplier * monster.meso * itemDropMultiplier;
   const bonusMesoCalculate = Math.floor(
-    pureMesoMultiplier * monster.meso * (mesoDropRate / 100)
+    pureMesoCalculate * (mesoDropRate / 100)
   );
 
   return (
@@ -84,11 +91,11 @@ const MapMonsterInfoUI = ({ monster }: { monster: MapMonsterInfo }) => {
                 amount={expMultiplier * monster.experience}
               />
               <TextAndAmountLocaleStringUI
-                text="순 메소(평균/아획 0% 기준):"
-                amount={pureMesoMultiplier * monster.meso}
+                text={`순 메소(평균 / 아획 ${itemDropRate}% 기준):`}
+                amount={pureMesoCalculate}
               />
               <TextAndAmountLocaleStringUI
-                text="메획 획득 메소(평균):"
+                text={`메획 획득 메소(평균 / 메획 ${mesoDropRate}% 기준):`}
                 amount={bonusMesoCalculate}
               />
             </>
