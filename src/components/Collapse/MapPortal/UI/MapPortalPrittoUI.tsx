@@ -14,7 +14,7 @@ import useSelectState from '../../../../hooks/useSelectState';
 import useUpDownButton from '../../../../hooks/useUpDownButton';
 import { calculatePrittoPlayTime } from '../../../../utils/calculate';
 import { getTimePrittoColor } from '../../../../utils/color';
-import { formatNumber } from '../../../../utils/etc';
+import { formatNumber, formatTime } from '../../../../utils/etc';
 import ListSubheaderUI from '../../../common/ListSubheaderUI';
 import SelectedPrittoGameOptionUI from '../../../common/SelectedPrittoGameOptionUI';
 import UpDownButtonUI from '../../../common/UpDownButtonUI';
@@ -215,19 +215,19 @@ const MapPortalPrittoUI = ({
               align="center"
               sx={{ bgcolor: getTimePrittoColor(dragonEggStealingSecond) }}
             >
-              약 {dragonEggStealingSecond}초
+              약 {formatTime(dragonEggStealingSecond)}
             </TableCell>
             <TableCell
               align="center"
               sx={{ bgcolor: getTimePrittoColor(courtshipDanceSecond) }}
             >
-              약 {courtshipDanceSecond}초
+              약 {formatTime(courtshipDanceSecond)}
             </TableCell>
             <TableCell
               align="center"
               sx={{ bgcolor: getTimePrittoColor(eagleHuntingSecond) }}
             >
-              약 {eagleHuntingSecond}초
+              약 {formatTime(eagleHuntingSecond)}
             </TableCell>
           </TableRow>
         </TableBody>
