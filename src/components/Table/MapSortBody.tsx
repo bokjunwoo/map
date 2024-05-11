@@ -2,11 +2,13 @@ import { TableBody } from '@mui/material';
 import { useRecoilValue } from 'recoil';
 import { burningFieldState } from '../../atoms/burningFieldState';
 import { totalExpSelector } from '../../atoms/expRateState';
+import { totalItemDropSelector } from '../../atoms/itemDropState';
 import { getSelectedMapData } from '../../atoms/mapDataState';
 import { regionListState } from '../../atoms/regionListState';
 import { userLevelState } from '../../atoms/userLevelState';
 import { MapInfo } from '../../interface/map';
 import {
+  calculateItemDropMultiplier,
   calculateSumOfMonsters,
   calculateTotalExperience,
   calculateTotalMeso,
@@ -27,11 +29,14 @@ type TimeMap = {
 
 const MapSortBody = ({ storedValue, order, orderBy }: MapSortBodyProps) => {
   const expRate = useRecoilValue(totalExpSelector);
+  const itemDropRate = useRecoilValue(totalItemDropSelector);
   const userLevel = useRecoilValue(userLevelState);
 
   const regionList = useRecoilValue(regionListState);
   const selectedMapData = useRecoilValue(getSelectedMapData(regionList));
   const burningField = useRecoilValue(burningFieldState);
+
+  const itemDropMultiplier = calculateItemDropMultiplier(itemDropRate);
 
   const timeMap: TimeMap = {
     '30분': 30,
@@ -67,7 +72,9 @@ const MapSortBody = ({ storedValue, order, orderBy }: MapSortBodyProps) => {
         calculateTotalMeso({
           monsters: item.monsters,
           userLevel,
-        }) * time,
+        }) *
+        time *
+        itemDropMultiplier,
     };
   });
 
