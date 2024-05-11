@@ -10,7 +10,7 @@ const TextAndAmountLocaleStringUI = ({
   unit?: string;
 }) => (
   <Typography
-    sx={{ display: 'block' }}
+    sx={{ display: 'block', fontSize: 13, mt: 0.2, mb: 0.2 }}
     component="span"
     variant="body2"
     color="text.primary"
