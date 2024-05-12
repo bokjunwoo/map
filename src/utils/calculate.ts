@@ -250,6 +250,7 @@ export const calculatePolloPlayTime: PolloPlayTimeCalculator = ({
   expMultiplier,
   expValue,
   expRateRatio,
+  sundayEventRatio,
   time,
 }) => {
   const remainingTime =
@@ -258,7 +259,7 @@ export const calculatePolloPlayTime: PolloPlayTimeCalculator = ({
         expMultiplier *
         numberOfMonster *
         8 *
-        expRateRatio)) *
+        (expRateRatio - sundayEventRatio / 100))) *
       60 -
     time;
 
@@ -271,6 +272,7 @@ export const calculatePrittoPlayTime: PrittoPlayTimeCalculator = ({
   expMultiplier,
   expValue,
   expRateRatio,
+  sundayEventRatio,
   time,
 }) => {
   const remainingTime =
@@ -279,7 +281,7 @@ export const calculatePrittoPlayTime: PrittoPlayTimeCalculator = ({
         expMultiplier *
         numberOfMonster *
         8 *
-        expRateRatio)) *
+        (expRateRatio - sundayEventRatio / 100))) *
       60 -
     time;
 
