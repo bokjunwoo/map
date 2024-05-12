@@ -23,16 +23,22 @@ type MapPortalPrittoUIProps = {
   monsterExperience: number;
   expMultiplier: number;
   mapName: string;
+  checkState: PortalCheckState;
 };
 
 const MapPortalPrittoUI = ({
   monsterExperience,
   expMultiplier,
   mapName,
+  checkState,
 }: MapPortalPrittoUIProps) => {
   const expRate = useRecoilValue(totalExpSelector);
 
-  const expRateRatio = expRate / 100;
+  const runeRatio = checkState.rune ? 100 : 0;
+  const sundayEventRatio = checkState.sundayEvent ? 100 : 0;
+  const sundayEventEffect = checkState.sundayEvent ? 2 : 1;
+
+  const expRateRatio = (expRate + runeRatio + sundayEventRatio) / 100;
 
   const numberOfMonster = useRecoilValue(numberOfMonsterState(mapName));
 
@@ -86,24 +92,27 @@ const MapPortalPrittoUI = ({
     monsterExperience,
     numberOfMonster,
     expMultiplier,
-    expValue: dragonEggStealingValue,
+    expValue: dragonEggStealingValue * sundayEventEffect,
     expRateRatio,
+    sundayEventRatio,
     time: dragonEggStealingPlayTime,
   });
   const courtshipDanceSecond = calculatePrittoPlayTime({
     monsterExperience,
     numberOfMonster,
     expMultiplier,
-    expValue: courtshipDanceValue,
+    expValue: courtshipDanceValue * sundayEventEffect,
     expRateRatio,
+    sundayEventRatio,
     time: courtshipDancePlayTime,
   });
   const eagleHuntingSecond = calculatePrittoPlayTime({
     monsterExperience,
     numberOfMonster,
     expMultiplier,
-    expValue: eagleHuntingValue,
+    expValue: eagleHuntingValue * sundayEventEffect,
     expRateRatio,
+    sundayEventRatio,
     time: eagleHuntingPlayTime,
   });
 
@@ -197,13 +206,19 @@ const MapPortalPrittoUI = ({
               경험치
             </TableCell>
             <TableCell align="center">
-              {formatNumber(monsterExperience * dragonEggStealingValue)}
+              {formatNumber(
+                monsterExperience * dragonEggStealingValue * sundayEventEffect
+              )}
             </TableCell>
             <TableCell align="center">
-              {formatNumber(monsterExperience * courtshipDanceValue)}
+              {formatNumber(
+                monsterExperience * courtshipDanceValue * sundayEventEffect
+              )}
             </TableCell>
             <TableCell align="center">
-              {formatNumber(monsterExperience * eagleHuntingValue)}
+              {formatNumber(
+                monsterExperience * eagleHuntingValue * sundayEventEffect
+              )}
             </TableCell>
           </TableRow>
 
