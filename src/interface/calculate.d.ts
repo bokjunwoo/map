@@ -26,11 +26,12 @@ interface CalculatePolloPlayTimeParams {
   expMultiplier: number;
   expValue: number;
   expRateRatio: number;
+  sundayEventRatio: number;
   time: number;
 }
 
 interface PolloPlayTimeCalculator {
-  (params: CalculatePrittoPlayTimeParams): number;
+  (params: CalculatePolloPlayTimeParams): number;
 }
 
 interface CalculatePrittoPlayTimeParams {
@@ -39,6 +40,7 @@ interface CalculatePrittoPlayTimeParams {
   expMultiplier: number;
   expValue: number;
   expRateRatio: number;
+  sundayEventRatio: number;
   time: number;
 }
 
