@@ -9,10 +9,7 @@ import MapPortalWolfAndTotemUI from '../MapPortal/UI/MapPortalWolfAndTotemUI';
 type MapPortalUIProps = {
   mapName: string;
   highestLevelMonster: MapMonsterInfo;
-  checkState: {
-    rune: boolean;
-    sundayEvent: boolean;
-  };
+  checkState: PortalCheckState;
   onChangeCheckBox: (event: React.ChangeEvent<HTMLInputElement>) => void;
   expMultiplier: number;
 };
@@ -44,6 +41,7 @@ const MapPortalUI = ({
         monsterExperience={highestLevelMonster.experience}
         expMultiplier={expMultiplier}
         mapName={mapName}
+        checkState={checkState}
       />
 
       <Divider variant="middle" />
@@ -51,6 +49,7 @@ const MapPortalUI = ({
         monsterExperience={highestLevelMonster.experience}
         expMultiplier={expMultiplier}
         mapName={mapName}
+        checkState={checkState}
       />
 
       <Divider variant="middle" />
@@ -58,6 +57,7 @@ const MapPortalUI = ({
         monsterExperience={highestLevelMonster.experience}
         expMultiplier={expMultiplier}
         mapName={mapName}
+        checkState={checkState}
       />
     </List>
   );
