@@ -33,18 +33,25 @@ type MapPortalWolfAndTotemUIProps = {
   monsterExperience: number;
   expMultiplier: number;
   mapName: string;
+  checkState: PortalCheckState;
 };
 
 const MapPortalWolfAndTotemUI = ({
   monsterExperience,
   expMultiplier,
   mapName,
+  checkState,
 }: MapPortalWolfAndTotemUIProps) => {
   const expRate = useRecoilValue(totalExpSelector);
   const userLevel = useRecoilValue(userLevelState);
   const numberOfMonster = useRecoilValue(numberOfMonsterState(mapName));
 
-  const expRateRatio = expRate / 100;
+  const runeRatio = checkState.rune ? 100 : 0;
+  const sundayEventRatio = checkState.sundayEvent ? 100 : 0;
+  const sundayEventEffect = checkState.sundayEvent ? 2 : 1;
+
+  const expRateRatio = (expRate + runeRatio + sundayEventRatio) / 100;
+
   const wolfMode = userLevel >= 260 ? '익스트림' : '카오스';
 
   const [infernoWolfExtremeValue, handleInfernoWolfExtremeChange] =
@@ -87,6 +94,7 @@ const MapPortalWolfAndTotemUI = ({
     expMultiplier,
     expValue: PORTAL_EXP_VALUE.TOTEM_SLASH,
     expRateRatio,
+    sundayEventRatio,
     time: totemSlashPlayTime,
   });
 
@@ -95,8 +103,11 @@ const MapPortalWolfAndTotemUI = ({
     numberOfMonster,
     expMultiplier,
     expValue:
-      wolfMode === '익스트림' ? infernoWolfExtremeValue : infernoWolfChaosValue,
+      wolfMode === '익스트림'
+        ? infernoWolfExtremeValue * sundayEventEffect
+        : infernoWolfChaosValue * sundayEventEffect,
     expRateRatio,
+    sundayEventRatio,
     time: infernoWolfPlayTime,
   });
 
@@ -192,8 +203,8 @@ const MapPortalWolfAndTotemUI = ({
               {formatNumber(
                 monsterExperience *
                   (wolfMode === '익스트림'
-                    ? infernoWolfExtremeValue
-                    : infernoWolfChaosValue)
+                    ? infernoWolfExtremeValue * sundayEventEffect
+                    : infernoWolfChaosValue * sundayEventEffect)
               )}
             </TableCell>
           </TableRow>
