@@ -24,18 +24,23 @@ type MapPortalPolloUIProps = {
   monsterExperience: number;
   expMultiplier: number;
   mapName: string;
+  checkState: PortalCheckState;
 };
 
 const MapPortalPolloUI = ({
   monsterExperience,
   expMultiplier,
   mapName,
+  checkState,
 }: MapPortalPolloUIProps) => {
   const expRate = useRecoilValue(totalExpSelector);
 
   const numberOfMonster = useRecoilValue(numberOfMonsterState(mapName));
 
-  const expRateRatio = expRate / 100;
+  const runeRatio = checkState.rune ? 100 : 0;
+  const sundayEventRatio = checkState.sundayEvent ? 100 : 0;
+
+  const expRateRatio = (expRate + runeRatio + sundayEventRatio) / 100;
 
   const {
     count: bountyHuntingPlayTime,
@@ -67,6 +72,7 @@ const MapPortalPolloUI = ({
     expMultiplier,
     expValue: PORTAL_EXP_VALUE.BOUNTY_HUNTING,
     expRateRatio,
+    sundayEventRatio,
     time: bountyHuntingPlayTime,
   });
   const castleGatesSecond = calculatePolloPlayTime({
@@ -75,6 +81,7 @@ const MapPortalPolloUI = ({
     expMultiplier,
     expValue: PORTAL_EXP_VALUE.CASTLE_GATES,
     expRateRatio,
+    sundayEventRatio,
     time: castleGatesPlayTime,
   });
   const stormwingSecond = calculatePolloPlayTime({
@@ -83,6 +90,7 @@ const MapPortalPolloUI = ({
     expMultiplier,
     expValue: PORTAL_EXP_VALUE.STORMWING,
     expRateRatio,
+    sundayEventRatio,
     time: stormwingPlayTime,
   });
 
