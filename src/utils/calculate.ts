@@ -1,8 +1,10 @@
+import { requiredLevelExp } from '../data/level';
 import {
   ExperienceCalculator,
   MesoCalculator,
   PolloPlayTimeCalculator,
   PrittoPlayTimeCalculator,
+  CalculateExpPercentageParams,
 } from '../interface/calculate';
 import { MapMonsterInfo } from '../interface/map';
 
@@ -295,4 +297,13 @@ export const calculateItemDropMultiplier = (itemDropRate: number): number => {
   } else {
     return (60 * itemDropRatio + 60) / 100;
   }
+};
+
+export const calculateExpPercentage = ({
+  userLevel,
+  expReward,
+}: CalculateExpPercentageParams): number => {
+  const userExp = requiredLevelExp[userLevel];
+  const expPercentage = (expReward / userExp) * 100;
+  return parseFloat(expPercentage.toFixed(3));
 };

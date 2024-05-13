@@ -47,3 +47,8 @@ interface CalculatePrittoPlayTimeParams {
 interface PrittoPlayTimeCalculator {
   (params: CalculatePrittoPlayTimeParams): number;
 }
+
+interface CalculateExpPercentageParams {
+  userLevel: number;
+  expReward: number;
+}
