@@ -10,7 +10,7 @@ const ExpEtc = () => {
     state: expRateState,
     rateName: 'exp_etc',
     regex: REGEX.NUMBER_AND_DOT,
-    maxAllowedValue: 1000,
+    maxAllowedValue: 999,
   });
 
   const rateOption: RateInputOption = {
