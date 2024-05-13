@@ -9,10 +9,14 @@ import {
 import { useRecoilValue } from 'recoil';
 import { totalExpSelector } from '../../../../atoms/expRateState';
 import { numberOfMonsterState } from '../../../../atoms/numberOfMonsterState';
+import { userLevelState } from '../../../../atoms/userLevelState';
 import { PORTAL_INITIAL_TIME } from '../../../../constants/constants';
 import useSelectState from '../../../../hooks/useSelectState';
 import useUpDownButton from '../../../../hooks/useUpDownButton';
-import { calculatePrittoPlayTime } from '../../../../utils/calculate';
+import {
+  calculateExpPercentage,
+  calculatePrittoPlayTime,
+} from '../../../../utils/calculate';
 import { getTimePrittoColor } from '../../../../utils/color';
 import { formatNumber, formatTime } from '../../../../utils/etc';
 import ListSubheaderUI from '../../../common/ListSubheaderUI';
@@ -32,6 +36,7 @@ const MapPortalPrittoUI = ({
   mapName,
   checkState,
 }: MapPortalPrittoUIProps) => {
+  const userLevel = useRecoilValue(userLevelState);
   const expRate = useRecoilValue(totalExpSelector);
 
   const runeRatio = checkState.rune ? 100 : 0;
@@ -202,23 +207,46 @@ const MapPortalPrittoUI = ({
           </TableRow>
 
           <TableRow>
-            <TableCell align="center" sx={{ p: 0, fontWeight: 500 }}>
+            <TableCell align="center" sx={{ fontWeight: 500 }}>
               경험치
             </TableCell>
-            <TableCell align="center">
+            <TableCell align="center" sx={{ p: 0 }}>
               {formatNumber(
                 monsterExperience * dragonEggStealingValue * sundayEventEffect
-              )}
+              )}{' '}
+              (
+              {calculateExpPercentage({
+                userLevel,
+                expReward:
+                  monsterExperience *
+                  dragonEggStealingValue *
+                  sundayEventEffect,
+              })}
+              %)
             </TableCell>
-            <TableCell align="center">
+            <TableCell align="center" sx={{ p: 0 }}>
               {formatNumber(
                 monsterExperience * courtshipDanceValue * sundayEventEffect
-              )}
+              )}{' '}
+              (
+              {calculateExpPercentage({
+                userLevel,
+                expReward:
+                  monsterExperience * courtshipDanceValue * sundayEventEffect,
+              })}
+              %)
             </TableCell>
-            <TableCell align="center">
+            <TableCell align="center" sx={{ p: 0 }}>
               {formatNumber(
                 monsterExperience * eagleHuntingValue * sundayEventEffect
-              )}
+              )}{' '}
+              (
+              {calculateExpPercentage({
+                userLevel,
+                expReward:
+                  monsterExperience * eagleHuntingValue * sundayEventEffect,
+              })}
+              %)
             </TableCell>
           </TableRow>
 
