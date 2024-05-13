@@ -37,6 +37,9 @@ const useRateInput = ({
   const handleRateChange = (event: SelectChangeEvent) => {
     const inputValue = event.target.value;
 
+    if (!Number(inputValue) && inputValue !== '' && Number(inputValue) !== 0)
+      return;
+
     handleRateInputChange({
       rateItem: rate,
       rateName,
