@@ -9,12 +9,16 @@ import {
 import { useRecoilValue } from 'recoil';
 import { totalExpSelector } from '../../../../atoms/expRateState';
 import { numberOfMonsterState } from '../../../../atoms/numberOfMonsterState';
+import { userLevelState } from '../../../../atoms/userLevelState';
 import {
   PORTAL_EXP_VALUE,
   PORTAL_INITIAL_TIME,
 } from '../../../../constants/constants';
 import useUpDownButton from '../../../../hooks/useUpDownButton';
-import { calculatePolloPlayTime } from '../../../../utils/calculate';
+import {
+  calculateExpPercentage,
+  calculatePolloPlayTime,
+} from '../../../../utils/calculate';
 import { getTimePolloColor } from '../../../../utils/color';
 import { formatNumber, formatTime } from '../../../../utils/etc';
 import ListSubheaderUI from '../../../common/ListSubheaderUI';
@@ -33,6 +37,7 @@ const MapPortalPolloUI = ({
   mapName,
   checkState,
 }: MapPortalPolloUIProps) => {
+  const userLevel = useRecoilValue(userLevelState);
   const expRate = useRecoilValue(totalExpSelector);
 
   const numberOfMonster = useRecoilValue(numberOfMonsterState(mapName));
@@ -159,25 +164,50 @@ const MapPortalPolloUI = ({
           </TableRow>
 
           <TableRow>
-            <TableCell align="center" sx={{ p: 0, fontWeight: 500 }}>
+            <TableCell align="center" sx={{ fontWeight: 500 }}>
               경험치
             </TableCell>
-            <TableCell align="center">
+            <TableCell align="center" sx={{ p: 0 }}>
               {formatNumber(
                 monsterExperience * PORTAL_EXP_VALUE.CASTLE_GATES * expRateRatio
-              )}
+              )}{' '}
+              (
+              {calculateExpPercentage({
+                userLevel,
+                expReward:
+                  monsterExperience *
+                  PORTAL_EXP_VALUE.CASTLE_GATES *
+                  expRateRatio,
+              })}
+              %)
             </TableCell>
-            <TableCell align="center">
+            <TableCell align="center" sx={{ p: 0 }}>
               {formatNumber(
                 monsterExperience *
                   PORTAL_EXP_VALUE.BOUNTY_HUNTING *
                   expRateRatio
-              )}
+              )}{' '}
+              (
+              {calculateExpPercentage({
+                userLevel,
+                expReward:
+                  monsterExperience *
+                  PORTAL_EXP_VALUE.BOUNTY_HUNTING *
+                  expRateRatio,
+              })}
+              %)
             </TableCell>
-            <TableCell align="center">
+            <TableCell align="center" sx={{ p: 0 }}>
               {formatNumber(
                 monsterExperience * PORTAL_EXP_VALUE.STORMWING * expRateRatio
-              )}
+              )}{' '}
+              (
+              {calculateExpPercentage({
+                userLevel,
+                expReward:
+                  monsterExperience * PORTAL_EXP_VALUE.STORMWING * expRateRatio,
+              })}
+              %)
             </TableCell>
           </TableRow>
 
