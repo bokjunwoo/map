@@ -35,7 +35,7 @@ const RateInputUI = ({ option, value, handleChange }: RateInputUIProps) => {
           size="small"
           label={option.label}
           id={option.key}
-          value={value === '0' ? '' : value}
+          value={value}
           onChange={handleChange}
           InputProps={{
             endAdornment: <InputAdornment position="end">%</InputAdornment>,
