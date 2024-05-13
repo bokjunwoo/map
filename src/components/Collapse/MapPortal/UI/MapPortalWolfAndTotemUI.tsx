@@ -17,6 +17,7 @@ import {
 import useSelectState from '../../../../hooks/useSelectState';
 import useUpDownButton from '../../../../hooks/useUpDownButton';
 import {
+  calculateExpPercentage,
   calculatePolloPlayTime,
   calculatePrittoPlayTime,
 } from '../../../../utils/calculate';
@@ -42,8 +43,8 @@ const MapPortalWolfAndTotemUI = ({
   mapName,
   checkState,
 }: MapPortalWolfAndTotemUIProps) => {
-  const expRate = useRecoilValue(totalExpSelector);
   const userLevel = useRecoilValue(userLevelState);
+  const expRate = useRecoilValue(totalExpSelector);
   const numberOfMonster = useRecoilValue(numberOfMonsterState(mapName));
 
   const runeRatio = checkState.rune ? 100 : 0;
@@ -197,7 +198,16 @@ const MapPortalWolfAndTotemUI = ({
             <TableCell align="center">
               {formatNumber(
                 monsterExperience * PORTAL_EXP_VALUE.TOTEM_SLASH * expRateRatio
-              )}
+              )}{' '}
+              (
+              {calculateExpPercentage({
+                userLevel,
+                expReward:
+                  monsterExperience *
+                  PORTAL_EXP_VALUE.TOTEM_SLASH *
+                  expRateRatio,
+              })}
+              %)
             </TableCell>
             <TableCell align="center">
               {formatNumber(
@@ -205,7 +215,17 @@ const MapPortalWolfAndTotemUI = ({
                   (wolfMode === '익스트림'
                     ? infernoWolfExtremeValue * sundayEventEffect
                     : infernoWolfChaosValue * sundayEventEffect)
-              )}
+              )}{' '}
+              (
+              {calculateExpPercentage({
+                userLevel,
+                expReward:
+                  monsterExperience *
+                  (wolfMode === '익스트림'
+                    ? infernoWolfExtremeValue * sundayEventEffect
+                    : infernoWolfChaosValue * sundayEventEffect),
+              })}
+              %)
             </TableCell>
           </TableRow>
 
