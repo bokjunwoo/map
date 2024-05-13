@@ -11,7 +11,7 @@ const CheckBoxListUI = ({
   handleChange,
 }: CheckBoxListUIProps) => {
   return (
-    <Box sx={{ width: 80 }}>
+    <Box sx={{ width: 100 }}>
       <Box
         sx={{
           textAlign: 'center',
