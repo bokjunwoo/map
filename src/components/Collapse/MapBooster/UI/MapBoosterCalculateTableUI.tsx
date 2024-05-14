@@ -1,38 +1,35 @@
 import { ListItem, Box, SelectChangeEvent } from '@mui/material';
+import { MapMonsterInfo } from '../../../../interface/map';
 import ListSubheaderUI from '../../../common/ListSubheaderUI';
 import SelectedTableUI from '../../../Table/UI/SelectedTableUI';
 
-type HeadCell = {
-  value: number;
-  label: string;
-};
-
-type MenuItem = {
-  value: number;
-  label: string;
-};
-
 type MapBoosterCalculateTableUIProps = {
+  monster: MapMonsterInfo;
   selectedBoosterValue: number;
   handleBoosterChange: (event: SelectChangeEvent) => void;
-  headCells: HeadCell[];
-  menuItem: MenuItem[];
   clickedColumn: number;
   handleCellClick: (columnIndex: number) => void;
-  monsterExperience: number;
-  burningField: number;
+  mapName: string;
 };
 
 const MapBoosterCalculateTableUI = ({
+  monster,
   selectedBoosterValue,
   handleBoosterChange,
-  headCells,
-  menuItem,
   clickedColumn,
   handleCellClick,
-  monsterExperience,
-  burningField,
+  mapName,
 }: MapBoosterCalculateTableUIProps) => {
+  const headCells = [
+    { value: 100, label: '룬 2배' },
+    { value: 200, label: '룬 3배' },
+  ];
+
+  const menuItem = Array.from({ length: 10 }, (_, i) => ({
+    value: i + 1,
+    label: `${i + 1}회`,
+  }));
+
   return (
     <ListItem sx={{ display: 'block' }}>
       <Box sx={{ display: 'flex', alignItems: 'top' }}>
@@ -44,14 +41,14 @@ const MapBoosterCalculateTableUI = ({
 
       <Box sx={{ mb: 1 }}>
         <SelectedTableUI
+          mosterExpReward={monster.experience * 10}
+          headCells={headCells}
+          menuItem={menuItem}
           selectedValue={selectedBoosterValue}
           handleChange={handleBoosterChange}
           clickedColumn={clickedColumn}
           handleCellClick={handleCellClick}
-          headCells={headCells}
-          menuItem={menuItem}
-          monsterExperience={monsterExperience}
-          burningField={burningField}
+          mapName={mapName}
           killMonsterCount={180}
         />
       </Box>

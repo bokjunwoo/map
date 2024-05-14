@@ -5,12 +5,9 @@ import {
   TableCell,
   TableBody,
   SelectChangeEvent,
-  Typography,
 } from '@mui/material';
-import { useRecoilValue } from 'recoil';
-import { totalExpSelector } from '../../../atoms/expRateState';
-import { formatNumber } from '../../../utils/etc';
 import SelectedBoosterUI from '../../common/SelectedBoosterUI';
+import RuneExpCellUI from './RuneExpCellUI';
 
 type HeadCell = {
   value: number;
@@ -23,38 +20,28 @@ type MenuItem = {
 };
 
 type SelectedTableUIProps = {
-  selectedValue: number;
-  handleChange: (event: SelectChangeEvent) => void;
+  mosterExpReward: number;
   headCells: HeadCell[];
   menuItem: MenuItem[];
+  selectedValue: number;
+  handleChange: (event: SelectChangeEvent) => void;
   clickedColumn: number;
   handleCellClick: (columnIndex: number) => void;
-  monsterExperience: number;
-  burningField: number;
+  mapName: string;
   killMonsterCount: number;
 };
 
 const SelectedTableUI = ({
-  selectedValue,
-  handleChange,
+  mosterExpReward,
   headCells,
   menuItem,
+  selectedValue,
+  handleChange,
   clickedColumn,
   handleCellClick,
-  monsterExperience,
-  burningField,
+  mapName,
   killMonsterCount,
 }: SelectedTableUIProps) => {
-  const expRate = useRecoilValue(totalExpSelector);
-
-  const calculateRuneExpReward = (rune: number) => {
-    return (
-      monsterExperience *
-      ((expRate + burningField + rune) / 100) *
-      killMonsterCount
-    );
-  };
-
   return (
     <Table
       size="small"
@@ -94,22 +81,15 @@ const SelectedTableUI = ({
             1회
           </TableCell>
           {headCells.map((head) => (
-            <TableCell
+            <RuneExpCellUI
               key={head.label}
-              align="center"
-              sx={{
-                p: 0.5,
-                bgcolor: clickedColumn === head.value ? '#FFFFCC' : '',
-                fontSize: 13,
-              }}
-              onClick={() => handleCellClick(head.value)}
-            >
-              {formatNumber(calculateRuneExpReward(head.value))}
-              <br />
-              <Typography component="span" sx={{ fontSize: 12 }}>
-                (약 1분의 효율)
-              </Typography>
-            </TableCell>
+              mosterExpReward={mosterExpReward}
+              clickedColumn={clickedColumn}
+              head={head}
+              handleCellClick={handleCellClick}
+              killMonsterCount={killMonsterCount}
+              mapName={mapName}
+            />
           ))}
         </TableRow>
         <TableRow>
@@ -125,23 +105,15 @@ const SelectedTableUI = ({
             />
           </TableCell>
           {headCells.map((head) => (
-            <TableCell
+            <RuneExpCellUI
               key={head.label}
-              align="center"
-              sx={{
-                p: 0.5,
-                m: 'auto',
-                bgcolor: clickedColumn === head.value ? '#FFFFCC' : '',
-                fontSize: 13,
-              }}
-              onClick={() => handleCellClick(head.value)}
-            >
-              {formatNumber(calculateRuneExpReward(head.value) * selectedValue)}
-              <br />
-              <Typography component="span" sx={{ fontSize: 12 }}>
-                (약 1분의 효율)
-              </Typography>
-            </TableCell>
+              mosterExpReward={mosterExpReward * selectedValue}
+              clickedColumn={clickedColumn}
+              head={head}
+              handleCellClick={handleCellClick}
+              killMonsterCount={killMonsterCount}
+              mapName={mapName}
+            />
           ))}
         </TableRow>
       </TableBody>
