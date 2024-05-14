@@ -58,8 +58,8 @@ const MapEventSkillUI = ({
 
       <Divider variant="middle" />
       <MapEventSkillCalculateTable
-        monsterExperience={highestLevelMonster.experience * expMultiplier}
-        burningField={item.burning_field}
+        monster={highestLevelMonster}
+        mapName={item.map_name}
         setSelectedRuneValue={setSelectedRuneValue}
       />
 
