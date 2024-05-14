@@ -4,7 +4,6 @@ import LabelChipUI from '../../Chip/UI/LabelChipUI';
 import ListHeaderUI from '../../common/ListHeaderUI';
 import MapExpRateStats from '../common/MapExpRateStats';
 import MapBoosterCalculateTable from '../MapBooster/MapBoosterCalculateTable';
-import MapBoosterCompare from '../MapBooster/MapBoosterCompare';
 import MapBoosterInput from '../MapBooster/MapBoosterInput';
 import MapBoosterExplanationUI from '../MapBooster/UI/MapBoosterExplanationUI';
 import MapBoosterMonsterStatsUI from '../MapBooster/UI/MapBoosterMonsterStatsUI';
@@ -69,18 +68,9 @@ const MapBoosterUI = ({
 
       <Divider variant="middle" />
       <MapBoosterCalculateTable
-        monsterExperience={highestLevelMonster.experience * 10}
-        burningField={item.burning_field}
+        monster={highestLevelMonster}
+        mapName={item.map_name}
         setSelectedRuneValue={setSelectedRuneValue}
-      />
-
-      <Divider variant="middle" />
-      <MapBoosterCompare
-        burningField={item.burning_field}
-        runeValue={selectedRuneValue}
-        monsterExperience={highestLevelMonster.experience}
-        boosterKillNumberOfMonster={numberOfMonster}
-        FieldKillNumberOfMonster={item.number_of_monster}
       />
     </List>
   );

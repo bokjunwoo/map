@@ -1,16 +1,17 @@
 import { SelectChangeEvent } from '@mui/material';
 import { useState } from 'react';
+import { MapMonsterInfo } from '../../../interface/map';
 import MapBoosterCalculateTableUI from './UI/MapBoosterCalculateTableUI';
 
 type MapBoosterTableProps = {
-  monsterExperience: number;
-  burningField: number;
+  monster: MapMonsterInfo;
+  mapName: string;
   setSelectedRuneValue: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const MapBoosterCalculateTable = ({
-  monsterExperience,
-  burningField,
+  monster,
+  mapName,
   setSelectedRuneValue,
 }: MapBoosterTableProps) => {
   const [selectedBoosterValue, setSelectedBoosterValue] = useState(10);
@@ -24,26 +25,14 @@ const MapBoosterCalculateTable = ({
     setSelectedRuneValue(columnIndex);
   };
 
-  const headCells = [
-    { value: 100, label: '룬 2배' },
-    { value: 200, label: '룬 3배' },
-  ];
-
-  const menuItem = Array.from({ length: 10 }, (_, i) => ({
-    value: i + 1,
-    label: `${i + 1}회`,
-  }));
-
   return (
     <MapBoosterCalculateTableUI
+      monster={monster}
       selectedBoosterValue={selectedBoosterValue}
       handleBoosterChange={handleBoosterChange}
-      headCells={headCells}
-      menuItem={menuItem}
       clickedColumn={clickedColumn}
       handleCellClick={handleCellClick}
-      monsterExperience={monsterExperience}
-      burningField={burningField}
+      mapName={mapName}
     />
   );
 };
