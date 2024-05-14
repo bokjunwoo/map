@@ -103,12 +103,15 @@ export const convertToSeconds = (firstDecimal: number) => {
 };
 
 export const formatTime = (totalSeconds: number) => {
-  const minutes = Math.floor(totalSeconds / 60);
-  const seconds = totalSeconds % 60;
+  const absTotalSeconds = Math.abs(totalSeconds);
+  const minutes = Math.floor(absTotalSeconds / 60);
+  const seconds = absTotalSeconds % 60;
+
+  const sign = totalSeconds < 0 ? '-' : '';
 
   if (minutes === 0) {
-    return `${seconds}초`;
+    return `${sign}${seconds}초`;
   } else {
-    return `${minutes}분 ${seconds}초`;
+    return `${sign}${minutes}분 ${seconds}초`;
   }
 };
