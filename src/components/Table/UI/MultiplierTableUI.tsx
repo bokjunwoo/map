@@ -5,8 +5,11 @@ import {
   TableCell,
   TableBody,
 } from '@mui/material';
+import { useRecoilValue } from 'recoil';
+import { userLevelState } from '../../../atoms/userLevelState';
 import { TIME_OPTIONS } from '../../../constants/constants';
 import { MapInfo } from '../../../interface/map';
+import { calculateExpPercentage } from '../../../utils/calculate';
 import { formatNumber } from '../../../utils/etc';
 
 type MultiplierTableUIProps = {
@@ -22,6 +25,8 @@ const MultiplierTableUI = ({
   pureMesoReward,
   bonusMesoReward,
 }: MultiplierTableUIProps) => {
+  const userLevel = useRecoilValue(userLevelState);
+
   return (
     <Table
       size="small"
@@ -50,7 +55,14 @@ const MultiplierTableUI = ({
           <TableCell align="center">
             {item.number_of_monster.toLocaleString()}
           </TableCell>
-          <TableCell align="center">{formatNumber(expReward / 8)}</TableCell>
+          <TableCell align="center">
+            {formatNumber(expReward / 8)} (
+            {calculateExpPercentage({
+              userLevel,
+              expReward: expReward / 8,
+            })}
+            %)
+          </TableCell>
           <TableCell align="center">
             {formatNumber(pureMesoReward / 8)}
           </TableCell>
@@ -68,7 +80,12 @@ const MultiplierTableUI = ({
               {(item.number_of_monster * 8 * row.multiplier).toLocaleString()}
             </TableCell>
             <TableCell align="center">
-              {formatNumber(expReward * row.multiplier)}
+              {formatNumber(expReward * row.multiplier)} (
+              {calculateExpPercentage({
+                userLevel,
+                expReward: expReward * row.multiplier,
+              })}
+              %)
             </TableCell>
             <TableCell align="center">
               {formatNumber(pureMesoReward * row.multiplier)}
