@@ -1,17 +1,25 @@
 import AppLayout from './components/Layout/AppLayout';
-import SelectButtonGroupContainer from './components/SelectButtonGroup/SelectButtonGroupContainer';
-import UserLevelSearchInputContainer from './components/TextField/UserLevelSearchInputContainer';
+import MapTableContainer from './components/Table/MapTable';
+import UserLevelSearchInput from './components/TextField/UserLevelSearchInputContainer';
+import RegionDetails from './contents/RegionDetails';
+import SelectedRateList from './contents/SelectedRateType';
+import SelectedTimeUI from './contents/SelectedTimeUI';
 
 const App = () => {
   return (
     <AppLayout>
-      <SelectButtonGroupContainer
-        options={['직접선택', '불러오기']}
-        defaultOptionValue="직접선택"
-        localStorageKey="selectedOption"
-      />
+      <UserLevelSearchInput />
 
-      <UserLevelSearchInputContainer />
+      <SelectedRateList />
+
+      <RegionDetails />
+
+      <SelectedTimeUI />
+
+      <MapTableContainer
+        defaultOptionValue="30분"
+        localStorageKey="selectedTimeOption"
+      />
     </AppLayout>
   );
 };
