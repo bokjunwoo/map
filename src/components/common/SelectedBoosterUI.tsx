@@ -22,8 +22,9 @@ const SelectedBoosterUI = ({
       fullWidth
       sx={{
         width: 80,
+        fontWeight: 500,
         '&.MuiOutlinedInput-root': {
-          height: '45.59px',
+          height: '32.02px',
           '& fieldset': {
             border: 'none',
             borderRadius: 0,
@@ -42,7 +43,7 @@ const SelectedBoosterUI = ({
       inputProps={{
         sx: {
           padding: '0px 0px 0px 16px',
-          fontSize: 14,
+          fontSize: 13,
         },
       }}
     >
