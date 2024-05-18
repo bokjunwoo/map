@@ -1,9 +1,9 @@
-import { Divider, List, Typography } from '@mui/material';
+import { Divider, Box, Typography } from '@mui/material';
 import { RateList } from '../../../../interface/rate';
 
 const RateItemListUI = ({ item }: { item: RateList }) => {
   return (
-    <List
+    <Box
       sx={{
         pt: 0,
         pb: 0,
@@ -31,7 +31,7 @@ const RateItemListUI = ({ item }: { item: RateList }) => {
       {item.Components.map((Component, idx) => (
         <Component key={idx} />
       ))}
-    </List>
+    </Box>
   );
 };
 
