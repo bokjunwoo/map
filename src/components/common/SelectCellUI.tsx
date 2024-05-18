@@ -7,7 +7,13 @@ type SelectCellUIProps = {
 };
 
 const SelectCellUI = ({ options, value, onChange }: SelectCellUIProps) => (
-  <Select value={value} onChange={onChange} size="small" variant="standard">
+  <Select
+    value={value}
+    onChange={onChange}
+    size="small"
+    variant="standard"
+    name={options.label}
+  >
     <InputLabel id={`${options.label}_select_label`}>
       {options.label}
     </InputLabel>

@@ -37,8 +37,9 @@ const RateSelectUI = ({ option, value, handleChange }: RateSelectUIProps) => {
           {option.label}
         </InputLabel>
         <Select
+          name={option.key}
           labelId={option.key}
-          id={option.key}
+          id={option.label}
           value={value}
           label={option.label}
           onChange={handleChange}
