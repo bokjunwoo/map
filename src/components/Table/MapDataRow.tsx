@@ -27,7 +27,10 @@ const MapDataRow = ({ item, storedValue }: MapDataRowProps) => {
     <>
       <TableRow sx={{ bgcolor: backgroundColor }}>
         <TableCell>
-          <IconButton onClick={toggleOpen}>
+          <IconButton
+            onClick={toggleOpen}
+            aria-label={isOpen ? '상세정보 닫기' : '상세정보 열기'}
+          >
             {isOpen ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
