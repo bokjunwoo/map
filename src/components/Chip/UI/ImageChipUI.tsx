@@ -46,6 +46,7 @@ const ImageChipUI = ({
             src={require(`../../../assets/region_icon/${value}.png`)}
             variant="rounded"
             sx={{ p: 0.15 }}
+            alt={value}
           />
         }
         label={value}
