@@ -10,6 +10,7 @@ const MiniMapHeaderUI = ({ mapInfo }: { mapInfo: MapInfo }) => {
           variant="rounded"
           src={require(`../../../assets/region_icon/${mapInfo.map_region}.png`)}
           sx={{ m: -1 }}
+          alt={mapInfo.map_region}
         />
       }
       title={mapInfo.map_region}
