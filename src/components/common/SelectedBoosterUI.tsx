@@ -16,6 +16,7 @@ const SelectedBoosterUI = ({
 }: SelectedBoosterUIProps) => {
   return (
     <Select
+      aria-label="select-booster"
       labelId="select-booster"
       value={`${selectedValue}`}
       onChange={handleChange}
@@ -24,7 +25,7 @@ const SelectedBoosterUI = ({
         width: 80,
         fontWeight: 500,
         '&.MuiOutlinedInput-root': {
-          height: '32.02px',
+          height: '30.59px',
           '& fieldset': {
             border: 'none',
             borderRadius: 0,
