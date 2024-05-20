@@ -32,6 +32,7 @@ const UpDownButtonUI = ({
       }}
     >
       <IconButton
+        aria-label="증가버튼"
         onClick={increment}
         sx={{
           p: 0,
@@ -50,6 +51,7 @@ const UpDownButtonUI = ({
       </Typography>
 
       <IconButton
+        aria-label="감소버튼"
         onClick={decrement}
         sx={{
           p: 0,

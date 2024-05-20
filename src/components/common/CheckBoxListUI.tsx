@@ -27,6 +27,7 @@ const CheckBoxListUI = ({
       </Box>
 
       <Checkbox
+        aria-label={checkBoxOption.name}
         sx={{
           display: 'flex',
           justifyContent: 'center',

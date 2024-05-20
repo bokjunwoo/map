@@ -43,6 +43,7 @@ const InputAdornmentUI = ({
       </Typography>
 
       <TextField
+        aria-label={text}
         size="small"
         value={value === 0 ? '' : value}
         onChange={onChange}
