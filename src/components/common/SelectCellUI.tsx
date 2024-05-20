@@ -1,4 +1,10 @@
-import { InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from '@mui/material';
 
 type SelectCellUIProps = {
   options: SelectOptions;
@@ -7,22 +13,16 @@ type SelectCellUIProps = {
 };
 
 const SelectCellUI = ({ options, value, onChange }: SelectCellUIProps) => (
-  <Select
-    value={value}
-    onChange={onChange}
-    size="small"
-    variant="standard"
-    name={options.label}
-  >
-    <InputLabel id={`${options.label}_select_label`}>
-      {options.label}
-    </InputLabel>
-    {options.values.map((option, index) => (
-      <MenuItem key={index} value={option.value}>
-        {option.label}
-      </MenuItem>
-    ))}
-  </Select>
+  <FormControl variant="standard" size="small">
+    <InputLabel id={options.label}>{options.label}</InputLabel>
+    <Select labelId={options.label} value={value} onChange={onChange}>
+      {options.values.map((option, index) => (
+        <MenuItem key={index} value={option.value}>
+          {option.label}
+        </MenuItem>
+      ))}
+    </Select>
+  </FormControl>
 );
 
 export default SelectCellUI;

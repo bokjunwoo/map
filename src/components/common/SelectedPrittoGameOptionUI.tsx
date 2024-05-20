@@ -1,4 +1,10 @@
-import { MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from '@mui/material';
 
 type SelectedPrittoGameOptionUIProps = {
   value: number;
@@ -15,45 +21,48 @@ const SelectedPrittoGameOptionUI = ({
   menuItem,
 }: SelectedPrittoGameOptionUIProps) => {
   return (
-    <Select
-      labelId="select-booster"
-      value={`${value}`}
-      onChange={handleChange}
-      fullWidth
-      sx={{
-        '&.MuiOutlinedInput-root': {
-          height: '30.59px',
-          '& fieldset': {
-            border: 'none',
-            borderRadius: 0,
+    <FormControl fullWidth>
+      <InputLabel id="select_Pritto_setting" />
+      <Select
+        aria-label="select_Pritto_setting"
+        labelId="select_Pritto_setting"
+        value={`${value}`}
+        onChange={handleChange}
+        sx={{
+          '&.MuiOutlinedInput-root': {
+            height: '30.59px',
+            '& fieldset': {
+              border: 'none',
+              borderRadius: 0,
+            },
+            '&:hover fieldset': {
+              border: '1px solid',
+              borderColor: '#FF9900',
+            },
+            '&.Mui-focused fieldset': {
+              border: '1px solid',
+              borderColor: '#FF9900',
+              boxShadow: `0 0 0 2px rgba(255, 153, 0, 0.4)`,
+            },
           },
-          '&:hover fieldset': {
-            border: '1px solid',
-            borderColor: '#FF9900',
+        }}
+        inputProps={{
+          sx: {
+            fontSize: 13,
+            ml: 1,
+            p: 0,
           },
-          '&.Mui-focused fieldset': {
-            border: '1px solid',
-            borderColor: '#FF9900',
-            boxShadow: `0 0 0 2px rgba(255, 153, 0, 0.4)`,
-          },
-        },
-      }}
-      inputProps={{
-        sx: {
-          fontSize: 13,
-          ml: 1,
-          p: 0,
-        },
-      }}
-    >
-      {menuItem.map((item) => {
-        return (
-          <MenuItem key={item.value} value={item.value} sx={{ fontSize: 13 }}>
-            {item.label}
-          </MenuItem>
-        );
-      })}
-    </Select>
+        }}
+      >
+        {menuItem.map((item) => {
+          return (
+            <MenuItem key={item.value} value={item.value} sx={{ fontSize: 13 }}>
+              {item.label}
+            </MenuItem>
+          );
+        })}
+      </Select>
+    </FormControl>
   );
 };
 
