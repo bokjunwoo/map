@@ -16,8 +16,8 @@ const SelectedBoosterUI = ({
 }: SelectedBoosterUIProps) => {
   return (
     <Select
+      name="select-booster"
       aria-label="select-booster"
-      labelId="select-booster"
       value={`${selectedValue}`}
       onChange={handleChange}
       fullWidth

@@ -1,6 +1,5 @@
 import {
   FormControl,
-  InputLabel,
   MenuItem,
   Select,
   SelectChangeEvent,
@@ -22,10 +21,9 @@ const SelectedPrittoGameOptionUI = ({
 }: SelectedPrittoGameOptionUIProps) => {
   return (
     <FormControl fullWidth>
-      <InputLabel id="select_Pritto_setting" />
       <Select
+        name="select_Pritto_setting"
         aria-label="select_Pritto_setting"
-        labelId="select_Pritto_setting"
         value={`${value}`}
         onChange={handleChange}
         sx={{

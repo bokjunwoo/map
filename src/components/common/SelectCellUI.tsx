@@ -1,6 +1,5 @@
 import {
   FormControl,
-  InputLabel,
   MenuItem,
   Select,
   SelectChangeEvent,
@@ -14,8 +13,7 @@ type SelectCellUIProps = {
 
 const SelectCellUI = ({ options, value, onChange }: SelectCellUIProps) => (
   <FormControl variant="standard" size="small">
-    <InputLabel id={options.label}>{options.label}</InputLabel>
-    <Select labelId={options.label} value={value} onChange={onChange}>
+    <Select value={value} onChange={onChange} name={options.label}>
       {options.values.map((option, index) => (
         <MenuItem key={index} value={option.value}>
           {option.label}
