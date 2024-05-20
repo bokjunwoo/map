@@ -24,11 +24,11 @@ const UserLevelSearchInputUI = ({
 }: UserLevelSearchInputUIProps) => {
   return (
     <FormControl hiddenLabel>
-      <InputLabel id="유저레벨 입력" />
+      <label htmlFor="user_level" />
       <TextField
+        id="user_level"
         aria-label="유저레벨 입력"
         name="유저레벨 입력"
-        id="유저레벨 입력"
         size="small"
         InputProps={{
           startAdornment: (
