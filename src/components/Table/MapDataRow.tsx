@@ -42,10 +42,7 @@ const MapDataRow = ({ item, storedValue }: MapDataRowProps) => {
         ))}
       </TableRow>
 
-      <MapDetailCollapseUI
-        open={item.map_name === '해변 암석 지대 1' ? true : false}
-        item={item}
-      />
+      <MapDetailCollapseUI open={isOpen} item={item} />
     </>
   );
 };
