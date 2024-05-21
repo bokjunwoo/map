@@ -1,25 +1,16 @@
+import { Routes, Route, Navigate } from 'react-router-dom';
 import AppLayout from './components/Layout/AppLayout';
-import MapTableContainer from './components/Table/MapTable';
-import UserLevelSearchInput from './components/TextField/UserLevelSearchInputContainer';
-import RegionDetails from './contents/RegionDetails';
-import SelectedRateList from './contents/SelectedRateType';
-import SelectedTimeUI from './contents/SelectedTimeUI';
+import MainPage from './page/MainPage';
+import NewsPage from './page/NewsPage';
 
 const App = () => {
   return (
     <AppLayout>
-      <UserLevelSearchInput />
-
-      <SelectedRateList />
-
-      <RegionDetails />
-
-      <SelectedTimeUI />
-
-      <MapTableContainer
-        defaultOptionValue="30분"
-        localStorageKey="selectedTimeOption"
-      />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/news" element={<NewsPage />} />
+        <Route path="/*" element={<Navigate to="/" replace={false} />} />
+      </Routes>
     </AppLayout>
   );
 };

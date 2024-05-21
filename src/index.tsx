@@ -2,6 +2,7 @@ import { ThemeProvider } from '@emotion/react';
 import { CssBaseline, createTheme } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import App from './App';
 
@@ -31,11 +32,13 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <RecoilRoot>
-        <CssBaseline />
-        <App />
-      </RecoilRoot>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <RecoilRoot>
+          <CssBaseline />
+          <App />
+        </RecoilRoot>
+      </ThemeProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
