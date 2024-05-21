@@ -1,7 +1,6 @@
 import {
   FormControl,
   InputAdornment,
-  InputLabel,
   TextField,
   Typography,
 } from '@mui/material';
