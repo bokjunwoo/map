@@ -80,7 +80,7 @@ const ExpList = () => {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         {expList.map((item, index) => (
-          <Grid item sm={12} md={6} lg={3} key={index}>
+          <Grid item xs={12} md={3} key={index}>
             <RateItemListUI item={item} />
           </Grid>
         ))}
