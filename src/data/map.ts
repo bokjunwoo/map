@@ -1,4 +1,3 @@
-import { MapData } from '../interface/map';
 import { 도원경 } from './map/도원경';
 import { 불타는세르니움 } from './map/불타는세르니움';
 import { 세르니움 } from './map/세르니움';

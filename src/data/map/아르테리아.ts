@@ -1,5 +1,3 @@
-import { MapInfo } from '../../interface/map';
-
 export const 아르테리아: MapInfo[] = [
   {
     id: 1,

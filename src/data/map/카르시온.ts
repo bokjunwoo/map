@@ -1,5 +1,3 @@
-import { MapInfo } from '../../interface/map';
-
 export const 카르시온: MapInfo[] = [
   {
     id: 1,

@@ -1,5 +1,3 @@
-import { MapInfo } from '../../interface/map';
-
 export const 불타는세르니움: MapInfo[] = [
   {
     id: 1,

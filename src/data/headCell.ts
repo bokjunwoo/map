@@ -1,5 +1,3 @@
-import { HeadCell } from '../interface/headCell';
-
 export const generateHeadCells: (selectedTime: string) => HeadCell[] = (
   selectedTime
 ) => [

@@ -1,5 +1,3 @@
-import { MapInfo } from '../../interface/map';
-
 export const 호텔아르크스: MapInfo[] = [
   {
     id: 1,

@@ -1,5 +1,3 @@
-import { MapInfo } from '../../interface/map';
-
 export const 오디움: MapInfo[] = [
   {
     id: 1,
