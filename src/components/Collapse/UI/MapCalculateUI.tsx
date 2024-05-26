@@ -1,5 +1,4 @@
-import { List, Divider } from '@mui/material';
-import { MapInfo } from '../../../interface/map';
+import { List, Divider, ListItem } from '@mui/material';
 import ListHeaderUI from '../../common/ListHeaderUI';
 import MapCalculateStats from '../MapCalculate/MapCalculateStats';
 import MapCalculateTable from '../MapCalculate/MapCalculateTable';
@@ -16,8 +15,8 @@ const MapCalculateUI = ({ item }: { item: MapInfo }) => {
         headerText="마릿수 계산기"
         mainComment="1젠당 잡을 수 있는 몬스터를 수정한 정보를 얻을 수 있습니다."
       />
+      <Divider variant="middle" component="li" />
 
-      <Divider variant="middle" />
       <MapCalculateStats burningField={item.burning_field} />
 
       <Divider variant="middle" />

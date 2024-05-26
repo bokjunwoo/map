@@ -1,5 +1,4 @@
 import { ListItem } from '@mui/material';
-import { MapInfo } from '../../../../interface/map';
 import ListSubheaderUI from '../../../common/ListSubheaderUI';
 import NumberOfMonsterInput from '../../../TextField/NumberOfMonsterInput';
 

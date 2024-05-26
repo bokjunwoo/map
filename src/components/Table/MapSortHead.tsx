@@ -1,5 +1,4 @@
 import { generateHeadCells } from '../../data/headCell';
-import { HeadCellInfo } from '../../interface/headCell';
 import TableSortHeadUI from './UI/TableSortHeadUI';
 
 interface MapSortHeadProps {

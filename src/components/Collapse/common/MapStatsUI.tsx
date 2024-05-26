@@ -1,5 +1,4 @@
 import { ListItem, Box } from '@mui/material';
-import { RateListOption, CheckBoxGroup } from '../../../interface/stats';
 import ListSubheaderUI from '../../common/ListSubheaderUI';
 import StackedListUI from '../../common/StackedListUI';
 

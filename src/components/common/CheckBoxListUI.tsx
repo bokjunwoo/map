@@ -1,5 +1,4 @@
 import { Box, Typography, Checkbox } from '@mui/material';
-import { CheckBoxOption } from '../../interface/stats';
 
 type CheckBoxListUIProps = {
   checkBoxOption: CheckBoxOption;

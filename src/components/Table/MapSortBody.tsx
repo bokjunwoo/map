@@ -6,7 +6,6 @@ import { totalItemDropSelector } from '../../atoms/itemDropState';
 import { getSelectedMapData } from '../../atoms/mapDataState';
 import { regionListState } from '../../atoms/regionListState';
 import { userLevelState } from '../../atoms/userLevelState';
-import { MapInfo } from '../../interface/map';
 import {
   calculateItemDropMultiplier,
   calculateSumOfMonsters,

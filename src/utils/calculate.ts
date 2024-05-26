@@ -6,7 +6,6 @@ import {
   PrittoPlayTimeCalculator,
   CalculateExpPercentageParams,
 } from '../interface/calculate';
-import { MapMonsterInfo } from '../interface/map';
 
 export const calculateSumOfMonsters = (monsters: MapMonsterInfo[]) => {
   const numberOfMonster = monsters.map((monster) => monster.number_of_monster);

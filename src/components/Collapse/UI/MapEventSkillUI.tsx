@@ -1,5 +1,4 @@
 import { List, Divider } from '@mui/material';
-import { MapInfo, MapMonsterInfo } from '../../../interface/map';
 import LabelChipUI from '../../Chip/UI/LabelChipUI';
 import ListHeaderUI from '../../common/ListHeaderUI';
 import MapExpRateStats from '../common/MapExpRateStats';

@@ -1,5 +1,4 @@
 import { Box, ListItem, ListItemText } from '@mui/material';
-import { MapInfo } from '../../../../interface/map';
 import CalculateMonsterStatsUI from '../../../common/CalculateMonsterStatsUI';
 import ListSubheaderUI from '../../../common/ListSubheaderUI';
 import MultiplierTableUI from '../../../Table/UI/MultiplierTableUI';

@@ -1,5 +1,5 @@
 import { TableCell, TableHead, TableRow, TableSortLabel } from '@mui/material';
-import { HeadCellInfo, HeadCell } from '../../../interface/headCell';
+import { RGBColor } from '../../../data/color';
 
 type TableSortHeadUIProps = {
   orderBy: keyof HeadCellInfo;
@@ -17,7 +17,7 @@ const TableSortHeadUI = ({
   headCells,
 }: TableSortHeadUIProps) => {
   return (
-    <TableHead sx={{ bgcolor: '#f1f2f3' }}>
+    <TableHead sx={{ bgcolor: `rgb(${RGBColor.lightGray})` }}>
       <TableRow>
         <TableCell />
 

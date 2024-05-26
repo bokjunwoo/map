@@ -1,5 +1,4 @@
 import { ListItem, Box, SelectChangeEvent } from '@mui/material';
-import { MapMonsterInfo } from '../../../../interface/map';
 import ListSubheaderUI from '../../../common/ListSubheaderUI';
 import SelectedTableUI from '../../../Table/UI/SelectedTableUI';
 

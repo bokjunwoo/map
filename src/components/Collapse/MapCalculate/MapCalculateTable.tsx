@@ -4,7 +4,6 @@ import { totalItemDropSelector } from '../../../atoms/itemDropState';
 import { totalMesoDropSelector } from '../../../atoms/mesoDropState';
 import { numberOfMonsterState } from '../../../atoms/numberOfMonsterState';
 import { userLevelState } from '../../../atoms/userLevelState';
-import { MapInfo } from '../../../interface/map';
 import {
   calculateItemDropMultiplier,
   calculateTotalExperience,

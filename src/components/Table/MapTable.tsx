@@ -1,8 +1,7 @@
-import { Paper, Table, TableContainer } from '@mui/material';
+import { Table, TableContainer } from '@mui/material';
 import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { localStorageState } from '../../atoms/localStorageState';
-import { HeadCellInfo } from '../../interface/headCell';
 import MapSortBody from './MapSortBody';
 import MapSortHead from './MapSortHead';
 
@@ -23,7 +22,7 @@ const MapTable = ({
   const [orderBy, setOrderBy] = useState<keyof HeadCellInfo>('map_name');
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer>
       <Table>
         <MapSortHead
           storedValue={storedValue}

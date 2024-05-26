@@ -4,7 +4,6 @@ import {
   burningFieldState,
   getburningFieldValue,
 } from '../../../atoms/burningFieldState';
-import { MapInfo } from '../../../interface/map';
 import MapSettingBuringFieldUI from './UI/MapSettingBuringFieldUI';
 
 const MapSettingBuringField = ({ item }: { item: MapInfo }) => {

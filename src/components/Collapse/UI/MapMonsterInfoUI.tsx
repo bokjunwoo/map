@@ -3,7 +3,6 @@ import { useRecoilValue } from 'recoil';
 import { totalItemDropSelector } from '../../../atoms/itemDropState';
 import { totalMesoDropSelector } from '../../../atoms/mesoDropState';
 import { userLevelState } from '../../../atoms/userLevelState';
-import { MapMonsterInfo } from '../../../interface/map';
 import {
   calculateIndividualExperienceMultiplier,
   calculateIndividualMesoMultiplier,

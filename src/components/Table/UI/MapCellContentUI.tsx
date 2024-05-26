@@ -1,6 +1,4 @@
 import { Box, SelectChangeEvent } from '@mui/material';
-import { HeadCell } from '../../../interface/headCell';
-import { MapInfo } from '../../../interface/map';
 import { formatNumber } from '../../../utils/etc';
 import SelectCellUI from '../../common/SelectCellUI';
 

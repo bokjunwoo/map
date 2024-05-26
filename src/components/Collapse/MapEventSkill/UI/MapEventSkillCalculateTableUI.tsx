@@ -2,7 +2,6 @@ import { ListItem, Box, SelectChangeEvent } from '@mui/material';
 import { useRecoilValue } from 'recoil';
 import { userLevelState } from '../../../../atoms/userLevelState';
 import { EVENT_SKILL } from '../../../../constants/constants';
-import { MapMonsterInfo } from '../../../../interface/map';
 import { calculateIndividualExperienceMultiplier } from '../../../../utils/calculate';
 import ListSubheaderUI from '../../../common/ListSubheaderUI';
 import SelectedTableUI from '../../../Table/UI/SelectedTableUI';

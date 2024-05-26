@@ -1,5 +1,4 @@
 import { Card } from '@mui/material';
-import { MapInfo } from '../../../../interface/map';
 import MiniMapBodyUI from '../../../Card/UI/MiniMapBodyUI';
 import MiniMapHeaderUI from '../../../Card/UI/MiniMapHeaderUI';
 

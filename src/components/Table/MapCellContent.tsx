@@ -4,8 +4,6 @@ import {
   burningFieldState,
   getburningFieldValue,
 } from '../../atoms/burningFieldState';
-import { HeadCell } from '../../interface/headCell';
-import { MapInfo } from '../../interface/map';
 import MapCellContentUI from './UI/MapCellContentUI';
 
 interface MapCellContentProps {

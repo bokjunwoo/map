@@ -1,5 +1,4 @@
 import { List, Divider } from '@mui/material';
-import { MapMonsterInfo } from '../../../interface/map';
 import ListHeaderUI from '../../common/ListHeaderUI';
 import MapPortalStats from '../MapPortal/MapPortalStats';
 import MapPortalPolloUI from '../MapPortal/UI/MapPortalPolloUI';

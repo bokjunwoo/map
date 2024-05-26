@@ -1,6 +1,4 @@
-import { HeadCellInfo } from './headCell';
-
-export interface MapRegion {
+interface MapRegion {
   map_region:
     | '소멸의여로'
     | '리버스시티'
@@ -43,3 +41,7 @@ interface MapInfo extends HeadCellInfo {
 type MapData = {
   [key in AraneRiverRegion | GrandisRegion]: MapInfo[];
 };
+
+interface MapInfoProps {
+  mapInfo: MapInfo;
+}

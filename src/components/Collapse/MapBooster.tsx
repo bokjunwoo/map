@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { MapInfo } from '../../interface/map';
 import MapBoosterUI from './UI/MapBoosterUI';
 
 const MapBooster = ({ item }: { item: MapInfo }) => {

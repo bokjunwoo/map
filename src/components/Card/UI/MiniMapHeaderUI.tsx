@@ -1,5 +1,4 @@
 import { Avatar, CardHeader } from '@mui/material';
-import { MapInfo } from '../../../interface/map';
 
 const MiniMapHeaderUI = ({ mapInfo }: { mapInfo: MapInfo }) => {
   return (

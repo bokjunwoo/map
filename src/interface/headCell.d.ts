@@ -1,6 +1,4 @@
-import { MapRegion } from './map';
-
-export interface HeadCellInfo extends MapRegion {
+interface HeadCellInfo extends MapRegion {
   map_name: string;
   number_of_monster: number;
   burning_field: number;
@@ -9,7 +7,7 @@ export interface HeadCellInfo extends MapRegion {
   max_meso_per_monster: number;
 }
 
-export interface HeadCell {
+interface HeadCell {
   id: keyof HeadCellInfo;
   label: string;
   disable_sorting?: boolean;

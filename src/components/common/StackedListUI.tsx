@@ -1,5 +1,4 @@
 import { Stack } from '@mui/material';
-import { CheckBoxGroup, RateListOption } from '../../interface/stats';
 import RateChipUI from '../Chip/UI/RateChipUI';
 import CheckBoxListUI from './CheckBoxListUI';
 

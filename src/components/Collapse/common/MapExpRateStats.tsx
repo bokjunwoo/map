@@ -1,7 +1,6 @@
 import { useRecoilValue } from 'recoil';
 import { totalExpSelector } from '../../../atoms/expRateState';
 import { listRGB } from '../../../data/color';
-import { RateListOption } from '../../../interface/stats';
 import MapStatsUI from './MapStatsUI';
 
 type MapExpRateStatsProps = {

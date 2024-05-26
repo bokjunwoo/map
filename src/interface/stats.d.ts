@@ -3,17 +3,17 @@ interface CommonOption {
   bgcolor: string;
 }
 
-export interface RateListOption extends CommonOption {
+interface RateListOption extends CommonOption {
   iconName: string;
   value: number;
 }
 
-export interface CheckBoxOption extends CommonOption {
+interface CheckBoxOption extends CommonOption {
   name: string;
   checked: boolean;
 }
 
-export interface CheckBoxGroup {
+interface CheckBoxGroup {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   option: CheckBoxOption[];
 }

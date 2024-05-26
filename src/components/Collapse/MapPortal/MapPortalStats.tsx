@@ -1,7 +1,6 @@
 import { useRecoilValue } from 'recoil';
 import { totalExpSelector } from '../../../atoms/expRateState';
 import { listRGB } from '../../../data/color';
-import { CheckBoxGroup, RateListOption } from '../../../interface/stats';
 import MapRateUI from '../common/MapStatsUI';
 
 type MapPortalRateProps = {

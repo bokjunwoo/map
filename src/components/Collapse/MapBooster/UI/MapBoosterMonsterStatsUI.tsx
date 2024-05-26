@@ -1,7 +1,6 @@
 import { ListItem, ListItemText } from '@mui/material';
 import { useRecoilValue } from 'recoil';
 import { totalExpSelector } from '../../../../atoms/expRateState';
-import { MapMonsterInfo } from '../../../../interface/map';
 import ListSubheaderUI from '../../../common/ListSubheaderUI';
 import TextAmountUI from '../../../common/TextAmountUI';
 

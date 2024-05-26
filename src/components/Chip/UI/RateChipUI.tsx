@@ -1,5 +1,4 @@
 import { Chip, Avatar, Box, Typography } from '@mui/material';
-import { RateListOption } from '../../../interface/stats';
 
 type RateChipUIProps = {
   rateList: RateListOption;

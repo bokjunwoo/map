@@ -2,7 +2,6 @@ import { ChangeEvent, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { numberOfMonsterState } from '../../atoms/numberOfMonsterState';
 import { REGEX } from '../../constants/constants';
-import { MapInfo } from '../../interface/map';
 import InputAdornmentUI from './UI/InputAdornmentUI';
 
 type NumberOfMonsterInputProps = {

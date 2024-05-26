@@ -8,7 +8,6 @@ import {
 import { useRecoilValue } from 'recoil';
 import { userLevelState } from '../../../atoms/userLevelState';
 import { TIME_OPTIONS } from '../../../constants/constants';
-import { MapInfo } from '../../../interface/map';
 import { calculateExpPercentage } from '../../../utils/calculate';
 import { formatNumber } from '../../../utils/etc';
 

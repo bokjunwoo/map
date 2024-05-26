@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { userLevelState } from '../../atoms/userLevelState';
-import { MapInfo } from '../../interface/map';
 import { calculateIndividualExperienceMultiplier } from '../../utils/calculate';
 import MapEventSkillUI from './UI/MapEventSkillUI';
 

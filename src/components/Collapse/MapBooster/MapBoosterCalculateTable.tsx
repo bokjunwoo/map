@@ -1,6 +1,5 @@
 import { SelectChangeEvent } from '@mui/material';
 import { useState } from 'react';
-import { MapMonsterInfo } from '../../../interface/map';
 import MapBoosterCalculateTableUI from './UI/MapBoosterCalculateTableUI';
 
 type MapBoosterTableProps = {

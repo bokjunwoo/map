@@ -3,7 +3,6 @@ import { totalExpSelector } from '../../../atoms/expRateState';
 import { totalItemDropSelector } from '../../../atoms/itemDropState';
 import { totalMesoDropSelector } from '../../../atoms/mesoDropState';
 import { listRGB } from '../../../data/color';
-import { RateListOption } from '../../../interface/stats';
 import MapStatsUI from '../common/MapStatsUI';
 
 const MapCalculateStats = ({ burningField }: { burningField: number }) => {

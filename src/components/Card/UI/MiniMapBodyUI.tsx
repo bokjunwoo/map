@@ -1,5 +1,4 @@
 import { CardMedia } from '@mui/material';
-import { MapInfo } from '../../../interface/map';
 
 const MiniMapBodyUI = ({ mapInfo }: { mapInfo: MapInfo }) => {
   return (

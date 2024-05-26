@@ -11,7 +11,6 @@ import { useRecoilValue } from 'recoil';
 import { totalExpSelector } from '../../../../atoms/expRateState';
 import { numberOfMonsterState } from '../../../../atoms/numberOfMonsterState';
 import { EVENT_SKILL } from '../../../../constants/constants';
-import { MapInfo } from '../../../../interface/map';
 import {
   convertToFirstDecimal,
   convertToSeconds,

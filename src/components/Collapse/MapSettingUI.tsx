@@ -1,5 +1,4 @@
 import { List } from '@mui/material';
-import { MapInfo } from '../../interface/map';
 import MapSettingBuringField from './MapSetting/MapSettingBuringField';
 import MapSettingImageUI from './MapSetting/UI/MapSettingImageUI';
 import MapSettingNumberOfMobUI from './MapSetting/UI/MapSettingNumberOfMobUI';
