@@ -1,6 +1,5 @@
 import { Box, Collapse, TableCell, TableRow } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
-import { MapInfo } from '../../interface/map';
 import MapBooster from './MapBooster';
 import MapEventSkill from './MapEventSkill';
 import MapPortal from './MapPortal';
