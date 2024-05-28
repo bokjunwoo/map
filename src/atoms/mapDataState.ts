@@ -1,6 +1,5 @@
 import { atom, selectorFamily } from 'recoil';
 import { mapData } from '../data/map';
-import { MapData } from '../interface/map';
 
 export const mapDataState = atom<MapData>({
   key: 'mapDataState',

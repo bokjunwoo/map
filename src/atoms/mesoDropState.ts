@@ -1,5 +1,4 @@
 import { atom, selector, selectorFamily } from 'recoil';
-import { RateItem } from '../interface/rate';
 
 export const mesoDropState = atom<RateItem[]>({
   key: 'mesoDropState',
