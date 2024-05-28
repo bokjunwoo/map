@@ -6,7 +6,6 @@ import {
   useRecoilState,
   useRecoilValue,
 } from 'recoil';
-import { RateItem } from '../interface/rate';
 import { handleRateInputChange } from '../utils/hander';
 
 type UseRateInputProps = {
