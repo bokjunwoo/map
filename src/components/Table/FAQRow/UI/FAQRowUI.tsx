@@ -18,7 +18,7 @@ type FAQRowUIProps = {
 const FAQRowUI = ({ FAQ, isOpen, toggleOpen }: FAQRowUIProps) => {
   return (
     <TableBody>
-      <TableRow hover sx={{ '& > *': { borderBottom: isOpen ? 'unset' : '' } }}>
+      <TableRow hover sx={{ '& > *': { borderBottom: isOpen ? 'none' : '' } }}>
         <TableCell sx={{ width: 10, p: 0 }}>
           <IconButton
             onClick={toggleOpen}
