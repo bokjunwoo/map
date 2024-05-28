@@ -1,7 +1,6 @@
 import { itemDropState, rateValueSelector } from '../../../atoms/itemDropState';
 import { REGEX } from '../../../constants/constants';
 import useRateInput from '../../../hooks/useRateInput';
-import { RateInputOption } from '../../../interface/rate';
 import RateInputUI from '../common/RateInputUI';
 
 const ItemDropUnionArtifact = () => {

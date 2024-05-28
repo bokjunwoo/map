@@ -1,6 +1,5 @@
 import { Box, Grid } from '@mui/material';
 import { listRGB } from '../../../data/color';
-import { RateList } from '../../../interface/rate';
 import EmptyRateUI from '../common/EmptyRateUI';
 import ItemDropAbility from '../ItemDrop/ItemDropAbility';
 import ItemDropEquipmentItem from '../ItemDrop/ItemDropEquipmentItem';

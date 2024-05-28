@@ -5,7 +5,6 @@ import {
   TextField,
   InputAdornment,
 } from '@mui/material';
-import { RateInputOption } from '../../../interface/rate';
 
 type RateInputUIProps = {
   option: RateInputOption;

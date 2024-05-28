@@ -1,6 +1,5 @@
 import { itemDropState, rateValueSelector } from '../../../atoms/itemDropState';
 import useRateSelect from '../../../hooks/useRateSelect';
-import { RateSelectOption } from '../../../interface/rate';
 import RateSelectUI from '../common/RateSelectUI';
 
 const ItemDropShowDownSkill = () => {

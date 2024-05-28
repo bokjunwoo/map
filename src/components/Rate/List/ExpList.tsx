@@ -1,6 +1,5 @@
 import { Box, Grid } from '@mui/material';
 import { listRGB } from '../../../data/color';
-import { RateList } from '../../../interface/rate';
 import EmptyRateUI from '../common/EmptyRateUI';
 import AccumulationPotion from '../Exp/AccumulationPotion';
 import BoostRing from '../Exp/BoostRing';

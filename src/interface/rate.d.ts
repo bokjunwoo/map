@@ -3,24 +3,29 @@ interface RateSelectValue {
   label: string;
 }
 
-export interface RateSelectOption {
+interface RateSelectOption {
   label: string;
   key: string;
   values: RateSelectValue[];
 }
 
-export interface RateInputOption {
+interface RateInputOption {
   label: string;
   key: string;
 }
 
-export interface RateList {
+interface RateList {
   label: string;
   Components: React.ComponentType[];
   rgb: string;
 }
 
-export interface RateItem {
+interface RateItem {
   rateName: string;
   value: number;
+}
+
+interface MobInfo {
+  text: string;
+  amount: number;
 }

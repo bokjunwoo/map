@@ -1,5 +1,4 @@
 import { Divider, Box, Typography } from '@mui/material';
-import { RateList } from '../../../../interface/rate';
 
 const RateItemListUI = ({ item }: { item: RateList }) => {
   return (

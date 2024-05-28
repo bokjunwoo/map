@@ -7,7 +7,6 @@ import {
   Select,
   SelectChangeEvent,
 } from '@mui/material';
-import { RateSelectOption } from '../../../interface/rate';
 
 type RateSelectUIProps = {
   option: RateSelectOption;

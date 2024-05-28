@@ -1,6 +1,5 @@
 import { mesoDropState, rateValueSelector } from '../../../atoms/mesoDropState';
 import useRateSelect from '../../../hooks/useRateSelect';
-import { RateSelectOption } from '../../../interface/rate';
 import RateSelectUI from '../common/RateSelectUI';
 
 const PhantomUnion = () => {

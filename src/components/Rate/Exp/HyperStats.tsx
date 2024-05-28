@@ -1,7 +1,6 @@
 import { expRateState, rateValueSelector } from '../../../atoms/expRateState';
 import { REGEX } from '../../../constants/constants';
 import useRateInput from '../../../hooks/useRateInput';
-import { RateInputOption } from '../../../interface/rate';
 import RateInputUI from '../common/RateInputUI';
 
 const HyperStats = () => {

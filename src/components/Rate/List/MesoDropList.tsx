@@ -1,6 +1,5 @@
 import { Box, Grid } from '@mui/material';
 import { listRGB } from '../../../data/color';
-import { RateList } from '../../../interface/rate';
 import EmptyRateUI from '../common/EmptyRateUI';
 import GreedSkill from '../MesoDrop/GreedSkill';
 import MesoDropAbility from '../MesoDrop/MesoDropAbility';
