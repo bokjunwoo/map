@@ -52,6 +52,8 @@ const useMobCalculation = ({
   return {
     totalExpRate,
     levelBasedExpRatio,
+    mesoMultiplier,
+    itemDropMultiplier,
     calculatedExp,
     calculatedPureMeso,
     calculatedBonusMeso,
