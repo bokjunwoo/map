@@ -5,6 +5,7 @@ import {
   PolloPlayTimeCalculator,
   PrittoPlayTimeCalculator,
   CalculateExpPercentageParams,
+  CalculateRemainingTime,
 } from '../interface/calculate';
 
 export const calculateSumOfMonsters = (monsters: MapMonsterInfo[]) => {
@@ -305,4 +306,32 @@ export const calculateExpPercentage = ({
   const userExp = requiredLevelExp[userLevel];
   const expPercentage = (expReward / userExp) * 100;
   return parseFloat(expPercentage.toFixed(3));
+};
+
+export const calculateRemainingTime = ({
+  type,
+  mobExp,
+  mobKillCount,
+  levelBasedExpRatio,
+  expMultiplier,
+  totalExpRate,
+  sundayEventRate,
+  playTime,
+}: CalculateRemainingTime) => {
+  const sundayEventEffect = sundayEventRate === 100 ? 2 : 1;
+
+  const totalExp =
+    type === 'Pollo'
+      ? expMultiplier * mobExp * (totalExpRate / 100)
+      : expMultiplier * mobExp * sundayEventEffect;
+
+  const effectiveRateRatio = (totalExpRate - sundayEventRate) / 100;
+
+  const remainingTime =
+    (totalExp /
+      (mobExp * levelBasedExpRatio * mobKillCount * 8 * effectiveRateRatio)) *
+      60 -
+    playTime;
+
+  return Math.ceil(remainingTime);
 };

@@ -52,3 +52,14 @@ interface CalculateExpPercentageParams {
   userLevel: number;
   expReward: number;
 }
+
+interface CalculateRemainingTime {
+  type: 'Pollo' | 'Pritto';
+  mobExp: number;
+  mobKillCount: number;
+  expMultiplier: number;
+  levelBasedExpRatio: number;
+  totalExpRate: number;
+  sundayEventRate: number;
+  playTime: number;
+}
