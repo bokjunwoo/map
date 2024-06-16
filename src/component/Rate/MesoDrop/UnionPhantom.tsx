@@ -1,17 +1,18 @@
 import { mesoDropState, rateValueSelector } from '../../../atoms/mesoDropState';
+import { RATE_NAME } from '../../../constants/constants';
 import useRateSelect from '../../../hooks/useRateSelect';
 import RateSelectUI from '../common/RateSelectUI';
 
-const PhantomUnion = () => {
+const UnionPhantom = () => {
   const { value, handleRateChange } = useRateSelect({
     rateValueSelector,
     state: mesoDropState,
-    rateName: 'Phantom_union',
+    rateName: RATE_NAME.UNION_PHANTOM,
   });
 
   const rateOption: RateSelectOption = {
     label: '팬텀 유니온',
-    key: 'Phantom_union',
+    key: RATE_NAME.UNION_PHANTOM,
     values: [
       { value: 0, label: '미적용' },
       { value: 1, label: 'B (+1%)' },
@@ -31,4 +32,4 @@ const PhantomUnion = () => {
   );
 };
 
-export default PhantomUnion;
+export default UnionPhantom;

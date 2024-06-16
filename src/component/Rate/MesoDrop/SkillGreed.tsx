@@ -1,20 +1,21 @@
 import { mesoDropState, rateValueSelector } from '../../../atoms/mesoDropState';
+import { RATE_NAME } from '../../../constants/constants';
 import useRateSelect from '../../../hooks/useRateSelect';
 import RateSelectUI from '../common/RateSelectUI';
 
-const UnionWealthCoupon = () => {
+const SkillGreed = () => {
   const { value, handleRateChange } = useRateSelect({
     rateValueSelector,
     state: mesoDropState,
-    rateName: 'union_wealth_coupon',
+    rateName: RATE_NAME.SKILL_GREED,
   });
 
   const rateOption: RateSelectOption = {
-    label: '유니온의 부',
-    key: 'union_wealth_coupon',
+    label: '그리드(섀도어)',
+    key: RATE_NAME.SKILL_GREED,
     values: [
       { value: 0, label: '미적용' },
-      { value: 50, label: '적용 (+50%)' },
+      { value: 20, label: '+20%' },
     ],
   };
 
@@ -27,4 +28,4 @@ const UnionWealthCoupon = () => {
   );
 };
 
-export default UnionWealthCoupon;
+export default SkillGreed;

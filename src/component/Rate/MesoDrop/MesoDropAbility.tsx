@@ -1,20 +1,20 @@
 import { mesoDropState, rateValueSelector } from '../../../atoms/mesoDropState';
-import { REGEX } from '../../../constants/constants';
+import { RATE_NAME, REGEX } from '../../../constants/constants';
 import useRateInput from '../../../hooks/useRateInput';
 import RateInputUI from '../common/RateInputUI';
 
-const MesoDropUnionArtifact = () => {
+const MesoDropAbility = () => {
   const { value, handleRateChange } = useRateInput({
     rateValueSelector,
     state: mesoDropState,
-    rateName: 'union_artifact',
+    rateName: RATE_NAME.ABILITY,
     regex: REGEX.NUMBER,
-    maxAllowedValue: 12,
+    maxAllowedValue: 20,
   });
 
   const rateOption: RateInputOption = {
-    label: '유니온 아티팩트(메획)',
-    key: 'union_artifact',
+    label: '어빌리티(메획)',
+    key: RATE_NAME.ABILITY,
   };
 
   return (
@@ -26,4 +26,4 @@ const MesoDropUnionArtifact = () => {
   );
 };
 
-export default MesoDropUnionArtifact;
+export default MesoDropAbility;
