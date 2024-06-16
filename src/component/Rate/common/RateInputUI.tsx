@@ -33,14 +33,16 @@ const RateInputUI = ({ option, value, handleChange }: RateInputUIProps) => {
         <TextField
           size="small"
           label={option.label}
-          id={option.key}
           value={value}
           onChange={handleChange}
           InputProps={{
             endAdornment: <InputAdornment position="end">%</InputAdornment>,
           }}
           InputLabelProps={{ sx: { fontSize: 13 } }}
-          inputProps={{ sx: { height: 36, pt: 0, pb: 0 } }}
+          inputProps={{
+            sx: { fontSize: 15, height: 36, pt: 0, pb: 0 },
+            'aria-label': 'rate_input',
+          }}
         />
       </FormControl>
     </ListItemButton>

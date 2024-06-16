@@ -38,11 +38,13 @@ const RateSelectUI = ({ option, value, handleChange }: RateSelectUIProps) => {
         <Select
           name={option.key}
           labelId={option.key}
-          id={option.label}
           value={value}
           label={option.label}
           onChange={handleChange}
           sx={{ fontSize: 13 }}
+          inputProps={{
+            'aria-label': 'select_box',
+          }}
         >
           {option.values.map((v) => {
             return (
