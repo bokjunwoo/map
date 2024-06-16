@@ -1,7 +1,7 @@
 import { userApi } from './axiosConfig';
 
 // 유니온
-export const getUnionRaider = async (ocid: string) => {
+export const getUnionRaider = async (ocid: string): Promise<UnionRaider> => {
   try {
     const response = await userApi.get(`/union-raider?ocid=${ocid}`);
     return response.data;
@@ -12,7 +12,9 @@ export const getUnionRaider = async (ocid: string) => {
 };
 
 // 아티팩트
-export const getUnionArtifact = async (ocid: string) => {
+export const getUnionArtifact = async (
+  ocid: string
+): Promise<UnionArtifact> => {
   try {
     const response = await userApi.get(`/union-artifact?ocid=${ocid}`);
     return response.data;

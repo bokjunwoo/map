@@ -1,7 +1,9 @@
 import { characterApi } from './axiosConfig';
 
 // 하이퍼스탯
-export const getHyperStat = async (ocid: string) => {
+export const getHyperStat = async (
+  ocid: string
+): Promise<CharacterHyperStat> => {
   try {
     const response = await characterApi.get(`/hyper-stat?ocid=${ocid}`);
     return response.data;
@@ -12,7 +14,7 @@ export const getHyperStat = async (ocid: string) => {
 };
 
 // 어빌리티
-export const getAbility = async (ocid: string) => {
+export const getAbility = async (ocid: string): Promise<CharacterAbility> => {
   try {
     const response = await characterApi.get(`/ability?ocid=${ocid}`);
     return response.data;
@@ -23,7 +25,9 @@ export const getAbility = async (ocid: string) => {
 };
 
 // 링크스킬(엘프의 축복)
-export const getLinkSkill = async (ocid: string) => {
+export const getLinkSkill = async (
+  ocid: string
+): Promise<CharacterLinkSkill> => {
   try {
     const response = await characterApi.get(`/link-skill?ocid=${ocid}`);
     return response.data;
@@ -34,7 +38,9 @@ export const getLinkSkill = async (ocid: string) => {
 };
 
 // 5차스킬(쓸만한 홀리심볼)
-export const getVmatrix = async (ocid: string) => {
+export const getVmatrix = async (
+  ocid: string
+): Promise<CharacterVCoreEquipment> => {
   try {
     const response = await characterApi.get(`/vmatrix?ocid=${ocid}`);
     return response.data;
@@ -45,7 +51,9 @@ export const getVmatrix = async (ocid: string) => {
 };
 
 // 6차스킬(솔 야누스)
-export const getHexaMatrix = async (ocid: string) => {
+export const getHexaMatrix = async (
+  ocid: string
+): Promise<CharacterHexaCoreEquipment> => {
   try {
     const response = await characterApi.get(`/hexamatrix?ocid=${ocid}`);
     return response.data;
@@ -56,7 +64,9 @@ export const getHexaMatrix = async (ocid: string) => {
 };
 
 // 장비아이템
-export const getItemEquipment = async (ocid: string) => {
+export const getItemEquipment = async (
+  ocid: string
+): Promise<CharacterItemEquipment> => {
   try {
     const response = await characterApi.get(`/item-equipment?ocid=${ocid}`);
     return response.data;
@@ -67,7 +77,9 @@ export const getItemEquipment = async (ocid: string) => {
 };
 
 // 캐쉬아이템
-export const getCashItemEquipment = async (ocid: string) => {
+export const getCashItemEquipment = async (
+  ocid: string
+): Promise<CharacterCashItemEquipment> => {
   try {
     const response = await characterApi.get(`/cashitem-equipment?ocid=${ocid}`);
     return response.data;
