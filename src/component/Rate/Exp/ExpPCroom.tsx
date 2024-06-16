@@ -1,20 +1,21 @@
 import { expRateState, rateValueSelector } from '../../../atoms/expRateState';
+import { RATE_NAME } from '../../../constants/constants';
 import useRateSelect from '../../../hooks/useRateSelect';
 import RateSelectUI from '../common/RateSelectUI';
 
-const ExtremeGoldPotion = () => {
+const ExpPcRoom = () => {
   const { value, handleRateChange } = useRateSelect({
     rateValueSelector,
     state: expRateState,
-    rateName: 'extreme_gold_potion',
+    rateName: RATE_NAME.PC_ROOM,
   });
 
   const rateOption: RateSelectOption = {
-    label: '익스트림 골드(몬파)',
-    key: 'extreme_gold_potion',
+    label: '프리미엄 PC방',
+    key: RATE_NAME.PC_ROOM,
     values: [
       { value: 0, label: '미적용' },
-      { value: 10, label: '적용 (+10%)' },
+      { value: 30, label: '적용 (+80%)' },
     ],
   };
 
@@ -27,4 +28,4 @@ const ExtremeGoldPotion = () => {
   );
 };
 
-export default ExtremeGoldPotion;
+export default ExpPcRoom;

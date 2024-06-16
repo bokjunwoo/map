@@ -1,21 +1,21 @@
 import { expRateState, rateValueSelector } from '../../../atoms/expRateState';
+import { RATE_NAME } from '../../../constants/constants';
 import useRateSelect from '../../../hooks/useRateSelect';
 import RateSelectUI from '../common/RateSelectUI';
 
-const ElvenBlessing = () => {
+const LoadedDice = () => {
   const { value, handleRateChange } = useRateSelect({
     rateValueSelector,
     state: expRateState,
-    rateName: 'elven_blessing',
+    rateName: RATE_NAME.LOADED_DICE,
   });
 
   const rateOption: RateSelectOption = {
-    label: '엘프의 축복',
-    key: 'elven_blessing',
+    label: '로디드 다이스',
+    key: RATE_NAME.LOADED_DICE,
     values: [
       { value: 0, label: '미적용' },
-      { value: 10, label: '1레벨 (+10%)' },
-      { value: 15, label: '2레벨 (+15%)' },
+      { value: 30, label: '주사위 6 (+30%)' },
     ],
   };
 
@@ -28,4 +28,4 @@ const ElvenBlessing = () => {
   );
 };
 
-export default ElvenBlessing;
+export default LoadedDice;

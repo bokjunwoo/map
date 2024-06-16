@@ -1,20 +1,20 @@
 import { expRateState, rateValueSelector } from '../../../atoms/expRateState';
-import { REGEX } from '../../../constants/constants';
+import { RATE_NAME, REGEX } from '../../../constants/constants';
 import useRateInput from '../../../hooks/useRateInput';
 import RateInputUI from '../common/RateInputUI';
 
-const ExpEtc = () => {
+const SolJanus = () => {
   const { value, handleRateChange } = useRateInput({
     rateValueSelector,
     state: expRateState,
-    rateName: 'exp_etc',
-    regex: REGEX.NUMBER_AND_DOT,
-    maxAllowedValue: 999,
+    rateName: RATE_NAME.SOL_JANUS,
+    regex: REGEX.NUMBER,
+    maxAllowedValue: 100,
   });
 
   const rateOption: RateInputOption = {
-    label: '기타(경험치)',
-    key: 'exp_etc',
+    label: RATE_NAME.SOL_JANUS,
+    key: 'sol_janus',
   };
 
   return (
@@ -26,4 +26,4 @@ const ExpEtc = () => {
   );
 };
 
-export default ExpEtc;
+export default SolJanus;

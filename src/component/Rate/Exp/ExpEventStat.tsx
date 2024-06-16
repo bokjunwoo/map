@@ -1,24 +1,26 @@
 import { expRateState, rateValueSelector } from '../../../atoms/expRateState';
+import { RATE_NAME } from '../../../constants/constants';
 import useRateSelect from '../../../hooks/useRateSelect';
 import RateSelectUI from '../common/RateSelectUI';
 
-const ZeroUnion = () => {
+const ExpEventStat = () => {
   const { value, handleRateChange } = useRateSelect({
     rateValueSelector,
     state: expRateState,
-    rateName: 'zero_union',
+    rateName: RATE_NAME.EXP_EVENT_STAT,
   });
 
   const rateOption: RateSelectOption = {
-    label: '제로 유니온 공격대원',
-    key: 'zero_union',
+    label: '이벤트 버프(마약)',
+    key: RATE_NAME.EXP_EVENT_STAT,
     values: [
       { value: 0, label: '미적용' },
-      { value: 4, label: 'B (+4%)' },
-      { value: 6, label: 'A (+6%)' },
-      { value: 8, label: 'S (+8%)' },
-      { value: 10, label: 'SS (+10%)' },
-      { value: 12, label: 'SSS (+12%)' },
+      { value: 2.5, label: '1레벨 (+2.5%)' },
+      { value: 5, label: '2레벨 (+5%)' },
+      { value: 7.5, label: '3레벨 (+7.5%)' },
+      { value: 10, label: '4레벨 (+10%)' },
+      { value: 12.5, label: '5레벨 (+12.5%)' },
+      { value: 15, label: '6레벨 (+15%)' },
     ],
   };
 
@@ -31,4 +33,4 @@ const ZeroUnion = () => {
   );
 };
 
-export default ZeroUnion;
+export default ExpEventStat;

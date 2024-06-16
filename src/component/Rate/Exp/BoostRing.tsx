@@ -1,20 +1,21 @@
 import { expRateState, rateValueSelector } from '../../../atoms/expRateState';
+import { RATE_NAME } from '../../../constants/constants';
 import useRateSelect from '../../../hooks/useRateSelect';
 import RateSelectUI from '../common/RateSelectUI';
 
-const KinshipRing = () => {
+const BoostRing = () => {
   const { value, handleRateChange } = useRateSelect({
     rateValueSelector,
     state: expRateState,
-    rateName: 'kinship_ring',
+    rateName: RATE_NAME.BOOST_RING,
   });
 
   const rateOption: RateSelectOption = {
-    label: '혈맹의 반지',
-    key: 'kinship_ring',
+    label: '경험치 부스트 링',
+    key: RATE_NAME.BOOST_RING,
     values: [
       { value: 0, label: '미적용' },
-      { value: 10, label: '착용 (+10%)' },
+      { value: 15, label: '착용 (+15%)' },
     ],
   };
 
@@ -27,4 +28,4 @@ const KinshipRing = () => {
   );
 };
 
-export default KinshipRing;
+export default BoostRing;

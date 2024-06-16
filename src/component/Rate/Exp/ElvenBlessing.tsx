@@ -1,20 +1,22 @@
 import { expRateState, rateValueSelector } from '../../../atoms/expRateState';
+import { RATE_NAME } from '../../../constants/constants';
 import useRateSelect from '../../../hooks/useRateSelect';
 import RateSelectUI from '../common/RateSelectUI';
 
-const MvpCoupon = () => {
+const ElvenBlessing = () => {
   const { value, handleRateChange } = useRateSelect({
     rateValueSelector,
     state: expRateState,
-    rateName: 'mvp_coupon',
+    rateName: RATE_NAME.ELVEN_BLESSING,
   });
 
   const rateOption: RateSelectOption = {
-    label: '뿌리기 / MVP 쿠폰',
-    key: 'mvp_coupon',
+    label: '엘프의 축복',
+    key: RATE_NAME.ELVEN_BLESSING,
     values: [
       { value: 0, label: '미적용' },
-      { value: 50, label: '적용 (+50%)' },
+      { value: 10, label: '1레벨 (+10%)' },
+      { value: 15, label: '2레벨 (+15%)' },
     ],
   };
 
@@ -27,4 +29,4 @@ const MvpCoupon = () => {
   );
 };
 
-export default MvpCoupon;
+export default ElvenBlessing;

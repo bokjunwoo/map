@@ -1,4 +1,5 @@
 import { expRateState, rateValueSelector } from '../../../atoms/expRateState';
+import { RATE_NAME } from '../../../constants/constants';
 import useRateSelect from '../../../hooks/useRateSelect';
 import RateSelectUI from '../common/RateSelectUI';
 
@@ -6,12 +7,12 @@ const ExpCoupon = () => {
   const { value, handleRateChange } = useRateSelect({
     rateValueSelector,
     state: expRateState,
-    rateName: 'exp_coupon',
+    rateName: RATE_NAME.EXP_COUPON,
   });
 
   const rateOption: RateSelectOption = {
     label: '경험치 쿠폰',
-    key: 'exp_coupon',
+    key: RATE_NAME.EXP_COUPON,
     values: [
       { value: 0, label: '미적용' },
       { value: 50, label: '1.5배 쿠폰 (+50%)' },

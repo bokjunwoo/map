@@ -1,22 +1,25 @@
 import { expRateState, rateValueSelector } from '../../../atoms/expRateState';
+import { RATE_NAME } from '../../../constants/constants';
 import useRateSelect from '../../../hooks/useRateSelect';
 import RateSelectUI from '../common/RateSelectUI';
 
-const SpiritPendant = () => {
+const UnionZero = () => {
   const { value, handleRateChange } = useRateSelect({
     rateValueSelector,
     state: expRateState,
-    rateName: 'spirit_pendant',
+    rateName: RATE_NAME.UNION_ZERO,
   });
 
   const rateOption: RateSelectOption = {
-    label: '정령의 팬던트',
-    key: 'spirit_pendant',
+    label: '제로 유니온 공격대원',
+    key: RATE_NAME.UNION_ZERO,
     values: [
       { value: 0, label: '미적용' },
-      { value: 10, label: '1시간 미만 (+10%)' },
-      { value: 20, label: '2시간 미만 (+20%)' },
-      { value: 30, label: '2시간 이상 (+30%)' },
+      { value: 4, label: 'B (+4%)' },
+      { value: 6, label: 'A (+6%)' },
+      { value: 8, label: 'S (+8%)' },
+      { value: 10, label: 'SS (+10%)' },
+      { value: 12, label: 'SSS (+12%)' },
     ],
   };
 
@@ -29,4 +32,4 @@ const SpiritPendant = () => {
   );
 };
 
-export default SpiritPendant;
+export default UnionZero;

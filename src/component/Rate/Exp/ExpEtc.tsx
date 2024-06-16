@@ -1,20 +1,20 @@
 import { expRateState, rateValueSelector } from '../../../atoms/expRateState';
-import { REGEX } from '../../../constants/constants';
+import { RATE_NAME, REGEX } from '../../../constants/constants';
 import useRateInput from '../../../hooks/useRateInput';
 import RateInputUI from '../common/RateInputUI';
 
-const ExpHolySymbol = () => {
+const ExpEtc = () => {
   const { value, handleRateChange } = useRateInput({
     rateValueSelector,
     state: expRateState,
-    rateName: 'holy_symbol',
-    regex: REGEX.NUMBER,
-    maxAllowedValue: 35,
+    rateName: RATE_NAME.ETC,
+    regex: REGEX.NUMBER_AND_DOT,
+    maxAllowedValue: 999,
   });
 
   const rateOption: RateInputOption = {
-    label: '쓸만한 홀리 심볼',
-    key: 'holy_symbol',
+    label: '기타(경험치)',
+    key: RATE_NAME.ETC,
   };
 
   return (
@@ -26,4 +26,4 @@ const ExpHolySymbol = () => {
   );
 };
 
-export default ExpHolySymbol;
+export default ExpEtc;

@@ -1,21 +1,23 @@
 import { expRateState, rateValueSelector } from '../../../atoms/expRateState';
+import { RATE_NAME } from '../../../constants/constants';
 import useRateSelect from '../../../hooks/useRateSelect';
 import RateSelectUI from '../common/RateSelectUI';
 
-const AccumulationPotion = () => {
+const SpiritPendant = () => {
   const { value, handleRateChange } = useRateSelect({
     rateValueSelector,
     state: expRateState,
-    rateName: 'accumulation_potion',
+    rateName: RATE_NAME.SPIRIT_PENDANT,
   });
 
   const rateOption: RateSelectOption = {
-    label: '경험 축적의 비약',
-    key: 'accumulation_potion',
+    label: '정령의 팬던트',
+    key: RATE_NAME.SPIRIT_PENDANT,
     values: [
       { value: 0, label: '미적용' },
-      { value: 10, label: '경축비 (+10%)' },
-      { value: 20, label: '고농축 경축비 (+20%)' },
+      { value: 10, label: '1시간 미만 (+10%)' },
+      { value: 20, label: '2시간 미만 (+20%)' },
+      { value: 30, label: '2시간 이상 (+30%)' },
     ],
   };
 
@@ -28,4 +30,4 @@ const AccumulationPotion = () => {
   );
 };
 
-export default AccumulationPotion;
+export default SpiritPendant;

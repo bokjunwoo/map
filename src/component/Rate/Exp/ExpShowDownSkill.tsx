@@ -1,20 +1,22 @@
 import { expRateState, rateValueSelector } from '../../../atoms/expRateState';
+import { RATE_NAME } from '../../../constants/constants';
 import useRateSelect from '../../../hooks/useRateSelect';
 import RateSelectUI from '../common/RateSelectUI';
 
-const LoadedDice = () => {
+const ExpShowDownSkill = () => {
   const { value, handleRateChange } = useRateSelect({
     rateValueSelector,
     state: expRateState,
-    rateName: 'loaded_dice',
+    rateName: RATE_NAME.SHOW_DOWN_SKILL,
   });
 
   const rateOption: RateSelectOption = {
-    label: '로디드 다이스',
-    key: 'loaded_dice',
+    label: '쇼다운 챌린지(나로)',
+    key: RATE_NAME.SHOW_DOWN_SKILL,
     values: [
       { value: 0, label: '미적용' },
-      { value: 30, label: '주사위 6 (+30%)' },
+      { value: 5, label: '기본 (+5%)' },
+      { value: 10, label: '하이퍼 스킬 (+10%)' },
     ],
   };
 
@@ -27,4 +29,4 @@ const LoadedDice = () => {
   );
 };
 
-export default LoadedDice;
+export default ExpShowDownSkill;
