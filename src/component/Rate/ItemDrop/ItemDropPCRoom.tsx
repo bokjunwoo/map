@@ -1,21 +1,21 @@
 import { itemDropState, rateValueSelector } from '../../../atoms/itemDropState';
+import { RATE_NAME } from '../../../constants/constants';
 import useRateSelect from '../../../hooks/useRateSelect';
 import RateSelectUI from '../common/RateSelectUI';
 
-const ItemDropShowDownSkill = () => {
+const ItemDropPCRoom = () => {
   const { value, handleRateChange } = useRateSelect({
     rateValueSelector,
     state: itemDropState,
-    rateName: 'show_down_skill',
+    rateName: RATE_NAME.PC_ROOM,
   });
 
   const rateOption: RateSelectOption = {
-    label: '쇼다운 챌린지(나로)',
-    key: 'show_down_skill',
+    label: '프리미엄 PC방',
+    key: RATE_NAME.PC_ROOM,
     values: [
       { value: 0, label: '미적용' },
-      { value: 5, label: '기본 (+5%)' },
-      { value: 10, label: '하이퍼 스킬 (+10%)' },
+      { value: 10, label: '적용 (+10%)' },
     ],
   };
 
@@ -28,4 +28,4 @@ const ItemDropShowDownSkill = () => {
   );
 };
 
-export default ItemDropShowDownSkill;
+export default ItemDropPCRoom;

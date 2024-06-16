@@ -1,20 +1,21 @@
 import { itemDropState, rateValueSelector } from '../../../atoms/itemDropState';
+import { RATE_NAME } from '../../../constants/constants';
 import useRateSelect from '../../../hooks/useRateSelect';
 import RateSelectUI from '../common/RateSelectUI';
 
-const ItemDropWealthAcquisitionPotion = () => {
+const UnionLuckCoupon = () => {
   const { value, handleRateChange } = useRateSelect({
     rateValueSelector,
     state: itemDropState,
-    rateName: 'wealth_acquisition_potion',
+    rateName: RATE_NAME.UNION_LUCK_COUPON,
   });
 
   const rateOption: RateSelectOption = {
-    label: '재물 획득의 비약',
-    key: 'wealth_acquisition_potion',
+    label: '유니온의 행운',
+    key: RATE_NAME.UNION_LUCK_COUPON,
     values: [
       { value: 0, label: '미적용' },
-      { value: 20, label: '적용 (+20%)' },
+      { value: 50, label: '적용 (+50%)' },
     ],
   };
 
@@ -27,4 +28,4 @@ const ItemDropWealthAcquisitionPotion = () => {
   );
 };
 
-export default ItemDropWealthAcquisitionPotion;
+export default UnionLuckCoupon;

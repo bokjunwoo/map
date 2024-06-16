@@ -1,20 +1,20 @@
 import { itemDropState, rateValueSelector } from '../../../atoms/itemDropState';
-import { REGEX } from '../../../constants/constants';
+import { RATE_NAME, REGEX } from '../../../constants/constants';
 import useRateInput from '../../../hooks/useRateInput';
 import RateInputUI from '../common/RateInputUI';
 
-const ItemDropAbility = () => {
+const ItemDropEtc = () => {
   const { value, handleRateChange } = useRateInput({
     rateValueSelector,
     state: itemDropState,
-    rateName: 'ability',
+    rateName: RATE_NAME.ETC,
     regex: REGEX.NUMBER,
-    maxAllowedValue: 20,
+    maxAllowedValue: 400,
   });
 
   const rateOption: RateInputOption = {
-    label: '어빌리티(아드)',
-    key: 'ability',
+    label: '기타(아드)',
+    key: RATE_NAME.ETC,
   };
 
   return (
@@ -26,4 +26,4 @@ const ItemDropAbility = () => {
   );
 };
 
-export default ItemDropAbility;
+export default ItemDropEtc;

@@ -1,20 +1,20 @@
 import { itemDropState, rateValueSelector } from '../../../atoms/itemDropState';
-import { REGEX } from '../../../constants/constants';
+import { RATE_NAME, REGEX } from '../../../constants/constants';
 import useRateInput from '../../../hooks/useRateInput';
 import RateInputUI from '../common/RateInputUI';
 
-const ItemDropUnionArtifact = () => {
+const ItemDropAbility = () => {
   const { value, handleRateChange } = useRateInput({
     rateValueSelector,
     state: itemDropState,
-    rateName: 'union_artifact',
+    rateName: RATE_NAME.ABILITY,
     regex: REGEX.NUMBER,
-    maxAllowedValue: 12,
+    maxAllowedValue: 20,
   });
 
   const rateOption: RateInputOption = {
-    label: '유니온 아티팩트(아드)',
-    key: 'union_artifact',
+    label: '어빌리티(아드)',
+    key: RATE_NAME.ABILITY,
   };
 
   return (
@@ -26,4 +26,4 @@ const ItemDropUnionArtifact = () => {
   );
 };
 
-export default ItemDropUnionArtifact;
+export default ItemDropAbility;

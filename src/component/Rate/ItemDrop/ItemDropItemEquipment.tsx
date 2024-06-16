@@ -1,20 +1,20 @@
 import { itemDropState, rateValueSelector } from '../../../atoms/itemDropState';
-import { REGEX } from '../../../constants/constants';
+import { RATE_NAME, REGEX } from '../../../constants/constants';
 import useRateInput from '../../../hooks/useRateInput';
 import RateInputUI from '../common/RateInputUI';
 
-const ItemDropHolySymbol = () => {
+const ItemDropItemEquipment = () => {
   const { value, handleRateChange } = useRateInput({
     rateValueSelector,
     state: itemDropState,
-    rateName: 'holy_symbol',
-    regex: REGEX.NUMBER,
-    maxAllowedValue: 30,
+    rateName: RATE_NAME.ITEM_EQUIPMENT,
+    regex: REGEX.NUMBER_AND_DOT,
+    maxAllowedValue: 200,
   });
 
   const rateOption: RateInputOption = {
-    label: '쓸만한 홀리심볼(아드)',
-    key: 'holy_symbol',
+    label: '장착 아이템(아드)',
+    key: RATE_NAME.ITEM_EQUIPMENT,
   };
 
   return (
@@ -26,4 +26,4 @@ const ItemDropHolySymbol = () => {
   );
 };
 
-export default ItemDropHolySymbol;
+export default ItemDropItemEquipment;
