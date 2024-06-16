@@ -2,19 +2,17 @@ import axios from 'axios';
 
 const HOST = 'https://open.api.nexon.com/maplestory/v1';
 
-const axiosInstance = axios.create({
-  baseURL: HOST,
-});
+const createAxiosInstance = (baseURL: string) => {
+  const instance = axios.create({ baseURL });
+  instance.interceptors.request.use((config) => {
+    config.headers['x-nxopen-api-key'] =
+      'test_02be9161f0e3578cea32fe26523e23ab6f07c110fbc65d9cccd5c86b3f6b4619877fa386024dea4f15b3c02ede596c96';
+    return config;
+  });
+  return instance;
+};
 
-axiosInstance.interceptors.request.use((config) => {
-  config.headers['x-nxopen-api-key'] = '1234';
-  return config;
-});
-
-export const characterApi = axios.create({
-  baseURL: `${HOST}/character`,
-});
-
-export const userApi = axios.create({
-  baseURL: `${HOST}/user`,
-});
+// Axios 인스턴스 생성
+export const idApi = createAxiosInstance(HOST);
+export const characterApi = createAxiosInstance(`${HOST}/character`);
+export const userApi = createAxiosInstance(`${HOST}/user`);
