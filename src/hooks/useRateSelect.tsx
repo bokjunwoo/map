@@ -1,5 +1,5 @@
 import { SelectChangeEvent } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   RecoilState,
   RecoilValueReadOnly,
@@ -40,6 +40,10 @@ const useRateSelect = ({
       setRate,
     });
   };
+
+  useEffect(() => {
+    setValue(rateValue);
+  }, [rateValue]);
 
   return { value, handleRateChange };
 };

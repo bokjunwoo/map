@@ -11,7 +11,7 @@ export const rateValueSelector = selectorFamily({
     (rateName: string) =>
     ({ get }) => {
       const data = get(expRateState);
-      const selectedRate = data.find((rate) => rate.rateName === rateName);
+      const selectedRate = data.find((rate) => rate.label === rateName);
       return selectedRate ? selectedRate.value.toLocaleString() : '';
     },
 });

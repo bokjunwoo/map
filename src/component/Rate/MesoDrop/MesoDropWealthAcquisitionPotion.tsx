@@ -21,7 +21,7 @@ const MesoDropWealthAcquisitionPotion = () => {
     if (totalMesoDropRate === 0) return 20;
 
     const potionRate = mesoDropItem.find(
-      (rate) => rate.rateName === RATE_NAME.WEALTH_ACQUISITION_POTION
+      (rate) => rate.label === RATE_NAME.WEALTH_ACQUISITION_POTION
     );
 
     const isPotion = potionRate?.value !== 0 && potionRate;

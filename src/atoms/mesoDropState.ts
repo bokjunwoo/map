@@ -11,7 +11,7 @@ export const rateValueSelector = selectorFamily({
     (rateName: string) =>
     ({ get }) => {
       const data = get(mesoDropState);
-      const selectedRate = data.find((rate) => rate.rateName === rateName);
+      const selectedRate = data.find((rate) => rate.label === rateName);
       return selectedRate ? selectedRate.value.toLocaleString() : '';
     },
 });
@@ -21,7 +21,7 @@ export const totalMesoDropSelector = selector({
   get: ({ get }) => {
     const mesoDropRate = get(mesoDropState);
     const potionRate = mesoDropRate.find(
-      (rate) => rate.rateName === 'wealth_acquisition_potion'
+      (rate) => rate.label === 'wealth_acquisition_potion'
     );
 
     if (potionRate?.value !== 0 && potionRate) {

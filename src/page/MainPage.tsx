@@ -1,21 +1,18 @@
-import MapTable from '../components/Table/MapTable';
-import UserLevelSearchInputContainer from '../components/TextField/UserLevelSearchInputContainer';
+import MapTableContent from '../content/MapTableContent';
+import RatesOptionContent from '../content/RatesOptionContent';
 import RegionDetails from '../contents/RegionDetails';
-import SelectedRateType from '../contents/SelectedRateType';
 import SelectedTimeUI from '../contents/SelectedTimeUI';
 
 const MainPage = () => {
   return (
     <>
-      <UserLevelSearchInputContainer />
-
-      <SelectedRateType />
+      <RatesOptionContent />
 
       <RegionDetails />
 
       <SelectedTimeUI />
 
-      <MapTable
+      <MapTableContent
         defaultOptionValue="30분"
         localStorageKey="selectedTimeOption"
       />

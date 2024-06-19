@@ -7,14 +7,14 @@ const ItemDropEtc = () => {
   const { value, handleRateChange } = useRateInput({
     rateValueSelector,
     state: itemDropState,
-    rateName: RATE_NAME.ETC,
+    rateName: RATE_NAME.ETC_ITEM_DROP,
     regex: REGEX.NUMBER,
     maxAllowedValue: 400,
   });
 
   const rateOption: RateInputOption = {
     label: '기타(아드)',
-    key: RATE_NAME.ETC,
+    key: RATE_NAME.ETC_ITEM_DROP,
   };
 
   return (

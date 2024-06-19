@@ -13,8 +13,8 @@ const SolJanus = () => {
   });
 
   const rateOption: RateInputOption = {
-    label: RATE_NAME.SOL_JANUS,
-    key: 'sol_janus',
+    label: '솔 야누스',
+    key: RATE_NAME.SOL_JANUS,
   };
 
   return (

@@ -1,4 +1,5 @@
 import { EVENT_SKILL } from '../constants/constants';
+import { minRegionsLevel } from '../data/region';
 
 export const formatNumber = (number: number, unit?: '메소' | '경험치') => {
   if (number === 0) {
@@ -75,7 +76,7 @@ export const minutesToMinutesAndSeconds = (totalMinutes: number) => {
 
 export const convertToFirstDecimal = (numberOfMonster: number) => {
   return Math.floor(
-    ((EVENT_SKILL.REQUIRED_MONSTER_COUNT / numberOfMonster) % 1) * 10
+    ((EVENT_SKILL.REQUIRED_MOB_COUNT / numberOfMonster) % 1) * 10
   );
 };
 
@@ -114,4 +115,19 @@ export const formatTime = (totalSeconds: number) => {
   } else {
     return `${sign}${minutes}분 ${seconds}초`;
   }
+};
+
+export const findNearestRegion = (userLevel: number) => {
+  let minDiff = Infinity;
+  let nearestRegion = '';
+
+  for (const region in minRegionsLevel) {
+    const diff = Math.abs(minRegionsLevel[region] - userLevel);
+    if (diff < minDiff) {
+      minDiff = diff;
+      nearestRegion = region;
+    }
+  }
+
+  return nearestRegion as GrandisRegion | AraneRiverRegion;
 };

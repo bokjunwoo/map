@@ -3,7 +3,7 @@ import { RATE_NAME, REGEX } from '../../../constants/constants';
 import useRateInput from '../../../hooks/useRateInput';
 import RateInputUI from '../common/RateInputUI';
 
-const ItemDropItemEquipment = () => {
+const MesoDropItemEquipment = () => {
   const { value, handleRateChange } = useRateInput({
     rateValueSelector,
     state: mesoDropState,
@@ -26,4 +26,4 @@ const ItemDropItemEquipment = () => {
   );
 };
 
-export default ItemDropItemEquipment;
+export default MesoDropItemEquipment;

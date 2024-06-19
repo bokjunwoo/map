@@ -7,6 +7,8 @@ export const REGEX = {
   NUMBER: /^[0-9]*$/,
   NUMBER_UP_TO_THREE_DIGITS_REGEX: /^[0-9]{1,3}$/,
   NUMBER_AND_DOT: /^\d*(\.\d{0,2})?$/,
+  CHARACTER_NAME:
+    /^(?=.{2,10}$)(?=.*[가-힣]{2,8})(?!.*[^\uAC00-\uD7A3\u1100-\u11FF\u3130-\u318F0-9a-zA-Z])[a-zA-Z0-9가-힣]+$/,
 };
 
 export const GRANDIS_REGION = '그란디스';
@@ -63,4 +65,37 @@ export const PORTAL_EXP_MULTIPLIER = {
   EAGLE_HUNTING: 1200,
   INFERNO_WOLF_EXTREME: 1600,
   INFERNO_WOLF_CHAOS: 1200,
+};
+
+export const RATE_NAME = {
+  ABILITY: 'ability',
+  ACCUMULATION_POTION: 'accumulation_potion',
+  BOOST_RING: 'boost_ring',
+  ELVEN_BLESSING: 'elven_blessing',
+  ETC_EXP: 'etc_exp',
+  ETC_ITEM_DROP: 'etc_item_drop',
+  ETC_MESO_DROP: 'etc_meso_drop',
+  EXP_COUPON: 'exp_coupon',
+  EXP_EVENT_STAT: 'exp_event_stat',
+  EXP_TITLE: 'exp_title',
+  EXTREME_GOLD_POTION: 'extreme_gold_potion',
+  HOLY_SYMBOL: 'holy_symbol',
+  HYPER_STAT: 'hyper_stat',
+  ITEM_EQUIPMENT: 'item_equipment',
+  KINSHIP_RING: 'kinship_ring',
+  LOADED_DICE: 'loaded_dice',
+  MVP_COUPON: 'mvp_coupon',
+  PC_ROOM: 'PC_room',
+  SHOW_DOWN_SKILL: 'show_down_skill',
+  SKILL_GREED: 'skill_greed',
+  SOL_JANUS: 'sol_janus',
+  SPIRIT_PENDANT: 'spirit_pendant',
+  UNION_ARTIFACT: 'union_artifact',
+  UNION_LUCK_COUPON: 'union_luck_coupon',
+  UNION_PHANTOM: 'union_Phantom',
+  UNION_OCCUPIED: 'union_occupied',
+  UNION_WEALTH_COUPON: 'union_wealth_coupon',
+  UNION_ZERO: 'union_Zero',
+  VIP_COUPON: 'VIP_coupon',
+  WEALTH_ACQUISITION_POTION: 'wealth_acquisition_potion',
 };

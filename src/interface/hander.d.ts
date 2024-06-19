@@ -1,5 +1,3 @@
-import { RateItem } from './rate';
-
 export interface HandleRateSelectChangeParams {
   rateItem: RateItem[];
   rateName: string;

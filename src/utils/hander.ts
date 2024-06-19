@@ -2,7 +2,6 @@ import {
   HandleRateInputChangeParams,
   HandleRateSelectChangeParams,
 } from '../interface/hander';
-import { RateItem } from '../interface/rate';
 
 export const handleRateSelectChange = ({
   rateItem,
@@ -11,14 +10,12 @@ export const handleRateSelectChange = ({
   setRate,
   setValue,
 }: HandleRateSelectChangeParams): void => {
-  const existingIndex = rateItem.findIndex(
-    (item) => item.rateName === rateName
-  );
+  const existingIndex = rateItem.findIndex((item) => item.label === rateName);
 
   if (existingIndex !== -1) {
     const updatedRate = [...rateItem];
     updatedRate[existingIndex] = {
-      rateName,
+      label: rateName,
       value: Number(inputValue),
     };
     setRate(updatedRate);
@@ -26,7 +23,7 @@ export const handleRateSelectChange = ({
   } else {
     setRate((prevState: RateItem[]) => [
       ...prevState,
-      { rateName, value: Number(inputValue) },
+      { label: rateName, value: Number(inputValue) },
     ]);
     setValue(inputValue);
   }

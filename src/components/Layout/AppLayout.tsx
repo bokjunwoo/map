@@ -1,6 +1,6 @@
 import { Container } from '@mui/material';
+import AppAppBar from '../../component/Layout/Header';
 import Footer from './Footer/Footer';
-import Header from './Header/Header';
 
 type AppLayoutTpye = {
   children: React.ReactNode;
@@ -9,7 +9,7 @@ type AppLayoutTpye = {
 const AppLayout = ({ children }: AppLayoutTpye) => {
   return (
     <>
-      <Header />
+      <AppAppBar />
       <Container maxWidth="lg">{children}</Container>
       <Footer />
     </>

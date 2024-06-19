@@ -18,7 +18,7 @@ const ExpTitle = () => {
       { value: 10, label: '쑥쑥 새싹 (+10%)' },
       { value: 10, label: 'Eternal Flame (+10%)' },
       { value: 20, label: 'Infinite Flame (+20%)' },
-      { value: 20, label: 'PREMIUM 칭호 (+20%)' },
+      { value: 20, label: 'LET"S MAPLE (+20%)' },
       { value: 30, label: '엘 클리어 (+30%)' },
       { value: 40, label: '시그너스 기사단 (+40%)' },
     ],

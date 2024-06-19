@@ -1,12 +1,12 @@
-interface RateSelectValue {
-  value: number;
+interface RateItem {
   label: string;
+  value: number;
 }
 
 interface RateSelectOption {
   label: string;
   key: string;
-  values: RateSelectValue[];
+  values: RateItem[];
 }
 
 interface RateInputOption {
@@ -20,12 +20,8 @@ interface RateList {
   rgb: string;
 }
 
-interface RateItem {
-  rateName: string;
-  value: number;
-}
-
 interface MobInfo {
   text: string;
   amount: number;
+  unit?: string;
 }

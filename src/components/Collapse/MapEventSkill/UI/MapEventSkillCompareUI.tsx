@@ -32,14 +32,13 @@ const MapEventSkillCompareUI = ({
   const numberOfMonster = useRecoilValue(numberOfMonsterState(item.map_name));
 
   const totalMonsterExperience =
-    monsterExperience * EVENT_SKILL.KILL_MONSTER_COUNT;
+    monsterExperience * EVENT_SKILL.INITIAL_MOB_KILL;
 
   const calculateFieldGenTime = () => {
     const firstDecimal = convertToFirstDecimal(numberOfMonster);
     const second = convertToSeconds(firstDecimal);
     return Math.ceil(
-      Math.ceil(EVENT_SKILL.REQUIRED_MONSTER_COUNT / numberOfMonster) * 7.5 +
-        second
+      Math.ceil(EVENT_SKILL.REQUIRED_MOB_COUNT / numberOfMonster) * 7.5 + second
     );
   };
 

@@ -7,14 +7,14 @@ const ExpEtc = () => {
   const { value, handleRateChange } = useRateInput({
     rateValueSelector,
     state: expRateState,
-    rateName: RATE_NAME.ETC,
+    rateName: RATE_NAME.ETC_EXP,
     regex: REGEX.NUMBER_AND_DOT,
     maxAllowedValue: 999,
   });
 
   const rateOption: RateInputOption = {
     label: '기타(경험치)',
-    key: RATE_NAME.ETC,
+    key: RATE_NAME.ETC_EXP,
   };
 
   return (

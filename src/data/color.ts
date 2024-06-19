@@ -26,4 +26,20 @@ export const listRGB = {
   green: '99, 204, 99',
   orange: '246, 167, 48',
   purple: '117, 106, 182',
+  lightGray: '241, 242, 243',
+};
+
+export const bgColor = {
+  lightGray: '#F1F2F3',
+  red: '#D32F2F',
+};
+
+export const RGBColor = {
+  red: '255, 150, 138',
+  blue: '64, 162,	227',
+  green: '99, 204, 99',
+  orange: '246, 167, 48',
+  purple: '117, 106, 182',
+  lightGray: '241, 242, 243',
+  yellow: '255, 255, 204',
 };

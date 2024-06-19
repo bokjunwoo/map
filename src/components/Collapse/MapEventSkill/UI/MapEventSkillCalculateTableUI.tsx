@@ -56,7 +56,7 @@ const MapEventSkillCalculateTableUI = ({
           headCells={headCells}
           menuItem={menuItem}
           mapName={mapName}
-          killMonsterCount={EVENT_SKILL.KILL_MONSTER_COUNT}
+          killMonsterCount={EVENT_SKILL.INITIAL_MOB_KILL}
         />
       </Box>
     </ListItem>

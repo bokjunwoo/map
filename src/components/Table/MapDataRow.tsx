@@ -1,6 +1,6 @@
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { TableCell, TableRow, IconButton } from '@mui/material';
+import { TableCell, TableRow, IconButton, TableBody } from '@mui/material';
 import { useState } from 'react';
 import { symbolsColor } from '../../data/color';
 import { generateHeadCells } from '../../data/headCell';
@@ -23,7 +23,7 @@ const MapDataRow = ({ item, storedValue }: MapDataRowProps) => {
   const backgroundColor = symbolsColor[item.map_region].bgColor;
 
   return (
-    <>
+    <TableBody>
       <TableRow sx={{ bgcolor: backgroundColor }}>
         <TableCell>
           <IconButton
@@ -42,7 +42,7 @@ const MapDataRow = ({ item, storedValue }: MapDataRowProps) => {
       </TableRow>
 
       <MapDetailCollapseUI open={isOpen} item={item} />
-    </>
+    </TableBody>
   );
 };
 

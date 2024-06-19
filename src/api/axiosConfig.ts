@@ -6,7 +6,7 @@ const createAxiosInstance = (baseURL: string) => {
   const instance = axios.create({ baseURL });
   instance.interceptors.request.use((config) => {
     config.headers['x-nxopen-api-key'] =
-      'test_02be9161f0e3578cea32fe26523e23ab6f07c110fbc65d9cccd5c86b3f6b4619877fa386024dea4f15b3c02ede596c96';
+      'live_b865299659dd255180f43e6bc425b858930871521b36e2c53b5e069965362162efe8d04e6d233bd35cf2fabdeb93fb0d';
     return config;
   });
   return instance;

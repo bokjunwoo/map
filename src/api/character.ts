@@ -1,5 +1,18 @@
 import { characterApi } from './axiosConfig';
 
+// 기본정보
+export const getCharacterInfo = async (
+  ocid: string
+): Promise<CharacterInfoData> => {
+  try {
+    const response = await characterApi.get(`/basic?ocid=${ocid}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching character:', error);
+    throw error;
+  }
+};
+
 // 하이퍼스탯
 export const getHyperStat = async (
   ocid: string

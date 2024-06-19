@@ -2,9 +2,9 @@ import { ChangeEvent, useEffect, useState } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { regionListState } from '../../atoms/regionListState';
 import { userLevelState } from '../../atoms/userLevelState';
+import UserLevelSearchInputUI from '../../component/Input/Character/UI/CharacterLevelInputUI';
 import { LEVEL_RANGE, REGEX } from '../../constants/constants';
 import { minRegionsLevel } from '../../data/region';
-import UserLevelSearchInputUI from './UI/UserLevelSearchInputUI';
 
 const UserLevelSearchInputContainer = () => {
   const [userLevel, setUserLevel] = useRecoilState(userLevelState);
