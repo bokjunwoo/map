@@ -6,7 +6,7 @@ import { FAQList } from '../data/FAQ';
 const FAQTableContent = () => {
   return (
     <TableUI ariaLabel="history_table">
-      <TableTitleHeadUI title="업데이트 내역" />
+      <TableTitleHeadUI title="FAQ" />
 
       {FAQList.map((item) => {
         return <FAQTableBodyUI key={item.id} item={item} />;

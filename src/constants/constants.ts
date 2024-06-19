@@ -21,10 +21,13 @@ export const TIME_OPTIONS = [
 ];
 
 export const EVENT_SKILL = {
-  INITIAL_MOB_KILL: 90,
-  REQUIRED_MOB_COUNT: 200,
+  TITLE: '반 레온의 검술 - 신입기사',
+  SKILL_DESCRIPTION:
+    '최대 15마리의 적을 1500% 데미지로 6번 공격하는 폭발이 3회 발동되는 스킬이 1회 발동',
+  INITIAL_MOB_KILL: 135,
+  REQUIRED_MOB_COUNT: 300,
   DELAY: 8,
-  ACTIVATION_COUNT: 20,
+  ACTIVATION_COUNT: 30,
 };
 
 export const BOOSTER = {

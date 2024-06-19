@@ -1,7 +1,7 @@
 import MapTableContent from '../content/MapTableContent';
 import RatesOptionContent from '../content/RatesOptionContent';
-import RegionDetails from '../contents/RegionDetails';
-import SelectedTimeUI from '../contents/SelectedTimeUI';
+import RegionDetails from '../content/RegionDetails';
+import SelectedTimeUI from '../content/SelectedTimeUI';
 
 const MainPage = () => {
   return (
