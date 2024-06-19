@@ -7,8 +7,7 @@ export const REGEX = {
   NUMBER: /^[0-9]*$/,
   NUMBER_UP_TO_THREE_DIGITS_REGEX: /^[0-9]{1,3}$/,
   NUMBER_AND_DOT: /^\d*(\.\d{0,2})?$/,
-  CHARACTER_NAME:
-    /^(?=.{2,10}$)(?=.*[가-힣]{2,8})(?!.*[^\uAC00-\uD7A3\u1100-\u11FF\u3130-\u318F0-9a-zA-Z])[a-zA-Z0-9가-힣]+$/,
+  CHARACTER_NAME: /^[A-Za-z0-9가-힣]{2,10}$/,
 };
 
 export const GRANDIS_REGION = '그란디스';

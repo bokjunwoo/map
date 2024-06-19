@@ -57,7 +57,14 @@ const LandingPage = () => {
           <CharacterNameInput />
         </Box>
 
-        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 3 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            mb: 3,
+            flexDirection: 'column',
+          }}
+        >
           <Typography
             color="#FFFFFF"
             fontSize={12}

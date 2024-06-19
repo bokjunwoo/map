@@ -21,6 +21,7 @@ import { mesoDropState } from '../atoms/mesoDropState';
 import { regionListState } from '../atoms/regionListState';
 import { userLevelState } from '../atoms/userLevelState';
 import { validateCharacterInfo } from '../utils/api/charater';
+import { getErrorMessage } from '../utils/error';
 import { findNearestRegion } from '../utils/etc';
 import { processCharacterData } from '../utils/process';
 
@@ -88,9 +89,9 @@ const useCharacterData = () => {
     } catch (error: any) {
       setError(true);
       if (axios.isAxiosError(error) && error.response) {
-        setAlert({ isError: true, message: error.message });
         const code = error.response.data.error.name;
-        console.error(code);
+
+        setAlert({ isError: true, message: getErrorMessage(code) });
       } else {
         setAlert({ isError: true, message: error.message });
         console.error(error);

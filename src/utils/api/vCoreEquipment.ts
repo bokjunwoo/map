@@ -14,6 +14,7 @@ export const findVCoreLevel = (
 };
 
 export const calculateHolySymbolExpRate = (level: number) => {
+  if (level === 0) return 0;
   const baseRate = 20;
   const additionalRate = Math.floor(level * 0.5);
   const totalRate = baseRate + additionalRate;
@@ -22,6 +23,7 @@ export const calculateHolySymbolExpRate = (level: number) => {
 };
 
 export const calculateHolySymbolItemDropRate = (level: number) => {
+  if (level === 0) return 0;
   const baseRate = 14;
   const additionalRate = Math.floor(level / 3);
   const totalRate = baseRate + additionalRate;
