@@ -125,7 +125,7 @@ export const findTitleExpRate = (data: CharacterItemEquipment): number => {
     '시그너스 기사단': 40,
   };
 
-  return isExpired ? titleBonuses[data.title.title_name] || 0 : 0;
+  return isExpired ? titleBonuses[data.title.title_name] : 0;
 };
 
 const checkDateOptionExpire = (dateOptionExpire: string | null): boolean => {
@@ -141,5 +141,5 @@ const isDateOptionExpired = (dateOptionExpire: string): boolean => {
 
   const expireDate = new Date(dateOptionExpire);
 
-  return currentDate > expireDate;
+  return currentDate < expireDate;
 };
