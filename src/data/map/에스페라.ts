@@ -28,14 +28,14 @@ export const 에스페라: MapInfo[] = [
       {
         name: '아투인',
         level: 240,
-        number_of_monster: 38,
+        number_of_monster: 17,
         experience: 470824,
         meso: 1800,
       },
       {
         name: '아투스',
         level: 241,
-        number_of_monster: 38,
+        number_of_monster: 21,
         experience: 485614,
         meso: 1807,
       },
