@@ -24,3 +24,9 @@ export const getErrorMessage = (errorCode: string): string => {
       return '알 수 없는 오류가 발생했습니다.';
   }
 };
+
+export const handleError = (error: any) => {
+  if (process.env.NODE_ENV === 'development') {
+    console.error('Error:', error);
+  }
+};

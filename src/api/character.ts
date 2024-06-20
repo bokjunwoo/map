@@ -1,3 +1,4 @@
+import { handleError } from '../utils/error';
 import { characterApi } from './axiosConfig';
 
 // 기본정보
@@ -8,7 +9,7 @@ export const getCharacterInfo = async (
     const response = await characterApi.get(`/basic?ocid=${ocid}`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching character:', error);
+    handleError(error);
     throw error;
   }
 };
@@ -21,7 +22,7 @@ export const getHyperStat = async (
     const response = await characterApi.get(`/hyper-stat?ocid=${ocid}`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching character:', error);
+    handleError(error);
     throw error;
   }
 };
@@ -32,7 +33,7 @@ export const getAbility = async (ocid: string): Promise<CharacterAbility> => {
     const response = await characterApi.get(`/ability?ocid=${ocid}`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching character:', error);
+    handleError(error);
     throw error;
   }
 };
@@ -45,7 +46,7 @@ export const getLinkSkill = async (
     const response = await characterApi.get(`/link-skill?ocid=${ocid}`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching character:', error);
+    handleError(error);
     throw error;
   }
 };
@@ -58,7 +59,7 @@ export const getVmatrix = async (
     const response = await characterApi.get(`/vmatrix?ocid=${ocid}`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching character:', error);
+    handleError(error);
     throw error;
   }
 };
@@ -71,7 +72,7 @@ export const getHexaMatrix = async (
     const response = await characterApi.get(`/hexamatrix?ocid=${ocid}`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching character:', error);
+    handleError(error);
     throw error;
   }
 };
@@ -84,7 +85,7 @@ export const getItemEquipment = async (
     const response = await characterApi.get(`/item-equipment?ocid=${ocid}`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching character:', error);
+    handleError(error);
     throw error;
   }
 };
@@ -97,7 +98,7 @@ export const getCashItemEquipment = async (
     const response = await characterApi.get(`/cashitem-equipment?ocid=${ocid}`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching character:', error);
+    handleError(error);
     throw error;
   }
 };
