@@ -4,7 +4,7 @@ import ListStyle from '../../List/style/ListStyle';
 import MapPortalPolloSection from './section/MapPortalPolloSection';
 import MapPortalPrittoSection from './section/MapPortalPrittoSection';
 import MapPortalRateStatsSection from './section/MapPortalRateStatsSection';
-import MapPortalSpecialSection from './section/MapPortalSpecialSection copy';
+import MapPortalSpecialSection from './section/MapPortalSpecialSection';
 
 const MapPortalUI = ({ mapInfo }: MapInfoProps) => {
   return (
