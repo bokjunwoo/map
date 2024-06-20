@@ -17,6 +17,19 @@ const MapPortalSpecialTable = ({ mapInfo }: MapInfoProps) => {
   const [infernoWolfChaosExpMultiplier, handleInfernoWolfChaosChange] =
     useSelectState(PORTAL_EXP_MULTIPLIER.INFERNO_WOLF_CHAOS);
 
+  const infernoWolfExtremeItem = [
+    { label: '적당한 (EXP x 800)', value: 800 },
+    { label: '상당한 (EXP x 1500)', value: 1500 },
+    { label: '치명적인 (EXP x 1600)', value: 1600 },
+    { label: '처치 (EXP x 1700)', value: 1700 },
+  ];
+  const infernoWolfChaosItem = [
+    { label: '적당한 (EXP x 800)', value: 600 },
+    { label: '상당한 (EXP x 1500)', value: 1100 },
+    { label: '치명적인 (EXP x 1600)', value: 1200 },
+    { label: '처치 (EXP x 1700)', value: 1300 },
+  ];
+
   const wolfMode = userLevel >= 260 ? '익스트림' : '카오스';
   const wolfExpMultiplier =
     userLevel >= 260
@@ -45,11 +58,14 @@ const MapPortalSpecialTable = ({ mapInfo }: MapInfoProps) => {
       increment: specialPortalTimes.totemSlash.increment,
       decrement: specialPortalTimes.totemSlash.decrement,
       getTimeColor: getTimePolloColor,
+      menuText: '-',
     },
     {
       type: 'Pritto',
       label: `불꽃늑대(${wolfMode})`,
       expMultiplier: wolfExpMultiplier,
+      menuItem:
+        userLevel >= 260 ? infernoWolfExtremeItem : infernoWolfChaosItem,
       playTime: specialPortalTimes.infernoWolf.count,
       increment: specialPortalTimes.infernoWolf.increment,
       decrement: specialPortalTimes.infernoWolf.decrement,
@@ -62,8 +78,6 @@ const MapPortalSpecialTable = ({ mapInfo }: MapInfoProps) => {
     <MapPortalSpecialTableUI
       mapInfo={mapInfo}
       specialPortalTypeList={specialPortalTypeList}
-      wolfExpMultiplier={wolfExpMultiplier}
-      handleWolfExpMultiplierChange={handleWolfExpMultiplierChange}
     />
   );
 };

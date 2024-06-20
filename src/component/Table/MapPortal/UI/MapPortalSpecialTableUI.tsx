@@ -1,23 +1,19 @@
-import { SelectChangeEvent, TableBody } from '@mui/material';
+import { TableBody } from '@mui/material';
 import TableUI from '../../common/TableUI';
 import MapPortalCleerTimeRowUI from '../common/MapPortalCleerTimeRowUI';
 import MapPortalExpRewardRowUI from '../common/MapPortalExpRewardRowUI';
 import MapPortalHeadUI from '../common/MapPortalHeadUI';
 import MapPortalMobKillEfficiencyRowUI from '../common/MapPortalMobKillEfficiencyRowUI';
-import MapPortalSpecialSelectRow from '../MapPortalSpecialSelectRow';
+import MapPortalSelectRowUI from './MapPortalSelectRowUI';
 
 type MapPortalSpecialTableUIProps = {
   mapInfo: MapInfo;
   specialPortalTypeList: PortalTypeList[];
-  wolfExpMultiplier: number;
-  handleWolfExpMultiplierChange: (event: SelectChangeEvent<unknown>) => void;
 };
 
 const MapPortalSpecialTableUI = ({
   mapInfo,
   specialPortalTypeList,
-  wolfExpMultiplier,
-  handleWolfExpMultiplierChange,
 }: MapPortalSpecialTableUIProps) => {
   return (
     <TableUI
@@ -37,10 +33,7 @@ const MapPortalSpecialTableUI = ({
       <MapPortalHeadUI portalTypeList={specialPortalTypeList} />
 
       <TableBody>
-        <MapPortalSpecialSelectRow
-          wolfExpMultiplier={wolfExpMultiplier}
-          handleWolfExpMultiplierChange={handleWolfExpMultiplierChange}
-        />
+        <MapPortalSelectRowUI portalTypeList={specialPortalTypeList} />
 
         <MapPortalCleerTimeRowUI portalTypeList={specialPortalTypeList} />
 

@@ -4,7 +4,7 @@ import MapPortalCleerTimeRowUI from '../common/MapPortalCleerTimeRowUI';
 import MapPortalExpRewardRowUI from '../common/MapPortalExpRewardRowUI';
 import MapPortalHeadUI from '../common/MapPortalHeadUI';
 import MapPortalMobKillEfficiencyRowUI from '../common/MapPortalMobKillEfficiencyRowUI';
-import MapPortalPrittoSelectRow from '../MapPortalPrittoSelectRow';
+import MapPortalSelectRowUI from './MapPortalSelectRowUI';
 
 type MapPortalPrittoTableUIProps = {
   mapInfo: MapInfo;
@@ -33,7 +33,7 @@ const MapPortalPrittoTableUI = ({
       <MapPortalHeadUI portalTypeList={prittoPortalTypeList} />
 
       <TableBody>
-        <MapPortalPrittoSelectRow />
+        <MapPortalSelectRowUI portalTypeList={prittoPortalTypeList} />
 
         <MapPortalCleerTimeRowUI portalTypeList={prittoPortalTypeList} />
 

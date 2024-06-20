@@ -2,26 +2,24 @@ import { TableRow, TableCell } from '@mui/material';
 import PortalSelectUI from '../../../common/Input/PortalSelectUI';
 import TableThCellUI from '../../common/TableThCellUI';
 
-const MapPortalSelectRowUI = ({
-  portalSelectTypeList,
-}: PortalSelectTypeListProps) => {
+const MapPortalSelectRowUI = ({ portalTypeList }: PortalTypeListProps) => {
   return (
     <TableRow>
       <TableThCellUI align="center" p={0}>
         설정
       </TableThCellUI>
 
-      {portalSelectTypeList.map(
-        ({ label, initialExpMultiplier, menuItem, handleChange, text }) => (
+      {portalTypeList.map(
+        ({ label, expMultiplier, menuItem, expMultiplierChange, menuText }) => (
           <TableCell key={label} sx={{ p: 0 }} align="center">
-            {menuItem && handleChange ? (
+            {menuItem && expMultiplierChange ? (
               <PortalSelectUI
-                selectedValue={initialExpMultiplier}
+                selectedValue={expMultiplier}
                 menuItem={menuItem}
-                handleChange={handleChange}
+                handleChange={expMultiplierChange}
               />
             ) : (
-              text
+              menuText
             )}
           </TableCell>
         )

@@ -23,21 +23,11 @@ interface PortalTypeList {
   getTimeColor: (
     seconds: number
   ) => '#fde2e4' | '#fff1e6' | '#e2ece9' | '#dfe7fd';
+  menuText?: string;
+  menuItem?: SelectValue[];
   expMultiplierChange?: (event: SelectChangeEvent<unknown>) => void;
 }
 
 interface PortalTypeListProps {
   portalTypeList: PortalTypeList[];
-}
-
-interface PortalSelectTypeList {
-  label: string;
-  initialExpMultiplier: number;
-  text?: string;
-  menuItem?: SelectValue[];
-  handleChange?: (event: SelectChangeEvent<unknown>) => void;
-}
-
-interface PortalSelectTypeListProps {
-  portalSelectTypeList: PortalSelectTypeList[];
 }
