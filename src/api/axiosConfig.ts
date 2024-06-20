@@ -6,7 +6,7 @@ const createAxiosInstance = (baseURL: string) => {
   const instance = axios.create({ baseURL });
   instance.interceptors.request.use((config) => {
     config.headers['x-nxopen-api-key'] =
-      'live_b865299659dd255180f43e6bc425b858930871521b36e2c53b5e069965362162efe8d04e6d233bd35cf2fabdeb93fb0d';
+      process.env.REACT_APP_MAPLE_OPEN_API_KEY;
     return config;
   });
   return instance;
