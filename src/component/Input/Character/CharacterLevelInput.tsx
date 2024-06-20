@@ -4,6 +4,7 @@ import { regionListState } from '../../../atoms/regionListState';
 import { userLevelState } from '../../../atoms/userLevelState';
 import { REGEX, LEVEL_RANGE } from '../../../constants/constants';
 import { minRegionsLevel } from '../../../data/region';
+import { findNearestRegion } from '../../../utils/etc';
 import CharacterLevelInputUI from './UI/CharacterLevelInputUI';
 
 const CharacterLevelInput = () => {
@@ -41,21 +42,6 @@ const CharacterLevelInput = () => {
     if (e.key === 'Enter') {
       handleBlur();
     }
-  };
-
-  const findNearestRegion = (userLevel: number) => {
-    let minDiff = Infinity;
-    let nearestRegion = '';
-
-    for (const region in minRegionsLevel) {
-      const diff = Math.abs(minRegionsLevel[region] - userLevel);
-      if (diff < minDiff) {
-        minDiff = diff;
-        nearestRegion = region;
-      }
-    }
-
-    return nearestRegion as GrandisRegion | AraneRiverRegion;
   };
 
   const nearestRegion = findNearestRegion(userLevel);

@@ -118,13 +118,16 @@ export const formatTime = (totalSeconds: number) => {
 };
 
 export const findNearestRegion = (userLevel: number) => {
-  let minDiff = Infinity;
   let nearestRegion = '';
+  let minLevelDifference = Infinity;
 
   for (const region in minRegionsLevel) {
-    const diff = Math.abs(minRegionsLevel[region] - userLevel);
-    if (diff < minDiff) {
-      minDiff = diff;
+    const regionLevel = minRegionsLevel[region];
+    if (
+      regionLevel <= userLevel &&
+      userLevel - regionLevel < minLevelDifference
+    ) {
+      minLevelDifference = userLevel - regionLevel;
       nearestRegion = region;
     }
   }
