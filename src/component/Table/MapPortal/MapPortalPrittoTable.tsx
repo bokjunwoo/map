@@ -8,11 +8,11 @@ import { getTimePrittoColor } from '../../../utils/color';
 import MapPortalPrittoTableUI from './UI/MapPortalPrittoTableUI';
 
 const MapPortalPrittoTable = ({ mapInfo }: MapInfoProps) => {
+  const [dragonEggStealingExpMultiplier, handleDragonEggStealingChange] =
+    useSelectState(PORTAL_EXP_MULTIPLIER.DRAGON_EGG_STEALING);
   const [eagleHuntingExpMultiplier, handleEagleHuntingChange] = useSelectState(
     PORTAL_EXP_MULTIPLIER.EAGLE_HUNTING
   );
-  const [dragonEggStealingExpMultiplier, handleDragonEggStealingChange] =
-    useSelectState(PORTAL_EXP_MULTIPLIER.DRAGON_EGG_STEALING);
 
   const PrittoPortalTimes = {
     dragonEggStealing: useUpDownButton({
@@ -46,13 +46,13 @@ const MapPortalPrittoTable = ({ mapInfo }: MapInfoProps) => {
     {
       type: 'Pritto',
       label: '드래곤의 알',
-      expMultiplier: eagleHuntingExpMultiplier,
+      expMultiplier: dragonEggStealingExpMultiplier,
       playTime: PrittoPortalTimes.dragonEggStealing.count,
       increment: PrittoPortalTimes.dragonEggStealing.increment,
       decrement: PrittoPortalTimes.dragonEggStealing.decrement,
       getTimeColor: getTimePrittoColor,
       menuItem: dragonEggStealingItem,
-      expMultiplierChange: handleEagleHuntingChange,
+      expMultiplierChange: handleDragonEggStealingChange,
     },
     {
       type: 'Pritto',
@@ -67,13 +67,13 @@ const MapPortalPrittoTable = ({ mapInfo }: MapInfoProps) => {
     {
       type: 'Pritto',
       label: '독수리 사냥',
-      expMultiplier: dragonEggStealingExpMultiplier,
+      expMultiplier: eagleHuntingExpMultiplier,
       playTime: PrittoPortalTimes.eagleHunting.count,
       increment: PrittoPortalTimes.eagleHunting.increment,
       decrement: PrittoPortalTimes.eagleHunting.decrement,
       getTimeColor: getTimePrittoColor,
       menuItem: eagleHuntingItem,
-      expMultiplierChange: handleDragonEggStealingChange,
+      expMultiplierChange: handleEagleHuntingChange,
     },
   ];
 
