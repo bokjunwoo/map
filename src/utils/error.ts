@@ -5,9 +5,9 @@ export const getErrorMessage = (errorCode: string): string => {
     case 'OPENAPI00002':
       return '요청 권한이 없습니다.';
     case 'OPENAPI00003':
-      return '유효하지 않은 닉네임 입니다.';
-    case 'OPENAPI00004':
       return '2023년 12월 21일 이후 접속 기록이 없습니다.';
+    case 'OPENAPI00004':
+      return '유효하지 않은 닉네임 입니다.';
     case 'OPENAPI00005':
       return '유효하지 않는 API KEY 요청입니다.';
     case 'OPENAPI00006':

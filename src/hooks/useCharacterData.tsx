@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import {
   getHyperStat,
@@ -26,6 +27,8 @@ import { findNearestRegion } from '../utils/etc';
 import { processCharacterData } from '../utils/process';
 
 const useCharacterData = () => {
+  const navigate = useNavigate();
+
   const setExpRate = useSetRecoilState(expRateState);
   const setItemDropRate = useSetRecoilState(itemDropState);
   const setMesoDropRate = useSetRecoilState(mesoDropState);
@@ -86,6 +89,8 @@ const useCharacterData = () => {
       setCharacterInfo(characterInfo);
       setUserLevel(characterInfo.character_level);
       setRegionList([findNearestRegion(characterInfo.character_level)]);
+
+      navigate(`/name/${characterName}`);
     } catch (error: any) {
       setError(true);
       if (axios.isAxiosError(error) && error.response) {

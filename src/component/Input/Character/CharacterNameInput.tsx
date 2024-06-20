@@ -1,5 +1,4 @@
 import { ChangeEvent, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { alertState } from '../../../atoms/alertState';
 import { REGEX } from '../../../constants/constants';
@@ -7,9 +6,7 @@ import useCharacterData from '../../../hooks/useCharacterData';
 import CharacterInputUI from './UI/CharacterNameInputUI';
 
 const CharacterNameInput = () => {
-  const navigate = useNavigate();
-
-  const { fetchData, loading, error } = useCharacterData();
+  const { fetchData } = useCharacterData();
 
   const setAlert = useSetRecoilState(alertState);
 
@@ -28,11 +25,6 @@ const CharacterNameInput = () => {
       });
 
     await fetchData(name);
-
-    // 로딩상태가 아니고, 에러가 아닐때
-    if (!loading && !error) {
-      navigate(`name/${name}`);
-    }
   };
 
   const handleKeyDown = async (e: React.KeyboardEvent) => {
@@ -44,10 +36,6 @@ const CharacterNameInput = () => {
         });
 
       await fetchData(name);
-
-      if (!loading && !error) {
-        navigate(`name/${name}`);
-      }
     }
   };
 
