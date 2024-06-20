@@ -82,7 +82,7 @@ const MapSortBody = ({ storedValue, order, orderBy }: MapSortBodyProps) => {
       : updatedData.slice().sort((a, b) => {
           const aValue = a[orderBy];
           const bValue = b[orderBy];
-          if (order === 'desc') {
+          if (order === 'asc') {
             return aValue < bValue ? -1 : 1;
           } else {
             return bValue < aValue ? -1 : 1;
