@@ -28,7 +28,7 @@ const MapCalculateMobResultTableUI = ({
   const bonusMesoReward = bonusMesoAmount * mobRatio;
 
   const tableContent = {
-    tableHead: ['시간', '마릿수', '경험치', '순메소', '메획메소'],
+    tableHead: ['시간', '마릿수', '경험치', '순메소', '메획메소', '총합메소'],
     tableBody: [
       {
         시간: '1젠(8초)',
@@ -39,6 +39,7 @@ const MapCalculateMobResultTableUI = ({
         })}%)`,
         순메소: formatNumber(pureMesoReward / 8),
         메획메소: formatNumber(bonusMesoReward / 8),
+        총합메소: formatNumber(pureMesoReward / 8 + bonusMesoReward / 8),
       },
       ...TIME_OPTIONS.map((row) => ({
         시간: row.time,
@@ -55,6 +56,9 @@ const MapCalculateMobResultTableUI = ({
         })}%)`,
         순메소: formatNumber(pureMesoReward * row.multiplier),
         메획메소: formatNumber(bonusMesoReward * row.multiplier),
+        총합메소: formatNumber(
+          pureMesoReward * row.multiplier + bonusMesoReward * row.multiplier
+        ),
       })),
     ],
   };
@@ -69,7 +73,7 @@ const MapCalculateMobResultTableUI = ({
       <TableHead>
         <TableRow>
           {tableContent.tableHead.map((header, index) => (
-            <TableCell key={index} align="center">
+            <TableCell key={index} align="center" sx={{ p: '6px 2px' }}>
               {header}
             </TableCell>
           ))}
@@ -86,7 +90,7 @@ const MapCalculateMobResultTableUI = ({
             }
           >
             {Object.values(row).map((value, idx) => (
-              <TableCell key={idx} align="center">
+              <TableCell key={idx} align="center" sx={{ p: '6px 2px' }}>
                 {value}
               </TableCell>
             ))}
