@@ -1,6 +1,25 @@
 export const HistoryList: HistoryItem[] = [
   {
-    id: 1,
+    id: 3,
+    isOpen: true,
+    date: '2024.06.23',
+    version: '0.0.3',
+    category: [
+      {
+        title: '마릿수 계산에서 총합메소를 확인 가능합니다.',
+        list: [],
+      },
+      {
+        title: '오류 수정',
+        list: [
+          '270 레벨 이상에서 경험치 수치가 잘못 적용된 문제가 수정됩니다.',
+          'PC방 경험치 80% 증가가 적용되지 않는 문제가 수정됩니다.',
+        ],
+      },
+    ],
+  },
+  {
+    id: 2,
     isOpen: true,
     date: '2024.06.20',
     version: '0.0.2',
@@ -12,7 +31,7 @@ export const HistoryList: HistoryItem[] = [
     ],
   },
   {
-    id: 2,
+    id: 1,
     isOpen: true,
     date: '2024.06.19',
     version: '0.0.1',
