@@ -15,7 +15,7 @@ const ExpPcRoom = () => {
     key: RATE_NAME.PC_ROOM,
     values: [
       { value: 0, label: '미적용' },
-      { value: 30, label: '적용 (+80%)' },
+      { value: 80, label: '적용 (+80%)' },
     ],
   };
 
