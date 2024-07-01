@@ -12,20 +12,20 @@ import {
 type UseMobCalculationParams = {
   mob: MapMonsterInfo;
   isLevelProportional: boolean;
-  additionalExpRate?: number;
+  additionalExpRate: number;
 };
 
 const useMobCalculation = ({
   mob,
   isLevelProportional,
-  additionalExpRate = 0,
+  additionalExpRate,
 }: UseMobCalculationParams) => {
   const expRate = useRecoilValue(totalExpSelector);
   const mesoDropRate = useRecoilValue(totalMesoDropSelector);
   const itemDropRate = useRecoilValue(totalItemDropSelector);
   const userLevel = useRecoilValue(userLevelState);
 
-  const levelBasedExpRatio = calculateIndividualExperienceMultiplier(
+  const levelMultiplier = calculateIndividualExperienceMultiplier(
     userLevel,
     mob
   );
@@ -35,11 +35,11 @@ const useMobCalculation = ({
   const totalExpRate = expRate + additionalExpRate;
   const totalExpRatio = totalExpRate / 100;
 
-  const expBase = isLevelProportional
-    ? mob.experience * levelBasedExpRatio
+  const mobExpMultiplier = isLevelProportional
+    ? Math.floor(mob.experience * levelMultiplier)
     : mob.experience;
 
-  const calculatedExp = Math.floor(expBase * totalExpRatio);
+  const calculatedExp = Math.floor(mobExpMultiplier * totalExpRatio);
 
   const calculatedPureMeso = Math.floor(
     mesoMultiplier * mob.meso * itemDropMultiplier
@@ -50,8 +50,9 @@ const useMobCalculation = ({
   );
 
   return {
+    levelMultiplier,
     totalExpRate,
-    levelBasedExpRatio,
+    mobExpMultiplier,
     mesoMultiplier,
     itemDropMultiplier,
     calculatedExp,
