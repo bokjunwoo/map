@@ -1,6 +1,6 @@
 import ListSubTitleUI from '../../../List/common/ListSubTitleUI';
 import ListItemStyle from '../../../List/style/ListItemStyle';
-import MapBoosterExpRewardTable from '../../../Table/MapBooster/MapBoosterExpRewardTable';
+import MapBoosterExpRewardTable from '../../../Table/MapContent/MapBooster/MapBoosterExpRewardTable';
 
 const MapBoosterExpRewardSection = ({ mapInfo }: MapInfoProps) => {
   return (
