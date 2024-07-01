@@ -4,7 +4,7 @@ import MapPortalCleerTimeRowUI from '../common/MapPortalCleerTimeRowUI';
 import MapPortalExpRewardRowUI from '../common/MapPortalExpRewardRowUI';
 import MapPortalHeadUI from '../common/MapPortalHeadUI';
 import MapPortalMobKillEfficiencyRowUI from '../common/MapPortalMobKillEfficiencyRowUI';
-import MapPortalSelectRowUI from './MapPortalSelectRowUI';
+import MapPortalSelectRowUI from '../common/MapPortalSelectRowUI';
 
 type MapPortalSpecialTableUIProps = {
   mapInfo: MapInfo;
