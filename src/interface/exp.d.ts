@@ -1,15 +1,20 @@
-type ExpSelectValue = {
-  value: number;
-  label: string;
-};
+interface SelectThOption {
+  countLabel: string;
+  selectedValue: number;
+  menuItem?: SelectValue[];
+  onCountChange?: (event: SelectChangeEvent<unknown>) => void;
+}
 
-export type ExpSelectOption = {
-  label: string;
-  key: string;
-  values: ExpSelectValue[];
-};
+interface ExpRewardOption {
+  runeLabel: string;
+  runeValue: number;
+  expMultiplier: number;
+  mobKillCount: number;
+  activeCell: number;
+  onCellClick: (columnIndex: number) => void;
+  isLevelProportional: boolean;
+}
 
-export type ExpInputOption = {
-  label: string;
-  key: string;
-};
+interface ExpRewardOptionProps {
+  expRewardOptions: ExpRewardOption[];
+}
