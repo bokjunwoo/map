@@ -46,19 +46,19 @@ const MapBoosterExpRewardTable = ({ mapInfo }: MapInfoProps) => {
     {
       runeLabel: '룬 2배',
       runeValue: 100,
-      expMultiplier: 1,
+      expMultiplier: 10,
       mobKillCount: mobKillCount,
       activeCell: activeCell,
+      isLevelProportional: false,
       onCellClick: handleCellClick,
-      isLevelProportional: true,
     },
     {
       runeLabel: '룬 3배',
       runeValue: 200,
-      expMultiplier: 1,
+      expMultiplier: 10,
       mobKillCount: mobKillCount,
       activeCell: activeCell,
-      isLevelProportional: true,
+      isLevelProportional: false,
       onCellClick: handleCellClick,
     },
   ];
