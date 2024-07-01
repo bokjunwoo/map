@@ -3,7 +3,6 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 import { regionListState } from '../../../atoms/regionListState';
 import { userLevelState } from '../../../atoms/userLevelState';
 import { REGEX, LEVEL_RANGE } from '../../../constants/constants';
-import { minRegionsLevel } from '../../../data/region';
 import { findNearestRegion } from '../../../utils/etc';
 import CharacterLevelInputUI from './UI/CharacterLevelInputUI';
 

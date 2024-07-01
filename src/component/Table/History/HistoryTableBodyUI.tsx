@@ -6,7 +6,7 @@ import TableToggleButtonCellUI from '../common/TableToggleButtonCellUI';
 import HistoryCellUI from './HistoryCellUI';
 
 const HistoryTableBodyUI = ({ item }: HistoryProps) => {
-  const [isOpen, toggleOpen] = useToggle(true);
+  const [isOpen, toggleOpen] = useToggle(item.isOpen);
 
   return (
     <TableBody>

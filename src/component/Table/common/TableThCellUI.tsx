@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 type TableThCellUIProps = {
   width?: string;
   align?: TableCellProps['align'];
-  p?: number;
+  p?: number | string;
   children?: ReactNode;
 };
 
