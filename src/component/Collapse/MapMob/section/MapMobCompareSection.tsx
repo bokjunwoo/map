@@ -13,6 +13,7 @@ const MapMobCompareSection = ({ mobInfo }: MobInfoProps) => {
     useMobCalculation({
       mob: mobInfo,
       isLevelProportional: true,
+      additionalExpRate: 0,
     });
 
   const mobCompareInfo: MobInfo[] = [

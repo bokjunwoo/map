@@ -32,7 +32,7 @@ const TimeColorTableCellUI = ({
   const runeRate = checkState.rune ? 100 : 0;
   const sundayEventRate = checkState.sundayEvent ? 100 : 0;
 
-  const { totalExpRate, levelBasedExpRatio } = useMobCalculation({
+  const { levelMultiplier, totalExpRate } = useMobCalculation({
     mob: highestLevelMonster,
     isLevelProportional: false,
     additionalExpRate: runeRate + sundayEventRate,
@@ -42,7 +42,7 @@ const TimeColorTableCellUI = ({
     type,
     mobExp: highestLevelMonster.experience,
     mobKillCount,
-    levelBasedExpRatio,
+    levelMultiplier,
     expMultiplier,
     totalExpRate,
     sundayEventRate,

@@ -7,9 +7,10 @@ import ListItemStyle from '../../../List/style/ListItemStyle';
 const MapMobDetailSection = ({ mobInfo }: MobInfoProps) => {
   const userLevel = useRecoilValue(userLevelState);
 
-  const { levelBasedExpRatio, mesoMultiplier } = useMobCalculation({
+  const { levelMultiplier, mesoMultiplier } = useMobCalculation({
     mob: mobInfo,
     isLevelProportional: true,
+    additionalExpRate: 0,
   });
 
   const mobDetailInfo: MobInfo[] = [
@@ -19,7 +20,7 @@ const MapMobDetailSection = ({ mobInfo }: MobInfoProps) => {
     },
     {
       text: '레벨차이에 따른 경험치 배율',
-      amount: levelBasedExpRatio * 100,
+      amount: levelMultiplier * 100,
       unit: '%',
     },
     {

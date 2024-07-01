@@ -11,7 +11,7 @@ const MapEventSkillMobStatsSection = ({ mapInfo }: MapInfoProps) => {
 
   const highestLevelMonster = findHighestLevelMonster(mapInfo.monsters);
 
-  const { levelBasedExpRatio, calculatedExp: eventSkillExpReward } =
+  const { mobExpMultiplier, calculatedExp: eventSkillExpReward } =
     useMobCalculation({
       mob: highestLevelMonster,
       isLevelProportional: true,
@@ -22,7 +22,7 @@ const MapEventSkillMobStatsSection = ({ mapInfo }: MapInfoProps) => {
     { text: '필드 최고렙 몬스터 레벨', amount: highestLevelMonster.level },
     {
       text: '캐릭터 레벨 비례 경험치 적용',
-      amount: Math.floor(highestLevelMonster.experience * levelBasedExpRatio),
+      amount: mobExpMultiplier,
     },
     { text: '배율이 적용된 경험치', amount: eventSkillExpReward },
   ];
