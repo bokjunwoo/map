@@ -15,15 +15,9 @@ const MapPortalPrittoTable = ({ mapInfo }: MapInfoProps) => {
   );
 
   const PrittoPortalTimes = {
-    dragonEggStealing: useUpDownButton({
-      initialValue: PORTAL_INITIAL_TIME.DRAGON_EGG_STEALING,
-    }),
-    courtshipDance: useUpDownButton({
-      initialValue: PORTAL_INITIAL_TIME.COURTSHIP_DANCE,
-    }),
-    eagleHunting: useUpDownButton({
-      initialValue: PORTAL_INITIAL_TIME.EAGLE_HUNTING,
-    }),
+    dragonEggStealing: useUpDownButton(PORTAL_INITIAL_TIME.DRAGON_EGG_STEALING),
+    courtshipDance: useUpDownButton(PORTAL_INITIAL_TIME.COURTSHIP_DANCE),
+    eagleHunting: useUpDownButton(PORTAL_INITIAL_TIME.EAGLE_HUNTING),
   };
 
   const dragonEggStealingItem = [
@@ -47,6 +41,7 @@ const MapPortalPrittoTable = ({ mapInfo }: MapInfoProps) => {
       type: 'Pritto',
       label: '드래곤의 알',
       expMultiplier: dragonEggStealingExpMultiplier,
+      initialPlayTime: PORTAL_INITIAL_TIME.DRAGON_EGG_STEALING,
       playTime: PrittoPortalTimes.dragonEggStealing.count,
       increment: PrittoPortalTimes.dragonEggStealing.increment,
       decrement: PrittoPortalTimes.dragonEggStealing.decrement,
@@ -58,6 +53,7 @@ const MapPortalPrittoTable = ({ mapInfo }: MapInfoProps) => {
       type: 'Pritto',
       label: '구애의 춤',
       expMultiplier: PORTAL_EXP_MULTIPLIER.COURTSHIP_DANCE,
+      initialPlayTime: PORTAL_INITIAL_TIME.COURTSHIP_DANCE,
       playTime: PrittoPortalTimes.courtshipDance.count,
       increment: PrittoPortalTimes.courtshipDance.increment,
       decrement: PrittoPortalTimes.courtshipDance.decrement,
@@ -68,6 +64,7 @@ const MapPortalPrittoTable = ({ mapInfo }: MapInfoProps) => {
       type: 'Pritto',
       label: '독수리 사냥',
       expMultiplier: eagleHuntingExpMultiplier,
+      initialPlayTime: PORTAL_INITIAL_TIME.EAGLE_HUNTING,
       playTime: PrittoPortalTimes.eagleHunting.count,
       increment: PrittoPortalTimes.eagleHunting.increment,
       decrement: PrittoPortalTimes.eagleHunting.decrement,

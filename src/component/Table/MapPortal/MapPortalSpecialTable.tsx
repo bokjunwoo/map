@@ -41,12 +41,8 @@ const MapPortalSpecialTable = ({ mapInfo }: MapInfoProps) => {
       : handleInfernoWolfChaosChange;
 
   const specialPortalTimes = {
-    totemSlash: useUpDownButton({
-      initialValue: PORTAL_INITIAL_TIME.TOTEM_SLASH,
-    }),
-    infernoWolf: useUpDownButton({
-      initialValue: PORTAL_INITIAL_TIME.INFERNO_WOLF,
-    }),
+    totemSlash: useUpDownButton(PORTAL_INITIAL_TIME.TOTEM_SLASH),
+    infernoWolf: useUpDownButton(PORTAL_INITIAL_TIME.INFERNO_WOLF),
   };
 
   const specialPortalTypeList: PortalTypeList[] = [
@@ -54,6 +50,7 @@ const MapPortalSpecialTable = ({ mapInfo }: MapInfoProps) => {
       type: 'Pollo',
       label: '에스페시아',
       expMultiplier: PORTAL_EXP_MULTIPLIER.TOTEM_SLASH,
+      initialPlayTime: PORTAL_INITIAL_TIME.TOTEM_SLASH,
       playTime: specialPortalTimes.totemSlash.count,
       increment: specialPortalTimes.totemSlash.increment,
       decrement: specialPortalTimes.totemSlash.decrement,
@@ -66,6 +63,7 @@ const MapPortalSpecialTable = ({ mapInfo }: MapInfoProps) => {
       expMultiplier: wolfExpMultiplier,
       menuItem:
         userLevel >= 260 ? infernoWolfExtremeItem : infernoWolfChaosItem,
+      initialPlayTime: PORTAL_INITIAL_TIME.INFERNO_WOLF,
       playTime: specialPortalTimes.infernoWolf.count,
       increment: specialPortalTimes.infernoWolf.increment,
       decrement: specialPortalTimes.infernoWolf.decrement,
