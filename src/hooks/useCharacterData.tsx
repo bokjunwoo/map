@@ -91,6 +91,7 @@ const useCharacterData = () => {
       setRegionList([findNearestRegion(characterInfo.character_level)]);
 
       navigate(`/name/${characterName}`);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       setError(true);
       if (axios.isAxiosError(error) && error.response) {

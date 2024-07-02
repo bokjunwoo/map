@@ -1,5 +1,3 @@
-import { MapMonsterInfo } from './map';
-
 interface CalculateTotalExperienceParams {
   monsters: MapMonsterInfo[];
   expRate: number;
@@ -58,7 +56,7 @@ interface CalculateRemainingTime {
   mobExp: number;
   mobKillCount: number;
   expMultiplier: number;
-  levelBasedExpRatio: number;
+  levelMultiplier: number;
   totalExpRate: number;
   sundayEventRate: number;
   playTime: number;

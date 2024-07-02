@@ -25,6 +25,7 @@ export const getErrorMessage = (errorCode: string): string => {
   }
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const handleError = (error: any) => {
   if (process.env.NODE_ENV === 'development') {
     console.error('Error:', error);

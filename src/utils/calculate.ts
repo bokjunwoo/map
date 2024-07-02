@@ -1,12 +1,4 @@
 import { requiredLevelExp } from '../data/level';
-import {
-  ExperienceCalculator,
-  MesoCalculator,
-  PolloPlayTimeCalculator,
-  PrittoPlayTimeCalculator,
-  CalculateExpPercentageParams,
-  CalculateRemainingTime,
-} from '../interface/calculate';
 
 export const calculateSumOfMonsters = (monsters: MapMonsterInfo[]) => {
   const numberOfMonster = monsters.map((monster) => monster.number_of_monster);
@@ -246,50 +238,6 @@ export const calculateTotalMeso: MesoCalculator = ({ monsters, userLevel }) => {
   return Math.floor(totalExperienceWithRates);
 };
 
-export const calculatePolloPlayTime: PolloPlayTimeCalculator = ({
-  monsterExperience,
-  numberOfMonster,
-  expMultiplier,
-  expValue,
-  expRateRatio,
-  sundayEventRatio,
-  time,
-}) => {
-  const remainingTime =
-    ((expValue * monsterExperience * expRateRatio) /
-      (monsterExperience *
-        expMultiplier *
-        numberOfMonster *
-        8 *
-        (expRateRatio - sundayEventRatio / 100))) *
-      60 -
-    time;
-
-  return Math.ceil(remainingTime);
-};
-
-export const calculatePrittoPlayTime: PrittoPlayTimeCalculator = ({
-  monsterExperience,
-  numberOfMonster,
-  expMultiplier,
-  expValue,
-  expRateRatio,
-  sundayEventRatio,
-  time,
-}) => {
-  const remainingTime =
-    ((expValue * monsterExperience) /
-      (monsterExperience *
-        expMultiplier *
-        numberOfMonster *
-        8 *
-        (expRateRatio - sundayEventRatio / 100))) *
-      60 -
-    time;
-
-  return Math.ceil(remainingTime);
-};
-
 export const calculateItemDropMultiplier = (itemDropRate: number): number => {
   const itemDropRatio = itemDropRate / 100;
   if (itemDropRatio >= 0.67) {
@@ -312,7 +260,7 @@ export const calculateRemainingTime = ({
   type,
   mobExp,
   mobKillCount,
-  levelBasedExpRatio,
+  levelMultiplier,
   expMultiplier,
   totalExpRate,
   sundayEventRate,
@@ -329,7 +277,7 @@ export const calculateRemainingTime = ({
 
   const remainingTime =
     (totalExp /
-      (mobExp * levelBasedExpRatio * mobKillCount * 8 * effectiveRateRatio)) *
+      (mobExp * levelMultiplier * mobKillCount * 8 * effectiveRateRatio)) *
       60 -
     playTime;
 

@@ -20,7 +20,7 @@ export const HistoryList: HistoryItem[] = [
   },
   {
     id: 2,
-    isOpen: true,
+    isOpen: false,
     date: '2024.06.20',
     version: '0.0.2',
     category: [
@@ -32,7 +32,7 @@ export const HistoryList: HistoryItem[] = [
   },
   {
     id: 1,
-    isOpen: true,
+    isOpen: false,
     date: '2024.06.19',
     version: '0.0.1',
     category: [
