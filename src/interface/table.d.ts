@@ -17,6 +17,7 @@ interface PortalTypeList {
   type: 'Pollo' | 'Pritto';
   label: string;
   expMultiplier: number;
+  initialPlayTime: number;
   playTime: number;
   increment: () => void;
   decrement: () => void;
