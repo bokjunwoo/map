@@ -114,6 +114,7 @@ export const findItemEquipmentRates = (data: CharacterItemEquipment) => {
 
 // 칭호
 export const findTitleExpRate = (data: CharacterItemEquipment): number => {
+  if (data.title === null) return 0;
   const isExpired = checkDateOptionExpire(data.title.date_option_expire);
   const titleBonuses: { [key: string]: number } = {
     '쑥쑥 새싹': 10,
