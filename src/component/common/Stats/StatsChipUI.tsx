@@ -1,11 +1,11 @@
 import { Avatar, Box, Typography } from '@mui/material';
 import StatsChipStyle from './style/StatsChipStyle';
 
-type RateChipUIProps = {
+type StatsChipUIProps = {
   rateList: RateListOption;
 };
 
-const RateChipUI = ({ rateList }: RateChipUIProps) => {
+const StatsChipUI = ({ rateList }: StatsChipUIProps) => {
   return (
     <Box sx={{ width: 100 }}>
       <Box
@@ -41,4 +41,4 @@ const RateChipUI = ({ rateList }: RateChipUIProps) => {
   );
 };
 
-export default RateChipUI;
+export default StatsChipUI;
