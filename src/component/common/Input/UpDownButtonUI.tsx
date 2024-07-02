@@ -3,24 +3,24 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import { Box, IconButton, Typography } from '@mui/material';
 
 type UpDownButtonUIProps = {
-  initialValue: number;
+  initialPlayTime: number;
   count: number;
   increment: () => void;
   decrement: () => void;
 };
 
 const UpDownButtonUI = ({
-  initialValue,
+  initialPlayTime,
   count,
   increment,
   decrement,
 }: UpDownButtonUIProps) => {
-  const positiveThreshold = Math.ceil((initialValue / 10) * 4);
-  const negativeThreshold = Math.ceil((initialValue / 10) * 2);
+  const positiveThreshold = Math.ceil((initialPlayTime / 10) * 4);
+  const negativeThreshold = Math.ceil((initialPlayTime / 10) * 2);
 
-  const disableIncrement = initialValue + positiveThreshold === count;
+  const disableIncrement = initialPlayTime + positiveThreshold === count;
 
-  const disableDecrement = initialValue - negativeThreshold === count;
+  const disableDecrement = initialPlayTime - negativeThreshold === count;
 
   return (
     <Box
