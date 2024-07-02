@@ -105,8 +105,9 @@ export const convertToSeconds = (firstDecimal: number) => {
 
 export const formatTime = (totalSeconds: number) => {
   const absTotalSeconds = Math.abs(totalSeconds);
-  const minutes = Math.floor(absTotalSeconds / 60);
-  const seconds = absTotalSeconds % 60;
+  const roundedSeconds = Math.round(absTotalSeconds);
+  const minutes = Math.floor(roundedSeconds / 60);
+  const seconds = roundedSeconds % 60;
 
   const sign = totalSeconds < 0 ? '-' : '';
 
