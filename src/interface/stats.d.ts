@@ -17,3 +17,11 @@ interface CheckBoxGroup {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   option: CheckBoxOption[];
 }
+
+interface BuffButtonOption extends CommonOption {
+  count: number;
+  disableIncrement: number;
+  disableDecrement: number;
+  increment: () => void;
+  decrement: () => void;
+}
