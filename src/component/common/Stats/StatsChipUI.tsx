@@ -1,4 +1,5 @@
-import { Avatar, Box, Typography } from '@mui/material';
+import { Avatar } from '@mui/material';
+import RateBoxUI from './common/RateBoxUI';
 import StatsChipStyle from './style/StatsChipStyle';
 
 type StatsChipUIProps = {
@@ -7,21 +8,7 @@ type StatsChipUIProps = {
 
 const StatsChipUI = ({ rateList }: StatsChipUIProps) => {
   return (
-    <Box sx={{ width: 100 }}>
-      <Box
-        sx={{
-          textAlign: 'center',
-          bgcolor: rateList.bgcolor,
-          p: 0.5,
-          borderTopLeftRadius: 4,
-          borderTopRightRadius: 4,
-        }}
-      >
-        <Typography variant="body2" sx={{ fontSize: 12 }}>
-          {rateList.text}
-        </Typography>
-      </Box>
-
+    <RateBoxUI color={rateList.bgcolor} label={rateList.text}>
       <StatsChipStyle
         sx={{
           border: `1px solid ${rateList.bgcolor}`,
@@ -37,7 +24,7 @@ const StatsChipUI = ({ rateList }: StatsChipUIProps) => {
         label={`+ ${rateList.value}%`}
         size="small"
       />
-    </Box>
+    </RateBoxUI>
   );
 };
 

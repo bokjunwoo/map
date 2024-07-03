@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import RateBoxUI from './common/RateBoxUI';
 import StatsCheckBoxStyle from './style/StatsCheckBoxStyle';
 
 type StatsCheckBoxUIProps = {
@@ -11,21 +11,7 @@ const StatsCheckBoxUI = ({
   handleChange,
 }: StatsCheckBoxUIProps) => {
   return (
-    <Box sx={{ width: 100 }}>
-      <Box
-        sx={{
-          textAlign: 'center',
-          bgcolor: checkBoxOption.bgcolor,
-          p: 0.5,
-          borderTopLeftRadius: 4,
-          borderTopRightRadius: 4,
-        }}
-      >
-        <Typography variant="body2" sx={{ fontSize: 12 }}>
-          {checkBoxOption.text}
-        </Typography>
-      </Box>
-
+    <RateBoxUI color={checkBoxOption.bgcolor} label={checkBoxOption.text}>
       <StatsCheckBoxStyle
         aria-label={checkBoxOption.name}
         sx={{
@@ -35,7 +21,7 @@ const StatsCheckBoxUI = ({
         onChange={handleChange}
         name={checkBoxOption.name}
       />
-    </Box>
+    </RateBoxUI>
   );
 };
 
