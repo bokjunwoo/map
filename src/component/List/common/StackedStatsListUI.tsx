@@ -1,20 +1,23 @@
 import { Stack } from '@mui/material';
+import BuffButtonChipUI from '../../common/Stats/BuffButtonChipUI';
 import StatsCheckBoxUI from '../../common/Stats/StatsCheckBoxUI';
-import StatsChipStyle from '../../common/Stats/StatsChipUI';
+import StatsChipUI from '../../common/Stats/StatsChipUI';
 
 type StackedStatsListUIProps = {
   rateList?: RateListOption[];
   checkBoxList?: CheckBoxGroup;
+  buffButtonOption?: BuffButtonOption;
 };
 
 const StackedStatsListUI = ({
   rateList,
   checkBoxList,
+  buffButtonOption,
 }: StackedStatsListUIProps) => {
   return (
     <Stack direction="row" spacing={1}>
       {rateList?.map((option) => (
-        <StatsChipStyle key={option.text} rateList={option} />
+        <StatsChipUI key={option.text} rateList={option} />
       ))}
 
       {checkBoxList?.option.map((option) => (
@@ -24,6 +27,10 @@ const StackedStatsListUI = ({
           handleChange={checkBoxList.onChange}
         />
       ))}
+
+      {buffButtonOption && (
+        <BuffButtonChipUI buffButtonOption={buffButtonOption} />
+      )}
     </Stack>
   );
 };
