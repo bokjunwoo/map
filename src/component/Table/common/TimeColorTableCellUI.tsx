@@ -1,7 +1,10 @@
 import { TableCell } from '@mui/material';
 import { useRecoilValue } from 'recoil';
 import { numberOfMonsterState } from '../../../atoms/numberOfMonsterState';
-import { portalCheckState } from '../../../atoms/portalCheckState';
+import {
+  runeExpRateSelector,
+  sundayEventExpRateRateSelector,
+} from '../../../atoms/portalCheckState';
 import useMobCalculation from '../../../hooks/useMobCalculation';
 import { calculateRemainingTime } from '../../../utils/calculate';
 import { formatTime } from '../../../utils/etc';
@@ -25,17 +28,15 @@ const TimeColorTableCellUI = ({
   getTimeColor,
 }: TimeColorTableCellUIProps) => {
   const mobKillCount = useRecoilValue(numberOfMonsterState(mapInfo.map_name));
-  const checkState = useRecoilValue(portalCheckState);
+  const runeExpRate = useRecoilValue(runeExpRateSelector);
+  const sundayEventExpRate = useRecoilValue(sundayEventExpRateRateSelector);
 
   const highestLevelMonster = findHighestLevelMonster(mapInfo.monsters);
-
-  const runeRate = checkState.rune ? 100 : 0;
-  const sundayEventRate = checkState.sundayEvent ? 100 : 0;
 
   const { levelMultiplier, totalExpRate } = useMobCalculation({
     mob: highestLevelMonster,
     isLevelProportional: false,
-    additionalExpRate: runeRate + sundayEventRate,
+    additionalExpRate: runeExpRate + sundayEventExpRate,
   });
 
   const remainingTime = calculateRemainingTime({
@@ -45,7 +46,7 @@ const TimeColorTableCellUI = ({
     levelMultiplier,
     expMultiplier,
     totalExpRate,
-    sundayEventRate,
+    sundayEventRate: sundayEventExpRate,
     playTime,
   });
 
