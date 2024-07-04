@@ -51,7 +51,7 @@ export const getLinkSkill = async (
   }
 };
 
-// 5차스킬(쓸만한 홀리심볼)
+// 5차스킬
 export const getVmatrix = async (
   ocid: string
 ): Promise<CharacterVCoreEquipment> => {
@@ -64,7 +64,7 @@ export const getVmatrix = async (
   }
 };
 
-// 6차스킬(솔 야누스)
+// 6차스킬
 export const getHexaMatrix = async (
   ocid: string
 ): Promise<CharacterHexaCoreEquipment> => {
@@ -96,6 +96,22 @@ export const getCashItemEquipment = async (
 ): Promise<CharacterCashItemEquipment> => {
   try {
     const response = await characterApi.get(`/cashitem-equipment?ocid=${ocid}`);
+    return response.data;
+  } catch (error) {
+    handleError(error);
+    throw error;
+  }
+};
+
+// 스킬
+export const getSkill = async (
+  ocid: string,
+  skillGrade: string
+): Promise<CharacterSkill> => {
+  try {
+    const response = await characterApi.get(
+      `/skill?ocid=${ocid}&character_skill_grade=${skillGrade}`
+    );
     return response.data;
   } catch (error) {
     handleError(error);
