@@ -9,7 +9,7 @@ const ExpHolySymbol = () => {
     state: expRateState,
     rateName: RATE_NAME.HOLY_SYMBOL,
     regex: REGEX.NUMBER,
-    maxAllowedValue: 35,
+    maxAllowedValue: 70,
   });
 
   const rateOption: RateInputOption = {
