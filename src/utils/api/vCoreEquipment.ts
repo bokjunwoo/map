@@ -13,6 +13,18 @@ export const findVCoreLevel = (
   return totalLevel;
 };
 
+export const findLoadedDiceVCoreExpRate = (data: CharacterVCoreEquipment) => {
+  let expRate = 0;
+
+  data.character_v_core_equipment.forEach((coreEquipment) => {
+    if (coreEquipment.v_core_name === '로디드 다이스') {
+      expRate = 30;
+    }
+  });
+
+  return expRate;
+};
+
 export const calculateHolySymbolExpRate = (level: number) => {
   if (level === 0) return 0;
   const baseRate = 20;
