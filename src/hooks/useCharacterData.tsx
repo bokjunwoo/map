@@ -21,7 +21,7 @@ import { itemDropState } from '../atoms/itemDropState';
 import { mesoDropState } from '../atoms/mesoDropState';
 import { regionListState } from '../atoms/regionListState';
 import { userLevelState } from '../atoms/userLevelState';
-import { validateCharacterInfo } from '../utils/api/charater';
+import { getclasses, validateCharacterInfo } from '../utils/api/charater';
 import { getErrorMessage } from '../utils/error';
 import { findNearestRegion } from '../utils/etc';
 import { processCharacterData } from '../utils/process';
@@ -47,6 +47,12 @@ const useCharacterData = () => {
       const characterInfo = await getCharacterInfo(userOcid);
 
       validateCharacterInfo(characterInfo);
+
+      const { classBishop, classNightLoad, classShadower } = await getclasses(
+        userOcid,
+        characterInfo.character_class
+      );
+      console.log(classBishop);
 
       const [
         hyperStat,
@@ -81,6 +87,9 @@ const useCharacterData = () => {
           cashItemEquipment,
           unionRaider,
           unionArtifact,
+          classBishop,
+          classNightLoad,
+          classShadower,
         });
 
       setExpRate(processedExpData);
