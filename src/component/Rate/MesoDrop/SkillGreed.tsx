@@ -15,7 +15,7 @@ const SkillGreed = () => {
     key: RATE_NAME.SKILL_GREED,
     values: [
       { value: 0, label: '미적용' },
-      { value: 20, label: '+20%' },
+      { value: 20, label: '적용 (+20%)' },
     ],
   };
 
