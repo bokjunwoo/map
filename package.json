@@ -1,6 +1,6 @@
 {
   "name": "maple_map",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
