@@ -21,7 +21,7 @@ export const sundayEventExpRateRateSelector = selector({
   key: 'sundayEventExpRateRateSelector',
   get: ({ get }) => {
     const portalBuffLevel = get(portalCheckState);
-    const expRate = portalBuffLevel.sundayEvent ? 100 : 0;
+    const expRate = portalBuffLevel.sundayEvent ? 200 : 0;
     return expRate;
   },
 });

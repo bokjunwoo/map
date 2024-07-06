@@ -26,7 +26,7 @@ const PortalExpRewardCellUI = ({
   const sundayEventExpRate = useRecoilValue(sundayEventExpRateRateSelector);
 
   const PolloRuneRate = type === 'Pollo' ? runeExpRate : 0;
-  const sundayEventEffect = sundayEventExpRate === 100 ? 2 : 1;
+  // const sundayEventEffect = sundayEventExpRate === 100 ? 2 : 1;
 
   const highestLevelMonster = findHighestLevelMonster(mapInfo.monsters);
 
