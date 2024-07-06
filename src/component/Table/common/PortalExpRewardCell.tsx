@@ -33,7 +33,7 @@ const PortalExpRewardCellUI = ({
   const { calculatedExp } = useMobCalculation({
     mob: highestLevelMonster,
     isLevelProportional: false,
-    additionalExpRate: PolloRuneRate + sundayEventEffect,
+    additionalExpRate: PolloRuneRate + sundayEventExpRate,
   });
 
   const expReward = calculatedExp * expMultiplier;
