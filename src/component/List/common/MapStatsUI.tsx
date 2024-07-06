@@ -16,7 +16,11 @@ const MapStatsUI = ({
 }: MapStatsUIProps) => {
   return (
     <ListItemStyle>
-      <ListSubTitleUI title="적용된 스탯" />
+      <ListSubTitleUI
+        title="적용된 스탯"
+        subtitle="7월 7일 선데이 폴로/프리토 경험치 3배 적용중!!"
+        subtitleImportant={true}
+      />
 
       <Box sx={{ mb: 1 }}>
         <StackedStatsListUI
