@@ -1,3 +1,8 @@
+interface SkillRates {
+  expRate: number;
+  itemDropRate: number;
+}
+
 interface processCharacterData {
   ability: CharacterAbility;
   hyperStat: CharacterHyperStat;
@@ -8,6 +13,9 @@ interface processCharacterData {
   cashItemEquipment: CharacterCashItemEquipment;
   unionRaider: UnionRaider;
   unionArtifact: UnionArtifact;
+  classBishop: SkillRates;
+  classNightLoad: SkillRates;
+  classShadower: number;
 }
 
 interface ProcessExpData {
@@ -15,6 +23,8 @@ interface ProcessExpData {
   elvenBlessing: number;
   expRateHolySymbol: number;
   solJanus: number;
+  loadedDice: number;
+  showDown: number;
   expTitle: number;
   boostRing: number;
   kinshipRing: number;
@@ -29,6 +39,7 @@ interface ProcessItemDropData {
   itemDropRateArtifact: number;
   itemDropRateAbility: number;
   itemDropRateItemEquipment: number;
+  showDown: number;
 }
 
 interface ProcessMesoDropData {
@@ -36,4 +47,5 @@ interface ProcessMesoDropData {
   mesoDropRateAbility: number;
   mesoDropRateItemEquipment: number;
   unionPhantom: number;
+  greed: number;
 }

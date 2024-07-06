@@ -19,6 +19,7 @@ import {
 import {
   calculateHolySymbolExpRate,
   calculateHolySymbolItemDropRate,
+  findLoadedDiceVCoreExpRate,
   findVCoreLevel,
 } from './api/vCoreEquipment';
 
@@ -32,16 +33,19 @@ export const processCharacterData = ({
   unionRaider,
   unionArtifact,
   ability,
+  classBishop,
+  classNightLoad,
+  classShadower,
 }: processCharacterData) => {
   const expHyperStatLevel = findHighestHyperStatLevel(hyperStat, '획득 경험치');
   const holySymbolCoreLevel = findVCoreLevel(vmatrix, '쓸만한 홀리 심볼');
   const solJanusCoreLevel = findHexaCoreLevel(hexaMatrix, '솔 야누스');
+  const loadedDiceExpRate = findLoadedDiceVCoreExpRate(vmatrix);
   const elvenBlessingSkillLevel = findLinkSkillLevel(linkSkill, '엘프의 축복');
   const itemEquipmentRates = findItemEquipmentRates(itemEquipment);
   const titleExpRate = findTitleExpRate(itemEquipment);
   const cashItemEquipmentExpRates =
     findCashItemEquipmentExpRate(cashItemEquipment);
-
   const unionRaiderRates = findUnionRaiderRates(unionRaider);
   const unionOccupiedExpRate = findUnionOccupiedExpRate(unionRaider);
   const unionArtifactEffectRates = findUnionArtifactEffectRates(unionArtifact);
@@ -50,8 +54,13 @@ export const processCharacterData = ({
   const processedExpData = processExpData({
     expHyperStat: expHyperStatLevel,
     elvenBlessing: calculateElvenBlessingExpRate(elvenBlessingSkillLevel),
-    expRateHolySymbol: calculateHolySymbolExpRate(holySymbolCoreLevel),
+    expRateHolySymbol:
+      classBishop.expRate !== 0
+        ? classBishop.expRate
+        : calculateHolySymbolExpRate(holySymbolCoreLevel),
     solJanus: calculateSolJanusExpRate(solJanusCoreLevel),
+    loadedDice: loadedDiceExpRate,
+    showDown: classNightLoad.expRate,
     spiritPendant: itemEquipmentRates.expRate,
     expTitle: titleExpRate,
     boostRing: cashItemEquipmentExpRates.boostRing,
@@ -63,10 +72,13 @@ export const processCharacterData = ({
 
   const processedItemDropData = processItemDropData({
     itemDropRateHolySymbol:
-      calculateHolySymbolItemDropRate(holySymbolCoreLevel),
+      classBishop.itemDropRate !== 0
+        ? classBishop.itemDropRate
+        : calculateHolySymbolItemDropRate(holySymbolCoreLevel),
     itemDropRateArtifact: unionArtifactEffectRates.itemDropRate,
     itemDropRateAbility: abilityRates.itemDropRate,
     itemDropRateItemEquipment: itemEquipmentRates.itemDropRate,
+    showDown: classNightLoad.itemDropRate,
   });
 
   const processedMesoDropData = processMesoDropData({
@@ -74,6 +86,7 @@ export const processCharacterData = ({
     mesoDropRateAbility: abilityRates.mesoDropRate,
     mesoDropRateItemEquipment: itemEquipmentRates.mesoDropRate,
     unionPhantom: unionRaiderRates.PhantomUnionRate,
+    greed: classShadower,
   });
 
   return { processedExpData, processedItemDropData, processedMesoDropData };
@@ -84,6 +97,8 @@ const processExpData = ({
   elvenBlessing,
   expRateHolySymbol,
   solJanus,
+  loadedDice,
+  showDown,
   expTitle,
   boostRing,
   kinshipRing,
@@ -100,6 +115,8 @@ const processExpData = ({
     },
     { label: RATE_NAME.HOLY_SYMBOL, value: expRateHolySymbol },
     { label: RATE_NAME.SOL_JANUS, value: solJanus },
+    { label: RATE_NAME.LOADED_DICE, value: loadedDice },
+    { label: RATE_NAME.SHOW_DOWN_SKILL, value: showDown },
     { label: RATE_NAME.SPIRIT_PENDANT, value: spiritPendant },
     { label: RATE_NAME.EXP_TITLE, value: expTitle },
     { label: RATE_NAME.BOOST_RING, value: boostRing },
@@ -116,6 +133,7 @@ const processItemDropData = ({
   itemDropRateArtifact,
   itemDropRateAbility,
   itemDropRateItemEquipment,
+  showDown,
 }: ProcessItemDropData) => {
   return [
     { label: RATE_NAME.HOLY_SYMBOL, value: itemDropRateHolySymbol },
@@ -124,6 +142,10 @@ const processItemDropData = ({
     {
       label: RATE_NAME.ITEM_EQUIPMENT,
       value: itemDropRateItemEquipment,
+    },
+    {
+      label: RATE_NAME.SHOW_DOWN_SKILL,
+      value: showDown,
     },
   ];
 };
@@ -134,6 +156,7 @@ const processMesoDropData = ({
   mesoDropRateAbility,
   mesoDropRateItemEquipment,
   unionPhantom,
+  greed,
 }: ProcessMesoDropData) => {
   return [
     {
@@ -148,6 +171,10 @@ const processMesoDropData = ({
     {
       label: RATE_NAME.UNION_PHANTOM,
       value: unionPhantom,
+    },
+    {
+      label: RATE_NAME.SKILL_GREED,
+      value: greed,
     },
   ];
 };
