@@ -3,14 +3,15 @@ import { useRecoilValue } from 'recoil';
 import { numberOfMonsterState } from '../../../atoms/numberOfMonsterState';
 import {
   runeExpRateSelector,
-  sundayEventExpRateRateSelector,
+  sundayEventExpEffectSelector,
+  sundayEventExpRateSelector,
 } from '../../../atoms/portalCheckState';
 import useMobCalculation from '../../../hooks/useMobCalculation';
 import { calculateRemainingTime } from '../../../utils/calculate';
 import { formatTime } from '../../../utils/etc';
 import { findHighestLevelMonster } from '../../../utils/mob';
 
-type TimeColorTableCellUIProps = {
+type PortalExpEfficiencyCellUIProps = {
   mapInfo: MapInfo;
   type: 'Pollo' | 'Pritto';
   expMultiplier: number;
@@ -20,33 +21,40 @@ type TimeColorTableCellUIProps = {
   ) => '#fde2e4' | '#fff1e6' | '#e2ece9' | '#dfe7fd';
 };
 
-const TimeColorTableCellUI = ({
+const PortalExpEfficiencyCellUI = ({
   mapInfo,
   type,
   expMultiplier,
   playTime,
   getTimeColor,
-}: TimeColorTableCellUIProps) => {
+}: PortalExpEfficiencyCellUIProps) => {
   const mobKillCount = useRecoilValue(numberOfMonsterState(mapInfo.map_name));
   const runeExpRate = useRecoilValue(runeExpRateSelector);
-  const sundayEventExpRate = useRecoilValue(sundayEventExpRateRateSelector);
+  const sundayEventExpRate = useRecoilValue(sundayEventExpRateSelector);
+  const sundayEventExpEffect = useRecoilValue(sundayEventExpEffectSelector);
 
   const highestLevelMonster = findHighestLevelMonster(mapInfo.monsters);
 
-  const { levelMultiplier, totalExpRate } = useMobCalculation({
+  const { calculatedExp: PolloExp } = useMobCalculation({
     mob: highestLevelMonster,
     isLevelProportional: false,
     additionalExpRate: runeExpRate + sundayEventExpRate,
   });
 
+  const { calculatedExp: mobExp } = useMobCalculation({
+    mob: highestLevelMonster,
+    isLevelProportional: true,
+    additionalExpRate: runeExpRate,
+  });
+
+  const expPolloReward = PolloExp * expMultiplier;
+  const expPrittoReward =
+    highestLevelMonster.experience * expMultiplier * sundayEventExpEffect;
+
   const remainingTime = calculateRemainingTime({
-    type,
-    mobExp: highestLevelMonster.experience,
+    expReward: type === 'Pollo' ? expPolloReward : expPrittoReward,
+    mobExp,
     mobKillCount,
-    levelMultiplier,
-    expMultiplier,
-    totalExpRate,
-    sundayEventRate: sundayEventExpRate,
     playTime,
   });
 
@@ -57,4 +65,4 @@ const TimeColorTableCellUI = ({
   );
 };
 
-export default TimeColorTableCellUI;
+export default PortalExpEfficiencyCellUI;

@@ -1,6 +1,6 @@
 import { TableRow } from '@mui/material';
+import PortalExpEfficiencyCellUI from '../../common/PortalExpEfficiencyCellUI';
 import TableThCellUI from '../../common/TableThCellUI';
-import TimeColorTableCellUI from '../../common/TimeColorTableCellUI';
 
 type MapPortalMobKillEfficiencyRowUIProps = {
   mapInfo: MapInfo;
@@ -19,7 +19,7 @@ const MapPortalMobKillEfficiencyRowUI = ({
 
       {portalTypeList.map(
         ({ label, type, playTime, expMultiplier, getTimeColor }) => (
-          <TimeColorTableCellUI
+          <PortalExpEfficiencyCellUI
             key={label}
             mapInfo={mapInfo}
             type={type}
