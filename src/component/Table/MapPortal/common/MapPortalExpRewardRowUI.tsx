@@ -1,5 +1,5 @@
 import { TableRow } from '@mui/material';
-import PortalExpRewardCellUI from '../../common/PortalExpRewardCell';
+import PortalExpRewardCellUI from '../../common/PortalExpRewardCellUI';
 import TableThCellUI from '../../common/TableThCellUI';
 
 type MapPortalExpRewardRowUIProps = {

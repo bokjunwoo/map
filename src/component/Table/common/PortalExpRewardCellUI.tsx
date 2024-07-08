@@ -2,7 +2,8 @@ import { TableCell } from '@mui/material';
 import { useRecoilValue } from 'recoil';
 import {
   runeExpRateSelector,
-  sundayEventExpRateRateSelector,
+  sundayEventExpEffectSelector,
+  sundayEventExpRateSelector,
 } from '../../../atoms/portalCheckState';
 import { userLevelState } from '../../../atoms/userLevelState';
 import useMobCalculation from '../../../hooks/useMobCalculation';
@@ -23,28 +24,30 @@ const PortalExpRewardCellUI = ({
 }: PortalExpRewardCellUIProps) => {
   const userLevel = useRecoilValue(userLevelState);
   const runeExpRate = useRecoilValue(runeExpRateSelector);
-  const sundayEventExpRate = useRecoilValue(sundayEventExpRateRateSelector);
-
-  const PolloRuneRate = type === 'Pollo' ? runeExpRate : 0;
-  // const sundayEventEffect = sundayEventExpRate === 100 ? 2 : 1;
+  const sundayEventExpRate = useRecoilValue(sundayEventExpRateSelector);
+  const sundayEventExpEffect = useRecoilValue(sundayEventExpEffectSelector);
 
   const highestLevelMonster = findHighestLevelMonster(mapInfo.monsters);
 
   const { calculatedExp } = useMobCalculation({
     mob: highestLevelMonster,
     isLevelProportional: false,
-    additionalExpRate: PolloRuneRate + sundayEventExpRate,
+    additionalExpRate: runeExpRate + sundayEventExpRate,
   });
 
-  const expReward = calculatedExp * expMultiplier;
+  const expPolloReward = calculatedExp * expMultiplier;
+  const expPrittoReward =
+    highestLevelMonster.experience * expMultiplier * sundayEventExpEffect;
+
   const expPercentage = calculateExpPercentage({
     userLevel,
-    expReward,
+    expReward: type === 'Pollo' ? expPolloReward : expPrittoReward,
   });
 
   return (
     <TableCell align="center" sx={{ p: 0, pt: '6px', pb: '6px' }}>
-      {formatNumber(expReward)} ({expPercentage}%)
+      {formatNumber(type === 'Pollo' ? expPolloReward : expPrittoReward)} (
+      {expPercentage}%)
     </TableCell>
   );
 };
