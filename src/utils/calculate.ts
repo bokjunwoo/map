@@ -257,29 +257,14 @@ export const calculateExpPercentage = ({
 };
 
 export const calculateRemainingTime = ({
-  type,
+  expReward,
   mobExp,
   mobKillCount,
-  levelMultiplier,
-  expMultiplier,
-  totalExpRate,
-  sundayEventRate,
   playTime,
 }: CalculateRemainingTime) => {
-  const sundayEventEffect = sundayEventRate === 100 ? 2 : 1;
+  const ab = mobExp * 8 * mobKillCount;
 
-  const totalExp =
-    type === 'Pollo'
-      ? expMultiplier * mobExp * (totalExpRate / 100)
-      : expMultiplier * mobExp * sundayEventEffect;
-
-  const effectiveRateRatio = (totalExpRate - sundayEventRate) / 100;
-
-  const remainingTime =
-    (totalExp /
-      (mobExp * levelMultiplier * mobKillCount * 8 * effectiveRateRatio)) *
-      60 -
-    playTime;
+  const remainingTime = (expReward / ab) * 60 - playTime;
 
   return Math.ceil(remainingTime);
 };
