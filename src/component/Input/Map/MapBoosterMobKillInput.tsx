@@ -20,8 +20,8 @@ const MapBoosterMobKillInput = ({ mapName }: MapNameProps) => {
       setMobKillCount(BOOSTER.INITIAL_MOB_KILL);
     }
 
-    if (targetValue < 1) {
-      setMobKillCount(1);
+    if (targetValue < 0) {
+      setMobKillCount(0);
     }
   };
 

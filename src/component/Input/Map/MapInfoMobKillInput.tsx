@@ -20,8 +20,8 @@ const MapInfoMobKillInput = ({ mapInfo }: MapInfoProps) => {
       setMobKillCount(mapInfo.number_of_monster);
     }
 
-    if (targetValue < 1) {
-      setMobKillCount(1);
+    if (targetValue < 0) {
+      setMobKillCount(0);
     }
   };
 
