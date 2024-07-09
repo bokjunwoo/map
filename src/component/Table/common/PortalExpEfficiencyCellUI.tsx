@@ -7,6 +7,7 @@ import {
   sundayEventExpRateSelector,
 } from '../../../atoms/portalCheckState';
 import useMobCalculation from '../../../hooks/useMobCalculation';
+import useMobRewards from '../../../hooks/useMobRewards';
 import { calculateRemainingTime } from '../../../utils/calculate';
 import { formatTime } from '../../../utils/etc';
 import { findHighestLevelMonster } from '../../../utils/mob';
@@ -41,11 +42,8 @@ const PortalExpEfficiencyCellUI = ({
     additionalExpRate: runeExpRate + sundayEventExpRate,
   });
 
-  const { calculatedExp: mobExp } = useMobCalculation({
-    mob: highestLevelMonster,
-    isLevelProportional: true,
-    additionalExpRate: runeExpRate,
-  });
+  const { mobExp } = useMobRewards({ mapInfo, runeRate: runeExpRate });
+  const mobRatio = mapInfo.number_of_monster / mobKillCount;
 
   const expPolloReward = PolloExp * expMultiplier;
   const expPrittoReward =
@@ -53,7 +51,7 @@ const PortalExpEfficiencyCellUI = ({
 
   const remainingTime = calculateRemainingTime({
     expReward: type === 'Pollo' ? expPolloReward : expPrittoReward,
-    mobExp,
+    mobExp: mobExp / mobRatio,
     mobKillCount,
     playTime,
   });
