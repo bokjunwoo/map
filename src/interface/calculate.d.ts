@@ -54,6 +54,5 @@ interface CalculateExpPercentageParams {
 interface CalculateRemainingTime {
   expReward: number;
   mobExp: number;
-  mobKillCount: number;
   playTime: number;
 }

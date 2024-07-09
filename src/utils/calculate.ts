@@ -259,12 +259,9 @@ export const calculateExpPercentage = ({
 export const calculateRemainingTime = ({
   expReward,
   mobExp,
-  mobKillCount,
   playTime,
 }: CalculateRemainingTime) => {
-  const ab = mobExp * 8 * mobKillCount;
-
-  const remainingTime = (expReward / ab) * 60 - playTime;
+  const remainingTime = (expReward / mobExp) * 60 - playTime;
 
   return Math.ceil(remainingTime);
 };
