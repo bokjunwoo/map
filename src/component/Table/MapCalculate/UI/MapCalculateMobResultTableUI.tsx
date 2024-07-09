@@ -3,7 +3,7 @@ import { useRecoilValue } from 'recoil';
 import { userLevelState } from '../../../../atoms/userLevelState';
 import { TIME_OPTIONS } from '../../../../constants/constants';
 import { RGBColor } from '../../../../data/color';
-import useMobAmounts from '../../../../hooks/useMobAmounts';
+import useMobRewards from '../../../../hooks/useMobRewards';
 import { calculateExpPercentage } from '../../../../utils/calculate';
 import { formatNumber } from '../../../../utils/etc';
 import TableUI from '../../common/TableUI';
@@ -19,13 +19,16 @@ const MapCalculateMobResultTableUI = ({
 }: MapCalculateMobResultTableUIProps) => {
   const userLevel = useRecoilValue(userLevelState);
 
-  const { expAmount, pureMesoAmount, bonusMesoAmount } = useMobAmounts(mapInfo);
+  const { mobExp, mobPureMeso, mobBonusMeso } = useMobRewards({
+    mapInfo,
+    runeRate: 0,
+  });
 
   const mobRatio = mapInfo.number_of_monster / initialNumberOfMonster;
 
-  const expReward = expAmount * mobRatio;
-  const pureMesoReward = pureMesoAmount * mobRatio;
-  const bonusMesoReward = bonusMesoAmount * mobRatio;
+  const expReward = mobExp * mobRatio;
+  const pureMesoReward = mobPureMeso * mobRatio;
+  const bonusMesoReward = mobBonusMeso * mobRatio;
 
   const tableContent = {
     tableHead: ['시간', '마릿수', '경험치', '순메소', '메획메소', '총합메소'],
