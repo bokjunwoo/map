@@ -18,7 +18,13 @@ const MapPortalRateStatsSection = () => {
     option: [checkRuneInfo, checkSundayEventInfo],
   };
 
-  return <MapStatsUI rateList={rateList} checkBoxList={checkBoxList} />;
+  return (
+    <MapStatsUI
+      rateList={rateList}
+      checkBoxList={checkBoxList}
+      buffButtonOption={buffButtonOption}
+    />
+  );
 };
 
 export default MapPortalRateStatsSection;
