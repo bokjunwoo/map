@@ -52,7 +52,6 @@ const PortalExpEfficiencyCellUI = ({
   const remainingTime = calculateRemainingTime({
     expReward: type === 'Pollo' ? expPolloReward : expPrittoReward,
     mobExp: mobExp / mobRatio,
-    mobKillCount,
     playTime,
   });
 
