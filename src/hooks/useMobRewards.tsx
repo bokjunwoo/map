@@ -9,7 +9,12 @@ import {
   calculateTotalMeso,
 } from '../utils/calculate';
 
-const useMobAmounts = (mapInfo: MapInfo) => {
+type UseMobRewardsParams = {
+  mapInfo: MapInfo;
+  runeRate: number;
+};
+
+const useMobRewards = ({ mapInfo, runeRate }: UseMobRewardsParams) => {
   const expRate = useRecoilValue(totalExpSelector);
   const mesoDropRate = useRecoilValue(totalMesoDropSelector);
   const itemDropRate = useRecoilValue(totalItemDropSelector);
@@ -17,23 +22,22 @@ const useMobAmounts = (mapInfo: MapInfo) => {
 
   const itemDropMultiplier = calculateItemDropMultiplier(itemDropRate);
 
-  const expAmount = calculateTotalExperience({
+  const mobExp = calculateTotalExperience({
     monsters: mapInfo.monsters,
     burningField: mapInfo.burning_field,
-    expRate,
+    expRate: expRate + runeRate,
     userLevel,
   });
 
-  const pureMesoAmount =
+  const mobPureMeso =
     calculateTotalMeso({
       monsters: mapInfo.monsters,
       userLevel,
     }) * itemDropMultiplier;
 
-  const bonusMesoAmount =
-    pureMesoAmount * (mesoDropRate / 100) * itemDropMultiplier;
+  const mobBonusMeso = mobPureMeso * (mesoDropRate / 100) * itemDropMultiplier;
 
-  return { expAmount, pureMesoAmount, bonusMesoAmount };
+  return { mobExp, mobPureMeso, mobBonusMeso };
 };
 
-export default useMobAmounts;
+export default useMobRewards;
