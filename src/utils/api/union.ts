@@ -72,7 +72,7 @@ export const findUnionArtifactEffectRates = (data: UnionArtifact) => {
     if (effect.name.includes('메소 획득량')) {
       mesoDropRate = extractValue(effect.name);
     }
-    if (effect.name.includes('아이템 드랍률')) {
+    if (effect.name.includes('아이템 드롭률')) {
       itemDropRate = extractValue(effect.name);
     }
   });
