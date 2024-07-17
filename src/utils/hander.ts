@@ -1,4 +1,5 @@
 import {
+  HandlePresetRateChangeParams,
   HandleRateInputChangeParams,
   HandleRateSelectChangeParams,
 } from '../interface/hander';
@@ -52,5 +53,32 @@ export const handleRateInputChange = ({
       setRate,
       setValue,
     });
+  }
+};
+
+export const handlePresetRateChange = ({
+  rateItem,
+  rateName,
+  inputValue,
+  setValue,
+  setStoredValue,
+}: HandlePresetRateChangeParams) => {
+  const existingIndex = rateItem.findIndex((item) => item.label === rateName);
+
+  if (existingIndex !== -1) {
+    const updatedRate = [...rateItem];
+    updatedRate[existingIndex] = {
+      label: rateName,
+      value: Number(inputValue),
+    };
+    setValue(inputValue);
+    setStoredValue(updatedRate);
+  } else {
+    const newRateItem = [
+      ...rateItem,
+      { label: rateName, value: Number(inputValue) },
+    ];
+    setValue(inputValue);
+    setStoredValue(newRateItem);
   }
 };

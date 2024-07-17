@@ -11,3 +11,11 @@ export interface HandleRateInputChangeParams
   regex: RegExp;
   maxAllowedValue: number;
 }
+
+export interface HandlePresetRateChangeParams {
+  rateItem: RateItem[];
+  rateName: string;
+  inputValue: string;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
+  setStoredValue: (value: RateItem[]) => void;
+}
