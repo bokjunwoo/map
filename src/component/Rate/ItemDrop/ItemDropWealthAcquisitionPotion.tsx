@@ -1,13 +1,15 @@
 import { itemDropState, rateValueSelector } from '../../../atoms/itemDropState';
+import { mesoDropState } from '../../../atoms/mesoDropState';
 import { RATE_NAME } from '../../../constants/constants';
-import useRateSelect from '../../../hooks/useRateSelect';
+import usePotionRateSelect from '../../../hooks/usePotionRateSelect';
 import RateSelectUI from '../common/RateSelectUI';
 
 const ItemDropWealthAcquisitionPotion = () => {
-  const { value, handleRateChange } = useRateSelect({
+  const { value, handleRateChange } = usePotionRateSelect({
     rateValueSelector,
     state: itemDropState,
     rateName: RATE_NAME.WEALTH_ACQUISITION_POTION,
+    reverseState: mesoDropState,
   });
 
   const rateOption: RateSelectOption = {

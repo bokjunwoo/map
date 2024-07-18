@@ -1,14 +1,16 @@
 import { useRecoilValue } from 'recoil';
+import { itemDropState } from '../../../atoms/itemDropState';
 import { mesoDropState, rateValueSelector } from '../../../atoms/mesoDropState';
 import { RATE_NAME } from '../../../constants/constants';
-import useRateSelect from '../../../hooks/useRateSelect';
+import usePotionRateSelect from '../../../hooks/usePotionRateSelect';
 import RateSelectUI from '../common/RateSelectUI';
 
 const MesoDropWealthAcquisitionPotion = () => {
-  const { value, handleRateChange } = useRateSelect({
+  const { value, handleRateChange } = usePotionRateSelect({
     rateValueSelector,
     state: mesoDropState,
     rateName: RATE_NAME.WEALTH_ACQUISITION_POTION,
+    reverseState: itemDropState,
   });
 
   const mesoDropItem = useRecoilValue(mesoDropState);
@@ -39,7 +41,7 @@ const MesoDropWealthAcquisitionPotion = () => {
     key: RATE_NAME.WEALTH_ACQUISITION_POTION,
     values: [
       { value: 0, label: '미적용' },
-      { value: 20, label: `적용 (+${potionValue()})%` },
+      { value: 20, label: `곱적용 (+${potionValue()})%` },
     ],
   };
 
