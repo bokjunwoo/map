@@ -1,5 +1,5 @@
 import { SelectChangeEvent } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { handlePresetRateChange } from '../utils/hander';
 import useRateLocalStorage from './useRateLocalStorage';
 
@@ -29,6 +29,10 @@ const usePresetRateSelcet = ({ rateName, key }: UsePresetRateSelcetProps) => {
       setStoredValue,
     });
   };
+
+  useEffect(() => {
+    setValue(initialValue.toLocaleString());
+  }, [initialValue]);
 
   return { value, handleRateChange };
 };
