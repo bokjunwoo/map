@@ -52,7 +52,6 @@ const useCharacterData = () => {
         userOcid,
         characterInfo.character_class
       );
-      console.log(classBishop);
 
       const [
         hyperStat,
