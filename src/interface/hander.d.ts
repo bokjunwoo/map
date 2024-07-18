@@ -19,3 +19,18 @@ export interface HandlePresetRateChangeParams {
   setValue: React.Dispatch<React.SetStateAction<string>>;
   setStoredValue: (value: RateItem[]) => void;
 }
+
+export interface HandlePotionRateChangeParams
+  extends HandleRateSelectChangeParams {
+  reverseSetState: SetterOrUpdater<RateItem[]>;
+}
+
+export interface HandlePresetPotionRateChangeParams {
+  itemDropStoredValue: RateItem[];
+  setItemDropStoredValue: (value: RateItem[]) => void;
+  mesoDropStoredValue: RateItem[];
+  setMesoDropStoredValue: (value: RateItem[]) => void;
+  rateName: string;
+  inputValue: string;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
+}
