@@ -1,5 +1,7 @@
-import { Box } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 import { useState } from 'react';
+import PresetButton from '../component/Button/PresetButton';
+import RatePresetDialogUI from '../component/Dialog/RatePresetDialogUI';
 import ExpRateList from '../component/List/Rate/ExpRateList';
 import ItemDropRateList from '../component/List/Rate/ItemDropRateList';
 import MesoDropRateList from '../component/List/Rate/MesoDropRateList';
@@ -15,7 +17,7 @@ const RatesOptionContent = () => {
 
   return (
     <>
-      <Box sx={{ mt: 2, mb: 2 }}>
+      <Box sx={{ mt: 2 }}>
         <SelectButtonGroupUI
           options={['경험치 획득량', '아이템 드롭률', '메소 획득량']}
           selectedOption={selected}
@@ -24,6 +26,18 @@ const RatesOptionContent = () => {
           colorVariant="gray"
         />
       </Box>
+
+      <Stack
+        direction="row"
+        spacing={1}
+        justifyContent="flex-end"
+        mt={1}
+        mb={1}
+      >
+        <RatePresetDialogUI />
+
+        <PresetButton />
+      </Stack>
 
       {selected === '경험치 획득량' && <ExpRateList />}
       {selected === '아이템 드롭률' && <ItemDropRateList />}
