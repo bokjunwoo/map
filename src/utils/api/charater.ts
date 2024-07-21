@@ -1,5 +1,6 @@
 import { getSkill } from '../../api/character';
 import {
+  findEventSkillBuff,
   findGreedSkillMesoDropRate,
   findHolySymbolSkillExpRate,
   findHolySymbolSkillHyperPassiveRates,
@@ -24,6 +25,9 @@ export const getclasses = async (
   let classBishop: SkillRates = { expRate: 0, itemDropRate: 0 };
   let classNightLoad: SkillRates = { expRate: 0, itemDropRate: 0 };
   let classShadower = 0;
+  let eventSkillBuff = { expRate: 0, portalExpRate: 0 };
+
+  eventSkillBuff = await getClassEventSkillBuff(userOcid);
 
   switch (characterClass) {
     case '비숍':
@@ -39,7 +43,7 @@ export const getclasses = async (
       break;
   }
 
-  return { classBishop, classNightLoad, classShadower };
+  return { classBishop, classNightLoad, classShadower, eventSkillBuff };
 };
 
 const getClassBishopRates = async (ocid: string) => {
@@ -85,6 +89,14 @@ const getClassShadowerMesoDropRate = async (ocid: string) => {
   const threeGradeSkill = await getSkill(ocid, '3');
 
   const greedMesoDropRate = findGreedSkillMesoDropRate(threeGradeSkill);
+
+  return greedMesoDropRate;
+};
+
+const getClassEventSkillBuff = async (ocid: string) => {
+  const eventSkillBuff = await getSkill(ocid, '0');
+
+  const greedMesoDropRate = findEventSkillBuff(eventSkillBuff);
 
   return greedMesoDropRate;
 };
