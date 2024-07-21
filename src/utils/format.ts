@@ -1,4 +1,4 @@
 export const extractValue = (value: string): number => {
-  const match = value.match(/(\d+)%?/);
-  return match ? parseInt(match[1], 10) : 0;
+  const match = value.match(/(\d+(\.\d+)?)%?/);
+  return match ? parseFloat(match[1]) : 0;
 };
