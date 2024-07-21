@@ -1,3 +1,5 @@
+import { extractValue } from '../format';
+
 export const findHolySymbolSkillExpRate = (data: CharacterSkill) => {
   let expRate = 0;
 
@@ -80,4 +82,25 @@ export const findShowDownSkillHyperPassiveRates = (
   }
 
   return { expRate, itemDropRate };
+};
+
+export const findEventSkillBuff = (data: CharacterSkill) => {
+  let expRate = 0;
+  let portalExpRate = 0;
+
+  for (const skill of data.character_skill) {
+    if (skill.skill_name === '아스완 무녀의 축복' && skill.skill_level > 0) {
+      const effectLines = skill.skill_effect.split('\n');
+      for (const line of effectLines) {
+        console.log(line);
+        if (line.includes('폴로/프리토/에스페시아, 불꽃늑대 획득 경험치')) {
+          portalExpRate = extractValue(line);
+        } else if (line.match(/획득 경험치 (\d+(\.\d+)?)% 증가/)) {
+          expRate = extractValue(line);
+        }
+      }
+    }
+  }
+
+  return { expRate, portalExpRate };
 };
