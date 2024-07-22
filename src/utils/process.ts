@@ -36,6 +36,7 @@ export const processCharacterData = ({
   classBishop,
   classNightLoad,
   classShadower,
+  eventSkillBuff,
 }: processCharacterData) => {
   const expHyperStatLevel = findHighestHyperStatLevel(hyperStat, '획득 경험치');
   const holySymbolCoreLevel = findVCoreLevel(vmatrix, '쓸만한 홀리 심볼');
@@ -68,6 +69,7 @@ export const processCharacterData = ({
     unionZero: unionRaiderRates.ZeroUnionRate,
     unionExpOccupied: unionOccupiedExpRate,
     expRateArtifact: unionArtifactEffectRates.expRate,
+    eventSkillStat: eventSkillBuff.expRate,
   });
 
   const processedItemDropData = processItemDropData({
@@ -106,6 +108,7 @@ const processExpData = ({
   unionExpOccupied,
   expRateArtifact,
   spiritPendant,
+  eventSkillStat,
 }: ProcessExpData) => {
   return [
     { label: RATE_NAME.HYPER_STAT, value: expHyperStat },
@@ -124,6 +127,7 @@ const processExpData = ({
     { label: RATE_NAME.UNION_ZERO, value: unionZero },
     { label: RATE_NAME.UNION_OCCUPIED, value: unionExpOccupied },
     { label: RATE_NAME.UNION_ARTIFACT, value: expRateArtifact },
+    { label: RATE_NAME.EXP_EVENT_STAT, value: eventSkillStat },
   ];
 };
 

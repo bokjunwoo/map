@@ -3,6 +3,11 @@ interface SkillRates {
   itemDropRate: number;
 }
 
+interface EventSkillRates {
+  expRate: number;
+  portalExpRate: number;
+}
+
 interface processCharacterData {
   ability: CharacterAbility;
   hyperStat: CharacterHyperStat;
@@ -16,6 +21,7 @@ interface processCharacterData {
   classBishop: SkillRates;
   classNightLoad: SkillRates;
   classShadower: number;
+  eventSkillBuff: EventSkillRates;
 }
 
 interface ProcessExpData {
@@ -32,6 +38,7 @@ interface ProcessExpData {
   unionExpOccupied: number;
   expRateArtifact: number;
   spiritPendant: number;
+  eventSkillStat: number;
 }
 
 interface ProcessItemDropData {
