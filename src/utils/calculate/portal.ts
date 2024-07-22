@@ -1,4 +1,4 @@
-export const blessingPortalBuffExpRate = (level: number): number => {
+export const blessingPortalBuffLevel = (level: number): number => {
   switch (level) {
     case 0:
       return 0;
@@ -14,6 +14,27 @@ export const blessingPortalBuffExpRate = (level: number): number => {
       return 80;
     case 6:
       return 100;
+    default:
+      return 0;
+  }
+};
+
+export const blessingPortalBuffExpRate = (expRate: number): number => {
+  switch (expRate) {
+    case 100:
+      return 6;
+    case 80:
+      return 5;
+    case 60:
+      return 4;
+    case 40:
+      return 3;
+    case 20:
+      return 2;
+    case 10:
+      return 1;
+    case 0:
+      return 0;
     default:
       return 0;
   }
