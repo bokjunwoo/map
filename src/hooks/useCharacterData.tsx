@@ -19,9 +19,11 @@ import { characterInfoState } from '../atoms/characterInfoState';
 import { expRateState } from '../atoms/expRateState';
 import { itemDropState } from '../atoms/itemDropState';
 import { mesoDropState } from '../atoms/mesoDropState';
+import { portalBuffState } from '../atoms/portalBuffState';
 import { regionListState } from '../atoms/regionListState';
 import { userLevelState } from '../atoms/userLevelState';
 import { getclasses, validateCharacterInfo } from '../utils/api/charater';
+import { blessingPortalBuffExpRate } from '../utils/calculate/portal';
 import { getErrorMessage } from '../utils/error';
 import { findNearestRegion } from '../utils/etc';
 import { processCharacterData } from '../utils/process';
@@ -32,6 +34,7 @@ const useCharacterData = () => {
   const setExpRate = useSetRecoilState(expRateState);
   const setItemDropRate = useSetRecoilState(itemDropState);
   const setMesoDropRate = useSetRecoilState(mesoDropState);
+  const setPortalExpRate = useSetRecoilState(portalBuffState);
   const setCharacterInfo = useSetRecoilState(characterInfoState);
   const setUserLevel = useSetRecoilState(userLevelState);
   const setRegionList = useSetRecoilState(regionListState);
@@ -48,10 +51,8 @@ const useCharacterData = () => {
 
       validateCharacterInfo(characterInfo);
 
-      const { classBishop, classNightLoad, classShadower } = await getclasses(
-        userOcid,
-        characterInfo.character_class
-      );
+      const { classBishop, classNightLoad, classShadower, eventSkillBuff } =
+        await getclasses(userOcid, characterInfo.character_class);
 
       const [
         hyperStat,
@@ -89,11 +90,13 @@ const useCharacterData = () => {
           classBishop,
           classNightLoad,
           classShadower,
+          eventSkillBuff,
         });
 
       setExpRate(processedExpData);
       setItemDropRate(processedItemDropData);
       setMesoDropRate(processedMesoDropData);
+      setPortalExpRate(blessingPortalBuffExpRate(eventSkillBuff.portalExpRate));
       setCharacterInfo(characterInfo);
       setUserLevel(characterInfo.character_level);
       setRegionList([findNearestRegion(characterInfo.character_level)]);
