@@ -1,5 +1,5 @@
 import { atom, selector } from 'recoil';
-import { blessingPortalBuffExpRate } from '../utils/calculate/portal';
+import { blessingPortalBuffLevel } from '../utils/calculate/portal';
 
 export const portalBuffState = atom({
   key: 'portalBuffState',
@@ -10,7 +10,7 @@ export const buffExpRateSelector = selector({
   key: 'buffExpRateSelector',
   get: ({ get }) => {
     const portalBuffLevel = get(portalBuffState);
-    const expRate = blessingPortalBuffExpRate(portalBuffLevel);
+    const expRate = blessingPortalBuffLevel(portalBuffLevel);
     return expRate;
   },
 });
