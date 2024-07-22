@@ -30,9 +30,9 @@ const usePresetRateSelcet = ({ rateName, key }: UsePresetRateSelcetProps) => {
     });
   };
 
-  useEffect(() => {
-    setValue(initialValue.toLocaleString());
-  }, [initialValue]);
+  // useEffect(() => {
+  //   setValue(initialValue.toLocaleString());
+  // }, [initialValue]);
 
   return { value, handleRateChange };
 };
