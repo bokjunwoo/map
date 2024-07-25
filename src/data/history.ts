@@ -1,5 +1,20 @@
 export const HistoryList: HistoryItem[] = [
   {
+    id: 8,
+    isOpen: true,
+    date: '2024.07.25',
+    version: '0.0.8',
+    category: [
+      {
+        title: '이벤트 버프 스킬 정보를 가져옵니다.',
+        list: [
+          '해당 정보를 통해 자동적으로 이벤트 버프 스킬의 경험치 증가 레벨이 설정됩니다.',
+          '해당 정보를 통해 폴로 & 프리토의 메디사의 축복 레벨이 설정됩니다.',
+        ],
+      },
+    ],
+  },
+  {
     id: 7,
     isOpen: true,
     date: '2024.07.18',
