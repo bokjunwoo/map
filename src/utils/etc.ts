@@ -118,11 +118,14 @@ export const formatTime = (totalSeconds: number) => {
   }
 };
 
-export const findNearestRegion = (userLevel: number) => {
+export const findNearestRegion = <T extends AllRegion>(
+  userLevel: number,
+  regions: T[]
+): T => {
   let nearestRegion = '';
   let minLevelDifference = Infinity;
 
-  for (const region in minRegionsLevel) {
+  for (const region of regions) {
     const regionLevel = minRegionsLevel[region];
     if (
       regionLevel <= userLevel &&
@@ -133,5 +136,5 @@ export const findNearestRegion = (userLevel: number) => {
     }
   }
 
-  return nearestRegion as GrandisRegion | AraneRiverRegion;
+  return nearestRegion as T;
 };

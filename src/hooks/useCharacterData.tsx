@@ -22,6 +22,7 @@ import { mesoDropState } from '../atoms/mesoDropState';
 import { portalBuffState } from '../atoms/portalBuffState';
 import { regionListState } from '../atoms/regionListState';
 import { userLevelState } from '../atoms/userLevelState';
+import { allRegions } from '../data/region';
 import { getclasses, validateCharacterInfo } from '../utils/api/charater';
 import { blessingPortalBuffExpRate } from '../utils/calculate/portal';
 import { getErrorMessage } from '../utils/error';
@@ -99,7 +100,9 @@ const useCharacterData = () => {
       setPortalExpRate(blessingPortalBuffExpRate(eventSkillBuff.portalExpRate));
       setCharacterInfo(characterInfo);
       setUserLevel(characterInfo.character_level);
-      setRegionList([findNearestRegion(characterInfo.character_level)]);
+      setRegionList([
+        findNearestRegion(characterInfo.character_level, allRegions),
+      ]);
 
       navigate(`/name/${characterName}`);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

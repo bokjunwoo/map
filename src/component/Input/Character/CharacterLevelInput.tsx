@@ -3,6 +3,7 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 import { regionListState } from '../../../atoms/regionListState';
 import { userLevelState } from '../../../atoms/userLevelState';
 import { REGEX, LEVEL_RANGE } from '../../../constants/constants';
+import { allRegions } from '../../../data/region';
 import { findNearestRegion } from '../../../utils/etc';
 import CharacterLevelInputUI from './UI/CharacterLevelInputUI';
 
@@ -43,7 +44,7 @@ const CharacterLevelInput = () => {
     }
   };
 
-  const nearestRegion = findNearestRegion(userLevel);
+  const nearestRegion = findNearestRegion(userLevel, allRegions);
 
   useEffect(() => {
     if (userLevel < LEVEL_RANGE.MIN || userLevel > LEVEL_RANGE.MAX)
