@@ -17,7 +17,21 @@ type GrandisDailyQuestRegion =
   | '아르테리아'
   | '카르시온';
 
-interface CalculateTotalExpPercentageParams {
+type QuestRegion = AraneRiverDailyQuestRegion | GrandisDailyQuestRegion;
+
+interface CalculateGrandisTotalExpPercentageParams {
   characterLevel: number;
   regions: GrandisDailyQuestRegion[];
+}
+
+interface CalculateAraneRiverTotalExpPercentageParams {
+  characterLevel: number;
+  regions: AraneRiverDailyQuestRegion[];
+}
+
+interface CalculateTotalExpPercentageParams<T> {
+  characterLevel: number;
+  regions: T[];
+  questExp: { [key in T]: number };
+  minLevelData: { [key in T]: number };
 }

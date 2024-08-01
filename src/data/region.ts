@@ -23,6 +23,28 @@ export const grandisRegions: GrandisRegion[] = [
   '카르시온',
 ];
 
+export const allRegions = [
+  '소멸의여로',
+  '리버스시티',
+  '츄츄아일랜드',
+  '얌얌아일랜드',
+  '레헬른',
+  '아르카나',
+  '모라스',
+  '에스페라',
+  '셀라스',
+  '문브릿지',
+  '고통의미궁',
+  '리멘',
+  '세르니움',
+  '불타는세르니움',
+  '호텔아르크스',
+  '오디움',
+  '도원경',
+  '아르테리아',
+  '카르시온',
+] as (GrandisRegion | AraneRiverRegion)[];
+
 export const minRegionsLevel: Record<string, number> = {
   소멸의여로: 200,
   리버스시티: 205,
@@ -38,6 +60,24 @@ export const minRegionsLevel: Record<string, number> = {
   리멘: 255,
   세르니움: 260,
   불타는세르니움: 260,
+  호텔아르크스: 265,
+  오디움: 270,
+  도원경: 275,
+  아르테리아: 280,
+  카르시온: 285,
+};
+
+export const dailyQuestMinRegionsLevel = {
+  소멸의여로: 200,
+  츄츄아일랜드: 210,
+  레헬른: 220,
+  아르카나: 225,
+  모라스: 230,
+  에스페라: 235,
+  문브릿지: 245,
+  고통의미궁: 250,
+  리멘: 255,
+  세르니움: 260,
   호텔아르크스: 265,
   오디움: 270,
   도원경: 275,

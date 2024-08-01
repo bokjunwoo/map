@@ -39,3 +39,24 @@ export const mapData: MapData = {
   아르테리아: 아르테리아,
   카르시온: 카르시온,
 };
+
+export const questMapData = {
+  소멸의여로: {
+    ...소멸의여로[21],
+    max_number_of_monster: 30,
+  },
+  츄츄아일랜드: { ...츄츄아일랜드[12], max_number_of_monster: 28 },
+  레헬른: { ...레헬른[5], max_number_of_monster: 38 },
+  아르카나: { ...아르카나[3], max_number_of_monster: 28 },
+  모라스: { ...모라스[8], max_number_of_monster: 37 },
+  에스페라: { ...에스페라[6], max_number_of_monster: 26 },
+  문브릿지: { ...문브릿지[0], max_number_of_monster: 37 },
+  고통의미궁: { ...고통의미궁[0], max_number_of_monster: 34 },
+  리멘: { ...리멘[15], max_number_of_monster: 32 },
+  세르니움: { ...세르니움[13], max_number_of_monster: 34 },
+  호텔아르크스: { ...호텔아르크스[2], max_number_of_monster: 38 },
+  오디움: { ...오디움[4], max_number_of_monster: 39 },
+  도원경: { ...도원경[6], max_number_of_monster: 39 },
+  아르테리아: { ...아르테리아[10], max_number_of_monster: 40 },
+  카르시온: { ...카르시온[17], max_number_of_monster: 40 },
+};

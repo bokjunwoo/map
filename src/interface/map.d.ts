@@ -38,8 +38,14 @@ interface MapInfo extends HeadCellInfo {
   monsters: MapMonsterInfo[];
 }
 
+type AllRegion = AraneRiverRegion | GrandisRegion;
+
 type MapData = {
-  [key in AraneRiverRegion | GrandisRegion]: MapInfo[];
+  [key in AllRegion]: MapInfo[];
+};
+
+type QuestMapData = {
+  [key in QuestRegion]: MapInfo[];
 };
 
 interface MapInfoProps {
