@@ -1,36 +1,28 @@
-import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { userLevelState } from '../../../atoms/userLevelState';
-import { grandisDailyQuestRegions } from '../../../data/quest';
+import {
+  dailyQuestRegions,
+  grandisDailyQuestRegions,
+} from '../../../data/quest';
 import { minRegionsLevel } from '../../../data/region';
-import GrandisQuestUI from './UI/GrandisQuestUI';
+import useSelectedRegions from '../../../hooks/useSelectedRegions';
+import QuestListUI from './UI/QuestListUI';
 
 const GrandisQuest = () => {
   const characterLevel = useRecoilValue(userLevelState);
 
-  const obtainableRegions = grandisDailyQuestRegions.filter(
+  const obtainableRegions = dailyQuestRegions.filter(
     (region) => characterLevel >= (minRegionsLevel[region] || 0)
   );
 
-  const [selectedRegions, setSelectedRegions] =
-    useState<GrandisDailyQuestRegion[]>(obtainableRegions);
-
-  const handleCheckboxChange = (
-    region: GrandisDailyQuestRegion,
-    checked: boolean
-  ) => {
-    setSelectedRegions((prevSelectedRegions) => {
-      if (checked) {
-        return [...prevSelectedRegions, region];
-      } else {
-        return prevSelectedRegions.filter((r) => r !== region);
-      }
-    });
-  };
+  const { selectedRegions, handleCheckboxChange } =
+    useSelectedRegions(obtainableRegions);
 
   return (
-    <GrandisQuestUI
+    <QuestListUI
+      title="그란디스 일일퀘스트"
       characterLevel={characterLevel}
+      dailyQuestRegions={grandisDailyQuestRegions}
       selectedRegions={selectedRegions}
       handleCheckboxChange={handleCheckboxChange}
     />
