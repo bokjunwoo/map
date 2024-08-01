@@ -17,17 +17,18 @@ type GrandisDailyQuestRegion =
   | '아르테리아'
   | '카르시온';
 
-type QuestRegion = AraneRiverDailyQuestRegion | GrandisDailyQuestRegion;
+type AraneRiverWeeklyQuestRegion =
+  | '소멸의여로'
+  | '츄츄아일랜드'
+  | '레헬른'
+  | '아르카나'
+  | '모라스'
+  | '에스페라';
 
-interface CalculateGrandisTotalExpPercentageParams {
-  characterLevel: number;
-  regions: GrandisDailyQuestRegion[];
-}
-
-interface CalculateAraneRiverTotalExpPercentageParams {
-  characterLevel: number;
-  regions: AraneRiverDailyQuestRegion[];
-}
+type QuestRegion =
+  | AraneRiverDailyQuestRegion
+  | GrandisDailyQuestRegion
+  | AraneRiverWeeklyQuestRegion;
 
 interface CalculateTotalExpPercentageParams<T> {
   characterLevel: number;

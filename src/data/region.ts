@@ -84,3 +84,12 @@ export const dailyQuestMinRegionsLevel = {
   아르테리아: 280,
   카르시온: 285,
 };
+
+export const weeklyQuestMinRegionsLevel = {
+  소멸의여로: 200,
+  츄츄아일랜드: 210,
+  레헬른: 220,
+  아르카나: 225,
+  모라스: 230,
+  에스페라: 235,
+};

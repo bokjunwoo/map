@@ -19,6 +19,15 @@ export const grandisDailyQuestRegions: GrandisDailyQuestRegion[] = [
   '카르시온',
 ];
 
+export const araneRiverWeeklyQuestRegions: AraneRiverWeeklyQuestRegion[] = [
+  '소멸의여로',
+  '츄츄아일랜드',
+  '레헬른',
+  '아르카나',
+  '모라스',
+  '에스페라',
+];
+
 export const dailyQuestExp = {
   소멸의여로: 732132258,
   츄츄아일랜드: 2141658246,
@@ -54,3 +63,21 @@ export const dailyQuestRegions: QuestRegion[] = [
   '아르테리아',
   '카르시온',
 ];
+
+export const weeklyQuestExp = {
+  소멸의여로: 187726220,
+  츄츄아일랜드: 549143140,
+  레헬른: 817717500,
+  아르카나: 847484010,
+  모라스: 1127760555,
+  에스페라: 1161754860,
+};
+
+export const weeklyQuestName = {
+  소멸의여로: '에르다 스펙트럼',
+  츄츄아일랜드: '배고픈 무토',
+  레헬른: '미드나잇 체이서',
+  아르카나: '스피릿 세이비어',
+  모라스: '엔하임 디펜스',
+  에스페라: '프로텍트 에스페라',
+};
