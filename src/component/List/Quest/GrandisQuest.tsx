@@ -1,17 +1,20 @@
 import { useRecoilValue } from 'recoil';
 import { userLevelState } from '../../../atoms/userLevelState';
 import {
-  dailyQuestRegions,
+  grandisDailyQuestExp,
   grandisDailyQuestRegions,
 } from '../../../data/quest';
-import { minRegionsLevel } from '../../../data/region';
+import {
+  grandisDailyQuestMinRegionsLevel,
+  minRegionsLevel,
+} from '../../../data/region';
 import useSelectedRegions from '../../../hooks/useSelectedRegions';
 import QuestListUI from './UI/QuestListUI';
 
 const GrandisQuest = () => {
   const characterLevel = useRecoilValue(userLevelState);
 
-  const obtainableRegions = dailyQuestRegions.filter(
+  const obtainableRegions = grandisDailyQuestRegions.filter(
     (region) => characterLevel >= (minRegionsLevel[region] || 0)
   );
 
@@ -25,6 +28,8 @@ const GrandisQuest = () => {
       dailyQuestRegions={grandisDailyQuestRegions}
       selectedRegions={selectedRegions}
       handleCheckboxChange={handleCheckboxChange}
+      questExp={grandisDailyQuestExp}
+      minLevelData={grandisDailyQuestMinRegionsLevel}
     />
   );
 };

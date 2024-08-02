@@ -1,17 +1,20 @@
 import { useRecoilValue } from 'recoil';
 import { userLevelState } from '../../../atoms/userLevelState';
 import {
+  araneRiverDailyQuestExp,
   araneRiverDailyQuestRegions,
-  dailyQuestRegions,
 } from '../../../data/quest';
-import { minRegionsLevel } from '../../../data/region';
+import {
+  araneRiverDailyQuestMinRegionsLevel,
+  minRegionsLevel,
+} from '../../../data/region';
 import useSelectedRegions from '../../../hooks/useSelectedRegions';
 import QuestListUI from './UI/QuestListUI';
 
 const AraneRiverQuest = () => {
   const characterLevel = useRecoilValue(userLevelState);
 
-  const obtainableRegions = dailyQuestRegions.filter(
+  const obtainableRegions = araneRiverDailyQuestRegions.filter(
     (region) => characterLevel >= (minRegionsLevel[region] || 0)
   );
 
@@ -25,6 +28,8 @@ const AraneRiverQuest = () => {
       dailyQuestRegions={araneRiverDailyQuestRegions}
       selectedRegions={selectedRegions}
       handleCheckboxChange={handleCheckboxChange}
+      questExp={araneRiverDailyQuestExp}
+      minLevelData={araneRiverDailyQuestMinRegionsLevel}
     />
   );
 };
