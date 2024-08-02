@@ -1,6 +1,5 @@
 import { ListItem, ListItemButton } from '@mui/material';
 import { grey } from '@mui/material/colors';
-import { dailyQuestExp } from '../../../../data/quest';
 import useQuest from '../../../../hooks/useQuest';
 import QuestStatusCheckboxUI from '../../../CheckBox/QuestStatusCheckboxUI';
 import QuestListIconUI from './QuestListIconUI';
@@ -10,17 +9,21 @@ type Props<T extends QuestRegion> = {
   label: T;
   selectedRegions: T[];
   handleCheckboxChange: (region: T, checked: boolean) => void;
-  regions: T[];
+  questExp: { [key in T]: number };
+  minLevelData: { [key in T]: number };
 };
 
 const QuestListItemUI = <T extends QuestRegion>({
   label,
   selectedRegions,
   handleCheckboxChange,
+  questExp,
+  minLevelData,
 }: Props<T>) => {
   const { nearestRegion, isObtainable, error } = useQuest({
-    questExp: dailyQuestExp,
     label,
+    questExp,
+    minLevelData,
   });
 
   return (
@@ -52,6 +55,7 @@ const QuestListItemUI = <T extends QuestRegion>({
 
         <QuestStatusListTextUI
           label={label}
+          questExp={questExp}
           isObtainable={isObtainable}
           error={error}
           nearestRegion={nearestRegion}

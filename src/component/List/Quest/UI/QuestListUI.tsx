@@ -1,7 +1,5 @@
-import { Box, List, ListItem, ListItemText, Typography } from '@mui/material';
+import { Box, List, ListItem, Typography } from '@mui/material';
 import { grey } from '@mui/material/colors';
-import { dailyQuestExp } from '../../../../data/quest';
-import { dailyQuestMinRegionsLevel } from '../../../../data/region';
 import { truncateToFixed } from '../../../../utils/format';
 import {
   calculateTotalExpPercentage,
@@ -15,6 +13,8 @@ type Props<T extends QuestRegion> = {
   dailyQuestRegions: T[];
   selectedRegions: T[];
   handleCheckboxChange: (region: T, checked: boolean) => void;
+  questExp: { [key in T]: number };
+  minLevelData: { [key in T]: number };
 };
 
 const QuestListUI = <T extends QuestRegion>({
@@ -23,15 +23,18 @@ const QuestListUI = <T extends QuestRegion>({
   dailyQuestRegions,
   selectedRegions,
   handleCheckboxChange,
+  questExp,
+  minLevelData,
 }: Props<T>) => {
   const validRegions = filterValidRegions(selectedRegions, dailyQuestRegions);
 
   const totalExpPercentage = calculateTotalExpPercentage({
     characterLevel,
     regions: validRegions,
-    questExp: dailyQuestExp,
-    minLevelData: dailyQuestMinRegionsLevel,
+    questExp,
+    minLevelData,
   });
+
   return (
     <List sx={{ py: 0.5 }}>
       <ListItem
@@ -43,30 +46,34 @@ const QuestListUI = <T extends QuestRegion>({
           bgcolor: grey[500],
         }}
       >
-        <ListItemText
-          primary={title}
-          secondary={
-            <Box display="flex">
-              <Typography
-                variant="body2"
-                flexGrow={1}
-                fontWeight={500}
-                color="#ffff00"
-              >
-                경험치 획득 시 총합
-              </Typography>
-              <Typography variant="body2" fontWeight={500} color="#ffff00">
-                ({truncateToFixed(totalExpPercentage, 3)}%)
-              </Typography>
-            </Box>
-          }
-          primaryTypographyProps={{
-            color: 'white',
-            fontSize: 18,
-            fontWeight: 'bold',
-          }}
-          secondaryTypographyProps={{ color: 'white' }}
-        />
+        <Box width="100%" py={0.5}>
+          <Typography
+            variant="h6"
+            fontSize={18}
+            color="white"
+            fontWeight="bold"
+          >
+            {title}
+          </Typography>
+          <Box display="flex" justifyContent="space-between">
+            <Typography
+              component="span"
+              variant="body2"
+              fontWeight={500}
+              color="#ffff00"
+            >
+              경험치 획득 시 총합
+            </Typography>
+            <Typography
+              component="span"
+              variant="body2"
+              fontWeight={500}
+              color="#ffff00"
+            >
+              ({truncateToFixed(totalExpPercentage, 3)}%)
+            </Typography>
+          </Box>
+        </Box>
       </ListItem>
 
       {dailyQuestRegions.map((region) => (
@@ -75,7 +82,8 @@ const QuestListUI = <T extends QuestRegion>({
           label={region}
           selectedRegions={selectedRegions}
           handleCheckboxChange={handleCheckboxChange}
-          regions={dailyQuestRegions}
+          questExp={questExp}
+          minLevelData={minLevelData}
         />
       ))}
     </List>
