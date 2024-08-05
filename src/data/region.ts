@@ -67,7 +67,7 @@ export const minRegionsLevel: Record<string, number> = {
   카르시온: 285,
 };
 
-export const dailyQuestMinRegionsLevel = {
+export const araneRiverDailyQuestMinRegionsLevel = {
   소멸의여로: 200,
   츄츄아일랜드: 210,
   레헬른: 220,
@@ -77,6 +77,9 @@ export const dailyQuestMinRegionsLevel = {
   문브릿지: 245,
   고통의미궁: 250,
   리멘: 255,
+};
+
+export const grandisDailyQuestMinRegionsLevel = {
   세르니움: 260,
   호텔아르크스: 265,
   오디움: 270,
@@ -92,4 +95,9 @@ export const weeklyQuestMinRegionsLevel = {
   아르카나: 225,
   모라스: 230,
   에스페라: 235,
+};
+
+export const epicDungeonMinRegionsLevel: Record<EpicDungeonRegion, number> = {
+  하이마운틴: 260,
+  앵글러컴퍼니: 270,
 };
