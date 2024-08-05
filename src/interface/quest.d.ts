@@ -30,9 +30,27 @@ type QuestRegion =
   | GrandisDailyQuestRegion
   | AraneRiverWeeklyQuestRegion;
 
+type AllQuestRegion =
+  | AraneRiverDailyQuestRegion
+  | GrandisDailyQuestRegion
+  | AraneRiverWeeklyQuestRegion
+  | EpicDungeonRegion;
+
 interface CalculateTotalExpPercentageParams<T> {
   characterLevel: number;
   regions: T[];
   questExp: { [key in T]: number };
   minLevelData: { [key in T]: number };
+}
+
+type EpicDungeonRegion = '하이마운틴' | '앵글러컴퍼니';
+
+type EpicDungeonExp = {
+  [dungeonName: string]: LevelExperience;
+};
+
+interface CalculateEpicDungeonTotalExpPercentage {
+  characterLevel: number;
+  regions: EpicDungeonRegion[];
+  epicDungeonExp: EpicDungeonExp;
 }
