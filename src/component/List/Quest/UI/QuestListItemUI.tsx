@@ -45,7 +45,6 @@ const QuestListItemUI = <T extends QuestRegion>({
       >
         <QuestStatusCheckboxUI
           label={label}
-          isObtainable={isObtainable}
           selectedRegions={selectedRegions}
           handleChange={handleCheckboxChange}
           error={error}

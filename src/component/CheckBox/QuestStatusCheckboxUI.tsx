@@ -1,16 +1,14 @@
 import Checkbox from '@mui/material/Checkbox';
 
-type Props<T extends QuestRegion> = {
+type Props<T extends AllQuestRegion> = {
   label: T;
-  isObtainable: boolean;
   selectedRegions: T[];
   handleChange: (region: T, checked: boolean) => void;
   error: boolean;
 };
 
-const QuestStatusCheckboxUI = <T extends QuestRegion>({
+const QuestStatusCheckboxUI = <T extends AllQuestRegion>({
   label,
-  isObtainable,
   selectedRegions,
   handleChange,
   error,
@@ -20,7 +18,6 @@ const QuestStatusCheckboxUI = <T extends QuestRegion>({
       checked={selectedRegions.includes(label)}
       onChange={(e) => handleChange(label, e.target.checked)}
       disableRipple
-      disabled={!isObtainable}
       inputProps={{ 'aria-label': `${label}_checkbox` }}
       size="small"
       color={error ? 'error' : 'primary'}

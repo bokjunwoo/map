@@ -11,7 +11,6 @@ type Props<T extends AraneRiverWeeklyQuestRegion> = {
   label: T;
   selectedRegions: T[];
   handleCheckboxChange: (region: T, checked: boolean) => void;
-  regions: T[];
 };
 
 const WeeklyQuestListItemUI = <T extends AraneRiverWeeklyQuestRegion>({
@@ -44,7 +43,6 @@ const WeeklyQuestListItemUI = <T extends AraneRiverWeeklyQuestRegion>({
       >
         <QuestStatusCheckboxUI
           label={label}
-          isObtainable={isObtainable}
           selectedRegions={selectedRegions}
           handleChange={handleCheckboxChange}
           error={error}

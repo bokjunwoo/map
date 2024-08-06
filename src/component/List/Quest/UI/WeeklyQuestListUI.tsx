@@ -80,7 +80,6 @@ const WeeklyQuestListUI = <T extends AraneRiverWeeklyQuestRegion>({
           label={region}
           selectedRegions={selectedRegions}
           handleCheckboxChange={handleCheckboxChange}
-          regions={weeklyQuestsRegions}
         />
       ))}
     </List>
