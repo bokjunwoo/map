@@ -1,37 +1,43 @@
 import { useRecoilValue } from 'recoil';
 import { userLevelState } from '../atoms/userLevelState';
 import { questMapData } from '../data/map';
-import { dailyQuestRegions } from '../data/quest';
-import { minRegionsLevel } from '../data/region';
-import { findNearestRegion } from '../utils/etc';
+import { dailyQuestAllRegions } from '../data/quest';
+import { findNearestQuestRegion } from '../utils/etc';
 import { getMobCount } from '../utils/quest';
 import useMobRewards from './useMobRewards';
 
 interface Props<T extends QuestRegion> {
-  questExp: Record<T, number>;
   label: T;
+  questExp: { [key in T]: number };
+  minLevelData: { [key in T]: number };
 }
 
-const useQuest = <T extends QuestRegion>({ questExp, label }: Props<T>) => {
+const useQuest = <T extends QuestRegion>({
+  label,
+  questExp,
+  minLevelData,
+}: Props<T>) => {
   const characterLevel = useRecoilValue(userLevelState);
 
-  const nearestRegion = findNearestRegion(characterLevel, dailyQuestRegions);
+  const nearestRegion = findNearestQuestRegion(
+    characterLevel,
+    dailyQuestAllRegions
+  );
 
   const mapInfo = questMapData[nearestRegion];
   const { mobExp } = useMobRewards({ mapInfo, runeRate: 0 });
 
-  const isObtainable = characterLevel >= minRegionsLevel[label];
+  const isObtainable = characterLevel >= minLevelData[label];
 
   const isAfterFinalRegion =
-    dailyQuestRegions.indexOf(label) >=
-    dailyQuestRegions.indexOf(nearestRegion);
+    dailyQuestAllRegions.indexOf(label) >=
+    dailyQuestAllRegions.indexOf(nearestRegion);
 
   const dailyQuestExpReward = questExp[label];
 
   const count = getMobCount(label);
 
   const mobKillExp = (mobExp / 8 / mapInfo.max_number_of_monster) * count;
-  console.log(mapInfo.map_name, mobKillExp);
 
   const error = isAfterFinalRegion ? false : dailyQuestExpReward < mobKillExp;
 
