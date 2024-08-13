@@ -1,7 +1,32 @@
 export const HistoryList: HistoryItem[] = [
   {
-    id: 8,
+    id: 9,
     isOpen: true,
+    date: '2024.08.13',
+    version: '0.0.9',
+    category: [
+      {
+        title: '새로운 이벤트 버프 스킬(고브의 선물) 정보를 가져옵니다.',
+        list: [
+          '해당 정보를 통해 자동적으로 이벤트 버프 스킬의 경험치 증가 레벨이 설정됩니다.',
+          '해당 정보를 통해 폴로 & 프리토의 메디사의 축복 레벨이 설정됩니다.',
+        ],
+      },
+      {
+        title: '프리미엄 PC방 경험치 획득량이 기존 80%에서 30%로 감소됩니다.',
+        list: [
+          '프리셋을 사용 중인 경우, 변경된 정보를 반영하기 위해 프리셋을 다시 선택해야 합니다.',
+        ],
+      },
+      {
+        title: '사냥터 정렬기능이 추가됩니다.',
+        list: [],
+      },
+    ],
+  },
+  {
+    id: 8,
+    isOpen: false,
     date: '2024.07.25',
     version: '0.0.8',
     category: [
@@ -16,7 +41,7 @@ export const HistoryList: HistoryItem[] = [
   },
   {
     id: 7,
-    isOpen: true,
+    isOpen: false,
     date: '2024.07.18',
     version: '0.0.7',
     category: [
