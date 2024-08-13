@@ -9,7 +9,7 @@ import { truncateToFixed } from '../../../../utils/format';
 type Props = {
   label: EpicDungeonRegion;
   isObtainable: boolean;
-  expValue: number;
+  expValue: string;
 };
 
 const EpicDungeonListTextUI = ({ label, isObtainable, expValue }: Props) => {
@@ -17,7 +17,7 @@ const EpicDungeonListTextUI = ({ label, isObtainable, expValue }: Props) => {
 
   const expPercentage = calculateExpPercentage({
     userLevel: characterLevel,
-    expReward: epicDungeonExp[label][characterLevel] * expValue,
+    expReward: epicDungeonExp[label][characterLevel] * Number(expValue),
   });
 
   if (isObtainable) {

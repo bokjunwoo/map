@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-const useRadio = (initialValue: number) => {
+const useRadio = (initialValue: string) => {
   const [value, setValue] = useState(initialValue);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(Number(event.target.value));
+    setValue(event.target.value);
   };
 
   return [value, handleChange] as const;

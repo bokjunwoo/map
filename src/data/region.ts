@@ -101,3 +101,21 @@ export const epicDungeonMinRegionsLevel: Record<EpicDungeonRegion, number> = {
   하이마운틴: 260,
   앵글러컴퍼니: 270,
 };
+
+export const highEndDungeonMinRegionsLevel: Record<
+  HighEndDungeonRegion,
+  number
+> = {
+  소멸의여로: 200,
+  츄츄아일랜드: 210,
+  레헬른: 220,
+  아르카나: 225,
+  모라스: 230,
+  에스페라: 235,
+  셀라스: 240,
+  문브릿지: 245,
+  고통의미궁: 250,
+  리멘: 255,
+};
+
+export const extremeDungeonMinRegionLevel = { '익스트림 몬스터파크': 260 };

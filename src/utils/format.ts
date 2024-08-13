@@ -4,6 +4,7 @@ export const extractValue = (value: string): number => {
 };
 
 export const truncateToFixed = (value: number, decimals: number): string => {
+  if (value === 0) return '0';
   let factor = Math.pow(10, decimals);
   let truncatedValue = Math.floor(value * factor) / factor;
 

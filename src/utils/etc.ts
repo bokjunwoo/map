@@ -138,3 +138,24 @@ export const findNearestRegion = <T extends AllRegion>(
 
   return nearestRegion as T;
 };
+
+export const findNearestQuestRegion = <T extends QuestRegion>(
+  userLevel: number,
+  regions: T[]
+): T => {
+  let nearestRegion = '';
+  let minLevelDifference = Infinity;
+
+  for (const region of regions) {
+    const regionLevel = minRegionsLevel[region];
+    if (
+      regionLevel <= userLevel &&
+      userLevel - regionLevel < minLevelDifference
+    ) {
+      minLevelDifference = userLevel - regionLevel;
+      nearestRegion = region;
+    }
+  }
+
+  return nearestRegion as T;
+};

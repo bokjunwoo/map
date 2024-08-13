@@ -11,7 +11,7 @@ import {
 import { blueGrey, grey } from '@mui/material/colors';
 
 type Props = {
-  value: number;
+  value: string;
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -20,6 +20,7 @@ const EpicDungeonRadioUI = ({ value, handleChange }: Props) => {
     <FormControl
       fullWidth
       sx={{
+        height: 82,
         bgcolor: blueGrey[700],
         px: 1.5,
         py: 0.5,
@@ -55,7 +56,7 @@ const EpicDungeonRadioUI = ({ value, handleChange }: Props) => {
         }}
       >
         <FormControlLabel
-          value={1}
+          value="1"
           control={
             <Radio
               sx={{ color: grey[400] }}
@@ -88,7 +89,7 @@ const EpicDungeonRadioUI = ({ value, handleChange }: Props) => {
               mt: -1,
               fontSize: 14,
               fontWeight: 'bold',
-              color: value === 1 ? grey[100] : grey[400],
+              color: value === '1' ? grey[100] : grey[400],
             },
           }}
         />
@@ -97,7 +98,7 @@ const EpicDungeonRadioUI = ({ value, handleChange }: Props) => {
           sx={{ borderBottom: `2px solid ${grey[400]}`, mb: 2 }}
         />
         <FormControlLabel
-          value={5}
+          value="5"
           control={
             <Radio
               sx={{ color: grey[400] }}
@@ -130,7 +131,7 @@ const EpicDungeonRadioUI = ({ value, handleChange }: Props) => {
               mt: -1,
               fontSize: 14,
               fontWeight: 'bold',
-              color: value === 5 ? grey[100] : grey[400],
+              color: value === '5' ? grey[100] : grey[400],
             },
           }}
         />
@@ -139,7 +140,7 @@ const EpicDungeonRadioUI = ({ value, handleChange }: Props) => {
           sx={{ borderBottom: `2px solid ${grey[400]}`, mb: 2 }}
         />
         <FormControlLabel
-          value={9}
+          value="9"
           control={
             <Radio
               sx={{ color: grey[400] }}
@@ -172,7 +173,7 @@ const EpicDungeonRadioUI = ({ value, handleChange }: Props) => {
               mt: -1,
               fontSize: 14,
               fontWeight: 'bold',
-              color: value === 9 ? grey[100] : grey[400],
+              color: value === '9' ? grey[100] : grey[400],
             },
           }}
         />

@@ -89,7 +89,7 @@ export const findEventSkillBuff = (data: CharacterSkill) => {
   let portalExpRate = 0;
 
   for (const skill of data.character_skill) {
-    if (skill.skill_name === '아스완 무녀의 축복' && skill.skill_level > 0) {
+    if (skill.skill_name === '고브의 선물' && skill.skill_level > 0) {
       const effectLines = skill.skill_effect.split('\n');
       for (const line of effectLines) {
         console.log(line);

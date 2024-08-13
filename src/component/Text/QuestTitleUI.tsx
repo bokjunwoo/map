@@ -1,5 +1,4 @@
 import { Typography } from '@mui/material';
-import { blue } from '@mui/material/colors';
 
 type Props = {
   title: string;
@@ -11,7 +10,7 @@ const QuestTitleUI = ({ title }: Props) => {
       variant="h6"
       fontSize={18}
       color="white"
-      bgcolor={blue[500]}
+      bgcolor="#24aad2"
       borderRadius={1}
       px={1.5}
       py={0.5}

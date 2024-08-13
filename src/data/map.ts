@@ -50,6 +50,7 @@ export const questMapData = {
   아르카나: { ...아르카나[3], max_number_of_monster: 28 },
   모라스: { ...모라스[8], max_number_of_monster: 37 },
   에스페라: { ...에스페라[6], max_number_of_monster: 26 },
+  셀라스: { ...셀라스[5], max_number_of_monster: 38 },
   문브릿지: { ...문브릿지[0], max_number_of_monster: 37 },
   고통의미궁: { ...고통의미궁[0], max_number_of_monster: 34 },
   리멘: { ...리멘[15], max_number_of_monster: 32 },

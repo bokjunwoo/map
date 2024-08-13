@@ -15,7 +15,7 @@ const usePortalBuffInfo = () => {
 
   const buffButtonOption: BuffButtonOption = {
     bgcolor: `rgba(${listRGB.orange}, 0.5)`,
-    text: '메디사의 축복',
+    text: '고브의 선물',
     count: buff,
     increment,
     decrement,

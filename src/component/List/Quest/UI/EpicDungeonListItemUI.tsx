@@ -20,7 +20,7 @@ const EpicDungeonListItemUI = <T extends EpicDungeonRegion>({
   selectedRegions,
   handleCheckboxChange,
 }: Props<T>) => {
-  const [expValue, handleExpChange] = useRadio(1);
+  const [expValue, handleExpChange] = useRadio('1');
 
   const characterLevel = useRecoilValue(userLevelState);
 

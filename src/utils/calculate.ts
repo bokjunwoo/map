@@ -253,7 +253,7 @@ export const calculateExpPercentage = ({
 }: CalculateExpPercentageParams): number => {
   const userExp = requiredLevelExp[userLevel];
   const expPercentage = (expReward / userExp) * 100;
-  return parseFloat(expPercentage.toFixed(3));
+  return expPercentage;
 };
 
 export const calculateRemainingTime = ({
