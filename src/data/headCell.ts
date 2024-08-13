@@ -2,7 +2,7 @@ export const generateHeadCells: (selectedTime: string) => HeadCell[] = (
   selectedTime
 ) => [
   { id: 'map_region', label: '지역', disable_sorting: true },
-  { id: 'map_name', label: '사냥터', disable_sorting: true },
+  { id: 'map_name', label: '사냥터' },
   { id: 'number_of_monster', label: '몬스터 젠수' },
   {
     id: 'max_number_of_monster',
