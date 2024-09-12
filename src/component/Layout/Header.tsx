@@ -19,11 +19,7 @@ function Header() {
   };
 
   return (
-    <AppBar
-      sx={{ backgroundColor: '#F1F2F3', mb: 3 }}
-      position="static"
-      elevation={0}
-    >
+    <AppBar sx={{ backgroundColor: '#F1F2F3' }} position="static" elevation={0}>
       <Container maxWidth="lg">
         <Toolbar
           disableGutters
