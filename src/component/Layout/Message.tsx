@@ -31,7 +31,7 @@ const Message = () => {
       severity="warning"
       sx={{ mb: 3, bgcolor: '#2b2b2b', color: '#FFD400', borderRadius: 0 }}
     >
-      [KMS v1.2.395] 패치에 추가된 탈라하트 지역이 9월 13일에 업데이트 될
+      [KMS v1.2.395] 패치에 추가된 탈라하트 지역이 9월 15일에 업데이트 될
       예정입니다. 추가적으로 버닝필드 웹사이트가 리뉴얼 됩니다.
     </ScrollingAlert>
   );
